@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Council for Global Brand Building (CGBB) | 全球化品牌信任促進會</title>
-<meta name="description" content="The Council for Global Brand Building (CGBB) sets the standards for how trust is assessed and rated in corporate and business settings. 全球化品牌信任促進會致力於建立評估與評級企業及商業信任的標準。">
+<meta name="description" content="The Council for Global Brand Building (CGBB) sets the standards for how trust is assessed and rated in corporate and business settings.">
 <link rel="canonical" href="https://cgbb.org/">
+<link rel="alternate" hreflang="en" href="https://cgbb.org/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/">
+<link rel="alternate" hreflang="x-default" href="https://cgbb.org/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:site_name" content="Council for Global Brand Building">
@@ -50,9 +53,10 @@ nav{display:flex;flex-wrap:wrap;align-items:center;gap:30px}
 .navlink{color:var(--ink);font-size:15px;font-weight:500;letter-spacing:.02em;padding:12px 0}
 .navlink:hover{color:var(--red)}
 .lang{display:flex;align-items:center;gap:4px;color:var(--grey)}
-.lang button{background:none;border:0;padding:12px 4px;min-height:44px;font:inherit;font-size:14px;cursor:pointer;color:var(--grey)}
-.lang button[aria-pressed="true"]{color:var(--ink);font-weight:600}
-.lang button[lang]{font-family:var(--font-zh)}
+.lang a{display:inline-flex;align-items:center;padding:12px 4px;min-height:44px;font-size:14px;color:var(--grey)}
+.lang a:hover{color:var(--ink)}
+.lang a[aria-current="true"]{color:var(--ink);font-weight:600}
+.lang a[lang="zh-Hant"]{font-family:var(--font-zh)}
 
 .hero{padding:120px 0 112px}
 .eyebrow{font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:36px}
@@ -119,7 +123,21 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .foot-links .muted{color:#bfbfbf}
 .foot-bottom{margin-top:64px;padding-top:24px;border-top:1px solid #3a3a3a;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:#bfbfbf}
 
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
 @media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
   .wrap{padding:0 20px}
   .head .logo img{height:46px}
   nav{gap:6px 20px}
@@ -131,23 +149,23 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .gap .a,.gap .b{font-size:26px}
 }
 </style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","@id":"https://cgbb.org/#organization","name":"Council for Global Brand Building","alternateName":["CGBB","全球化品牌信任促進會"],"url":"https://cgbb.org/","logo":"https://cgbb.org/assets/logo-horizontal.png","email":"info@cgbb.org","description":"The Council for Global Brand Building sets the standards for how trust is assessed and rated in corporate and business settings.","sameAs":["https://www.linkedin.com/company/120314036/"]}
-</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://cgbb.org/#organization", "name": "Council for Global Brand Building", "alternateName": ["CGBB", "全球化品牌信任促進會", "品信會"], "url": "https://cgbb.org/", "logo": "https://cgbb.org/assets/logo-horizontal.png", "email": "info@cgbb.org", "nonprofitStatus": "Nonprofit", "foundingDate": "2026-09", "description": "The Council for Global Brand Building sets the standards for how trust is assessed and rated in corporate and business settings.", "sameAs": ["https://www.linkedin.com/company/120314036/"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What is the Council for Global Brand Building (CGBB)?", "acceptedAnswer": {"@type": "Answer", "text": "The Council for Global Brand Building (CGBB) is an open, non-profit council that sets standards for how trust is assessed and rated in corporate and business settings. It was initiated by iMpact and launched in Geneva in September 2026, during the WTO Public Forum. Its Chinese name is 全球化品牌信任促進會 (品信會)."}}, {"@type": "Question", "name": "What is the Global Brand Credibility Index?", "acceptedAnswer": {"@type": "Answer", "text": "The Global Brand Credibility Index is the CGBB standard for assessing how far a brand is trusted. It evaluates credibility across seven dimensions, covering customers, the public, employees, business partners, regulators, crisis readiness and artificial intelligence."}}, {"@type": "Question", "name": "What are the seven dimensions of the Index?", "acceptedAnswer": {"@type": "Answer", "text": "Consumer perception: How customers view a brand’s quality, reliability and value, and whether they believe its promises. Public reputation and media: How a brand is portrayed in news coverage and public conversation, and how consistent that picture is. Employer brand: How current and prospective employees see the company as a place to work. Partner relationships: The confidence that suppliers, distributors and other business partners place in the company. Regulation and social responsibility: A company’s record of compliance and its contribution to the communities and environment it operates in. Crisis and risk management: How well a company anticipates, responds to and recovers from events that test trust. The effect of AI on credibility: How AI systems represent a brand, and how the company’s own use of AI affects trust in it."}}, {"@type": "Question", "name": "When will the whitepaper and the ranking be published?", "acceptedAnswer": {"@type": "Answer", "text": "CGBB plans to publish its first whitepaper, setting out the academic foundations for assessing trust, later in 2026. The first ranking, which will rate leading brands against the standard, is planned for 2027."}}, {"@type": "Question", "name": "Who can join CGBB, and what does membership cost?", "acceptedAnswer": {"@type": "Answer", "text": "Membership is open to companies, to institutions such as universities, research institutes, media and industry bodies, and to individual experts in brand, communications and trust. Membership is currently complimentary. You can apply through the membership application form."}}, {"@type": "Question", "name": "How can I contact CGBB?", "acceptedAnswer": {"@type": "Answer", "text": "Email info@cgbb.org."}}]}</script>
 </head>
 <body>
 
 <header>
 <div class="wrap head">
-<a class="logo" href="#top" aria-label="CGBB home"><img src="/assets/logo-horizontal.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會"></a>
+<a class="logo" href="/" aria-label="CGBB home"><img src="/assets/logo-horizontal.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會"></a>
 <nav aria-label="Main">
-<a class="navlink" href="#about" data-t="navAbout">About</a>
-<a class="navlink" href="#index" data-t="navIndex">Credibility Index</a>
-<a class="navlink" href="#insights" data-t="navInsights">Insights</a>
-<a class="navlink" href="#membership" data-t="navMembership">Membership</a>
-<a class="navlink" href="#events" data-t="navEvents">Events</a>
-<span class="lang"><button type="button" data-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">|</span><button type="button" data-lang="zh" lang="zh-Hant" aria-pressed="false">繁中</button></span>
-<a class="btn btn-red" href="#membership" data-t="join">Join CGBB</a>
+<a class="navlink" href="#about">About</a>
+<a class="navlink" href="#index">Credibility Index</a>
+<a class="navlink" href="#faq">FAQ</a>
+<a class="navlink" href="#insights">Insights</a>
+<a class="navlink" href="#membership">Membership</a>
+<a class="navlink" href="#events">Events</a>
+<span class="lang"><a href="/" hreflang="en" lang="en" data-lang="en" aria-current="true">EN</a><span aria-hidden="true">|</span><a href="/zh/" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh" aria-current="false">繁中</a></span>
+<a class="btn btn-red" href="#membership">Join CGBB</a>
 </nav>
 </div>
 </header>
@@ -155,23 +173,23 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <main>
 <section class="hero" id="top">
 <div class="wrap">
-<div class="eyebrow" data-t="eyebrow">Council for Global Brand Building</div>
-<h1><span class="h1a" data-t="h1a" style="color:inherit">Let the world see leading brands,</span> <span data-t="h1b">and truly trust them.</span></h1>
-<p data-t="heroText">CGBB sets the standards for how trust is assessed and rated in corporate and business settings. Companies, universities, media and independent experts build those standards together, on a rigorous academic foundation.</p>
+<div class="eyebrow">Council for Global Brand Building</div>
+<h1>Let the world see leading brands, <span>and truly trust them.</span></h1>
+<p>CGBB sets the standards for how trust is assessed and rated in corporate and business settings. Companies, universities, media and independent experts build those standards together, on a rigorous academic foundation.</p>
 <div class="ctas">
-<a class="btn btn-red" href="#index" data-t="ctaWork">Our work on trust standards</a>
-<a class="btn btn-line" href="#membership" data-t="ctaMember">Become a member</a>
+<a class="btn btn-red" href="#index">Our work on trust standards</a>
+<a class="btn btn-line" href="#membership">Become a member</a>
 </div>
 </div>
 </section>
 
 <section class="gap" id="about">
 <div class="wrap">
-<div class="label" data-t="gapLabel">The trust gap</div>
+<div class="label">The trust gap</div>
 <div class="grid3">
-<div class="item"><div class="a" data-t="g1a">Capability</div><div class="b">≠ <span data-t="g1b">Perception</span></div><p data-t="g1t">Strong products, technology and operations do not automatically shape how a company is seen.</p></div>
-<div class="item"><div class="a" data-t="g2a">Awareness</div><div class="b">≠ <span data-t="g2b">Trust</span></div><p data-t="g2t">Being known is the start of the work. Being trusted, and being able to show it, is the goal.</p></div>
-<div class="item"><div class="a" data-t="g3a">Entering a market</div><div class="b">≠ <span data-t="g3b">Belonging to it</span></div><p data-t="g3t">Selling into a market and becoming a trusted part of it call for different capabilities.</p></div>
+<div class="item"><div class="a">Capability</div><div class="b">≠ Perception</div><p>Strong products, technology and operations do not automatically shape how a company is seen.</p></div>
+<div class="item"><div class="a">Awareness</div><div class="b">≠ Trust</div><p>Being known is the start of the work. Being trusted, and being able to show it, is the goal.</p></div>
+<div class="item"><div class="a">Entering a market</div><div class="b">≠ Belonging to it</div><p>Selling into a market and becoming a trusted part of it call for different capabilities.</p></div>
 </div>
 </div>
 </section>
@@ -181,23 +199,55 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <div class="rule"></div>
 <div class="split">
 <div class="left">
-<div class="label" data-t="indexLabel">Flagship research</div>
-<h2 data-t="indexTitle">Global Brand Credibility Index</h2>
-<p class="lead" data-t="indexText">A standard for assessing how far a brand is trusted, built on seven dimensions of credibility.</p>
+<div class="label">Flagship research</div>
+<h2>Global Brand Credibility Index</h2>
+<p class="lead">A standard for assessing how far a brand is trusted, built on seven dimensions of credibility.</p>
 <div class="roadmap">
-<div><span class="yr">2026</span><span class="txt"><strong data-t="wpTitle">Whitepaper.</strong> <span data-t="wpText">The academic foundations for assessing trust.</span></span></div>
-<div><span class="yr">2027</span><span class="txt"><strong data-t="rkTitle">First ranking.</strong> <span data-t="rkText">Leading brands rated against the standard.</span></span></div>
+<div><span class="yr">2026</span><span class="txt"><strong>Whitepaper.</strong> The academic foundations for assessing trust.</span></div>
+<div><span class="yr">2027</span><span class="txt"><strong>First ranking.</strong> Leading brands rated against the standard.</span></div>
 </div>
 </div>
 <ol class="dims right">
-<li><span class="n">01</span><span class="name" data-t="d1">Consumer perception</span></li>
-<li><span class="n">02</span><span class="name" data-t="d2">Public reputation and media</span></li>
-<li><span class="n">03</span><span class="name" data-t="d3">Employer brand</span></li>
-<li><span class="n">04</span><span class="name" data-t="d4">Partner relationships</span></li>
-<li><span class="n">05</span><span class="name" data-t="d5">Regulation and social responsibility</span></li>
-<li><span class="n">06</span><span class="name" data-t="d6">Crisis and risk management</span></li>
-<li><span class="n">07</span><span class="name" data-t="d7">The effect of AI on credibility</span></li>
+<li><span class="n">01</span><span class="name">Consumer perception</span></li>
+<li><span class="n">02</span><span class="name">Public reputation and media</span></li>
+<li><span class="n">03</span><span class="name">Employer brand</span></li>
+<li><span class="n">04</span><span class="name">Partner relationships</span></li>
+<li><span class="n">05</span><span class="name">Regulation and social responsibility</span></li>
+<li><span class="n">06</span><span class="name">Crisis and risk management</span></li>
+<li><span class="n">07</span><span class="name">The effect of AI on credibility</span></li>
 </ol>
+</div>
+</div>
+</section>
+
+<section class="section faq" id="faq">
+<div class="wrap">
+<div class="rule"></div>
+<div class="split">
+<div class="left">
+<div class="label">FAQ</div>
+<h2>Questions about CGBB</h2>
+</div>
+<div class="right">
+<details open><summary>What is the Council for Global Brand Building (CGBB)?</summary><div class="ans">
+<p>The Council for Global Brand Building (CGBB) is an open, non-profit council that sets standards for how trust is assessed and rated in corporate and business settings. It was initiated by iMpact and launched in Geneva in September 2026, during the WTO Public Forum. Its Chinese name is 全球化品牌信任促進會 (品信會).</p>
+</div></details>
+<details><summary>What is the Global Brand Credibility Index?</summary><div class="ans">
+<p>The Global Brand Credibility Index is the CGBB standard for assessing how far a brand is trusted. It evaluates credibility across seven dimensions, covering customers, the public, employees, business partners, regulators, crisis readiness and artificial intelligence.</p>
+</div></details>
+<details><summary>What are the seven dimensions of the Index?</summary><div class="ans">
+<dl><dt>Consumer perception</dt><dd>How customers view a brand’s quality, reliability and value, and whether they believe its promises.</dd><dt>Public reputation and media</dt><dd>How a brand is portrayed in news coverage and public conversation, and how consistent that picture is.</dd><dt>Employer brand</dt><dd>How current and prospective employees see the company as a place to work.</dd><dt>Partner relationships</dt><dd>The confidence that suppliers, distributors and other business partners place in the company.</dd><dt>Regulation and social responsibility</dt><dd>A company’s record of compliance and its contribution to the communities and environment it operates in.</dd><dt>Crisis and risk management</dt><dd>How well a company anticipates, responds to and recovers from events that test trust.</dd><dt>The effect of AI on credibility</dt><dd>How AI systems represent a brand, and how the company’s own use of AI affects trust in it.</dd></dl>
+</div></details>
+<details><summary>When will the whitepaper and the ranking be published?</summary><div class="ans">
+<p>CGBB plans to publish its first whitepaper, setting out the academic foundations for assessing trust, later in 2026. The first ranking, which will rate leading brands against the standard, is planned for 2027.</p>
+</div></details>
+<details><summary>Who can join CGBB, and what does membership cost?</summary><div class="ans">
+<p>Membership is open to companies, to institutions such as universities, research institutes, media and industry bodies, and to individual experts in brand, communications and trust. Membership is currently complimentary. You can apply through the <a href="https://www.jotform.com/262218942384058">membership application form</a>.</p>
+</div></details>
+<details><summary>How can I contact CGBB?</summary><div class="ans">
+<p>Email <a href="mailto:info@cgbb.org">info@cgbb.org</a>.</p>
+</div></details>
+</div>
 </div>
 </div>
 </section>
@@ -207,15 +257,15 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <div class="rule"></div>
 <div class="ins-head">
 <div>
-<div class="label" data-t="insLabel">Insights</div>
-<h2 data-t="insTitle">Latest from the Council</h2>
+<div class="label">Insights</div>
+<h2>Latest from the Council</h2>
 </div>
-<a class="all" href="https://www.linkedin.com/company/120314036/" data-t="insAll">All insights →</a>
+<a class="all" href="https://www.linkedin.com/company/120314036/">All insights →</a>
 </div>
 <div class="grid3">
-<a class="post" href="https://www.linkedin.com/company/120314036/"><div class="meta" data-t="p1m">News · 16 Sep 2026</div><div class="title" data-t="p1t">The Council for Global Brand Building launches</div><p data-t="p1x">A new council to set standards for assessing and rating trust in business.</p></a>
-<a class="post" href="https://www.yicaiglobal.com/news/council-for-global-brand-building-is-launched-to-address-trust-gap-for-chinese-firms-venturing-abroad"><div class="meta" data-t="p2m">Yicai Global · 17 Sep 2026</div><div class="title" data-t="p2t">Council for Global Brand Building Is Launched to Address Trust Gap for Chinese Firms Venturing Abroad</div><p data-t="p2x">Yicai covers the Council’s launch at the WTO Public Forum in Geneva and its first project, a credibility index built with academic, media and corporate partners.</p></a>
-<a class="post" href="https://www.linkedin.com/company/120314036/"><div class="meta" data-t="p3m">LinkedIn · Oct 2026</div><div class="title" data-t="p3t">Membership is now open</div><p data-t="p3x">The Council welcomes its growing community and opens corporate, institutional and individual expert membership.</p></a>
+<a class="post" href="https://www.linkedin.com/company/120314036/"><div class="meta">News · 16 Sep 2026</div><div class="title">The Council for Global Brand Building launches</div><p>A new council to set standards for assessing and rating trust in business.</p></a>
+<a class="post" href="https://www.yicaiglobal.com/news/council-for-global-brand-building-is-launched-to-address-trust-gap-for-chinese-firms-venturing-abroad"><div class="meta">Yicai Global · 17 Sep 2026</div><div class="title">Council for Global Brand Building Is Launched to Address Trust Gap for Chinese Firms Venturing Abroad</div><p>Yicai covers the Council’s launch at the WTO Public Forum in Geneva and its first project, a credibility index built with academic, media and corporate partners.</p></a>
+<a class="post" href="https://www.linkedin.com/company/120314036/"><div class="meta">LinkedIn · Oct 2026</div><div class="title">Membership is now open</div><p>The Council welcomes its growing community and opens corporate, institutional and individual expert membership.</p></a>
 </div>
 </div>
 </section>
@@ -223,16 +273,16 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <section class="member" id="membership">
 <div class="wrap split">
 <div class="left">
-<div class="label" data-t="memLabel">Membership</div>
-<h2 data-t="memTitle">Membership is open.</h2>
-<p data-t="memText">Help shape how trust is defined, assessed and rated, and bring what you see in your own market.</p>
-<p class="free" data-t="memFree">Membership is currently complimentary.</p>
-<a class="btn btn-white" href="https://www.jotform.com/262218942384058" data-t="memApply">Apply for membership</a>
+<div class="label">Membership</div>
+<h2>Membership is open.</h2>
+<p>Help shape how trust is defined, assessed and rated, and bring what you see in your own market.</p>
+<p class="free">Membership is currently complimentary.</p>
+<a class="btn btn-white" href="https://www.jotform.com/262218942384058">Apply for membership</a>
 </div>
 <div class="right">
-<div class="tier"><div class="name" data-t="t1n">Corporate members</div><div class="desc" data-t="t1d">Companies that want to build, and demonstrate, trust in their brand.</div></div>
-<div class="tier"><div class="name" data-t="t2n">Institutional members</div><div class="desc" data-t="t2d">Universities, research institutes, media and industry bodies.</div></div>
-<div class="tier"><div class="name" data-t="t3n">Individual experts</div><div class="desc" data-t="t3d">Practitioners and scholars in brand, communications and trust.</div></div>
+<div class="tier"><div class="name">Corporate members</div><div class="desc">Companies that want to build, and demonstrate, trust in their brand.</div></div>
+<div class="tier"><div class="name">Institutional members</div><div class="desc">Universities, research institutes, media and industry bodies.</div></div>
+<div class="tier"><div class="name">Individual experts</div><div class="desc">Practitioners and scholars in brand, communications and trust.</div></div>
 </div>
 </div>
 </section>
@@ -241,8 +291,8 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <div class="wrap">
 <div class="rule"></div>
 <div class="row">
-<div class="label" data-t="evLabel">Events</div>
-<div class="soon" data-t="evSoon">Coming soon</div>
+<div class="label">Events</div>
+<div class="soon">Coming soon</div>
 </div>
 </div>
 </section>
@@ -253,53 +303,15 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <div class="foot-top">
 <img src="/assets/logo-horizontal-white.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會">
 <div class="foot-links">
-<div><a href="#about" data-t="navAbout">About</a><a href="#index" data-t="navIndex">Credibility Index</a><a href="#insights" data-t="navInsights">Insights</a></div>
-<div><a href="#membership" data-t="navMembership">Membership</a><a href="#events" data-t="navEvents">Events</a><a href="https://www.linkedin.com/company/120314036/">LinkedIn</a></div>
-<div><span class="muted" data-t="contact">Contact</span><a href="mailto:info@cgbb.org">info@cgbb.org</a></div>
+<div><a href="#about">About</a><a href="#index">Credibility Index</a><a href="#faq">FAQ</a><a href="#insights">Insights</a></div>
+<div><a href="#membership">Membership</a><a href="#events">Events</a><a href="https://www.linkedin.com/company/120314036/">LinkedIn</a></div>
+<div><span class="muted">Contact</span><a href="mailto:info@cgbb.org">info@cgbb.org</a></div>
 </div>
 </div>
-<div class="foot-bottom"><span data-t="copy">© 2026 Council for Global Brand Building</span><span data-t="copyAlt" style="letter-spacing:.06em">全球化品牌信任促進會</span></div>
+<div class="foot-bottom"><span>© 2026 Council for Global Brand Building</span><span style="letter-spacing:.06em">全球化品牌信任促進會</span></div>
 </div>
 </footer>
 
-<script>
-(function(){
-  var ZH={
-    navAbout:'關於我們',navIndex:'公信力指數',navInsights:'洞察',navMembership:'會員',navEvents:'活動',join:'加入品信會',
-    eyebrow:'全球化品牌信任促進會',
-    h1a:'讓世界看見領先品牌，',h1b:'並真正信任它們。',
-    heroText:'品信會致力於建立評估與評級企業及商業信任的標準。企業、高校、媒體與獨立專家攜手合作，以嚴謹的學術基礎共同制定這些標準。',
-    ctaWork:'了解我們的信任標準工作',ctaMember:'成為會員',
-    gapLabel:'信任落差',
-    g1a:'能力',g1b:'認知',g1t:'優秀的產品、技術與營運，並不會自動塑造外界對一家企業的看法。',
-    g2a:'知名度',g2b:'信任',g2t:'被認識只是起點。被信任，並能證明這份信任，才是目標。',
-    g3a:'進入市場',g3b:'融入市場',g3t:'打入一個市場，與成為其中值得信賴的一員，需要不同的能力。',
-    indexLabel:'旗艦研究',indexTitle:'全球品牌公信力指數',indexText:'一套評估品牌受信任程度的標準，涵蓋公信力的七個維度。',
-    wpTitle:'白皮書。',wpText:'闡述評估信任的學術基礎。',rkTitle:'首份排名。',rkText:'依據該標準為領先品牌評級。',
-    d1:'消費者認知',d2:'公眾聲譽與媒體',d3:'僱主品牌',d4:'合作夥伴關係',d5:'監管合規與社會責任',d6:'危機與風險管理',d7:'人工智能對公信力的影響',
-    insLabel:'洞察',insTitle:'品信會最新動態',insAll:'查看全部 →',
-    p1m:'新聞 · 2026年9月16日',p1t:'全球化品牌信任促進會正式成立',p1x:'一個為商業信任的評估與評級制定標準的新組織。',
-    p2m:'第一財經 Yicai Global · 2026年9月17日',p2t:'全球化品牌信任促進會成立，助力出海中國企業彌合信任落差',p2x:'第一財經報道品信會在日內瓦世貿組織公共論壇上成立，並介紹其首個項目，即與學術、媒體及企業夥伴共同打造的公信力指數。',
-    p3m:'LinkedIn · 2026年10月',p3t:'會員招募現已開放',p3x:'品信會歡迎日益壯大的社群，並開放企業會員、機構會員及個人專家會員申請。',
-    memLabel:'會員',memTitle:'會員招募現已開放。',memText:'參與界定、評估與評級信任的標準制定，並分享您在所在市場的觀察。',memFree:'目前會員資格免費。',memApply:'申請入會',
-    t1n:'企業會員',t1d:'希望建立並展現品牌信任的企業。',t2n:'機構會員',t2d:'高校、研究機構、媒體及行業組織。',t3n:'個人專家',t3d:'品牌、傳播與信任領域的從業者及學者。',
-    evLabel:'活動',evSoon:'敬請期待',contact:'聯絡我們',
-    copy:'© 2026 全球化品牌信任促進會',copyAlt:'Council for Global Brand Building'
-  };
-  var nodes=document.querySelectorAll('[data-t]'),EN={};
-  nodes.forEach(function(n){EN[n.getAttribute('data-t')]=n.textContent;});
-  var buttons=document.querySelectorAll('.lang button');
-  function setLang(l){
-    var d=l==='zh'?ZH:EN;
-    nodes.forEach(function(n){var k=n.getAttribute('data-t');if(d[k]!=null)n.textContent=d[k];});
-    document.documentElement.lang=l==='zh'?'zh-Hant':'en';
-    buttons.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===l?'true':'false');});
-    try{localStorage.setItem('cgbb-lang',l);}catch(e){}
-  }
-  buttons.forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});
-  var saved=null;try{saved=localStorage.getItem('cgbb-lang');}catch(e){}
-  if(saved==='zh'||(!saved&&/^zh/i.test(navigator.language||'')&&/(TW|HK|MO|Hant)/i.test(navigator.language||'')))setLang('zh');
-})();
-</script>
+<script>(function(){var L=document.querySelectorAll('.lang a');L.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('cgbb-lang',a.getAttribute('data-lang'))}catch(e){}})});var s=null;try{s=localStorage.getItem('cgbb-lang')}catch(e){}var n=navigator.language||'';if(s==='zh'||(!s&&/^zh/i.test(n)&&/(TW|HK|MO|Hant)/i.test(n))){location.replace('/zh/'+location.hash)}})();</script>
 </body>
 </html>
