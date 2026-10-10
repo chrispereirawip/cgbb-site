@@ -1,0 +1,5 @@
+# cgbb.org welcomes search engines and AI crawlers, including AI search and training crawlers.
+User-agent: *
+Allow: /
+
+Sitemap: https://cgbb.org/sitemap.xml
