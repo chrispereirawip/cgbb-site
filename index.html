@@ -180,7 +180,8 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .gap .a,.gap .b{font-size:26px}
 }
 .acct{display:flex;align-items:center;gap:10px}
-.acct .btn{margin-top:0;padding:0 20px}
+.acct .btn{margin-top:0;padding:0 18px}
+@media (min-width:761px){nav{gap:22px}}
 .ev-list{display:flex;flex-direction:column}
 .ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
 .ev + .ev{border-top-color:var(--hair)}
@@ -227,6 +228,63 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
   .ev .y{margin-top:0}
   .ev.featured .title{font-size:26px}.acct .btn{min-height:44px;padding:0 16px}}
+.pubs .book{display:flex;gap:28px;color:var(--ink);border-top:1px solid var(--ink);padding-top:28px}
+.pubs .book img{width:150px;height:auto;flex:none;align-self:flex-start;box-shadow:0 6px 22px rgba(0,0,0,.14);border:1px solid var(--hair)}
+.pubs .book:hover .title{color:var(--red)}
+.pubs .tag{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:600}
+.pubs .title{margin-top:10px;font-size:23px;line-height:1.35;font-weight:500}
+.pubs .orig{margin-top:4px;font-size:15px;color:var(--grey)}
+.pubs .by{margin-top:12px;font-size:15px;font-weight:500}
+.pubs .book p,.pubs .wp p{margin:12px 0 0;font-size:16px;line-height:1.65;color:var(--grey)}
+.pubs .meta{margin-top:12px;font-size:13px;color:var(--grey)}
+.pubs .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500;color:var(--red)}
+.pubs .wp{border-top:1px solid var(--hair);margin-top:36px;padding-top:24px}
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.pathway .lead{margin-top:0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;margin-top:56px}
+.step{border-top:1px solid var(--ink);padding-top:24px;display:flex;flex-direction:column}
+.step .n{font-size:15px;font-weight:600;color:var(--red)}
+.step .name{margin-top:14px;font-size:26px;font-weight:500;line-height:1.3}
+.step .tag{margin-top:8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.step p{margin:18px 0 0;font-size:16px;line-height:1.7;flex:1}
+.step .status{margin-top:24px;padding-top:14px;border-top:1px solid var(--hair);font-size:14px;font-weight:500}
+.step .status.soon{color:var(--red)}
+.step .status a{color:var(--red)}
+.step .status a:hover{color:var(--red-dark)}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}.pubs .book{flex-direction:column;gap:18px}.pubs .book img{width:130px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://cgbb.org/#organization", "name": "Council for Global Brand Building", "alternateName": ["CGBB", "全球化品牌信任促進會", "品信會"], "url": "https://cgbb.org/", "logo": "https://cgbb.org/assets/logo-horizontal.png", "email": "info@cgbb.org", "nonprofitStatus": "Nonprofit", "foundingDate": "2026-09", "description": "The Council for Global Brand Building sets the standards for how trust is assessed and rated in corporate and business settings.", "sameAs": ["https://www.linkedin.com/company/120314036/"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What is the Council for Global Brand Building (CGBB)?", "acceptedAnswer": {"@type": "Answer", "text": "The Council for Global Brand Building (CGBB) is an open, non-profit council that sets standards for how trust is assessed and rated in corporate and business settings. It was initiated by iMpact and launched in Geneva in September 2026, during the WTO Public Forum. Its Chinese name is 全球化品牌信任促進會 (品信會)."}}, {"@type": "Question", "name": "What is the Global Brand Credibility Index?", "acceptedAnswer": {"@type": "Answer", "text": "The Global Brand Credibility Index is the CGBB standard for assessing how far a brand is trusted. It evaluates credibility across seven dimensions, covering customers, the public, employees, business partners, regulators, crisis readiness and artificial intelligence."}}, {"@type": "Question", "name": "What are the seven dimensions of the Index?", "acceptedAnswer": {"@type": "Answer", "text": "Consumer perception: How customers view a brand’s quality, reliability and value, and whether they believe its promises. Public reputation and media: How a brand is portrayed in news coverage and public conversation, and how consistent that picture is. Employer brand: How current and prospective employees see the company as a place to work. Partner relationships: The confidence that suppliers, distributors and other business partners place in the company. Regulation and social responsibility: A company’s record of compliance and its contribution to the communities and environment it operates in. Crisis and risk management: How well a company anticipates, responds to and recovers from events that test trust. The effect of AI on credibility: How AI systems represent a brand, and how the company’s own use of AI affects trust in it."}}, {"@type": "Question", "name": "When will the whitepaper and the ranking be published?", "acceptedAnswer": {"@type": "Answer", "text": "CGBB plans to publish its first whitepaper, setting out the academic foundations for assessing trust, later in 2026. The first ranking, which will rate leading brands against the standard, is planned for 2027."}}, {"@type": "Question", "name": "Who can join CGBB, and what does membership cost?", "acceptedAnswer": {"@type": "Answer", "text": "Membership is open to companies, to institutions such as universities, research institutes, media and industry bodies, and to individual experts in brand, communications and trust. Membership is currently complimentary. You can apply through the membership application form."}}, {"@type": "Question", "name": "How can I contact CGBB?", "acceptedAnswer": {"@type": "Answer", "text": "Email info@cgbb.org."}}]}</script>
@@ -241,8 +299,8 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <nav aria-label="Main">
 <a class="navlink" href="#about">About</a>
 <a class="navlink" href="#index">Credibility Index</a>
-<a class="navlink" href="#faq">FAQ</a>
-<a class="navlink" href="#insights">Insights</a>
+<a class="navlink" href="#publications">Publications</a>
+<a class="navlink" href="#news">News</a>
 <a class="navlink" href="#membership">Membership</a>
 <a class="navlink" href="#events">Events</a>
 <span class="lang"><a href="/" hreflang="en" lang="en" data-lang="en" aria-current="true">EN</a><span aria-hidden="true">|</span><a href="/zh/" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh" aria-current="false">繁中</a></span>
@@ -351,15 +409,33 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 </div>
 </section>
 
-<section class="section" id="insights">
+<section class="section pubs" id="publications">
+<div class="wrap">
+<div class="rule"></div>
+<div class="split">
+<div class="left">
+<div class="label">Publications</div>
+<h2>Books and research</h2>
+<p class="lead">Work by the Council and its founding members on how trust is built, assessed and kept.</p>
+</div>
+<div class="right">
+<a class="book" href="/publications/trust/"><img src="/assets/books/trust-cover.png" width="400" height="588" alt="Trust: The Golden Key to Chinese Enterprises’ Globalization" loading="lazy">
+<div><div class="tag">Book · Founding Chairman</div><div class="title">Trust: The Golden Key to Chinese Enterprises’ Globalization</div><div class="orig">《信任：中国企业全球化的黄金钥匙》</div><div class="by">Chris Pereira (彭家荣), Founding Chairman of CGBB</div><p>A practical guide to how Chinese companies earn and keep the trust of governments, partners, customers and staff in overseas markets, drawing on real cases from more than 20 years in China.</p><div class="meta">Shenzhen Publishing House · February 2026 · Chinese</div><span class="more">About the book →</span></div></a>
+<div class="wp"><div class="tag">Whitepaper · Forthcoming</div><div class="title">CGBB Whitepaper</div><p>The academic foundations for assessing and rating trust in business. To be released in Hong Kong in November 2026.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="news">
 <div class="wrap">
 <div class="rule"></div>
 <div class="ins-head">
 <div>
-<div class="label">Insights</div>
+<div class="label">News</div>
 <h2>Latest from the Council</h2>
 </div>
-<a class="all" href="https://www.linkedin.com/company/120314036/">All insights →</a>
+<a class="all" href="https://www.linkedin.com/company/120314036/">All news →</a>
 </div>
 <div class="grid3">
 <a class="post" href="https://www.linkedin.com/company/120314036/"><div class="meta">News · 16 Sep 2026</div><div class="title">The Council for Global Brand Building launches</div><p>A new council to set standards for assessing and rating trust in business.</p></a>
@@ -410,8 +486,8 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <div class="foot-top">
 <img src="/assets/logo-horizontal-white.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會">
 <div class="foot-links">
-<div><a href="#about">About</a><a href="#index">Credibility Index</a><a href="#faq">FAQ</a><a href="#insights">Insights</a></div>
-<div><a href="#membership">Membership</a><a href="#events">Events</a><a href="https://www.linkedin.com/company/120314036/">LinkedIn</a></div>
+<div><a href="#about">About</a><a href="#index">Credibility Index</a><a href="#faq">FAQ</a><a href="#publications">Publications</a></div>
+<div><a href="#news">News</a><a href="#membership">Membership</a><a href="#events">Events</a><a href="https://www.linkedin.com/company/120314036/">LinkedIn</a></div>
 <div><span class="muted">Contact</span><a href="mailto:info@cgbb.org">info@cgbb.org</a></div>
 </div>
 </div>

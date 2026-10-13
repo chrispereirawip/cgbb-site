@@ -159,7 +159,8 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .gap .a,.gap .b{font-size:26px}
 }
 .acct{display:flex;align-items:center;gap:10px}
-.acct .btn{margin-top:0;padding:0 20px}
+.acct .btn{margin-top:0;padding:0 18px}
+@media (min-width:761px){nav{gap:22px}}
 .ev-list{display:flex;flex-direction:column}
 .ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
 .ev + .ev{border-top-color:var(--hair)}
@@ -195,6 +196,52 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
   .ev .y{margin-top:0}
   .ev.featured .title{font-size:26px}.acct .btn{min-height:44px;padding:0 16px}}
+.pubs .book{display:flex;gap:28px;color:var(--ink);border-top:1px solid var(--ink);padding-top:28px}
+.pubs .book img{width:150px;height:auto;flex:none;align-self:flex-start;box-shadow:0 6px 22px rgba(0,0,0,.14);border:1px solid var(--hair)}
+.pubs .book:hover .title{color:var(--red)}
+.pubs .tag{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:600}
+.pubs .title{margin-top:10px;font-size:23px;line-height:1.35;font-weight:500}
+.pubs .orig{margin-top:4px;font-size:15px;color:var(--grey)}
+.pubs .by{margin-top:12px;font-size:15px;font-weight:500}
+.pubs .book p,.pubs .wp p{margin:12px 0 0;font-size:16px;line-height:1.65;color:var(--grey)}
+.pubs .meta{margin-top:12px;font-size:13px;color:var(--grey)}
+.pubs .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500;color:var(--red)}
+.pubs .wp{border-top:1px solid var(--hair);margin-top:36px;padding-top:24px}
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}.pubs .book{flex-direction:column;gap:18px}.pubs .book img{width:130px}}
 
 [hidden]{display:none!important}
 .dx-hero{padding:88px 0 36px}
@@ -279,7 +326,7 @@ button[disabled]{opacity:.55;cursor:wait}
 <div class="wrap head">
 <a class="logo" href="/" aria-label="CGBB home"><img src="/assets/logo-horizontal.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會"></a>
 <nav aria-label="Main">
-<a class="navlink" href="/#about">About</a><a class="navlink" href="/#index">Credibility Index</a><a class="navlink" href="/#faq">FAQ</a><a class="navlink" href="/#insights">Insights</a><a class="navlink" href="/#membership">Membership</a><a class="navlink" href="/#events">Events</a>
+<a class="navlink" href="/#about">About</a><a class="navlink" href="/#index">Credibility Index</a><a class="navlink" href="/#publications">Publications</a><a class="navlink" href="/#news">News</a><a class="navlink" href="/#membership">Membership</a><a class="navlink" href="/#events">Events</a>
 <span class="lang"><a href="/diagnosis/" hreflang="en" lang="en" data-lang="en" aria-current="true">EN</a><span aria-hidden="true">|</span><a href="/zh/diagnosis/" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh" aria-current="false">繁中</a></span>
 <span class="acct" data-acct data-mine="My account" data-href="/account/"><a class="btn btn-line" href="/account/#login">Log in</a><a class="btn btn-red" href="/account/#signup">Sign up</a></span>
 </nav>
@@ -340,8 +387,8 @@ button[disabled]{opacity:.55;cursor:wait}
 <div class="foot-top">
 <img src="/assets/logo-horizontal-white.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會">
 <div class="foot-links">
-<div><a href="/#about">About</a><a href="/#index">Credibility Index</a><a href="/#faq">FAQ</a><a href="/#insights">Insights</a></div>
-<div><a href="/#membership">Membership</a><a href="/#events">Events</a><a href="https://www.linkedin.com/company/120314036/">LinkedIn</a></div>
+<div><a href="/#about">About</a><a href="/#index">Credibility Index</a><a href="/#faq">FAQ</a><a href="/#publications">Publications</a></div>
+<div><a href="/#news">News</a><a href="/#membership">Membership</a><a href="/#events">Events</a><a href="https://www.linkedin.com/company/120314036/">LinkedIn</a></div>
 <div><span class="muted">Contact</span><a href="mailto:info@cgbb.org">info@cgbb.org</a></div>
 </div>
 </div>

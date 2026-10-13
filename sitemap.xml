@@ -27,6 +27,18 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/apply/"/>
   </url>
   <url>
+    <loc>https://cgbb.org/publications/trust/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/publications/trust/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/publications/trust/"/>
+  </url>
+  <url>
+    <loc>https://cgbb.org/zh/publications/trust/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/publications/trust/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/publications/trust/"/>
+  </url>
+  <url>
     <loc>https://cgbb.org/account/</loc>
     <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/account/"/>
