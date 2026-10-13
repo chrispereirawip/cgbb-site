@@ -14,4 +14,28 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/"/>
   </url>
+  <url>
+    <loc>https://cgbb.org/apply/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/apply/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/apply/"/>
+  </url>
+  <url>
+    <loc>https://cgbb.org/zh/apply/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/apply/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/apply/"/>
+  </url>
+  <url>
+    <loc>https://cgbb.org/diagnosis/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/diagnosis/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/diagnosis/"/>
+  </url>
+  <url>
+    <loc>https://cgbb.org/zh/diagnosis/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/diagnosis/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/diagnosis/"/>
+  </url>
 </urlset>
