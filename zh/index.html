@@ -179,6 +179,54 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .gap,.member,.events{padding:72px 0}
   .gap .a,.gap .b{font-size:26px}
 }
+.acct{display:flex;align-items:center;gap:10px}
+.acct .btn{margin-top:0;padding:0 20px}
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.pathway .lead{margin-top:0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;margin-top:56px}
+.step{border-top:1px solid var(--ink);padding-top:24px;display:flex;flex-direction:column}
+.step .n{font-size:15px;font-weight:600;color:var(--red)}
+.step .name{margin-top:14px;font-size:26px;font-weight:500;line-height:1.3}
+.step .tag{margin-top:8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.step p{margin:18px 0 0;font-size:16px;line-height:1.7;flex:1}
+.step .status{margin-top:24px;padding-top:14px;border-top:1px solid var(--hair);font-size:14px;font-weight:500}
+.step .status.soon{color:var(--red)}
+.step .status a{color:var(--red)}
+.step .status a:hover{color:var(--red-dark)}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}.acct .btn{min-height:44px;padding:0 16px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://cgbb.org/#organization", "name": "Council for Global Brand Building", "alternateName": ["CGBB", "全球化品牌信任促進會", "品信會"], "url": "https://cgbb.org/", "logo": "https://cgbb.org/assets/logo-horizontal.png", "email": "info@cgbb.org", "nonprofitStatus": "Nonprofit", "foundingDate": "2026-09", "description": "The Council for Global Brand Building sets the standards for how trust is assessed and rated in corporate and business settings.", "sameAs": ["https://www.linkedin.com/company/120314036/"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh-Hant", "mainEntity": [{"@type": "Question", "name": "什麼是全球化品牌信任促進會（品信會，CGBB）？", "acceptedAnswer": {"@type": "Answer", "text": "全球化品牌信任促進會（品信會，英文名稱 Council for Global Brand Building，簡稱 CGBB）是一個開放的非營利組織，致力於建立評估與評級企業及商業信任的標準。品信會由美訊 iMpact 發起，於2026年9月在日內瓦世貿組織公共論壇期間成立。"}}, {"@type": "Question", "name": "什麼是全球品牌公信力指數？", "acceptedAnswer": {"@type": "Answer", "text": "全球品牌公信力指數是品信會用以評估品牌受信任程度的標準。指數從七個維度衡量公信力，涵蓋消費者、公眾、員工、商業夥伴、監管機構、危機應對及人工智能。"}}, {"@type": "Question", "name": "指數的七個維度是什麼？", "acceptedAnswer": {"@type": "Answer", "text": "消費者認知: 消費者如何看待品牌的品質、可靠性與價值，以及是否相信品牌的承諾。 公眾聲譽與媒體: 品牌在新聞報道與公眾討論中的形象，以及這一形象是否一致。 僱主品牌: 現有及潛在員工如何看待這家企業作為工作場所。 合作夥伴關係: 供應商、經銷商及其他商業夥伴對企業的信心。 監管合規與社會責任: 企業的合規紀錄，以及其對所在社區與環境的貢獻。 危機與風險管理: 企業預判、應對並從考驗信任的事件中恢復的能力。 人工智能對公信力的影響: 人工智能系統如何呈現一個品牌，以及企業自身使用人工智能的方式如何影響外界對它的信任。"}}, {"@type": "Question", "name": "白皮書與排名何時發佈？", "acceptedAnswer": {"@type": "Answer", "text": "品信會計劃於2026年稍後發佈首份白皮書，闡述評估信任的學術基礎。首份排名將依據該標準為領先品牌評級，計劃於2027年推出。"}}, {"@type": "Question", "name": "誰可以加入品信會？會費是多少？", "acceptedAnswer": {"@type": "Answer", "text": "品信會歡迎企業、機構（包括高校、研究機構、媒體及行業組織）以及品牌、傳播與信任領域的個人專家加入。目前會員資格免費。您可透過會員申請表提交申請。"}}, {"@type": "Question", "name": "如何聯絡品信會？", "acceptedAnswer": {"@type": "Answer", "text": "請發送電郵至 info@cgbb.org。"}}]}</script>
@@ -198,7 +246,7 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <a class="navlink" href="#membership">會員</a>
 <a class="navlink" href="#events">活動</a>
 <span class="lang"><a href="/" hreflang="en" lang="en" data-lang="en" aria-current="false">EN</a><span aria-hidden="true">|</span><a href="/zh/" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh" aria-current="true">繁中</a></span>
-<a class="btn btn-red" href="#membership">加入品信會</a>
+<span class="acct" data-acct data-mine="我的帳戶" data-href="/zh/account/"><a class="btn btn-line" href="/zh/account/#login">登入</a><a class="btn btn-red" href="/zh/account/#signup">註冊</a></span>
 </nav>
 </div>
 </header>
@@ -372,5 +420,6 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 </footer>
 
 <script>(function(){var L=document.querySelectorAll('.lang a');L.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('cgbb-lang',a.getAttribute('data-lang'))}catch(e){}})});})();</script>
+<script>(function(){if(!/(?:^|;\s*)cgbb_li=1/.test(document.cookie))return;var a=document.querySelector("[data-acct]");if(!a)return;a.innerHTML="";var b=document.createElement("a");b.className="btn btn-red";b.href=a.getAttribute("data-href");b.textContent=a.getAttribute("data-mine");a.appendChild(b);})();</script>
 </body>
 </html>

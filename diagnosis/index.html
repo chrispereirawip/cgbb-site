@@ -113,6 +113,22 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .foot-links .muted{color:#bfbfbf}
 .foot-bottom{margin-top:64px;padding-top:24px;border-top:1px solid #3a3a3a;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:#bfbfbf}
 
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
 .faq .right{display:flex;flex-direction:column}
 .faq details{border-top:1px solid var(--ink)}
 .faq details:last-child{border-bottom:1px solid var(--hair)}
@@ -128,6 +144,10 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .faq dd{margin:4px 0 0}
 @media (max-width:760px){
   html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}
   .wrap{padding:0 20px}
   .head .logo img{height:46px}
   nav{gap:6px 20px}
@@ -138,6 +158,43 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .gap,.member,.events{padding:72px 0}
   .gap .a,.gap .b{font-size:26px}
 }
+.acct{display:flex;align-items:center;gap:10px}
+.acct .btn{margin-top:0;padding:0 20px}
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}.acct .btn{min-height:44px;padding:0 16px}}
 
 [hidden]{display:none!important}
 .dx-hero{padding:88px 0 36px}
@@ -217,14 +274,14 @@ button[disabled]{opacity:.55;cursor:wait}
 </style>
 </head>
 <body>
-<div class="demo" hidden>Preview: demo mode. No data is sent. Use any email (include “nonmember” to see the members-only block) and code 123456.</div>
+<div class="demo" hidden>Preview: demo mode. No data is sent. Use any email (include “nonmember” or “pending” to see those messages) and code 123456.</div>
 <header>
 <div class="wrap head">
 <a class="logo" href="/" aria-label="CGBB home"><img src="/assets/logo-horizontal.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會"></a>
 <nav aria-label="Main">
 <a class="navlink" href="/#about">About</a><a class="navlink" href="/#index">Credibility Index</a><a class="navlink" href="/#faq">FAQ</a><a class="navlink" href="/#insights">Insights</a><a class="navlink" href="/#membership">Membership</a><a class="navlink" href="/#events">Events</a>
 <span class="lang"><a href="/diagnosis/" hreflang="en" lang="en" data-lang="en" aria-current="true">EN</a><span aria-hidden="true">|</span><a href="/zh/diagnosis/" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh" aria-current="false">繁中</a></span>
-<a class="btn btn-red" href="/apply/">Join CGBB</a>
+<span class="acct" data-acct data-mine="My account" data-href="/account/"><a class="btn btn-line" href="/account/#login">Log in</a><a class="btn btn-red" href="/account/#signup">Sign up</a></span>
 </nav>
 </div>
 </header>
@@ -253,6 +310,8 @@ button[disabled]{opacity:.55;cursor:wait}
 </div>
 <div class="block" data-notmember role="alert"><h3>This email isn’t registered as a CGBB member</h3><p>The Trust Diagnosis is available to members only. Please apply for CGBB membership first, then come back to run your diagnosis.</p><p class="free">Membership is free.</p>
 <div class="ctas"><a class="btn btn-red" href="/apply/">Apply for membership</a><button type="button" class="linkbtn" data-other>Use a different email</button></div></div>
+<div class="block" data-pending role="alert"><h3>Membership pending approval</h3><p>Thank you for applying. The Trust Diagnosis opens as soon as CGBB has approved your membership, and we’ll email you when that happens. You can already log in to your account to check its status.</p>
+<div class="ctas"><a class="btn btn-red" href="/account/">Go to my account</a><button type="button" class="linkbtn" data-other>Use a different email</button></div></div>
 <div class="msg" data-msg1 role="alert"></div>
 </section><section class="dx-panel" data-p="1" aria-labelledby="h1"><h2 id="h1">Your company</h2><p class="intro">We use your company name and website to scan public data: your website, news coverage and how AI tools describe you.</p>
 <div class="q" data-q="co"><label for="co">Company name<span class="req" aria-hidden="true">*</span><span class="hint">As it appears to customers in your main overseas markets</span></label><input type="text" id="co" autocomplete="organization" required maxlength="160"><div class="err">Please complete this field.</div></div>
@@ -303,19 +362,20 @@ function show(i){st.cur=i;panels.forEach(function(p,j){p.classList.toggle('on',j
 function say(el,t){el.textContent=t;el.classList.add('on')}
 function call(path,body){
  if(demo)return new Promise(function(res){setTimeout(function(){
-  if(path==='/start')res(/nonmember/i.test(body.email)?{status:'not_member'}:{status:'code_sent'});
+  if(path==='/start')res(/nonmember/i.test(body.email)?{status:'not_member'}:/pending/i.test(body.email)?{status:'pending'}:{status:'code_sent'});
   else if(path==='/verify')res(body.code==='123456'?{status:'ok',token:'demo'}:{status:'wrong_code'});
   else res({status:'queued',id:'CGBB-TD-DEMO',email:st.email});},500)});
  return fetch(API+'/api/diagnosis'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json()});}
 function busy(btn,on){btn.disabled=on}
 function bad(q,on){q.classList.toggle('bad',on);return on}
 // step 1
-var em=$('#em'), code=$('#code'), sent=$('[data-sent]'), nm=$('[data-notmember]'), startB=$('[data-start]');
-function start(){msg1.classList.remove('on');nm.classList.remove('on');
+var em=$('#em'), code=$('#code'), sent=$('[data-sent]'), nm=$('[data-notmember]'), pd=$('[data-pending]'), startB=$('[data-start]');
+function start(){msg1.classList.remove('on');nm.classList.remove('on');pd.classList.remove('on');
  if(bad(em.closest('.q'),!em.value.trim()||!em.checkValidity())){em.focus();return}
  st.email=em.value.trim().toLowerCase(); busy(startB,true);
  call('/start',{email:st.email,lang:LANG}).then(function(j){
   if(j.status==='not_member'){nm.classList.add('on');sent.classList.remove('on');$('[data-step1]').hidden=true;}
+  else if(j.status==='pending'){pd.classList.add('on');sent.classList.remove('on');$('[data-step1]').hidden=true;}
   else if(j.status==='code_sent'){sent.classList.add('on');$('[data-step1]').hidden=true;em.readOnly=true;$('[data-codehint]').textContent=M.codeHint.replace('{email}',st.email);code.focus();}
   else if(j.status==='cooldown')say(msg1,M.cooldown.replace('{date}',j.next));
   else if(j.status==='rate_limited')say(msg1,M.rate);
@@ -325,7 +385,7 @@ function start(){msg1.classList.remove('on');nm.classList.remove('on');
 startB.addEventListener('click',start);
 em.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();start()}});
 $('[data-resend]').addEventListener('click',function(){em.readOnly=false;start()});
-$$('[data-other]').forEach(function(b){b.addEventListener('click',function(){em.readOnly=false;em.value='';sent.classList.remove('on');nm.classList.remove('on');$('[data-step1]').hidden=false;msg1.classList.remove('on');em.focus()})});
+$$('[data-other]').forEach(function(b){b.addEventListener('click',function(){em.readOnly=false;em.value='';sent.classList.remove('on');nm.classList.remove('on');pd.classList.remove('on');$('[data-step1]').hidden=false;msg1.classList.remove('on');em.focus()})});
 function verify(){var v=code.value.replace(/\D/g,'');if(bad(code.closest('.q'),v.length!==6))return;var b=$('[data-verify]');busy(b,true);
  call('/verify',{email:st.email,code:v}).then(function(j){
   if(j.status==='ok'){st.token=j.token;show(1);window.scrollTo({top:$('.dx').offsetTop-100,behavior:'smooth'});}
@@ -360,5 +420,6 @@ show(0);
 })();
 </script>
 <script>(function(){var L=document.querySelectorAll('.lang a');L.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('cgbb-lang',a.getAttribute('data-lang'))}catch(e){}})});})();</script>
+<script>(function(){if(!/(?:^|;\s*)cgbb_li=1/.test(document.cookie))return;var a=document.querySelector("[data-acct]");if(!a)return;a.innerHTML="";var b=document.createElement("a");b.className="btn btn-red";b.href=a.getAttribute("data-href");b.textContent=a.getAttribute("data-mine");a.appendChild(b);})();</script>
 </body>
 </html>

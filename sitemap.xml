@@ -27,6 +27,18 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/apply/"/>
   </url>
   <url>
+    <loc>https://cgbb.org/account/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/account/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/account/"/>
+  </url>
+  <url>
+    <loc>https://cgbb.org/zh/account/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/account/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/account/"/>
+  </url>
+  <url>
     <loc>https://cgbb.org/diagnosis/</loc>
     <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/diagnosis/"/>

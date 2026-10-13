@@ -113,6 +113,22 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .foot-links .muted{color:#bfbfbf}
 .foot-bottom{margin-top:64px;padding-top:24px;border-top:1px solid #3a3a3a;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:#bfbfbf}
 
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
 .faq .right{display:flex;flex-direction:column}
 .faq details{border-top:1px solid var(--ink)}
 .faq details:last-child{border-bottom:1px solid var(--hair)}
@@ -128,6 +144,10 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .faq dd{margin:4px 0 0}
 @media (max-width:760px){
   html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}
   .wrap{padding:0 20px}
   .head .logo img{height:46px}
   nav{gap:6px 20px}
@@ -138,6 +158,43 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .gap,.member,.events{padding:72px 0}
   .gap .a,.gap .b{font-size:26px}
 }
+.acct{display:flex;align-items:center;gap:10px}
+.acct .btn{margin-top:0;padding:0 20px}
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}.acct .btn{min-height:44px;padding:0 16px}}
 
 .apply-hero{padding:88px 0 40px}
 .apply-hero h1{font-size:44px;line-height:1.2;font-weight:500;margin:0;max-width:900px}
@@ -199,7 +256,7 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 <nav aria-label="Main">
 <a class="navlink" href="/zh/#about">關於我們</a><a class="navlink" href="/zh/#index">公信力指數</a><a class="navlink" href="/zh/#faq">常見問題</a><a class="navlink" href="/zh/#insights">洞察</a><a class="navlink" href="/zh/#membership">會員</a><a class="navlink" href="/zh/#events">活動</a>
 <span class="lang"><a href="/apply/" hreflang="en" lang="en" data-lang="en" aria-current="false">EN</a><span aria-hidden="true">|</span><a href="/zh/apply/" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh" aria-current="true">繁中</a></span>
-<a class="btn btn-red" href="/zh/apply/">加入品信會</a>
+<span class="acct" data-acct data-mine="我的帳戶" data-href="/zh/account/"><a class="btn btn-line" href="/zh/account/#login">登入</a><a class="btn btn-red" href="/zh/account/#signup">註冊</a></span>
 </nav>
 </div>
 </header>
@@ -227,6 +284,8 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 <h2>Application submitted / <span lang="zh-Hant">申請已成功提交</span></h2>
 <p>Your application to the Council for Global Brand Building has been successfully submitted. We will review it and get back to you by email within 5 business days.</p>
 <p lang="zh-Hant">您加入全球化品牌信任促進會的申請已成功提交。我們將進行審核，並於 5 個工作天內以電郵回覆您。</p>
+<p>While we review your application, you can create your account password now. You can log in straight away; member services open once your membership is approved. / <span lang="zh-Hant">在我們審核申請期間，您可先設定帳戶密碼並隨即登入；會員資格獲批准後，即可使用全部會員服務。</span></p>
+<p><a class="btn btn-red" href="/zh/account/#signup">Create your account / <span lang="zh-Hant">設定帳戶密碼</span></a></p>
 <p><a href="/zh/">返回品信會首頁</a></p>
 </div>
 </div>
@@ -347,5 +406,6 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 })();
 </script>
 <script>(function(){var L=document.querySelectorAll('.lang a');L.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('cgbb-lang',a.getAttribute('data-lang'))}catch(e){}})});})();</script>
+<script>(function(){if(!/(?:^|;\s*)cgbb_li=1/.test(document.cookie))return;var a=document.querySelector("[data-acct]");if(!a)return;a.innerHTML="";var b=document.createElement("a");b.className="btn btn-red";b.href=a.getAttribute("data-href");b.textContent=a.getAttribute("data-mine");a.appendChild(b);})();</script>
 </body>
 </html>
