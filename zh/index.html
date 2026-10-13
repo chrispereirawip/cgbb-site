@@ -181,6 +181,7 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 }
 .acct{display:flex;align-items:center;gap:10px}
 .acct .btn{margin-top:0;padding:0 18px}
+.mbtn,.mpanel{display:none}
 @media (min-width:761px){nav{gap:22px}}
 .ev-list{display:flex;flex-direction:column}
 .ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
@@ -227,7 +228,21 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .ev{flex-direction:column;gap:10px}
   .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
   .ev .y{margin-top:0}
-  .ev.featured .title{font-size:26px}.acct .btn{min-height:44px;padding:0 16px}}
+  .ev.featured .title{font-size:26px}
+  .head{flex-wrap:nowrap;gap:12px;padding-top:12px;padding-bottom:12px}
+  .head .logo{flex:none}
+  .head .logo img{height:40px}
+  .head nav{flex-wrap:nowrap;gap:8px;justify-content:flex-end}
+  .head nav > .navlink,.head nav > .lang{display:none}
+  .acct{gap:6px}
+  .acct .btn{min-height:38px;padding:0 11px;font-size:14px;letter-spacing:.02em}
+  .mbtn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin:0;border:0;background:none;color:var(--ink);cursor:pointer;flex:none}
+  .mbtn svg{width:22px;height:22px}
+  .mpanel.on{display:block;border-top:1px solid var(--hair);padding-top:6px;padding-bottom:14px}
+  .mpanel a.navlink{display:block;padding:12px 0;font-size:16px;border-bottom:1px solid var(--hair)}
+  .mpanel .lang{padding-top:6px}
+}
+@media (max-width:360px){.head .logo img{height:34px}.acct .btn{padding:0 9px;font-size:13px}}
 .pubs .book{display:flex;gap:28px;color:var(--ink);border-top:1px solid var(--ink);padding-top:28px}
 .pubs .book img{width:150px;height:auto;flex:none;align-self:flex-start;box-shadow:0 6px 22px rgba(0,0,0,.14);border:1px solid var(--hair)}
 .pubs .book:hover .title{color:var(--red)}
@@ -509,6 +524,6 @@ html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
 </footer>
 
 <script>(function(){var L=document.querySelectorAll('.lang a');L.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('cgbb-lang',a.getAttribute('data-lang'))}catch(e){}})});})();</script>
-<script>(function(){if(!/(?:^|;\s*)cgbb_li=1/.test(document.cookie))return;var a=document.querySelector("[data-acct]");if(!a)return;a.innerHTML="";var b=document.createElement("a");b.className="btn btn-red";b.href=a.getAttribute("data-href");b.textContent=a.getAttribute("data-mine");a.appendChild(b);})();</script>
+<script>(function(){var nav=document.querySelector("header nav"),hd=document.querySelector("header .head");if(nav&&hd){var zh=document.documentElement.lang.indexOf("zh")===0;var mb=document.createElement("button");mb.type="button";mb.className="mbtn";mb.setAttribute("aria-label",zh?"選單":"Menu");mb.setAttribute("aria-expanded","false");mb.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';nav.appendChild(mb);var p=document.createElement("div");p.className="mpanel wrap";[].forEach.call(nav.querySelectorAll(":scope > .navlink, :scope > .lang"),function(x){p.appendChild(x.cloneNode(true))});hd.parentNode.insertBefore(p,hd.nextSibling);mb.addEventListener("click",function(){var o=p.classList.toggle("on");mb.setAttribute("aria-expanded",o?"true":"false")});p.addEventListener("click",function(e){var l=e.target.closest("a");if(!l)return;p.classList.remove("on");mb.setAttribute("aria-expanded","false");var g=l.getAttribute("data-lang");if(g){try{localStorage.setItem("cgbb-lang",g)}catch(x){}}});}if(!/(?:^|;\s*)cgbb_li=1/.test(document.cookie))return;var a=document.querySelector("[data-acct]");if(!a)return;a.innerHTML="";var b=document.createElement("a");b.className="btn btn-red";b.href=a.getAttribute("data-href");b.textContent=a.getAttribute("data-mine");a.appendChild(b);})();</script>
 </body>
 </html>
