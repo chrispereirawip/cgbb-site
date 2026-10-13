@@ -239,6 +239,18 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .pubs .meta{margin-top:12px;font-size:13px;color:var(--grey)}
 .pubs .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500;color:var(--red)}
 .pubs .wp{border-top:1px solid var(--hair);margin-top:36px;padding-top:24px}
+.pubs .mp{border-top:1px solid var(--ink);margin-top:44px;padding-top:24px}
+.pubs .mp-label{font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:22px}
+html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
+.pubs .mp-person{display:flex;gap:24px}
+.pubs .mp-person img{width:96px;height:auto;flex:none;align-self:flex-start;border-radius:50%}
+.pubs .nm{font-size:20px;font-weight:500}
+.pubs .rl{margin-top:4px;font-size:15px;line-height:1.5;color:var(--grey)}
+.pubs .mp ul{list-style:none;margin:16px 0 0;padding:0}
+.pubs .mp li{padding:14px 0;border-top:1px solid var(--hair)}
+.pubs .mp .ti{display:block;margin-top:6px;font-size:17px;line-height:1.45;font-weight:500;color:var(--ink)}
+.pubs .mp .ti:hover{color:var(--red)}
+.pubs .mp li p{margin:6px 0 0;font-size:15px;line-height:1.6;color:var(--grey)}
 .ev-list{display:flex;flex-direction:column}
 .ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
 .ev + .ev{border-top-color:var(--hair)}
@@ -284,7 +296,7 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
   .ev{flex-direction:column;gap:10px}
   .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
   .ev .y{margin-top:0}
-  .ev.featured .title{font-size:26px}.pubs .book{flex-direction:column;gap:18px}.pubs .book img{width:130px}}
+  .ev.featured .title{font-size:26px}.pubs .book{flex-direction:column;gap:18px}.pubs .book img{width:130px}.pubs .mp-person{flex-direction:column;gap:16px}.pubs .mp-person img{width:80px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://cgbb.org/#organization", "name": "Council for Global Brand Building", "alternateName": ["CGBB", "全球化品牌信任促進會", "品信會"], "url": "https://cgbb.org/", "logo": "https://cgbb.org/assets/logo-horizontal.png", "email": "info@cgbb.org", "nonprofitStatus": "Nonprofit", "foundingDate": "2026-09", "description": "The Council for Global Brand Building sets the standards for how trust is assessed and rated in corporate and business settings.", "sameAs": ["https://www.linkedin.com/company/120314036/"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh-Hant", "mainEntity": [{"@type": "Question", "name": "什麼是全球化品牌信任促進會（品信會，CGBB）？", "acceptedAnswer": {"@type": "Answer", "text": "全球化品牌信任促進會（品信會，英文名稱 Council for Global Brand Building，簡稱 CGBB）是一個開放的非營利組織，致力於建立評估與評級企業及商業信任的標準。品信會由美訊 iMpact 發起，於2026年9月在日內瓦世貿組織公共論壇期間成立。"}}, {"@type": "Question", "name": "什麼是全球品牌公信力指數？", "acceptedAnswer": {"@type": "Answer", "text": "全球品牌公信力指數是品信會用以評估品牌受信任程度的標準。指數從七個維度衡量公信力，涵蓋消費者、公眾、員工、商業夥伴、監管機構、危機應對及人工智能。"}}, {"@type": "Question", "name": "指數的七個維度是什麼？", "acceptedAnswer": {"@type": "Answer", "text": "消費者認知: 消費者如何看待品牌的品質、可靠性與價值，以及是否相信品牌的承諾。 公眾聲譽與媒體: 品牌在新聞報道與公眾討論中的形象，以及這一形象是否一致。 僱主品牌: 現有及潛在員工如何看待這家企業作為工作場所。 合作夥伴關係: 供應商、經銷商及其他商業夥伴對企業的信心。 監管合規與社會責任: 企業的合規紀錄，以及其對所在社區與環境的貢獻。 危機與風險管理: 企業預判、應對並從考驗信任的事件中恢復的能力。 人工智能對公信力的影響: 人工智能系統如何呈現一個品牌，以及企業自身使用人工智能的方式如何影響外界對它的信任。"}}, {"@type": "Question", "name": "白皮書與排名何時發佈？", "acceptedAnswer": {"@type": "Answer", "text": "品信會計劃於2026年稍後發佈首份白皮書，闡述評估信任的學術基礎。首份排名將依據該標準為領先品牌評級，計劃於2027年推出。"}}, {"@type": "Question", "name": "誰可以加入品信會？會費是多少？", "acceptedAnswer": {"@type": "Answer", "text": "品信會歡迎企業、機構（包括高校、研究機構、媒體及行業組織）以及品牌、傳播與信任領域的個人專家加入。目前會員資格免費。您可透過會員申請表提交申請。"}}, {"@type": "Question", "name": "如何聯絡品信會？", "acceptedAnswer": {"@type": "Answer", "text": "請發送電郵至 info@cgbb.org。"}}]}</script>
@@ -422,6 +434,7 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 <a class="book" href="/zh/publications/trust/"><img src="/assets/books/trust-cover.png" width="400" height="588" alt="《信任：中國企業全球化的黃金鑰匙》" loading="lazy">
 <div><div class="tag">著作 · 創始主席</div><div class="title">《信任：中國企業全球化的黃金鑰匙》</div><div class="orig">Trust: The Golden Key to Chinese Enterprises’ Globalization</div><div class="by">彭家榮（Chris Pereira），品信會創始主席</div><p>一本關於中國企業如何在海外市場贏得並維護政府、合作夥伴、客戶及員工信任的實用指南，書中案例來自作者在中國逾20年的實踐。</p><div class="meta">深圳出版社 · 2026年2月 · 簡體中文版</div><span class="more">了解本書 →</span></div></a>
 <div class="wp"><div class="tag">白皮書 · 即將發佈</div><div class="title">品信會白皮書</div><p>闡述評估與評級商業信任的學術基礎，將於2026年11月在香港發佈。</p></div>
+<div class="mp"><div class="mp-label">創始成員著作</div><div class="mp-person"><img src="/assets/members/xiao-wang.jpg" width="96" height="97" alt="汪瀟教授" loading="lazy"><div><div class="nm">汪瀟教授</div><div class="rl">西交利物浦大學國際商學院副教授</div><ul><li><div class="tag">著作 · 2024</div><a class="ti" href="https://scholar.xjtlu.edu.cn/en/publications/%E5%B7%A5%E5%8E%82%E6%95%B0%E5%AD%97%E5%8C%96-%E4%B8%9A%E5%8A%A1%E9%A9%B1%E5%8A%A8%E4%B8%8B%E7%9A%84%E8%BD%AC%E5%9E%8B%E7%AD%96%E7%95%A5%E4%B8%8E%E5%AE%9E%E6%93%8D/" target="_blank" rel="noopener">《工廠數字化：業務驅動下的轉型策略與實操》</a><p>汪瀟與 Bin Jin、Xuefeng Lu 合著，人民郵電出版社出版。</p></li><li><div class="tag">期刊論文 · 2025</div><a class="ti" href="https://doi.org/10.1108/IJOPM-03-2024-0271" target="_blank" rel="noopener">Aligning risk and value creation: a process model of supply chain risk management in geopolitical disruptions</a><p>研究中小型跨國企業如何在中美貿易摩擦等地緣政治衝擊下管理供應鏈風險並持續創造價值。刊於《International Journal of Operations &amp; Production Management》，與 J. Zheng、N. Islam、J. Zhang、A. Behl 及 T. Papadopoulos 合著。</p></li></ul><a class="more" href="https://scholar.xjtlu.edu.cn/en/persons/XiaoWang/" target="_blank" rel="noopener">查看全部著作 →</a></div></div></div>
 </div>
 </div>
 </div>
