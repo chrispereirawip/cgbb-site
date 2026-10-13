@@ -123,6 +123,22 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .foot-links .muted{color:#bfbfbf}
 .foot-bottom{margin-top:64px;padding-top:24px;border-top:1px solid #3a3a3a;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:#bfbfbf}
 
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
 .pathway .lead{margin-top:0}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;margin-top:56px}
 .step{border-top:1px solid var(--ink);padding-top:24px;display:flex;flex-direction:column}
@@ -149,6 +165,10 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .faq dd{margin:4px 0 0}
 @media (max-width:760px){
   html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}
   .wrap{padding:0 20px}
   .head .logo img{height:46px}
   nav{gap:6px 20px}
@@ -162,6 +182,7 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://cgbb.org/#organization", "name": "Council for Global Brand Building", "alternateName": ["CGBB", "全球化品牌信任促進會", "品信會"], "url": "https://cgbb.org/", "logo": "https://cgbb.org/assets/logo-horizontal.png", "email": "info@cgbb.org", "nonprofitStatus": "Nonprofit", "foundingDate": "2026-09", "description": "The Council for Global Brand Building sets the standards for how trust is assessed and rated in corporate and business settings.", "sameAs": ["https://www.linkedin.com/company/120314036/"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh-Hant", "mainEntity": [{"@type": "Question", "name": "什麼是全球化品牌信任促進會（品信會，CGBB）？", "acceptedAnswer": {"@type": "Answer", "text": "全球化品牌信任促進會（品信會，英文名稱 Council for Global Brand Building，簡稱 CGBB）是一個開放的非營利組織，致力於建立評估與評級企業及商業信任的標準。品信會由美訊 iMpact 發起，於2026年9月在日內瓦世貿組織公共論壇期間成立。"}}, {"@type": "Question", "name": "什麼是全球品牌公信力指數？", "acceptedAnswer": {"@type": "Answer", "text": "全球品牌公信力指數是品信會用以評估品牌受信任程度的標準。指數從七個維度衡量公信力，涵蓋消費者、公眾、員工、商業夥伴、監管機構、危機應對及人工智能。"}}, {"@type": "Question", "name": "指數的七個維度是什麼？", "acceptedAnswer": {"@type": "Answer", "text": "消費者認知: 消費者如何看待品牌的品質、可靠性與價值，以及是否相信品牌的承諾。 公眾聲譽與媒體: 品牌在新聞報道與公眾討論中的形象，以及這一形象是否一致。 僱主品牌: 現有及潛在員工如何看待這家企業作為工作場所。 合作夥伴關係: 供應商、經銷商及其他商業夥伴對企業的信心。 監管合規與社會責任: 企業的合規紀錄，以及其對所在社區與環境的貢獻。 危機與風險管理: 企業預判、應對並從考驗信任的事件中恢復的能力。 人工智能對公信力的影響: 人工智能系統如何呈現一個品牌，以及企業自身使用人工智能的方式如何影響外界對它的信任。"}}, {"@type": "Question", "name": "白皮書與排名何時發佈？", "acceptedAnswer": {"@type": "Answer", "text": "品信會計劃於2026年稍後發佈首份白皮書，闡述評估信任的學術基礎。首份排名將依據該標準為領先品牌評級，計劃於2027年推出。"}}, {"@type": "Question", "name": "誰可以加入品信會？會費是多少？", "acceptedAnswer": {"@type": "Answer", "text": "品信會歡迎企業、機構（包括高校、研究機構、媒體及行業組織）以及品牌、傳播與信任領域的個人專家加入。目前會員資格免費。您可透過會員申請表提交申請。"}}, {"@type": "Question", "name": "如何聯絡品信會？", "acceptedAnswer": {"@type": "Answer", "text": "請發送電郵至 info@cgbb.org。"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Event", "name": "品信會白皮書發佈會", "startDate": "2026-11", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "zh-Hant", "location": {"@type": "Place", "name": "香港", "address": "香港"}, "organizer": {"@id": "https://cgbb.org/#organization"}, "description": "品信會將發佈首份白皮書，闡述評估與評級商業信任的學術基礎。具體日期、場地及報名詳情稍後公佈。"}</script>
 </head>
 <body>
 
@@ -316,12 +337,19 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 </div>
 </section>
 
-<section class="events" id="events">
+<section class="section events" id="events">
 <div class="wrap">
 <div class="rule"></div>
-<div class="row">
+<div class="split">
+<div class="left">
 <div class="label">活動</div>
-<div class="soon">敬請期待</div>
+<h2>近期活動</h2>
+</div>
+<div class="right">
+<div class="ev-list">
+<div class="ev featured"><div class="when"><div class="m">11月</div><div class="y">2026</div></div><div class="what"><div class="by">品信會</div><div class="title">品信會白皮書發佈會</div><div class="where">香港</div><p>品信會將發佈首份白皮書，闡述評估與評級商業信任的學術基礎。具體日期、場地及報名詳情稍後公佈。</p></div></div>
+</div>
+</div>
 </div>
 </div>
 </section>
