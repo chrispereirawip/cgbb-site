@@ -404,7 +404,7 @@ button[disabled]{opacity:.55;cursor:wait}
 <button type="button" class="btn btn-red" data-next>下一步</button><button type="button" class="btn btn-red" data-submit>開始診斷</button></div>
 <div class="msg" data-msg role="alert"></div>
 </div>
-<div class="done" data-done role="status" tabindex="-1"><h2>報告正在準備中</h2><p data-donep></p><p>如未收到，請檢查垃圾郵件匣，或發送電郵至 info@cgbb.org。</p><p class="id">報告編號: <span data-doneid></span></p><p><a href="/zh/">返回品信會首頁</a></p></div>
+<div class="done" data-done role="status" tabindex="-1"><h2>報告正在準備中</h2><p data-donep></p><p>如未收到，請檢查垃圾郵件匣，或發送電郵至 secretariat@cgbb.org。</p><p class="id">報告編號: <span data-doneid></span></p><p><a href="/zh/">返回品信會首頁</a></p></div>
 </div>
 </section>
 </main>
@@ -416,7 +416,7 @@ button[disabled]{opacity:.55;cursor:wait}
 <div class="foot-links">
 <div><a href="/zh/#about">關於我們</a><a href="/zh/#index">公信力指數</a><a href="/zh/#faq">常見問題</a><a href="/zh/#publications">出版物</a></div>
 <div><a href="/zh/#news">新聞</a><a href="/zh/#membership">會員</a><a href="/zh/#events">活動</a><a href="https://www.linkedin.com/company/120314036/">LinkedIn</a></div>
-<div><span class="muted">聯絡我們</span><a href="mailto:info@cgbb.org">info@cgbb.org</a></div>
+<div><span class="muted">聯絡我們</span><a href="mailto:secretariat@cgbb.org">secretariat@cgbb.org</a></div>
 </div>
 </div>
 <div class="foot-bottom"><span>© 2026 全球化品牌信任促進會</span><span style="letter-spacing:.06em">Council for Global Brand Building</span></div>
@@ -424,7 +424,7 @@ button[disabled]{opacity:.55;cursor:wait}
 </footer>
 <script>
 (function(){
-var API="https://api.cgbb.org", M={"badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期，請重新獲取。", "cooldown": "您最近已進行診斷，可於 {date} 起再次診斷。我們建議每六個月診斷一次。", "rate": "嘗試次數過多，請稍候幾分鐘再試。", "session": "連線已逾時，請重新確認電郵。", "fail": "系統出現問題，請再試一次，或發送電郵至 info@cgbb.org。", "codeHint": "已發送至 {email}，15分鐘內有效。", "doneP": "我們正在掃描{company}的公開數據並準備報告，通常會在15分鐘內發送至 {email}。"}, LANG="zh";
+var API="https://api.cgbb.org", M={"badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期，請重新獲取。", "cooldown": "您最近已進行診斷，可於 {date} 起再次診斷。我們建議每六個月診斷一次。", "rate": "嘗試次數過多，請稍候幾分鐘再試。", "session": "連線已逾時，請重新確認電郵。", "fail": "系統出現問題，請再試一次，或發送電郵至 secretariat@cgbb.org。", "codeHint": "已發送至 {email}，15分鐘內有效。", "doneP": "我們正在掃描{company}的公開數據並準備報告，通常會在15分鐘內發送至 {email}。"}, LANG="zh";
 var demo=!API||/[?&]demo=1/.test(location.search);
 if(demo){var b=document.querySelector('.demo');if(b)b.hidden=false;}
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
