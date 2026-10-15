@@ -380,6 +380,7 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 </div>
 </footer>
 <script>
+try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.setItem('cgbb_ref',_r)}catch(e){}
 (function(){
   var ACCESS_KEY = '72f93922-676c-4d18-affe-c5ecb4b6d602';
   var form = document.querySelector('form.app');
@@ -461,7 +462,7 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
     submit.disabled = true;
     fetch('https://api.web3forms.com/submit', { method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'}, body: JSON.stringify(payload) })
       .then(function(r){ return r.json(); })
-      .then(function(j){ if (!j.success) throw new Error(j.message||'failed'); try{ fetch('https://api.cgbb.org/api/members/register', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: d['Email'], name: name, org: d['Organization Name'] || d['Current Organization'] || '', category: isOrg() ? 'Organizational' : 'Individual', lang: document.documentElement.lang, app: d}), keepalive:true}).catch(function(){}); }catch(e){} try{ localStorage.removeItem(KEY); }catch(e){} form.style.display='none'; document.querySelector('.steps').style.display='none'; var dn=document.querySelector('[data-done]'); dn.classList.add('on'); dn.focus(); window.scrollTo({top:0, behavior:'smooth'}); })
+      .then(function(j){ if (!j.success) throw new Error(j.message||'failed'); try{ fetch('https://api.cgbb.org/api/members/register', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: d['Email'], name: name, org: d['Organization Name'] || d['Current Organization'] || '', category: isOrg() ? 'Organizational' : 'Individual', lang: document.documentElement.lang, app: d, ref: (function(){try{var r=(new URLSearchParams(location.search).get('ref')||'');if(r)sessionStorage.setItem('cgbb_ref',r);return r||sessionStorage.getItem('cgbb_ref')||''}catch(e){return ''}})()}), keepalive:true}).catch(function(){}); }catch(e){} try{ localStorage.removeItem(KEY); }catch(e){} form.style.display='none'; document.querySelector('.steps').style.display='none'; var dn=document.querySelector('[data-done]'); dn.classList.add('on'); dn.focus(); window.scrollTo({top:0, behavior:'smooth'}); })
       .catch(function(){ fail.classList.add('on'); submit.disabled = false; });
   });
 
