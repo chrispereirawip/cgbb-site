@@ -433,7 +433,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <p class="alt">Already have a password? <a href="#login">Log in</a></p>
 </section>
 <div class="dash" data-dash>
-<div class="dash-top"><div><h2>Welcome<span data-d="hi"></span></h2><div class="who" data-d="email"></div></div><button type="button" class="btn btn-line" data-logout>Log out</button></div>
+<div class="dash-top"><div><h2>Welcome<span data-d="hi"></span></h2><div class="who" data-d="email"></div></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-red" href="/admin/" data-admin hidden style="margin-top:0">Admin panel</a><button type="button" class="btn btn-line" data-logout>Log out</button></div></div>
 <div class="card"><div class="lab">Membership</div><div class="badge" data-badge></div>
 <dl class="facts">
 <div><dt>Name</dt><dd data-d="name"></dd></div>
@@ -558,7 +558,7 @@ $('[data-loginform]').addEventListener('submit',function(ev){ev.preventDefault()
 // dashboard
 function setD(k,v){var el=$('[data-d="'+k+'"]');if(el)el.textContent=v||'—'}
 function render(j){
- var m=j.member, ms=j.membership;
+ var m=j.member, ms=j.membership; $('[data-admin]').hidden=!j.isAdmin;
  $('[data-d="hi"]').textContent=m.name?(LANG==='zh'?'，':', ')+m.name:'';setD('email',m.email);setD('name',m.name);setD('org',m.org);setD('category',m.category);
  setD('joined',fmt(ms.joined));setD('approved',fmt(ms.approvedAt));setD('valid',fmt(ms.validUntil));
  $('[data-f="approved"]').hidden=!ms.approvedAt;$('[data-f="valid"]').hidden=!ms.validUntil;$('[data-f="joined"]').hidden=!!ms.approvedAt;
