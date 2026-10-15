@@ -424,7 +424,7 @@ button[disabled]{opacity:.55;cursor:wait}
 </footer>
 <script>
 (function(){
-var API="https://api.cgbb.org", M={"badEmail": "Please enter a valid email address.", "badCode": "That code isn’t right. Please check the email and try again.", "expired": "That code has expired. Please request a new one.", "cooldown": "You ran a diagnosis recently. You can run the next one from {date}. We recommend re-diagnosing every six months.", "rate": "Too many attempts. Please wait a few minutes and try again.", "session": "Your session expired. Please confirm your email again.", "fail": "Something went wrong. Please try again, or email secretariat@cgbb.org.", "codeHint": "Sent to {email}. The code expires in 15 minutes.", "doneP": "We’re scanning public data about {company} and preparing your report. It will be emailed to {email}, usually within 15 minutes."}, LANG="en";
+var API="https://api.cgbb.org", M={"badEmail": "Please enter a valid email address.", "badCode": "That code isn’t right. Please check the email and try again.", "expired": "That code has expired. Please request a new one.", "cooldown": "You ran a diagnosis recently. You can run the next one from {date}. We recommend re-diagnosing every six months.", "inactive": "Your membership isn’t active at the moment, so the Trust Diagnosis is unavailable. Email secretariat@cgbb.org to renew or reactivate it.", "rate": "Too many attempts. Please wait a few minutes and try again.", "session": "Your session expired. Please confirm your email again.", "fail": "Something went wrong. Please try again, or email secretariat@cgbb.org.", "codeHint": "Sent to {email}. The code expires in 15 minutes.", "doneP": "We’re scanning public data about {company} and preparing your report. It will be emailed to {email}, usually within 15 minutes."}, LANG="en";
 var demo=!API||/[?&]demo=1/.test(location.search);
 if(demo){var b=document.querySelector('.demo');if(b)b.hidden=false;}
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
@@ -452,6 +452,7 @@ function start(){msg1.classList.remove('on');nm.classList.remove('on');pd.classL
   else if(j.status==='pending'){pd.classList.add('on');sent.classList.remove('on');$('[data-step1]').hidden=true;}
   else if(j.status==='code_sent'){sent.classList.add('on');$('[data-step1]').hidden=true;em.readOnly=true;$('[data-codehint]').textContent=M.codeHint.replace('{email}',st.email);code.focus();}
   else if(j.status==='cooldown')say(msg1,M.cooldown.replace('{date}',j.next));
+  else if(j.status==='inactive')say(msg1,M.inactive);
   else if(j.status==='rate_limited')say(msg1,M.rate);
   else if(j.status==='invalid_email')bad(em.closest('.q'),true);
   else say(msg1,M.fail);
