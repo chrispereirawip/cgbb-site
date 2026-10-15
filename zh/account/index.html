@@ -339,28 +339,29 @@ html[lang="zh-Hant"] .card .lab{letter-spacing:.06em}
 .svc a{color:var(--red);font-size:15px;text-decoration:underline;text-underline-offset:3px}
 .svc .soon{font-size:13px;color:var(--grey);letter-spacing:.04em}
 .svc .off{opacity:.55}
-.vip{background:#111;color:#fff;padding:34px 34px 30px;margin-bottom:48px;position:relative;border-top:3px solid var(--red)}
+.vip{background:#111;color:#fff;padding:22px 24px 20px;margin-bottom:48px;position:relative;border-top:3px solid var(--red);max-width:720px}
 .vip .vlab{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d9b36a}
 html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 .vip .vlab::before{content:"";width:18px;height:1px;background:#d9b36a}
-.vip h3{margin:12px 0 8px;font-size:26px;font-weight:500;color:#fff;border:0;padding:0}
-.vip .vsub{margin:0 0 24px;font-size:15px;line-height:1.7;color:#bdbdbd;max-width:620px}
-.vip .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+.vip h3{margin:8px 0 6px;font-size:20px;font-weight:500;color:#fff;border:0;padding:0}
+.vip .vsub{margin:0 0 16px;font-size:14px;line-height:1.7;color:#bdbdbd;max-width:620px}
+.vip .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
 .vip label{display:block;font-size:13px;color:#bdbdbd;margin-bottom:6px}
-.vip select,.vip input,.vip textarea{width:100%;font:inherit;font-size:15px;padding:11px 13px;border:1px solid #444;border-radius:0;background:#1c1c1c;color:#fff;min-height:46px}
-.vip textarea{min-height:130px;resize:vertical;line-height:1.6}
+.vip select,.vip input,.vip textarea{width:100%;font:inherit;font-size:14px;padding:8px 11px;border:1px solid #444;border-radius:0;background:#1c1c1c;color:#fff;min-height:40px}
+.vip textarea{min-height:90px;resize:vertical;line-height:1.6}
 .vip select:focus,.vip input:focus,.vip textarea:focus{outline:2px solid var(--red);outline-offset:0;border-color:var(--red)}
 .vip .full{grid-column:1/-1}
-.vip .vrow{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:20px}
+.vip .vrow{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:14px}
+.vip .btn{min-height:42px;padding:0 20px;font-size:14px}
 .vip .vnote{font-size:13px;color:#8f8f8f}
 .vip .verr{display:none;color:#ff8a80;font-size:14px;margin-top:10px}.vip .verr.on{display:block}
 .vip .vdone{display:none}.vip .vdone.on{display:block}
-.vip .vdone p{font-size:16px;line-height:1.7;color:#e5e5e5;margin:0 0 6px}
+.vip .vdone p{font-size:15px;line-height:1.7;color:#e5e5e5;margin:0 0 6px}
 .vip .vdone .ref{font-size:13px;color:#8f8f8f}
 .disc{border:1px dashed #bdbdbd;padding:22px 24px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between}
 .disc p{margin:0;font-size:15px;line-height:1.6;color:var(--grey);max-width:620px}
 .disc .soon{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
-@media (max-width:760px){.vip{padding:26px 20px 24px}.vip .vgrid{grid-template-columns:1fr}}
+@media (max-width:760px){.vip{padding:20px 18px 18px}.vip .vgrid{grid-template-columns:1fr}}
 .demo{background:#000;color:#fff;font-size:13px;padding:8px 0;text-align:center;letter-spacing:.04em}
 @media (max-width:760px){.ac-hero{padding:24px 0 4px}.ac-hero .label{margin-bottom:8px}.ac-hero h1,.ac-hero .sub{display:none}.ac-hero .rule{margin-bottom:18px}.ac-panel h2{font-size:26px}.ac-panel .intro{margin-bottom:20px}.card{padding:22px 18px}
 .reps thead{display:none}.reps tr{display:block;padding:12px 0;border-bottom:1px solid var(--hair)}.reps td{display:block;border:0;padding:2px 0}}
@@ -445,6 +446,9 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <div class="pend" data-note hidden><b data-noteb></b><span data-notep></span></div>
 </div>
 <div data-active hidden>
+<div class="sec"><h3>您的信任診斷報告</h3><div data-reps></div><p class="hint" style="margin-top:12px">報告會在您下載時即時生成，可能需時約20秒。</p></div>
+<div class="sec"><h3>會員服務</h3><div class="svc"><div class="" data-svc><h4>信任診斷</h4><p>免費初步評估品牌在七個維度上的公信力。</p><a href="/zh/diagnosis/">開始診斷</a></div><div class="off" ><h4>進階會員</h4><p>為需要品信會更深入支援的機構而設的升級方案。</p><span class="soon">即將推出</span></div><div class="off" ><h4>活動門票</h4><p>預訂品信會活動席位，包括香港白皮書發佈會。</p><span class="soon">即將推出</span></div></div></div>
+<div class="sec"><h3>會員優惠</h3><div class="disc"><p>品信會活動、信任評估及合作夥伴服務的會員專屬價格。</p><span class="soon">即將推出</span></div></div>
 <section class="vip" aria-labelledby="vh">
 <div class="vlab">會員專屬 · 優先通道</div>
 <h3 id="vh">直接聯絡秘書處</h3>
@@ -460,9 +464,6 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 </form>
 <div class="vdone" data-vdone role="status" tabindex="-1"><p><b>訊息已送達。</b></p><p>秘書處已收到您的訊息，並將優先回覆至您的會員電郵。確認郵件已發送至您的信箱。</p><p class="ref">參考編號: <span data-vref></span></p><div class="vrow"><button type="button" class="linkbtn" data-vagain style="color:#d9b36a">再發送一則訊息</button></div></div>
 </section>
-<div class="sec"><h3>您的信任診斷報告</h3><div data-reps></div><p class="hint" style="margin-top:12px">報告會在您下載時即時生成，可能需時約20秒。</p></div>
-<div class="sec"><h3>會員服務</h3><div class="svc"><div class="" data-svc><h4>信任診斷</h4><p>免費初步評估品牌在七個維度上的公信力。</p><a href="/zh/diagnosis/">開始診斷</a></div><div class="off" ><h4>進階會員</h4><p>為需要品信會更深入支援的機構而設的升級方案。</p><span class="soon">即將推出</span></div><div class="off" ><h4>活動門票</h4><p>預訂品信會活動席位，包括香港白皮書發佈會。</p><span class="soon">即將推出</span></div></div></div>
-<div class="sec"><h3>會員優惠</h3><div class="disc"><p>品信會活動、信任評估及合作夥伴服務的會員專屬價格。</p><span class="soon">即將推出</span></div></div>
 </div>
 </div>
 </div>
