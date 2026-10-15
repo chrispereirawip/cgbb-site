@@ -424,7 +424,7 @@ button[disabled]{opacity:.55;cursor:wait}
 </footer>
 <script>
 (function(){
-var API="https://api.cgbb.org", M={"badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期，請重新獲取。", "cooldown": "您最近已進行診斷，可於 {date} 起再次診斷。我們建議每六個月診斷一次。", "rate": "嘗試次數過多，請稍候幾分鐘再試。", "session": "連線已逾時，請重新確認電郵。", "fail": "系統出現問題，請再試一次，或發送電郵至 secretariat@cgbb.org。", "codeHint": "已發送至 {email}，15分鐘內有效。", "doneP": "我們正在掃描{company}的公開數據並準備報告，通常會在15分鐘內發送至 {email}。"}, LANG="zh";
+var API="https://api.cgbb.org", M={"badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期，請重新獲取。", "cooldown": "您最近已進行診斷，可於 {date} 起再次診斷。我們建議每六個月診斷一次。", "inactive": "您的會員資格目前未生效，因此暫時無法使用信任診斷。如需續期或重新啟用，請發送電郵至 secretariat@cgbb.org。", "rate": "嘗試次數過多，請稍候幾分鐘再試。", "session": "連線已逾時，請重新確認電郵。", "fail": "系統出現問題，請再試一次，或發送電郵至 secretariat@cgbb.org。", "codeHint": "已發送至 {email}，15分鐘內有效。", "doneP": "我們正在掃描{company}的公開數據並準備報告，通常會在15分鐘內發送至 {email}。"}, LANG="zh";
 var demo=!API||/[?&]demo=1/.test(location.search);
 if(demo){var b=document.querySelector('.demo');if(b)b.hidden=false;}
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
@@ -452,6 +452,7 @@ function start(){msg1.classList.remove('on');nm.classList.remove('on');pd.classL
   else if(j.status==='pending'){pd.classList.add('on');sent.classList.remove('on');$('[data-step1]').hidden=true;}
   else if(j.status==='code_sent'){sent.classList.add('on');$('[data-step1]').hidden=true;em.readOnly=true;$('[data-codehint]').textContent=M.codeHint.replace('{email}',st.email);code.focus();}
   else if(j.status==='cooldown')say(msg1,M.cooldown.replace('{date}',j.next));
+  else if(j.status==='inactive')say(msg1,M.inactive);
   else if(j.status==='rate_limited')say(msg1,M.rate);
   else if(j.status==='invalid_email')bad(em.closest('.q'),true);
   else say(msg1,M.fail);
