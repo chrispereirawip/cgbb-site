@@ -14,7 +14,7 @@
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:#fff;color:var(--ink);font-family:var(--font-en),var(--font-zh);-webkit-font-smoothing:antialiased}
 a{color:var(--red);text-decoration:none}a:hover{color:var(--red-dark)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.wrap{max-width:1440px;margin:0 auto;padding:0 40px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;font-size:15px;font-weight:500;letter-spacing:.04em}
 .btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-dark);color:#fff}
 .btn-line{border:1px solid var(--ink);color:var(--ink)}.btn-line:hover{border-color:var(--red);color:var(--red)}
@@ -63,11 +63,16 @@ dl.kv dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
 .tbl th{text-align:left;font-weight:500;color:var(--grey);font-size:12px;letter-spacing:.04em;padding:8px 10px 8px 0;border-bottom:1px solid var(--ink);white-space:nowrap}
 .tbl td{padding:10px 10px 10px 0;border-bottom:1px solid var(--hair);vertical-align:top}
 .tbl tr.row{cursor:pointer}
+.tbl select{font:inherit;font-size:13px;padding:4px 6px;border:1px solid #bdbdbd;border-radius:0;background:#fff;color:var(--ink);cursor:pointer}
+.tbl select.st-active{color:#1d6b3a;border-color:#9cc9ab;background:#e9f4ed;font-weight:600}
+.tbl select.st-inactive{color:var(--red);border-color:#e0b4b3;background:#faf3f3;font-weight:600}
+.tbl select:focus{outline:2px solid var(--red);outline-offset:0}
+.tbl select[disabled]{opacity:.5;cursor:wait}
 .tbl tr.row:hover td{background:#fafafa}
 .tbl tr.det td{background:#fafafa;padding:14px 16px}
 .tbl a{color:var(--red)}
 .pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;white-space:nowrap}
-.pill.active{color:#1d6b3a;background:#e9f4ed}.pill.pending{color:#8a5a00;background:#fbf2df}.pill.declined,.pill.expired{color:var(--red);background:#faf3f3}.pill.staff{color:#fff;background:#111}
+.pill.active{color:#1d6b3a;background:#e9f4ed}.pill.pending{color:#8a5a00;background:#fbf2df}.pill.declined,.pill.expired,.pill.inactive{color:var(--red);background:#faf3f3}.pill.staff{color:#fff;background:#111}
 .empty{color:var(--grey);font-size:15px;padding:24px 0}
 .msgc{border-left:3px solid var(--red);padding:4px 0 4px 16px;margin:0 0 22px}
 .msgc .mh{font-size:14px;color:var(--grey)}
@@ -106,7 +111,7 @@ dl.kv dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
 <div class="toast" role="status"></div>
 <script>
 (function(){
-var API="https://api.cgbb.org", M={"title": "Secretariat admin · 秘書處管理後台 | CGBB", "h1": "Secretariat admin", "h1zh": "秘書處管理後台", "stPending": "Applications to review · 待審批", "stActive": "Active members · 有效會員", "stIgnored": "Ignored · 已忽略", "stMsgs": "Member messages · 會員留言", "tabApps": "Applications 申請", "tabMembers": "Members 會員", "tabIgnored": "Ignored 已忽略", "tabMsgs": "Messages 留言", "search": "Search name, organisation or email · 搜尋", "export": "Export CSV 匯出", "approve": "Approve 批准", "ignore": "Ignore 忽略", "confirmApprove": "Confirm: approve and email welcome letter · 確認批准", "confirmIgnore": "Confirm ignore · 確認忽略", "restore": "Move back to applications · 恢復待審批", "viewApp": "View full application · 查看完整申請", "noApp": "Full application form not stored (applied before Oct 15, 2026; see the original email). 未儲存完整申請表。", "applied": "Applied 申請日期", "lang": "Language 語言", "account": "Account 帳戶", "accYes": "Password set 已設定密碼", "accNo": "Not set up yet 尚未設定", "approvedOK": "Approved. Welcome letter sent. 已批准，歡迎信已發送。", "ignoredOK": "Ignored. No email was sent. 已忽略，未發送任何郵件。", "restoredOK": "Moved back to applications. 已恢復待審批。", "noApps": "No applications waiting. 暫無待審批申請。", "noIgnored": "Nothing here. 暫無。", "noMsgs": "No member messages yet. 暫無會員留言。", "thName": "Name 姓名", "thOrg": "Organisation 機構", "thEmail": "Email 電郵", "thCat": "Category 類別", "thStatus": "Status 狀態", "thSince": "Member since 入會", "thValid": "Valid until 有效期至", "thAcc": "Account 帳戶", "thDx": "Diagnoses 診斷", "thRef": "Referrals 推薦", "refBy": "Referred by 推薦人", "gateH": "Please log in · 請先登入", "gateP": "Log in with the secretariat@cgbb.org account to use the admin panel. First time? Choose “Sign up” on the login page and set a password for secretariat@cgbb.org.", "gateP2": "登入 secretariat@cgbb.org 帳戶以使用管理後台。首次使用請在登入頁選擇「註冊」，為 secretariat@cgbb.org 設定密碼。", "gateBtn": "Go to login · 前往登入", "forbH": "No admin access · 無管理權限", "forbP": "This account is not on the admin list. Log out and log in with secretariat@cgbb.org. 此帳戶沒有管理權限，請以 secretariat@cgbb.org 登入。", "fail": "Something went wrong. Please refresh and try again. 系統出錯，請重新整理後再試。", "st_active": "Active 有效", "st_pending": "Pending 待審批", "st_declined": "Ignored 已忽略", "st_expired": "Expired 已過期", "staff": "Staff", "demo": "Preview with sample data. Nothing is saved."};
+var API="https://api.cgbb.org", M={"title": "Secretariat admin · 秘書處管理後台 | CGBB", "h1": "Secretariat admin", "h1zh": "秘書處管理後台", "stPending": "Applications to review · 待審批", "stActive": "Active members · 有效會員", "stIgnored": "Ignored · 已忽略", "stMsgs": "Member messages · 會員留言", "tabApps": "Applications 申請", "tabMembers": "Members 會員", "tabIgnored": "Ignored 已忽略", "tabMsgs": "Messages 留言", "search": "Search name, organisation or email · 搜尋", "export": "Export CSV 匯出", "approve": "Approve 批准", "ignore": "Ignore 忽略", "confirmApprove": "Confirm: approve and email welcome letter · 確認批准", "confirmIgnore": "Confirm ignore · 確認忽略", "restore": "Move back to applications · 恢復待審批", "viewApp": "View full application · 查看完整申請", "noApp": "Full application form not stored (applied before Oct 15, 2026; see the original email). 未儲存完整申請表。", "applied": "Applied 申請日期", "lang": "Language 語言", "account": "Account 帳戶", "accYes": "Password set 已設定密碼", "accNo": "Not set up yet 尚未設定", "approvedOK": "Approved. Welcome letter sent. 已批准，歡迎信已發送。", "ignoredOK": "Ignored. No email was sent. 已忽略，未發送任何郵件。", "restoredOK": "Moved back to applications. 已恢復待審批。", "noApps": "No applications waiting. 暫無待審批申請。", "noIgnored": "Nothing here. 暫無。", "noMsgs": "No member messages yet. 暫無會員留言。", "thName": "Name 姓名", "thOrg": "Organisation 機構", "thEmail": "Email 電郵", "thCat": "Category 類別", "thStatus": "Status 狀態", "thSince": "Member since 入會", "thValid": "Valid until 有效期至", "thAcc": "Account 帳戶", "thDx": "Diagnoses 診斷", "thRef": "Referrals 推薦", "refBy": "Referred by 推薦人", "gateH": "Please log in · 請先登入", "gateP": "Log in with the secretariat@cgbb.org account to use the admin panel. First time? Choose “Sign up” on the login page and set a password for secretariat@cgbb.org.", "gateP2": "登入 secretariat@cgbb.org 帳戶以使用管理後台。首次使用請在登入頁選擇「註冊」，為 secretariat@cgbb.org 設定密碼。", "gateBtn": "Go to login · 前往登入", "forbH": "No admin access · 無管理權限", "forbP": "This account is not on the admin list. Log out and log in with secretariat@cgbb.org. 此帳戶沒有管理權限，請以 secretariat@cgbb.org 登入。", "fail": "Something went wrong. Please refresh and try again. 系統出錯，請重新整理後再試。", "st_active": "Active 有效", "st_pending": "Pending 待審批", "st_declined": "Ignored 已忽略", "st_expired": "Expired 已過期", "st_inactive": "Inactive 暫停", "staff": "Staff", "catInd": "Individual 個人", "catOrg": "Organizational 機構", "confirmOff": "Set this membership to inactive? The member keeps their login but loses access to member services until you set it back to Active.", "savedOK": "Saved. 已儲存。", "demo": "Preview with sample data. Nothing is saved."};
 var demo=!API||/[?&]demo=1/.test(location.search);
 if(demo)document.querySelector('.demo').hidden=false;
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
@@ -122,12 +127,14 @@ var SAMPLE_MSGS={status:'ok',messages:[{id:'MSG-20261015-ABC123',email:'dan@exam
 function call(method,path,body){
  if(demo)return new Promise(function(res){setTimeout(function(){
   if(path==='/api/staff/members')res(SAMPLE);else if(path==='/api/staff/messages')res(SAMPLE_MSGS);
-  else{var m=SAMPLE.members.filter(function(x){return x.email===body.email})[0];if(path==='/api/staff/approve'){m.status='approved';m.membership='active';m.approvedAt=new Date().toISOString()}else if(path==='/api/staff/ignore'){m.status='declined';m.membership='declined'}else{m.status='pending';m.membership='pending'}res({status:'ok'})}},300)});
+  else{var m=SAMPLE.members.filter(function(x){return x.email===body.email})[0];if(path==='/api/staff/update'){if(typeof body.active==='boolean')m.membership=body.active?'active':'inactive';if(body.category)m.category=body.category;res({status:'ok',membership:m.membership,category:m.category});return}if(path==='/api/staff/approve'){m.status='approved';m.membership='active';m.approvedAt=new Date().toISOString()}else if(path==='/api/staff/ignore'){m.status='declined';m.membership='declined'}else{m.status='pending';m.membership='pending'}res({status:'ok'})}},300)});
  var o={method:method,credentials:'include',headers:{}};if(body){o.headers['Content-Type']='application/json';o.body=JSON.stringify(body)}
  return fetch(API+path,o).then(function(r){return r.json().then(function(j){j._code=r.status;return j})});}
 var S={members:[],msgs:[],tab:'apps',q:''};
 var TOPIC={services:'Services / 服務與信任評估',membership:'Membership / 會員事務',events:'Events / 活動',partnership:'Partnerships / 合作',general:'General / 一般查詢'};
-function pill(m){var k=m.staff?'staff':(m.status==='approved'?(m.membership==='expired'?'expired':'active'):m.status);var lab=m.staff?M.staff:M['st_'+(k==='staff'?'active':k)];return '<span class="pill '+k+'">'+esc(lab)+'</span>'}
+function pill(m){var k=m.staff?'staff':(m.status==='approved'?(m.membership==='expired'||m.membership==='inactive'?m.membership:'active'):m.status);var lab=m.staff?M.staff:M['st_'+(k==='staff'?'active':k)];return '<span class="pill '+k+'">'+esc(lab)+'</span>'}
+function stSel(m){if(m.staff||m.membership==='expired')return pill(m);var on=m.membership!=='inactive';return '<select data-set="active" data-email="'+esc(m.email)+'" class="'+(on?'st-active':'st-inactive')+'" aria-label="Status"><option value="1"'+(on?' selected':'')+'>'+esc(M.st_active)+'</option><option value="0"'+(on?'':' selected')+'>'+esc(M.st_inactive)+'</option></select>'}
+function catSel(m){if(m.staff)return esc(m.category);var org=m.category==='Organizational';return '<select data-set="category" data-email="'+esc(m.email)+'" aria-label="Category"><option value="Individual"'+(org?'':' selected')+'>'+esc(M.catInd)+'</option><option value="Organizational"'+(org?' selected':'')+'>'+esc(M.catOrg)+'</option></select>'}
 function kv(app){if(!app||!Object.keys(app).length)return '<p class="note">'+M.noApp+'</p>';return '<dl class="kv">'+Object.keys(app).map(function(k){return '<dt>'+esc(k)+'</dt><dd>'+esc(app[k])+'</dd>'}).join('')+'</dl>'}
 function card(m,mode){
  var acts=mode==='apps'?'<button class="btn btn-red" data-a="approve">'+M.approve+'</button><button class="btn btn-line" data-a="ignore">'+M.ignore+'</button>'
@@ -147,13 +154,13 @@ function render(){
   h=list.length?list.map(function(m){return card(m,S.tab)}).join(''):'<p class="empty">'+(S.tab==='apps'?M.noApps:M.noIgnored)+'</p>'}
  else if(S.tab==='members'){var list=S.members.filter(function(m){return m.status==='approved'&&match(m)});
   h='<div class="scroll"><table class="tbl"><thead><tr><th>'+M.thName+'</th><th>'+M.thOrg+'</th><th>'+M.thEmail+'</th><th>'+M.thCat+'</th><th>'+M.thStatus+'</th><th>'+M.thSince+'</th><th>'+M.thValid+'</th><th>'+M.thAcc+'</th><th>'+M.thDx+'</th><th>'+M.thRef+'</th></tr></thead><tbody>'
-  +list.map(function(m,i){return '<tr class="row" data-i="'+i+'"><td>'+esc(m.name)+'</td><td>'+esc(m.org)+'</td><td><a href="mailto:'+esc(m.email)+'">'+esc(m.email)+'</a></td><td>'+esc(m.category)+'</td><td>'+pill(m)+'</td><td>'+d(m.approvedAt||m.applied)+'</td><td>'+d(m.validUntil)+'</td><td>'+(m.hasAccount?'✓':'—')+'</td><td>'+(m.diagnoses||0)+'</td><td>'+(m.referrals?m.referrals+' (+'+m.bonusMonths+' mo)':'—')+'</td></tr><tr class="det" data-d="'+i+'" hidden><td colspan="10">'+(m.referredBy?'<p class="note">'+M.refBy+': '+esc(m.referredBy)+'</p>':'')+kv(m.app)+'</td></tr>'}).join('')+'</tbody></table></div>';
+  +list.map(function(m,i){return '<tr class="row" data-i="'+i+'"><td>'+esc(m.name)+'</td><td>'+esc(m.org)+'</td><td><a href="mailto:'+esc(m.email)+'">'+esc(m.email)+'</a></td><td>'+catSel(m)+'</td><td>'+stSel(m)+'</td><td>'+d(m.approvedAt||m.applied)+'</td><td>'+d(m.validUntil)+'</td><td>'+(m.hasAccount?'✓':'—')+'</td><td>'+(m.diagnoses||0)+'</td><td>'+(m.referrals?m.referrals+' (+'+m.bonusMonths+' mo)':'—')+'</td></tr><tr class="det" data-d="'+i+'" hidden><td colspan="10">'+(m.referredBy?'<p class="note">'+M.refBy+': '+esc(m.referredBy)+'</p>':'')+kv(m.app)+'</td></tr>'}).join('')+'</tbody></table></div>';
   if(!list.length)h='<p class="empty">'+M.noIgnored+'</p>'}
  else{h=S.msgs.length?S.msgs.map(function(x){return '<div class="msgc"><div class="mh"><b>'+esc(x.name||x.email)+'</b> · '+esc(x.org||'')+' · <a href="mailto:'+esc(x.email)+'">'+esc(x.email)+'</a>'+(x.phone?' · '+esc(x.phone):'')+'<br>'+esc(TOPIC[x.topic]||x.topic)+' · '+d(x.at)+' · '+esc(x.id)+'</div><div class="mt">'+esc(x.message)+'</div></div>'}).join(''):'<p class="empty">'+M.noMsgs+'</p>'}
  P.innerHTML=h}
 document.addEventListener('click',function(e){
  var tb=e.target.closest('.tabs button');if(tb){S.tab=tb.dataset.t;render();return}
- var row=e.target.closest('tr.row');if(row&&!e.target.closest('a')){var det=$('[data-d="'+row.dataset.i+'"]');det.hidden=!det.hidden;return}
+ var row=e.target.closest('tr.row');if(row&&!e.target.closest('a')&&!e.target.closest('select')){var det=$('[data-d="'+row.dataset.i+'"]');det.hidden=!det.hidden;return}
  var b=e.target.closest('[data-a]');if(!b)return;var cardEl=b.closest('.card'),email=cardEl.dataset.email,a=b.dataset.a;
  if(a!=='restore'&&!b.dataset.armed){$$('[data-armed]',cardEl).forEach(function(x){x.removeAttribute('data-armed');x.textContent=x.dataset.a==='approve'?M.approve:M.ignore});b.dataset.armed='1';b.dataset.label=b.textContent;b.textContent=a==='approve'?M.confirmApprove:M.confirmIgnore;return}
  $$('button',cardEl).forEach(function(x){x.disabled=true});
@@ -161,6 +168,14 @@ document.addEventListener('click',function(e){
   if(j.status==='ok'||j.status==='already_approved'){toast(a==='approve'?M.approvedOK:a==='ignore'?M.ignoredOK:M.restoredOK);return load()}
   toast(M.fail);$$('button',cardEl).forEach(function(x){x.disabled=false})
  }).catch(function(){toast(M.fail);$$('button',cardEl).forEach(function(x){x.disabled=false})})});
+document.addEventListener('change',function(e){var sel=e.target.closest('select[data-set]');if(!sel)return;
+ var email=sel.dataset.email,m=S.members.filter(function(x){return x.email===email})[0];if(!m)return;var body={email:email},prev;
+ if(sel.dataset.set==='active'){prev=m.membership==='inactive'?'0':'1';if(sel.value==='0'&&!confirm(M.confirmOff)){sel.value=prev;return}body.active=sel.value==='1'}
+ else{prev=m.category;body.category=sel.value}
+ sel.disabled=true;
+ call('POST','/api/staff/update',body).then(function(j){
+  if(j.status==='ok'){if(j.membership)m.membership=j.membership;if(j.category)m.category=j.category;toast(M.savedOK);render();return}
+  sel.value=prev;sel.disabled=false;toast(M.fail)}).catch(function(){sel.value=prev;sel.disabled=false;toast(M.fail)})});
 $('[data-q]').addEventListener('input',function(){S.q=this.value.trim();render()});
 $('[data-export]').addEventListener('click',function(){
  var keys={};S.members.forEach(function(m){if(m.app)Object.keys(m.app).forEach(function(k){keys[k]=1})});keys=Object.keys(keys);
