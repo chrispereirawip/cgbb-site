@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secretariat admin · 秘書處管理後台 | CGBB</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#A40706;--red-dark:#7a0504;--grey:#5F5F5F;--ink:#000;--hair:#e4e4e4;--font-en:'Jost','Avenir Next','Helvetica Neue',sans-serif;--font-zh:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--font-en),var(--font-zh);-webkit-font-smoothing:antialiased}
+a{color:var(--red);text-decoration:none}a:hover{color:var(--red-dark)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;font-size:15px;font-weight:500;letter-spacing:.04em}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-dark);color:#fff}
+.btn-line{border:1px solid var(--ink);color:var(--ink)}.btn-line:hover{border-color:var(--red);color:var(--red)}
+header{border-bottom:1px solid var(--hair)}
+.head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:18px;padding-bottom:18px}
+.head .logo img{height:58px;width:auto;display:block}
+.navlink{color:var(--ink);font-size:15px;font-weight:500}.navlink:hover{color:var(--red)}
+@media (max-width:760px){.wrap{padding:0 20px}.head .logo img{height:40px}}
+
+[hidden]{display:none!important}
+.ad{padding-top:48px;padding-bottom:96px}
+.ad-top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+.ad-top h1{font-size:34px;font-weight:500;margin:0;line-height:1.2}
+.ad-top h1 small{display:block;font-size:16px;color:var(--grey);font-weight:400;margin-top:6px}
+.ad-top .who{font-size:14px;color:var(--grey)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:28px}
+.stats div{background:#fafafa;padding:18px 20px}
+.stats b{display:block;font-size:30px;font-weight:500;color:var(--red);line-height:1.1}
+.stats span{font-size:13px;color:var(--grey)}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--ink);margin-bottom:22px}
+.tabs button{font:inherit;font-size:15px;background:none;border:0;padding:12px 16px;cursor:pointer;color:var(--grey);border-bottom:3px solid transparent;margin-bottom:-2px}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--red);font-weight:500}
+.tabs .n{display:inline-block;min-width:20px;padding:0 6px;margin-left:6px;font-size:12px;line-height:20px;background:#eee;color:var(--ink);border-radius:10px;text-align:center}
+.tabs button.on .n{background:var(--red);color:#fff}
+.tools{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:16px}
+.tools input{font:inherit;font-size:15px;padding:9px 12px;border:1px solid #bdbdbd;min-width:260px;flex:1;max-width:420px}
+.tools input:focus{outline:2px solid var(--red);outline-offset:0;border-color:var(--red)}
+.ad button.btn{border:0;margin-top:0;min-height:40px;padding:0 18px;font-size:14px;cursor:pointer}
+.ad button.btn-line{background:#fff;border:1px solid var(--ink)}
+.ad button[disabled]{opacity:.5;cursor:wait}
+.card{border:1px solid var(--hair);border-top:3px solid var(--red);padding:18px 20px;margin-bottom:14px;background:#fff}
+.card .h{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;justify-content:space-between}
+.card .nm{font-size:19px;font-weight:500}
+.card .org{font-size:15px;color:var(--grey)}
+.card .meta{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px;color:var(--grey);margin-top:8px}
+.card .meta a{color:var(--red)}
+.card .acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.card .note{font-size:13px;color:var(--grey)}
+.card.done{border-top-color:#1d6b3a;opacity:.75}
+details.app{margin-top:12px}
+details.app summary{cursor:pointer;color:var(--red);font-size:14px}
+dl.kv{display:grid;grid-template-columns:minmax(140px,240px) 1fr;gap:6px 18px;margin:12px 0 0;font-size:14px}
+dl.kv dt{color:var(--grey)}
+dl.kv dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:500;color:var(--grey);font-size:12px;letter-spacing:.04em;padding:8px 10px 8px 0;border-bottom:1px solid var(--ink);white-space:nowrap}
+.tbl td{padding:10px 10px 10px 0;border-bottom:1px solid var(--hair);vertical-align:top}
+.tbl tr.row{cursor:pointer}
+.tbl tr.row:hover td{background:#fafafa}
+.tbl tr.det td{background:#fafafa;padding:14px 16px}
+.tbl a{color:var(--red)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;white-space:nowrap}
+.pill.active{color:#1d6b3a;background:#e9f4ed}.pill.pending{color:#8a5a00;background:#fbf2df}.pill.declined,.pill.expired{color:var(--red);background:#faf3f3}.pill.staff{color:#fff;background:#111}
+.empty{color:var(--grey);font-size:15px;padding:24px 0}
+.msgc{border-left:3px solid var(--red);padding:4px 0 4px 16px;margin:0 0 22px}
+.msgc .mh{font-size:14px;color:var(--grey)}
+.msgc .mt{white-space:pre-wrap;font-size:15px;line-height:1.7;margin-top:6px}
+.gate{max-width:560px;padding:40px 0}
+.gate h2{font-size:26px;margin:0 0 12px}
+.gate p{font-size:16px;line-height:1.7;color:var(--grey)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#111;color:#fff;padding:12px 18px;font-size:14px;z-index:50;display:none}
+.toast.on{display:block}
+.scroll{overflow-x:auto}
+.demo{background:#000;color:#fff;font-size:13px;padding:8px 0;text-align:center}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.ad-top h1{font-size:26px}dl.kv{grid-template-columns:1fr}.tools input{min-width:0;width:100%}}
+</style>
+</head>
+<body>
+<div class="demo" hidden>Preview with sample data. Nothing is saved.</div>
+<header>
+<div class="wrap head">
+<a class="logo" href="/" aria-label="CGBB home"><img src="/assets/logo-horizontal.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會"></a>
+<nav aria-label="Main"><a class="navlink" href="/account/">My account · 我的帳戶</a></nav>
+</div>
+</header>
+<main>
+<section class="wrap ad">
+<div class="gate" data-gate="login" hidden><h2>Please log in · 請先登入</h2><p>Log in with the secretariat@cgbb.org account to use the admin panel. First time? Choose “Sign up” on the login page and set a password for secretariat@cgbb.org.</p><p>登入 secretariat@cgbb.org 帳戶以使用管理後台。首次使用請在登入頁選擇「註冊」，為 secretariat@cgbb.org 設定密碼。</p><a class="btn btn-red" href="/account/#login">Go to login · 前往登入</a></div>
+<div class="gate" data-gate="forbidden" hidden><h2>No admin access · 無管理權限</h2><p>This account is not on the admin list. Log out and log in with secretariat@cgbb.org. 此帳戶沒有管理權限，請以 secretariat@cgbb.org 登入。</p><a class="btn btn-red" href="/account/">Go to login · 前往登入</a></div>
+<div data-main hidden>
+<div class="ad-top"><h1>Secretariat admin<small>秘書處管理後台</small></h1><div class="who" data-me></div></div>
+<div class="stats"><div><b data-s="pending">0</b><span>Applications to review · 待審批</span></div><div><b data-s="active">0</b><span>Active members · 有效會員</span></div><div><b data-s="ignored">0</b><span>Ignored · 已忽略</span></div><div><b data-s="msgs">0</b><span>Member messages · 會員留言</span></div></div>
+<div class="tabs" role="tablist"><button type="button" data-t="apps">Applications 申請<span class="n" data-n="apps"></span></button><button type="button" data-t="members">Members 會員<span class="n" data-n="members"></span></button><button type="button" data-t="ignored">Ignored 已忽略<span class="n" data-n="ignored"></span></button><button type="button" data-t="msgs">Messages 留言<span class="n" data-n="msgs"></span></button></div>
+<div class="tools"><input type="search" data-q placeholder="Search name, organisation or email · 搜尋"><button type="button" class="btn btn-line" data-export>Export CSV 匯出</button></div>
+<div data-pane></div>
+</div>
+</section>
+</main>
+<div class="toast" role="status"></div>
+<script>
+(function(){
+var API="https://api.cgbb.org", M={"title": "Secretariat admin · 秘書處管理後台 | CGBB", "h1": "Secretariat admin", "h1zh": "秘書處管理後台", "stPending": "Applications to review · 待審批", "stActive": "Active members · 有效會員", "stIgnored": "Ignored · 已忽略", "stMsgs": "Member messages · 會員留言", "tabApps": "Applications 申請", "tabMembers": "Members 會員", "tabIgnored": "Ignored 已忽略", "tabMsgs": "Messages 留言", "search": "Search name, organisation or email · 搜尋", "export": "Export CSV 匯出", "approve": "Approve 批准", "ignore": "Ignore 忽略", "confirmApprove": "Confirm: approve and email welcome letter · 確認批准", "confirmIgnore": "Confirm ignore · 確認忽略", "restore": "Move back to applications · 恢復待審批", "viewApp": "View full application · 查看完整申請", "noApp": "Full application form not stored (applied before Oct 15, 2026; see the original email). 未儲存完整申請表。", "applied": "Applied 申請日期", "lang": "Language 語言", "account": "Account 帳戶", "accYes": "Password set 已設定密碼", "accNo": "Not set up yet 尚未設定", "approvedOK": "Approved. Welcome letter sent. 已批准，歡迎信已發送。", "ignoredOK": "Ignored. No email was sent. 已忽略，未發送任何郵件。", "restoredOK": "Moved back to applications. 已恢復待審批。", "noApps": "No applications waiting. 暫無待審批申請。", "noIgnored": "Nothing here. 暫無。", "noMsgs": "No member messages yet. 暫無會員留言。", "thName": "Name 姓名", "thOrg": "Organisation 機構", "thEmail": "Email 電郵", "thCat": "Category 類別", "thStatus": "Status 狀態", "thSince": "Member since 入會", "thValid": "Valid until 有效期至", "thAcc": "Account 帳戶", "thDx": "Diagnoses 診斷", "gateH": "Please log in · 請先登入", "gateP": "Log in with the secretariat@cgbb.org account to use the admin panel. First time? Choose “Sign up” on the login page and set a password for secretariat@cgbb.org.", "gateP2": "登入 secretariat@cgbb.org 帳戶以使用管理後台。首次使用請在登入頁選擇「註冊」，為 secretariat@cgbb.org 設定密碼。", "gateBtn": "Go to login · 前往登入", "forbH": "No admin access · 無管理權限", "forbP": "This account is not on the admin list. Log out and log in with secretariat@cgbb.org. 此帳戶沒有管理權限，請以 secretariat@cgbb.org 登入。", "fail": "Something went wrong. Please refresh and try again. 系統出錯，請重新整理後再試。", "st_active": "Active 有效", "st_pending": "Pending 待審批", "st_declined": "Ignored 已忽略", "st_expired": "Expired 已過期", "staff": "Staff", "demo": "Preview with sample data. Nothing is saved."};
+var demo=!API||/[?&]demo=1/.test(location.search);
+if(demo)document.querySelector('.demo').hidden=false;
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function d(x){if(!x)return '—';try{return new Date(x).toLocaleDateString('en-GB',{year:'numeric',month:'short',day:'numeric'})}catch(e){return String(x).slice(0,10)}}
+function toast(t){var el=$('.toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){el.classList.remove('on')},3500)}
+var SAMPLE={status:'ok',me:'secretariat@cgbb.org',members:[
+ {email:'li.wei@example.com',name:'Li Wei',org:'Example Brand Co.',category:'Organizational',lang:'zh',applied:'2026-10-14T09:00:00Z',status:'pending',membership:'pending',hasAccount:true,diagnoses:0,app:{'First Name':'Wei','Last Name':'Li','Organization Name':'Example Brand Co.','Country or Region':'China / 中國','Phone':'+86 138 0000 0000','Position':'Head of Brand','Areas of Expertise':'Brand Strategy / 品牌戰略'}},
+ {email:'sam@example.org',name:'Sam Tan',org:'Example University',category:'Individual',lang:'en',applied:'2026-10-13T09:00:00Z',status:'pending',membership:'pending',hasAccount:false,diagnoses:0,app:null},
+ {email:'dan@example.com',name:'Yang Dan',org:'HZAU',category:'Organizational',lang:'zh',applied:'2026-10-12T09:00:00Z',status:'approved',membership:'active',approvedAt:'2026-10-14T09:00:00Z',validUntil:'2027-10-14T09:00:00Z',hasAccount:true,diagnoses:1,app:null},
+ {email:'old@example.com',name:'Old Applicant',org:'Spam Ltd',category:'Individual',applied:'2026-10-11T09:00:00Z',status:'declined',membership:'declined',hasAccount:false,diagnoses:0,app:null}]};
+var SAMPLE_MSGS={status:'ok',messages:[{id:'MSG-20261015-ABC123',email:'dan@example.com',name:'Yang Dan',org:'HZAU',topic:'services',message:'We would like to know more about the Trust Assessment.',phone:'',at:'2026-10-15T05:00:00Z'}]};
+function call(method,path,body){
+ if(demo)return new Promise(function(res){setTimeout(function(){
+  if(path==='/api/staff/members')res(SAMPLE);else if(path==='/api/staff/messages')res(SAMPLE_MSGS);
+  else{var m=SAMPLE.members.filter(function(x){return x.email===body.email})[0];if(path==='/api/staff/approve'){m.status='approved';m.membership='active';m.approvedAt=new Date().toISOString()}else if(path==='/api/staff/ignore'){m.status='declined';m.membership='declined'}else{m.status='pending';m.membership='pending'}res({status:'ok'})}},300)});
+ var o={method:method,credentials:'include',headers:{}};if(body){o.headers['Content-Type']='application/json';o.body=JSON.stringify(body)}
+ return fetch(API+path,o).then(function(r){return r.json().then(function(j){j._code=r.status;return j})});}
+var S={members:[],msgs:[],tab:'apps',q:''};
+var TOPIC={services:'Services / 服務與信任評估',membership:'Membership / 會員事務',events:'Events / 活動',partnership:'Partnerships / 合作',general:'General / 一般查詢'};
+function pill(m){var k=m.staff?'staff':(m.status==='approved'?(m.membership==='expired'?'expired':'active'):m.status);var lab=m.staff?M.staff:M['st_'+(k==='staff'?'active':k)];return '<span class="pill '+k+'">'+esc(lab)+'</span>'}
+function kv(app){if(!app||!Object.keys(app).length)return '<p class="note">'+M.noApp+'</p>';return '<dl class="kv">'+Object.keys(app).map(function(k){return '<dt>'+esc(k)+'</dt><dd>'+esc(app[k])+'</dd>'}).join('')+'</dl>'}
+function card(m,mode){
+ var acts=mode==='apps'?'<button class="btn btn-red" data-a="approve">'+M.approve+'</button><button class="btn btn-line" data-a="ignore">'+M.ignore+'</button>'
+  :'<button class="btn btn-line" data-a="restore">'+M.restore+'</button><button class="btn btn-red" data-a="approve">'+M.approve+'</button>';
+ return '<div class="card" data-email="'+esc(m.email)+'"><div class="h"><div><div class="nm">'+esc(m.name||m.email)+'</div><div class="org">'+esc(m.org)+(m.category?' · '+esc(m.category):'')+'</div></div>'+pill(m)+'</div>'
+  +'<div class="meta"><a href="mailto:'+esc(m.email)+'">'+esc(m.email)+'</a>'+(m.app&&m.app['Phone']?'<span>'+esc(m.app['Phone'])+'</span>':'')+'<span>'+M.applied+': '+d(m.applied)+'</span><span>'+M.lang+': '+(m.lang==='zh'?'繁中':'EN')+'</span><span>'+M.account+': '+(m.hasAccount?M.accYes:M.accNo)+'</span></div>'
+  +'<details class="app"><summary>'+M.viewApp+'</summary>'+kv(m.app)+'</details><div class="acts">'+acts+'</div></div>'}
+function counts(){var c={apps:0,members:0,ignored:0};S.members.forEach(function(m){if(m.staff)return;if(m.status==='pending')c.apps++;else if(m.status==='declined')c.ignored++;else c.members++});c.active=S.members.filter(function(m){return !m.staff&&m.membership==='active'}).length;c.msgs=S.msgs.length;return c}
+function match(m){if(!S.q)return true;var q=S.q.toLowerCase();return [m.name,m.org,m.email].join(' ').toLowerCase().indexOf(q)>=0}
+function render(){
+ var c=counts();$('[data-s=pending]').textContent=c.apps;$('[data-s=active]').textContent=c.active;$('[data-s=ignored]').textContent=c.ignored;$('[data-s=msgs]').textContent=c.msgs;
+ $('[data-n=apps]').textContent=c.apps;$('[data-n=members]').textContent=c.members;$('[data-n=ignored]').textContent=c.ignored;$('[data-n=msgs]').textContent=c.msgs;
+ $$('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.t===S.tab)});
+ $('.tools').hidden=S.tab==='msgs';$('[data-export]').hidden=S.tab!=='members';
+ var P=$('[data-pane]'),h='';
+ if(S.tab==='apps'||S.tab==='ignored'){var st=S.tab==='apps'?'pending':'declined';var list=S.members.filter(function(m){return !m.staff&&m.status===st&&match(m)});
+  h=list.length?list.map(function(m){return card(m,S.tab)}).join(''):'<p class="empty">'+(S.tab==='apps'?M.noApps:M.noIgnored)+'</p>'}
+ else if(S.tab==='members'){var list=S.members.filter(function(m){return m.status==='approved'&&match(m)});
+  h='<div class="scroll"><table class="tbl"><thead><tr><th>'+M.thName+'</th><th>'+M.thOrg+'</th><th>'+M.thEmail+'</th><th>'+M.thCat+'</th><th>'+M.thStatus+'</th><th>'+M.thSince+'</th><th>'+M.thValid+'</th><th>'+M.thAcc+'</th><th>'+M.thDx+'</th></tr></thead><tbody>'
+  +list.map(function(m,i){return '<tr class="row" data-i="'+i+'"><td>'+esc(m.name)+'</td><td>'+esc(m.org)+'</td><td><a href="mailto:'+esc(m.email)+'">'+esc(m.email)+'</a></td><td>'+esc(m.category)+'</td><td>'+pill(m)+'</td><td>'+d(m.approvedAt||m.applied)+'</td><td>'+d(m.validUntil)+'</td><td>'+(m.hasAccount?'✓':'—')+'</td><td>'+(m.diagnoses||0)+'</td></tr><tr class="det" data-d="'+i+'" hidden><td colspan="9">'+kv(m.app)+'</td></tr>'}).join('')+'</tbody></table></div>';
+  if(!list.length)h='<p class="empty">'+M.noIgnored+'</p>'}
+ else{h=S.msgs.length?S.msgs.map(function(x){return '<div class="msgc"><div class="mh"><b>'+esc(x.name||x.email)+'</b> · '+esc(x.org||'')+' · <a href="mailto:'+esc(x.email)+'">'+esc(x.email)+'</a>'+(x.phone?' · '+esc(x.phone):'')+'<br>'+esc(TOPIC[x.topic]||x.topic)+' · '+d(x.at)+' · '+esc(x.id)+'</div><div class="mt">'+esc(x.message)+'</div></div>'}).join(''):'<p class="empty">'+M.noMsgs+'</p>'}
+ P.innerHTML=h}
+document.addEventListener('click',function(e){
+ var tb=e.target.closest('.tabs button');if(tb){S.tab=tb.dataset.t;render();return}
+ var row=e.target.closest('tr.row');if(row&&!e.target.closest('a')){var det=$('[data-d="'+row.dataset.i+'"]');det.hidden=!det.hidden;return}
+ var b=e.target.closest('[data-a]');if(!b)return;var cardEl=b.closest('.card'),email=cardEl.dataset.email,a=b.dataset.a;
+ if(a!=='restore'&&!b.dataset.armed){$$('[data-armed]',cardEl).forEach(function(x){x.removeAttribute('data-armed');x.textContent=x.dataset.a==='approve'?M.approve:M.ignore});b.dataset.armed='1';b.dataset.label=b.textContent;b.textContent=a==='approve'?M.confirmApprove:M.confirmIgnore;return}
+ $$('button',cardEl).forEach(function(x){x.disabled=true});
+ call('POST','/api/staff/'+a,{email:email}).then(function(j){
+  if(j.status==='ok'||j.status==='already_approved'){toast(a==='approve'?M.approvedOK:a==='ignore'?M.ignoredOK:M.restoredOK);return load()}
+  toast(M.fail);$$('button',cardEl).forEach(function(x){x.disabled=false})
+ }).catch(function(){toast(M.fail);$$('button',cardEl).forEach(function(x){x.disabled=false})})});
+$('[data-q]').addEventListener('input',function(){S.q=this.value.trim();render()});
+$('[data-export]').addEventListener('click',function(){
+ var keys={};S.members.forEach(function(m){if(m.app)Object.keys(m.app).forEach(function(k){keys[k]=1})});keys=Object.keys(keys);
+ var head=['Name','Organisation','Email','Category','Status','Applied','Member since','Valid until','Account','Diagnoses','Language'].concat(keys);
+ var q=function(v){v=String(v==null?'':v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+ var rows=S.members.filter(function(m){return !m.staff}).map(function(m){return [m.name,m.org,m.email,m.category,m.status==='approved'?m.membership:m.status,(m.applied||'').slice(0,10),(m.approvedAt||'').slice(0,10),(m.validUntil||'').slice(0,10),m.hasAccount?'yes':'no',m.diagnoses||0,m.lang||''].concat(keys.map(function(k){return m.app?m.app[k]||'':''}))});
+ var csv='\ufeff'+[head].concat(rows).map(function(r){return r.map(q).join(',')}).join('\r\n');
+ var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='CGBB_Members_'+new Date().toISOString().slice(0,10).replace(/-/g,'')+'.csv';document.body.appendChild(a);a.click();a.remove()});
+function gate(k){$('[data-main]').hidden=true;$('[data-gate='+k+']').hidden=false}
+function load(){return call('GET','/api/staff/members').then(function(j){
+  if(j._code===401||j.status==='signed_out')return gate('login');if(j._code===403||j.status==='forbidden')return gate('forbidden');if(j.status!=='ok')throw 0;
+  S.members=j.members;$('[data-me]').textContent=j.me;$('[data-main]').hidden=false;
+  return call('GET','/api/staff/messages').then(function(x){S.msgs=x.messages||[];render()})}).catch(function(){toast(M.fail)})}
+load();
+})();
+</script>
+</body>
+</html>
