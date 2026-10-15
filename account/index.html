@@ -339,6 +339,28 @@ html[lang="zh-Hant"] .card .lab{letter-spacing:.06em}
 .svc a{color:var(--red);font-size:15px;text-decoration:underline;text-underline-offset:3px}
 .svc .soon{font-size:13px;color:var(--grey);letter-spacing:.04em}
 .svc .off{opacity:.55}
+.vip{background:#111;color:#fff;padding:34px 34px 30px;margin-bottom:48px;position:relative;border-top:3px solid var(--red)}
+.vip .vlab{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d9b36a}
+html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
+.vip .vlab::before{content:"";width:18px;height:1px;background:#d9b36a}
+.vip h3{margin:12px 0 8px;font-size:26px;font-weight:500;color:#fff;border:0;padding:0}
+.vip .vsub{margin:0 0 24px;font-size:15px;line-height:1.7;color:#bdbdbd;max-width:620px}
+.vip .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+.vip label{display:block;font-size:13px;color:#bdbdbd;margin-bottom:6px}
+.vip select,.vip input,.vip textarea{width:100%;font:inherit;font-size:15px;padding:11px 13px;border:1px solid #444;border-radius:0;background:#1c1c1c;color:#fff;min-height:46px}
+.vip textarea{min-height:130px;resize:vertical;line-height:1.6}
+.vip select:focus,.vip input:focus,.vip textarea:focus{outline:2px solid var(--red);outline-offset:0;border-color:var(--red)}
+.vip .full{grid-column:1/-1}
+.vip .vrow{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:20px}
+.vip .vnote{font-size:13px;color:#8f8f8f}
+.vip .verr{display:none;color:#ff8a80;font-size:14px;margin-top:10px}.vip .verr.on{display:block}
+.vip .vdone{display:none}.vip .vdone.on{display:block}
+.vip .vdone p{font-size:16px;line-height:1.7;color:#e5e5e5;margin:0 0 6px}
+.vip .vdone .ref{font-size:13px;color:#8f8f8f}
+.disc{border:1px dashed #bdbdbd;padding:22px 24px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between}
+.disc p{margin:0;font-size:15px;line-height:1.6;color:var(--grey);max-width:620px}
+.disc .soon{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+@media (max-width:760px){.vip{padding:26px 20px 24px}.vip .vgrid{grid-template-columns:1fr}}
 .demo{background:#000;color:#fff;font-size:13px;padding:8px 0;text-align:center;letter-spacing:.04em}
 @media (max-width:760px){.ac-hero{padding:24px 0 4px}.ac-hero .label{margin-bottom:8px}.ac-hero h1,.ac-hero .sub{display:none}.ac-hero .rule{margin-bottom:18px}.ac-panel h2{font-size:26px}.ac-panel .intro{margin-bottom:20px}.card{padding:22px 18px}
 .reps thead{display:none}.reps tr{display:block;padding:12px 0;border-bottom:1px solid var(--hair)}.reps td{display:block;border:0;padding:2px 0}}
@@ -423,8 +445,24 @@ html[lang="zh-Hant"] .card .lab{letter-spacing:.06em}
 <div class="pend" data-note hidden><b data-noteb></b><span data-notep></span></div>
 </div>
 <div data-active hidden>
+<section class="vip" aria-labelledby="vh">
+<div class="vlab">Members only · Priority line</div>
+<h3 id="vh">Contact the Secretariat directly</h3>
+<p class="vsub">A private line for CGBB members. Your message goes straight to the Secretariat and is flagged for an immediate response.</p>
+<form data-vform novalidate>
+<div class="vgrid">
+<div><label for="vtopic">Topic</label><select id="vtopic"><option value="services">Services and Trust Assessment</option><option value="membership">Membership</option><option value="events">Events</option><option value="partnership">Partnerships and collaboration</option><option value="general">General enquiry</option></select></div>
+<div><label for="vphone">Phone or WeChat (optional)</label><input type="text" id="vphone" maxlength="80" autocomplete="tel"></div>
+<div class="full"><label for="vmsg">Your message</label><textarea id="vmsg" maxlength="4000"></textarea></div>
+</div>
+<div class="verr" data-verr role="alert"></div>
+<div class="vrow"><button type="submit" class="btn btn-red">Send to the Secretariat</button><span class="vnote">We reply to your member email.</span></div>
+</form>
+<div class="vdone" data-vdone role="status" tabindex="-1"><p><b>Message received.</b></p><p>The Secretariat has your message and will reply to your member email as a priority. A confirmation is on its way to your inbox.</p><p class="ref">Reference: <span data-vref></span></p><div class="vrow"><button type="button" class="linkbtn" data-vagain style="color:#d9b36a">Send another message</button></div></div>
+</section>
 <div class="sec"><h3>Your Trust Diagnosis reports</h3><div data-reps></div><p class="hint" style="margin-top:12px">Reports are prepared on request and can take up to 20 seconds to download.</p></div>
 <div class="sec"><h3>Member services</h3><div class="svc"><div class="" data-svc><h4>Trust Diagnosis</h4><p>A free, indicative first read on your brand’s credibility across seven dimensions.</p><a href="/diagnosis/">Start a diagnosis</a></div><div class="off" ><h4>Advanced membership</h4><p>Upgrade options for organisations that want deeper support from CGBB.</p><span class="soon">Coming soon</span></div><div class="off" ><h4>Event tickets</h4><p>Book places at CGBB events, including the whitepaper release in Hong Kong.</p><span class="soon">Coming soon</span></div></div></div>
+<div class="sec"><h3>Member discounts</h3><div class="disc"><p>Exclusive member pricing on CGBB events, Trust Assessment and partner services.</p><span class="soon">Coming soon</span></div></div>
 </div>
 </div>
 </div>
@@ -446,7 +484,7 @@ html[lang="zh-Hant"] .card .lab{letter-spacing:.06em}
 </footer>
 <script>
 (function(){
-var API="https://api.cgbb.org", M={"badEmail": "Please enter a valid email address.", "badCode": "That code isn’t right. Please check the email and try again.", "expired": "That code has expired. Please request a new one.", "badPw": "Please use at least 8 characters.", "pwMismatch": "The passwords don’t match.", "badLogin": "The email or password isn’t right.", "noPw": "You haven’t set a password yet. We’ve switched you to sign up: we’ll email you a code to create one.", "rate": "Too many attempts. Please wait a few minutes and try again.", "fail": "Something went wrong. Please try again, or email secretariat@cgbb.org.", "codeHint": "Sent to {email}. The code expires in 15 minutes.", "st_active": "Active", "st_pending": "Pending approval", "st_expired": "Expired", "st_declined": "Not approved", "pendB": "Membership pending approval", "pendP": "Thank you for applying. CGBB is reviewing your membership. We’ll email you once it’s approved, and you’ll then have access to all member services, including the Trust Diagnosis.", "expP": "Your membership has expired. Email secretariat@cgbb.org to renew it.", "decP": "Your membership application was not approved. If you think this is a mistake, email secretariat@cgbb.org.", "thDate": "Date", "thCo": "Company", "thScore": "Indicative score", "thRep": "Report", "dlEn": "PDF (English)", "dlZh": "PDF (中文)", "processing": "Being prepared", "failed": "Not completed: email secretariat@cgbb.org", "noRep": "You haven’t run a Trust Diagnosis yet. <a href=\"/diagnosis/\">Start your free diagnosis</a>.", "locale": "en-GB"}, LANG="en";
+var API="https://api.cgbb.org", M={"vEmpty": "Please write your message.", "badEmail": "Please enter a valid email address.", "badCode": "That code isn’t right. Please check the email and try again.", "expired": "That code has expired. Please request a new one.", "badPw": "Please use at least 8 characters.", "pwMismatch": "The passwords don’t match.", "badLogin": "The email or password isn’t right.", "noPw": "You haven’t set a password yet. We’ve switched you to sign up: we’ll email you a code to create one.", "rate": "Too many attempts. Please wait a few minutes and try again.", "fail": "Something went wrong. Please try again, or email secretariat@cgbb.org.", "codeHint": "Sent to {email}. The code expires in 15 minutes.", "st_active": "Active", "st_pending": "Pending approval", "st_expired": "Expired", "st_declined": "Not approved", "pendB": "Membership pending approval", "pendP": "Thank you for applying. CGBB is reviewing your membership. We’ll email you once it’s approved, and you’ll then have access to all member services, including the Trust Diagnosis.", "expP": "Your membership has expired. Email secretariat@cgbb.org to renew it.", "decP": "Your membership application was not approved. If you think this is a mistake, email secretariat@cgbb.org.", "thDate": "Date", "thCo": "Company", "thScore": "Indicative score", "thRep": "Report", "dlEn": "PDF (English)", "dlZh": "PDF (中文)", "processing": "Being prepared", "failed": "Not completed: email secretariat@cgbb.org", "noRep": "You haven’t run a Trust Diagnosis yet. <a href=\"/diagnosis/\">Start your free diagnosis</a>.", "locale": "en-GB"}, LANG="en";
 var demo=!API||/[?&]demo=1/.test(location.search);
 if(demo){var db=document.querySelector('.demo');if(db)db.hidden=false;}
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
@@ -463,6 +501,7 @@ function call(method,path,body){
   if(path==='/api/account'){res(demoState.email?{status:'ok',member:{email:demoState.email,name:'Alex Chan',org:'Example Co.',category:'Organizational'},membership:/pending/i.test(demoState.email)?{status:'pending',joined:new Date().toISOString()}:{status:'active',joined:'2026-10-02T00:00:00Z',approvedAt:'2026-10-05T00:00:00Z',validUntil:'2027-10-05T00:00:00Z'},reports:/pending/i.test(demoState.email)?[]:[{id:'CGBB-TD-20261012-A1B2C3',date:'2026-10-12T08:00:00Z',company:'Example Co.',status:'ready',score:64,band:{en:'Established',zh:'穩健'}}]}:{status:'signed_out'});return}
   if(path==='/api/auth/login'){demoState.email=body.email;res({status:'ok'});return}
   if(path==='/api/auth/logout'){demoState={};res({status:'ok'});return}
+  if(path==='/api/account/contact'){res({status:'ok',id:'MSG-DEMO-1A2B3C'});return}
   if(path==='/api/auth/code'){res(/nonmember/i.test(body.email)?{status:'not_member'}:{status:'code_sent'});return}
   if(path==='/api/auth/set-password'){if(body.code!=='123456'){res({status:'wrong_code'});return}demoState.email=body.email;res({status:'ok'});return}
  },400)});
@@ -539,6 +578,18 @@ function render(j){
  var ac=document.querySelector('[data-acct]');if(ac){ac.innerHTML='<a class="btn btn-red" href="'+ac.getAttribute('data-href')+'">'+esc(ac.getAttribute('data-mine'))+'</a>'}
  show('dash');window.scrollTo({top:0});
  if(location.hash)history.replaceState(null,'',location.pathname+location.search);}
+(function(){var f=$('[data-vform]'),dn=$('[data-vdone]'),er=$('[data-verr]');if(!f)return;
+ f.addEventListener('submit',function(ev){ev.preventDefault();er.classList.remove('on');var msg=$('#vmsg').value.trim();
+  if(msg.length<5){er.textContent=M.vEmpty;er.classList.add('on');$('#vmsg').focus();return}
+  var b=$('button[type=submit]',f);busy(b,true);
+  call('POST','/api/account/contact',{topic:$('#vtopic').value,phone:$('#vphone').value.trim(),message:msg,lang:LANG}).then(function(j){
+   if(j.status==='ok'){f.hidden=true;$('[data-vref]').textContent=j.id;dn.classList.add('on');dn.focus();$('#vmsg').value=''}
+   else if(j.status==='rate_limited'){er.textContent=M.rate;er.classList.add('on')}
+   else if(j.status==='empty'){er.textContent=M.vEmpty;er.classList.add('on')}
+   else{er.textContent=M.fail;er.classList.add('on')}
+  }).catch(function(){er.textContent=M.fail;er.classList.add('on')}).then(function(){busy(b,false)})});
+ $('[data-vagain]').addEventListener('click',function(){dn.classList.remove('on');f.hidden=false;$('#vmsg').focus()});
+})();
 function load(){return call('GET','/api/account').then(function(j){if(j.status==='ok')render(j);else route()}).catch(function(){route()})}
 $('[data-logout]').addEventListener('click',function(){var b=this;busy(b,true);call('POST','/api/auth/logout').then(function(){location.hash='login';route();var a=document.querySelector('[data-acct]');if(a&&a.dataset.orig)a.innerHTML=a.dataset.orig}).catch(function(){}).then(function(){busy(b,false)})});
 var acct=document.querySelector('[data-acct]');if(acct)acct.dataset.orig=acct.innerHTML;
