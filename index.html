@@ -46,7 +46,14 @@ h2{font-size:44px;line-height:1.15}
 .btn-line{border:1px solid var(--ink);color:var(--ink)}.btn-line:hover{border-color:var(--red);color:var(--red)}
 .btn-white{background:#fff;color:var(--red)}.btn-white:hover{background:#f2f2f2;color:var(--red-dark)}
 
-header{border-bottom:1px solid var(--hair)}
+header{border-bottom:1px solid var(--hair);position:sticky;top:0;z-index:50;background:#fff;transition:box-shadow .2s}
+header.scrolled{box-shadow:0 2px 14px rgba(0,0,0,.07)}
+.head,.head .logo img{transition:padding .2s,height .2s}
+header.scrolled .head{padding-top:8px;padding-bottom:8px}
+header.scrolled .head .logo img{height:44px}
+html{scroll-padding-top:84px}
+@media screen and (max-width:760px){html{scroll-padding-top:68px}header.scrolled .head .logo img{height:38px}}
+@media (prefers-reduced-motion:reduce){header,.head,.head .logo img{transition:none}}
 .head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:18px;padding-bottom:18px}
 .head .logo img{height:58px;width:auto;display:block}
 nav{display:flex;flex-wrap:wrap;align-items:center;gap:30px}
@@ -155,7 +162,12 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .people .org a.more{display:inline-block;margin-top:12px;font-size:15px;font-weight:500}
 .people .split + .split{margin-top:88px}
 .people .ppl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 32px}
-.people .p{border-top:1px solid var(--hair);padding:20px 0 22px}
+.people .p{border-top:1px solid var(--hair);padding:20px 0 22px;display:flex;gap:16px;align-items:flex-start}
+.people .pt{min-width:0}
+.people .ph{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;background:#f6f2e9;margin-top:2px}
+.people .av{position:relative;display:block;overflow:visible}
+.people .av svg{display:block;width:64px;height:64px;border-radius:50%;background:#f6f2e9}
+.people .av img{position:absolute;right:-4px;bottom:-4px;width:26px;height:26px;background:#fff;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.18);padding:2px}
 .people .p .nm{margin-top:8px;font-size:21px;font-weight:500;line-height:1.35}
 .people .p .alt{font-size:16px;color:var(--grey);font-weight:400;margin-left:8px}
 .people .p .aff{margin-top:6px;font-size:15px;line-height:1.6;color:var(--grey)}
@@ -235,7 +247,12 @@ footer a{color:#fff}footer a:hover{color:#d9d9d9}
 .people .org a.more{display:inline-block;margin-top:12px;font-size:15px;font-weight:500}
 .people .split + .split{margin-top:88px}
 .people .ppl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 32px}
-.people .p{border-top:1px solid var(--hair);padding:20px 0 22px}
+.people .p{border-top:1px solid var(--hair);padding:20px 0 22px;display:flex;gap:16px;align-items:flex-start}
+.people .pt{min-width:0}
+.people .ph{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;background:#f6f2e9;margin-top:2px}
+.people .av{position:relative;display:block;overflow:visible}
+.people .av svg{display:block;width:64px;height:64px;border-radius:50%;background:#f6f2e9}
+.people .av img{position:absolute;right:-4px;bottom:-4px;width:26px;height:26px;background:#fff;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.18);padding:2px}
 .people .p .nm{margin-top:8px;font-size:21px;font-weight:500;line-height:1.35}
 .people .p .alt{font-size:16px;color:var(--grey);font-weight:400;margin-left:8px}
 .people .p .aff{margin-top:6px;font-size:15px;line-height:1.6;color:var(--grey)}
@@ -338,7 +355,12 @@ html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
 .people .org a.more{display:inline-block;margin-top:12px;font-size:15px;font-weight:500}
 .people .split + .split{margin-top:88px}
 .people .ppl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 32px}
-.people .p{border-top:1px solid var(--hair);padding:20px 0 22px}
+.people .p{border-top:1px solid var(--hair);padding:20px 0 22px;display:flex;gap:16px;align-items:flex-start}
+.people .pt{min-width:0}
+.people .ph{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;background:#f6f2e9;margin-top:2px}
+.people .av{position:relative;display:block;overflow:visible}
+.people .av svg{display:block;width:64px;height:64px;border-radius:50%;background:#f6f2e9}
+.people .av img{position:absolute;right:-4px;bottom:-4px;width:26px;height:26px;background:#fff;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.18);padding:2px}
 .people .p .nm{margin-top:8px;font-size:21px;font-weight:500;line-height:1.35}
 .people .p .alt{font-size:16px;color:var(--grey);font-weight:400;margin-left:8px}
 .people .p .aff{margin-top:6px;font-size:15px;line-height:1.6;color:var(--grey)}
@@ -516,13 +538,13 @@ html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
 <h2>Leadership &amp; Expert Committee</h2>
 </div>
 <div class="right"><div class="ppl">
-<div class="p"><div class="role">President</div><div class="nm">Chris Pereira<span class="alt" lang="zh-Hant">彭家榮</span></div><div class="aff">Founder &amp; CEO, iMpact</div></div>
-<div class="p"><div class="role">Secretary-General</div><div class="nm">Weijing Tang<span class="alt" lang="zh-Hant">唐薇晶</span></div><div class="aff">Partner, iMpact; Dean, iMpact Academy</div></div>
-<div class="p"><div class="role">Founding Advisor</div><div class="nm">Prof. Xiao Wang<span class="alt" lang="zh-Hant">汪瀟</span></div><div class="aff">Director, Executive Education Centre, XJTLU International Business School Suzhou</div></div>
-<div class="p"><div class="role">Expert Committee</div><div class="nm">Jian Yu<span class="alt" lang="zh-Hant">于艦</span></div><div class="aff">Executive Dean, CBN Research Institute</div></div>
-<div class="p"><div class="role">Expert Committee</div><div class="nm">Michael Low<span class="alt" lang="zh-Hant">劉光明</span></div><div class="aff">Founder, SENSE Collective</div></div>
-<div class="p"><div class="role">Expert Committee</div><div class="nm">Yanhua Sun<span class="alt" lang="zh-Hant">孫艷華</span></div><div class="aff">Partner, Shu Jin Law Firm (Hong Kong)</div></div>
-<div class="p"><div class="role">Expert Committee</div><div class="nm">Bei Wang<span class="alt" lang="zh-Hant">王蓓</span></div><div class="aff">Associate Professor, University of International Business and Economics</div></div>
+<div class="p"><img class="ph" src="/assets/members/chris-pereira.jpg" width="64" height="64" alt="" loading="lazy"><div class="pt"><div class="role">President</div><div class="nm">Chris Pereira<span class="alt" lang="zh-Hant">彭家榮</span></div><div class="aff">Founder &amp; CEO, iMpact</div></div></div>
+<div class="p"><img class="ph" src="/assets/members/weijing-tang.jpg" width="64" height="64" alt="" loading="lazy"><div class="pt"><div class="role">Secretary-General</div><div class="nm">Weijing Tang<span class="alt" lang="zh-Hant">唐薇晶</span></div><div class="aff">Partner, iMpact; Dean, iMpact Academy</div></div></div>
+<div class="p"><img class="ph" src="/assets/members/xiao-wang.jpg" width="64" height="64" alt="" loading="lazy"><div class="pt"><div class="role">Founding Advisor</div><div class="nm">Prof. Xiao Wang<span class="alt" lang="zh-Hant">汪瀟</span></div><div class="aff">Director, Executive Education Centre, XJTLU International Business School Suzhou</div></div></div>
+<div class="p"><span class="ph av" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="24" r="11" fill="#A40706"/><path d="M10 60c0-13 10-21 22-21s22 8 22 21z" fill="#A40706"/></svg><img src="/assets/apple-touch-icon.png" alt="" width="24" height="24" loading="lazy"></span><div class="pt"><div class="role">Expert Committee</div><div class="nm">Jian Yu<span class="alt" lang="zh-Hant">于艦</span></div><div class="aff">Executive Dean, CBN Research Institute</div></div></div>
+<div class="p"><img class="ph" src="/assets/members/michael-low.jpg" width="64" height="64" alt="" loading="lazy"><div class="pt"><div class="role">Expert Committee</div><div class="nm">Michael Low<span class="alt" lang="zh-Hant">劉光明</span></div><div class="aff">Founder, SENSE Collective</div></div></div>
+<div class="p"><img class="ph" src="/assets/members/yanhua-sun.jpg" width="64" height="64" alt="" loading="lazy"><div class="pt"><div class="role">Expert Committee</div><div class="nm">Yanhua Sun<span class="alt" lang="zh-Hant">孫艷華</span></div><div class="aff">Partner, Shu Jin Law Firm (Hong Kong)</div></div></div>
+<div class="p"><img class="ph" src="/assets/members/bei-wang.jpg" width="64" height="64" alt="" loading="lazy"><div class="pt"><div class="role">Expert Committee</div><div class="nm">Bei Wang<span class="alt" lang="zh-Hant">王蓓</span></div><div class="aff">Associate Professor, University of International Business and Economics</div></div></div>
 </div></div>
 </div>
 </div>
@@ -631,6 +653,7 @@ var main=ev.querySelector('.right > .ev-list'),f=main.querySelector('.ev');if(f)
 </footer>
 
 <script>(function(){var L=document.querySelectorAll('.lang a');L.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('cgbb-lang',a.getAttribute('data-lang'))}catch(e){}})});var s=null;try{s=localStorage.getItem('cgbb-lang')}catch(e){}var n=navigator.language||'';if(s==='zh'||(!s&&/^zh/i.test(n)&&/(TW|HK|MO|Hant)/i.test(n))){location.replace('/zh/'+location.hash)}})();</script>
+<script>(function(){var h=document.querySelector('header');if(!h)return;function f(){h.classList.toggle('scrolled',scrollY>8)}addEventListener('scroll',f,{passive:true});f()})();</script>
 <script>(function(){var nav=document.querySelector("header nav"),hd=document.querySelector("header .head");if(nav&&hd){var zh=document.documentElement.lang.indexOf("zh")===0;var mb=document.createElement("button");mb.type="button";mb.className="mbtn";mb.setAttribute("aria-label",zh?"選單":"Menu");mb.setAttribute("aria-expanded","false");mb.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';nav.appendChild(mb);var p=document.createElement("div");p.className="mpanel wrap";[].forEach.call(nav.querySelectorAll(":scope > .navlink, :scope > .lang"),function(x){p.appendChild(x.cloneNode(true))});hd.parentNode.insertBefore(p,hd.nextSibling);mb.addEventListener("click",function(){var o=p.classList.toggle("on");mb.setAttribute("aria-expanded",o?"true":"false")});p.addEventListener("click",function(e){var l=e.target.closest("a");if(!l)return;p.classList.remove("on");mb.setAttribute("aria-expanded","false");var g=l.getAttribute("data-lang");if(g){try{localStorage.setItem("cgbb-lang",g)}catch(x){}}});}if(!/(?:^|;\s*)cgbb_li=1/.test(document.cookie))return;var a=document.querySelector("[data-acct]");if(!a)return;a.innerHTML="";var b=document.createElement("a");b.className="btn btn-red";b.href=a.getAttribute("data-href");b.textContent=a.getAttribute("data-mine");a.appendChild(b);})();</script>
 </body>
 </html>
