@@ -1,0 +1,135 @@
+{
+ "site": "https://cgbb.org/",
+ "items": [
+  {
+   "id": "n-da3ac40df3",
+   "type": "news",
+   "en": {
+    "title": "The Council for Global Brand Building launches",
+    "text": "A new council to set standards for assessing and rating trust in business.",
+    "url": "https://www.linkedin.com/company/120314036/",
+    "label": "News · 16 Sep 2026"
+   },
+   "zh": {
+    "title": "全球化品牌信任促進會正式成立",
+    "text": "一個為商業信任的評估與評級制定標準的新組織。",
+    "url": "https://www.linkedin.com/company/120314036/",
+    "label": "新聞 · 2026年9月16日"
+   }
+  },
+  {
+   "id": "n-9342e15a8f",
+   "type": "news",
+   "en": {
+    "title": "Council for Global Brand Building Is Launched to Address Trust Gap for Chinese Firms Venturing Abroad",
+    "text": "Yicai covers the Council’s launch at the WTO Public Forum in Geneva and its first project, a credibility index built with academic, media and corporate partners.",
+    "url": "https://www.yicaiglobal.com/news/council-for-global-brand-building-is-launched-to-address-trust-gap-for-chinese-firms-venturing-abroad",
+    "label": "Yicai Global · 17 Sep 2026"
+   },
+   "zh": {
+    "title": "全球化品牌信任促進會成立，助力出海中國企業彌合信任落差",
+    "text": "第一財經報道品信會在日內瓦世貿組織公共論壇上成立，並介紹其首個項目，即與學術、媒體及企業夥伴共同打造的公信力指數。",
+    "url": "https://www.yicaiglobal.com/news/council-for-global-brand-building-is-launched-to-address-trust-gap-for-chinese-firms-venturing-abroad",
+    "label": "第一財經 Yicai Global · 2026年9月17日"
+   }
+  },
+  {
+   "id": "n-28d91202fa",
+   "type": "news",
+   "en": {
+    "title": "Membership is now open",
+    "text": "The Council welcomes its growing community and opens corporate, institutional and individual expert membership.",
+    "url": "https://www.linkedin.com/company/120314036/",
+    "label": "LinkedIn · Oct 2026"
+   },
+   "zh": {
+    "title": "會員招募現已開放",
+    "text": "品信會歡迎日益壯大的社群，並開放企業會員、機構會員及個人專家會員申請。",
+    "url": "https://www.linkedin.com/company/120314036/",
+    "label": "LinkedIn · 2026年10月"
+   }
+  },
+  {
+   "id": "p-1bdb1a03f9",
+   "type": "publication",
+   "en": {
+    "title": "Trust: The Golden Key to Chinese Enterprises’ Globalization",
+    "text": "A practical guide to how Chinese companies earn and keep the trust of governments, partners, customers and staff in overseas markets, drawing on real cases from more than 20 years in China.",
+    "url": "/publications/trust/",
+    "label": "Book · Founding Chairman"
+   },
+   "zh": {
+    "title": "《信任：中國企業全球化的黃金鑰匙》",
+    "text": "一本關於中國企業如何在海外市場贏得並維護政府、合作夥伴、客戶及員工信任的實用指南，書中案例來自作者在中國逾20年的實踐。",
+    "url": "/zh/publications/trust/",
+    "label": "著作 · 創始主席"
+   }
+  },
+  {
+   "id": "p-26a4818645",
+   "type": "publication",
+   "en": {
+    "title": "《工厂数字化：业务驱动下的转型策略与实操》",
+    "text": "Prof. Xiao Wang (汪潇) · Factory Digitalization: Business-Driven Transformation Strategy and Practice. With Bin Jin and Xuefeng Lu. Posts & Telecom Press.",
+    "url": "https://scholar.xjtlu.edu.cn/en/publications/%E5%B7%A5%E5%8E%82%E6%95%B0%E5%AD%97%E5%8C%96-%E4%B8%9A%E5%8A%A1%E9%A9%B1%E5%8A%A8%E4%B8%8B%E7%9A%84%E8%BD%AC%E5%9E%8B%E7%AD%96%E7%95%A5%E4%B8%8E%E5%AE%9E%E6%93%8D/",
+    "label": "Book · 2024"
+   },
+   "zh": {
+    "title": "《工廠數字化：業務驅動下的轉型策略與實操》",
+    "text": "汪瀟教授 · 汪瀟與 Bin Jin、Xuefeng Lu 合著，人民郵電出版社出版。",
+    "url": "https://scholar.xjtlu.edu.cn/en/publications/%E5%B7%A5%E5%8E%82%E6%95%B0%E5%AD%97%E5%8C%96-%E4%B8%9A%E5%8A%A1%E9%A9%B1%E5%8A%A8%E4%B8%8B%E7%9A%84%E8%BD%AC%E5%9E%8B%E7%AD%96%E7%95%A5%E4%B8%8E%E5%AE%9E%E6%93%8D/",
+    "label": "著作 · 2024"
+   }
+  },
+  {
+   "id": "p-ba796db709",
+   "type": "publication",
+   "en": {
+    "title": "Aligning risk and value creation: a process model of supply chain risk management in geopolitical disruptions",
+    "text": "Prof. Xiao Wang (汪潇) · How small and medium-sized multinationals manage supply chain risk, and still create value, through shocks such as the US–China trade war. International Journal of Operations & Production Management, with J. Zheng, N. Islam, J. Zhang, A. Behl and T. Papadopoulos.",
+    "url": "https://doi.org/10.1108/IJOPM-03-2024-0271",
+    "label": "Journal article · 2025"
+   },
+   "zh": {
+    "title": "Aligning risk and value creation: a process model of supply chain risk management in geopolitical disruptions",
+    "text": "汪瀟教授 · 研究中小型跨國企業如何在中美貿易摩擦等地緣政治衝擊下管理供應鏈風險並持續創造價值。刊於《International Journal of Operations & Production Management》，與 J. Zheng、N. Islam、J. Zhang、A. Behl 及 T. Papadopoulos 合著。",
+    "url": "https://doi.org/10.1108/IJOPM-03-2024-0271",
+    "label": "期刊論文 · 2025"
+   }
+  },
+  {
+   "id": "e-c6d5fbeaff",
+   "type": "event",
+   "start": "2026-11",
+   "en": {
+    "title": "CGBB Whitepaper Release",
+    "text": "The Council presents its first whitepaper, setting out the academic foundations for assessing and rating trust in business. Date, venue and registration details will follow.",
+    "url": "",
+    "label": "Nov 2026 · Hong Kong · CGBB"
+   },
+   "zh": {
+    "title": "品信會白皮書發佈會",
+    "text": "品信會將發佈首份白皮書，闡述評估與評級商業信任的學術基礎。具體日期、場地及報名詳情稍後公佈。",
+    "url": "",
+    "label": "2026年11月 · 香港 · 品信會"
+   }
+  },
+  {
+   "id": "e-a3b12c181c",
+   "type": "event",
+   "start": "2027-01-05",
+   "en": {
+    "title": "Discussion panel at Global Connect Show @CES 2027",
+    "text": "A CGBB discussion panel at Global Connect Show in Las Vegas, held alongside CES on 5 January 2027.",
+    "url": "https://www.globalconnect.show/events",
+    "label": "Jan 2027 · Las Vegas · CGBB × Global Connect Show"
+   },
+   "zh": {
+    "title": "Global Connect Show @CES 2027 品信會圓桌討論",
+    "text": "品信會將於2027年1月5日，在拉斯維加斯CES期間舉行的Global Connect Show上舉辦圓桌討論。",
+    "url": "https://www.globalconnect.show/events",
+    "label": "2027年1月 · 拉斯維加斯 · 品信會 × Global Connect Show"
+   }
+  }
+ ]
+}
