@@ -130,6 +130,40 @@
     "url": "https://www.globalconnect.show/events",
     "label": "2027年1月 · 拉斯維加斯 · 品信會 × Global Connect Show"
    }
+  },
+  {
+   "id": "e-2de2bf5886",
+   "type": "event",
+   "start": "2026-10-21",
+   "en": {
+    "title": "Yicai Global 10th Anniversary Ecosystem Conference & New Decade Strategy Launch",
+    "text": "Themed “Global Finance, China Coordinates”. The main conference opens at 14:00 with Yicai Global’s new-decade strategy, ecosystem partner announcements and a roundtable on Chinese companies going global. The evening Silk Road salon from 18:00 is by invitation only.",
+    "url": "",
+    "label": "21 Oct 2026 · Shanghai · Yicai · Founding strategic partner"
+   },
+   "zh": {
+    "title": "一財全球十週年生態大會暨新十年戰略發佈",
+    "text": "大會主題為「全球財經，中國座標」。下午14:00主會場開幕，內容包括一財全球新十年戰略發佈、生態夥伴發佈及中國企業出海圓桌討論；晚上18:00「絲路共鑒」夜話：莫高星夜，僅限受邀嘉賓。",
+    "url": "",
+    "label": "2026年10月21日 · 上海 · 第一財經 · 創始戰略合作夥伴"
+   }
+  },
+  {
+   "id": "e-fcc6ff57ec",
+   "type": "event",
+   "start": "2026-11",
+   "en": {
+    "title": "Yicai Going Global Service Season",
+    "text": "A series of events for Chinese companies expanding overseas.",
+    "url": "",
+    "label": "Nov–Dec 2026 · Hong Kong · Shenzhen · Abu Dhabi · London · Dubai · Shanghai · Yicai · Founding strategic partner"
+   },
+   "zh": {
+    "title": "第一財經企業出海服務季",
+    "text": "為出海中國企業舉辦的系列活動。",
+    "url": "",
+    "label": "2026年11月–12月 · 香港 · 深圳 · 阿布扎比 · 倫敦 · 迪拜 · 上海 · 第一財經 · 創始戰略合作夥伴"
+   }
   }
  ]
 }
