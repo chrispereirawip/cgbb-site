@@ -361,6 +361,11 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 .disc{border:1px dashed #bdbdbd;padding:22px 24px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between}
 .disc p{margin:0;font-size:15px;line-height:1.6;color:var(--grey);max-width:620px}
 .disc .soon{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.nlpref{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--hair);padding:18px 20px;cursor:pointer;max-width:720px}
+.nlpref input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--red);flex:none;cursor:pointer}
+.nlpref b{display:block;font-size:16px;font-weight:500}
+.nlpref small{display:block;font-size:14px;line-height:1.6;color:var(--grey);margin-top:4px}
+.nlmsg{display:block;font-size:14px;color:#1d6b3a;margin-top:10px;min-height:1em}
 .refer{border:1px solid var(--hair);border-left:3px solid var(--red);padding:22px 24px;margin-top:14px}
 .refer .rtop{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between}
 .refer h4{margin:0 0 6px;font-size:18px;font-weight:500}
@@ -464,6 +469,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <div data-active hidden>
 <div class="sec"><h3>您的信任診斷報告</h3><div data-reps></div><p class="hint" style="margin-top:12px">報告會在您下載時即時生成，可能需時約20秒。</p></div>
 <div class="sec"><h3>會員服務</h3><div class="svc"><div class="" data-svc><h4>信任診斷</h4><p>免費初步評估品牌在七個維度上的公信力。</p><a href="/zh/diagnosis/">開始診斷</a></div><div class="off" ><h4>進階會員</h4><p>為需要品信會更深入支援的機構而設的升級方案。</p><span class="soon">即將推出</span></div><div class="off" ><h4>活動門票</h4><p>預訂品信會活動席位，包括香港白皮書發佈會。</p><span class="soon">即將推出</span></div></div></div>
+<div class="sec"><h3>電郵通訊</h3><label class="nlpref"><input type="checkbox" data-nl><span><b>接收品信會會員通訊及刊物</b><small>不定期收到品信會新聞、出版物及活動資訊，可隨時關閉。</small></span></label><span class="nlmsg" data-nlmsg role="status"></span></div>
 <div class="sec"><h3>會員優惠</h3><div class="disc"><p>品信會活動、信任評估及合作夥伴服務的會員專屬價格。</p><span class="soon">即將推出</span></div>
 <div class="refer" data-refer>
 <div class="rtop"><div><h4>推薦新會員</h4><p>認識適合加入品信會的朋友？把您的專屬連結發給他們。每成功推薦一位新會員並獲批准，您的會員資格即延長<b>3個月</b>，名額不限。</p></div><button type="button" class="btn btn-red" data-refbtn aria-expanded="false">推薦新會員</button></div>
@@ -511,7 +517,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 </footer>
 <script>
 (function(){
-var API="https://api.cgbb.org", M={"vEmpty": "請填寫訊息內容。", "badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期，請重新獲取。", "badPw": "密碼最少需要8個字元。", "pwMismatch": "兩次輸入的密碼不一致。", "badLogin": "電郵或密碼不正確。", "noPw": "您尚未設定密碼，已為您轉至註冊：我們會以電郵發送驗證碼，供您設定密碼。", "rate": "嘗試次數過多，請稍候幾分鐘再試。", "fail": "系統出現問題，請再試一次，或發送電郵至 secretariat@cgbb.org。", "codeHint": "已發送至 {email}，15分鐘內有效。", "st_active": "有效", "st_pending": "待審批", "st_expired": "已過期", "st_declined": "未獲批准", "st_inactive": "暫停", "inP": "您的會員資格目前已暫停。如需重新啟用，請發送電郵至 secretariat@cgbb.org。", "pendB": "會員資格待審批", "pendP": "感謝您的申請。品信會正在審核您的會員資格，批准後我們會以電郵通知您，屆時即可使用全部會員服務，包括信任診斷。", "expP": "您的會員資格已過期。如需續期，請發送電郵至 secretariat@cgbb.org。", "decP": "您的會員申請未獲批准。如有疑問，請發送電郵至 secretariat@cgbb.org。", "thDate": "日期", "thCo": "企業", "thScore": "參考評分", "thRep": "報告", "dlEn": "PDF（英文）", "dlZh": "PDF（中文）", "processing": "準備中", "failed": "未完成：請聯絡 secretariat@cgbb.org", "noRep": "您尚未進行信任診斷。<a href=\"/zh/diagnosis/\">開始免費診斷</a>。", "locale": "zh-HK", "refCopy": "複製連結", "copied": "已複製連結", "refStat": "成功推薦：{n} 位 · 會員資格已延長 {m} 個月", "refMailSubj": "邀請您加入全球化品牌信任促進會（品信會）", "refMsg": "我是全球化品牌信任促進會（品信會）的會員，覺得您很適合加入。會員資格免費，可在此申請：{link}"}, LANG="zh";
+var API="https://api.cgbb.org", M={"vEmpty": "請填寫訊息內容。", "badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期，請重新獲取。", "badPw": "密碼最少需要8個字元。", "pwMismatch": "兩次輸入的密碼不一致。", "badLogin": "電郵或密碼不正確。", "noPw": "您尚未設定密碼，已為您轉至註冊：我們會以電郵發送驗證碼，供您設定密碼。", "rate": "嘗試次數過多，請稍候幾分鐘再試。", "fail": "系統出現問題，請再試一次，或發送電郵至 secretariat@cgbb.org。", "codeHint": "已發送至 {email}，15分鐘內有效。", "st_active": "有效", "st_pending": "待審批", "st_expired": "已過期", "st_declined": "未獲批准", "st_inactive": "暫停", "inP": "您的會員資格目前已暫停。如需重新啟用，請發送電郵至 secretariat@cgbb.org。", "pendB": "會員資格待審批", "pendP": "感謝您的申請。品信會正在審核您的會員資格，批准後我們會以電郵通知您，屆時即可使用全部會員服務，包括信任診斷。", "expP": "您的會員資格已過期。如需續期，請發送電郵至 secretariat@cgbb.org。", "decP": "您的會員申請未獲批准。如有疑問，請發送電郵至 secretariat@cgbb.org。", "thDate": "日期", "thCo": "企業", "thScore": "參考評分", "thRep": "報告", "dlEn": "PDF（英文）", "dlZh": "PDF（中文）", "processing": "準備中", "failed": "未完成：請聯絡 secretariat@cgbb.org", "noRep": "您尚未進行信任診斷。<a href=\"/zh/diagnosis/\">開始免費診斷</a>。", "locale": "zh-HK", "refCopy": "複製連結", "copied": "已複製連結", "refStat": "成功推薦：{n} 位 · 會員資格已延長 {m} 個月", "refMailSubj": "邀請您加入全球化品牌信任促進會（品信會）", "refMsg": "我是全球化品牌信任促進會（品信會）的會員，覺得您很適合加入。會員資格免費，可在此申請：{link}", "nlOn": "已訂閱，謝謝。", "nlOff": "已取消訂閱，您將不會再收到會員通訊。"}, LANG="zh";
 var demo=!API||/[?&]demo=1/.test(location.search);
 if(demo){var db=document.querySelector('.demo');if(db)db.hidden=false;}
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
@@ -528,6 +534,7 @@ function call(method,path,body){
   if(path==='/api/account'){res(demoState.email?{status:'ok',member:{email:demoState.email,name:'Alex Chan',org:'Example Co.',category:'Organizational'},membership:/pending/i.test(demoState.email)?{status:'pending',joined:new Date().toISOString()}:{status:'active',joined:'2026-10-02T00:00:00Z',approvedAt:'2026-10-05T00:00:00Z',validUntil:'2028-01-05T00:00:00Z',bonusMonths:3},referral:{code:'K7M2QX9',count:1,bonusMonths:3,months:3},reports:/pending/i.test(demoState.email)?[]:[{id:'CGBB-TD-20261012-A1B2C3',date:'2026-10-12T08:00:00Z',company:'Example Co.',status:'ready',score:64,band:{en:'Established',zh:'穩健'}}]}:{status:'signed_out'});return}
   if(path==='/api/auth/login'){demoState.email=body.email;res({status:'ok'});return}
   if(path==='/api/auth/logout'){demoState={};res({status:'ok'});return}
+  if(path==='/api/account/newsletter'){res({status:'ok',newsletter:body.on});return}
   if(path==='/api/account/contact'){res({status:'ok',id:'MSG-DEMO-1A2B3C'});return}
   if(path==='/api/auth/code'){res(/nonmember/i.test(body.email)?{status:'not_member'}:{status:'code_sent'});return}
   if(path==='/api/auth/set-password'){if(body.code!=='123456'){res({status:'wrong_code'});return}demoState.email=body.email;res({status:'ok'});return}
@@ -604,9 +611,12 @@ function render(j){
    h+='<tr><td>'+esc(fmt(r.date))+'</td><td>'+esc(r.company)+'<span class="id">'+esc(r.id)+'</span></td><td>'+(r.score!=null?'<span class="sc">'+r.score+'<small>'+esc(r.band?(LANG==='zh'?r.band.zh:r.band.en):'')+'</small></span>':'—')+'</td><td>'+link+'</td></tr>'});
   R.innerHTML=h+'</tbody></table>'}
  renderRef(j.referral);
+ var nl=$('[data-nl]');if(nl)nl.checked=!!j.newsletter;
  var ac=document.querySelector('[data-acct]');if(ac){ac.innerHTML='<a class="btn btn-red" href="'+ac.getAttribute('data-href')+'">'+esc(ac.getAttribute('data-mine'))+'</a>'}
  show('dash');window.scrollTo({top:0});
  if(location.hash)history.replaceState(null,'',location.pathname+location.search);}
+(function(){var nl=$('[data-nl]');if(!nl)return;nl.addEventListener('change',function(){var on=nl.checked,msg=$('[data-nlmsg]');nl.disabled=true;
+ call('POST','/api/account/newsletter',{on:on}).then(function(j){if(j.status==='ok'){msg.style.color='';msg.textContent=on?M.nlOn:M.nlOff}else{nl.checked=!on;msg.style.color='var(--red)';msg.textContent=M.fail}}).catch(function(){nl.checked=!on;msg.style.color='var(--red)';msg.textContent=M.fail}).then(function(){nl.disabled=false})})})();
 var REFLINK='';
 function renderRef(r){var box=$('[data-refer]');if(!box)return;box.hidden=!(r&&r.code);if(!r||!r.code)return;
  REFLINK='https://cgbb.org'+(LANG==='zh'?'/zh/apply/':'/apply/')+'?ref='+encodeURIComponent(r.code);
