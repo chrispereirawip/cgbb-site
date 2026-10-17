@@ -311,6 +311,7 @@ html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
 .up-price{max-width:820px;border:1px dashed #bdbdbd;padding:22px 24px}
 .up-price p{margin:0 0 16px}
 @media (max-width:760px){.up-steps li{gap:14px}.up-steps .n{flex:0 0 30px}}
+.up-badges{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}.up-badges img{width:100%;max-width:400px;height:auto}.up-note{font-size:14px!important;color:var(--grey)}
 </style>
 </head>
 <body>
@@ -358,6 +359,8 @@ html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
   "verify": "https://api.cgbb.org/verify/example.com",
   "signature": "..."
 }</pre></div></section>
+<section class="bk-sec"><div class="wrap"><div class="rule"></div><h2>「信任已驗證」徽章</h2><p>獲驗證品牌可在發佈trust.json檔案的同時，展示品信會「信任已驗證」徽章。徽章連結至品牌的即時紀錄，訪客一按即可核實。</p><div class="up-badges"><img src="/assets/badge/cgbb-verified-trust.svg" width="520" height="150" alt="品信會信任已驗證徽章"><img src="/assets/badge/cgbb-verified-trust-dark.svg" width="520" height="150" alt="品信會信任已驗證徽章"></div><p class="up-note">通過驗證後將提供淺色及深色版本。</p></div></section>
+<section class="bk-sec faq"><div class="wrap"><div class="rule"></div><h2>常見問題</h2><div style="max-width:820px"><details><summary>其他人能否複製我們的trust.json並放到自己的網站上？</summary><div class="ans"><p>檔案本身是公開的，因此可以被複製，但複製品毫無作用。每份檔案都綁定其獲發的指定網域，放在其他網站上會即時無法通過核實。</p></div></details><details><summary>檔案中的評分或日期能否被更改？</summary><div class="ans"><p>不能。品信會以只有品信會持有的私鑰為每份檔案進行數碼簽署，並在cgbb.org公佈相應的公鑰。即使只更改一個字元，例如評分或有效期，簽署亦會失效。</p></div></details><details><summary>AI代理及採購方如何確認檔案真偽？</summary><div class="ans"><p>每份檔案均連結至api.cgbb.org上的紀錄。代理會直接查核該即時紀錄，因此品牌當下是否獲驗證，以品信會登記冊而非檔案本身為準。</p></div></details><details><summary>如品牌會員資格失效或評分下降，會怎樣？</summary><div class="ans"><p>品信會會在登記冊中撤銷有關紀錄。即使品牌網站上的檔案看似不變，也將無法通過核實。檔案亦設有效期，並於每次年度複審後續發。</p></div></details><details><summary>如網站在未獲驗證的情況下展示徽章或檔案，怎麼辦？</summary><div class="ans"><p>任何人都可以在品信會公開登記冊中查詢該網域。聲稱已獲驗證卻沒有有效紀錄的品牌，一經查核即會被揭穿，品信會亦可對濫用其標誌的行為採取行動。</p></div></details><details><summary>升級會員是否保證獲發trust.json？</summary><div class="ans"><p>不保證。檔案僅發予持有有效進階會員資格，並在全面信任評審中取得最少80%評分的機構。</p></div></details></div></div></section>
 <section class="bk-sec"><div class="wrap"><div class="rule"></div><h2>費用</h2><div class="up-price"><p>進階會員年費將於稍後公佈。會員現可提出升級申請，秘書處將以電郵確認費用及後續安排。</p><a class="btn btn-red" href="/zh/account/?upgrade=1">升級會員</a></div></div></section>
 </main>
 
