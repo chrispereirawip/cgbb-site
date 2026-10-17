@@ -339,6 +339,7 @@ html[lang="zh-Hant"] .card .lab{letter-spacing:.06em}
 .svc a{color:var(--red);font-size:15px;text-decoration:underline;text-underline-offset:3px}
 .svc .soon{font-size:13px;color:var(--grey);letter-spacing:.04em}
 .svc .off{opacity:.55}
+.svc a.upg{color:#fff;text-decoration:none;min-height:40px;padding:0 18px;font-size:14px}.svc a.upg:hover{color:#fff}
 .vip{background:#111;color:#fff;padding:22px 24px 20px;margin-bottom:48px;position:relative;border-top:3px solid var(--red);max-width:720px}
 .vip .vlab{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d9b36a}
 html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
@@ -468,7 +469,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 </div>
 <div data-active hidden>
 <div class="sec"><h3>Your Trust Diagnosis reports</h3><div data-reps></div><p class="hint" style="margin-top:12px">Reports are prepared on request and can take up to 20 seconds to download.</p></div>
-<div class="sec"><h3>Member services</h3><div class="svc"><div class="" data-svc><h4>Trust Diagnosis</h4><p>A free, indicative first read on your brand’s credibility across seven dimensions.</p><a href="/diagnosis/">Start a diagnosis</a></div><div class="off" ><h4>Advanced membership</h4><p>Upgrade options for organisations that want deeper support from CGBB.</p><span class="soon">Coming soon</span></div><div class="off" ><h4>Event tickets</h4><p>Book places at CGBB events, including the whitepaper release in Hong Kong.</p><span class="soon">Coming soon</span></div></div></div>
+<div class="sec"><h3>Member services</h3><div class="svc"><div class="" data-svc><h4>Trust Diagnosis</h4><p>A free, indicative first read on your brand’s credibility across seven dimensions.</p><a href="/diagnosis/">Start a diagnosis</a></div><div data-upg><h4>Advanced membership</h4><p>A one-year (minimum) membership that includes a comprehensive Trust Review. Brands scoring 80% or higher receive a CGBB-verified trust.json file: machine-readable proof of trust that AI shopping and procurement agents can read on your website.</p><a class="btn btn-red upg" href="/upgrade/">Upgrade membership</a></div><div class="off" ><h4>Event tickets</h4><p>Book places at CGBB events, including the whitepaper release in Hong Kong.</p><span class="soon">Coming soon</span></div></div></div>
 <div class="sec"><h3>Email updates</h3><label class="nlpref"><input type="checkbox" data-nl><span><b>Send me CGBB newsletters and periodicals</b><small>Occasional emails with Council news, publications and events. You can switch this off at any time.</small></span></label><span class="nlmsg" data-nlmsg role="status"></span></div>
 <div class="sec"><h3>Member discounts</h3><div class="disc"><p>Exclusive member pricing on CGBB events, Trust Assessment and partner services.</p><span class="soon">Coming soon</span></div>
 <div class="refer" data-refer>
@@ -614,7 +615,9 @@ function render(j){
  var nl=$('[data-nl]');if(nl)nl.checked=!!j.newsletter;
  var ac=document.querySelector('[data-acct]');if(ac){ac.innerHTML='<a class="btn btn-red" href="'+ac.getAttribute('data-href')+'">'+esc(ac.getAttribute('data-mine'))+'</a>'}
  show('dash');window.scrollTo({top:0});
- if(location.hash)history.replaceState(null,'',location.pathname+location.search);}
+ if(location.hash)history.replaceState(null,'',location.pathname+location.search);
+ upgPrefill();}
+function upgPrefill(){if(!/[?&]upgrade=1/.test(location.search))return;var t=$('#vtopic'),mm=$('#vmsg'),v=document.querySelector('.vip');if(!t||!mm||!v||v.offsetParent===null)return;t.value='membership';if(!mm.value)mm.value="I would like to upgrade to Advanced membership (minimum one year) and take the comprehensive Trust Review, with a view to obtaining a CGBB-verified trust.json file. Please send me the fee and next steps.";history.replaceState(null,'',location.pathname);setTimeout(function(){v.scrollIntoView({behavior:'smooth',block:'start'});mm.focus({preventScroll:true})},60)}
 (function(){var nl=$('[data-nl]');if(!nl)return;nl.addEventListener('change',function(){var on=nl.checked,msg=$('[data-nlmsg]');nl.disabled=true;
  call('POST','/api/account/newsletter',{on:on}).then(function(j){if(j.status==='ok'){msg.style.color='';msg.textContent=on?M.nlOn:M.nlOff}else{nl.checked=!on;msg.style.color='var(--red)';msg.textContent=M.fail}}).catch(function(){nl.checked=!on;msg.style.color='var(--red)';msg.textContent=M.fail}).then(function(){nl.disabled=false})})})();
 var REFLINK='';
