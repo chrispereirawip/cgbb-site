@@ -1,0 +1,1 @@
+(function(){var L=document.querySelectorAll('.lang a');L.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('cgbb-lang',a.getAttribute('data-lang'))}catch(e){}})});})();

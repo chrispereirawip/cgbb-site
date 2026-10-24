@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://api.cgbb.org https://api.web3forms.com https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.cgbb.org">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Trust Diagnosis | Council for Global Brand Building</title>
 <meta name="description" content="The CGBB Trust Diagnosis gives members a free, indicative first read on their brand’s credibility across the seven dimensions of the Global Brand Credibility Index.">
 <link rel="canonical" href="https://cgbb.org/diagnosis/">
@@ -293,7 +295,9 @@ html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
 .req{color:var(--red);margin-left:2px}
 .hint{display:block;font-size:13px;color:var(--grey);font-weight:400;margin-top:2px}
 .dx input[type=text],.dx input[type=email],.dx input[type=url],.dx select{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid #bdbdbd;border-radius:0;background:#fff;color:var(--ink);min-height:48px}
-.dx input.code{max-width:240px;font-size:24px;letter-spacing:.3em;text-align:center}
+.dx input.code{max-width:280px;font-size:24px;letter-spacing:.25em;text-align:center}
+.cf-ts{margin:16px 0 0;min-height:65px}.cf-ts:empty{min-height:0;margin:0}
+.nocode{font-size:14px;line-height:1.65;color:var(--grey);margin:14px 0 0}
 .dx input:focus,.dx select:focus{outline:2px solid var(--red);outline-offset:0;border-color:var(--red)}
 .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px 24px}
 .opt{display:flex;gap:12px;align-items:flex-start;padding:9px 0;font-size:15px;line-height:1.5;cursor:pointer}
@@ -346,9 +350,11 @@ button[disabled]{opacity:.55;cursor:wait}
 .demo{background:#000;color:#fff;font-size:13px;padding:8px 0;text-align:center;letter-spacing:.04em}
 @media (max-width:760px){.dx-hero{padding:56px 0 24px}.dx-hero h1{font-size:34px}.dx-prog li{flex:1 1 45%}.review div{flex-direction:column;gap:2px}.review dt{flex:none}}
 </style>
+<script src="/assets/js/turnstile.js?v=b3e46545"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=cgbbTurnstileReady" async defer></script>
 </head>
 <body>
-<div class="demo" hidden>Preview: demo mode. No data is sent. Use any email (include “nonmember” or “pending” to see those messages) and code 123456.</div>
+<div class="demo" hidden>Preview: demo mode. No data is sent. Use any email and code 12345678.</div>
 <header>
 <div class="wrap head">
 <a class="logo" href="/" aria-label="CGBB home"><img src="/assets/logo-horizontal.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會"></a>
@@ -375,12 +381,12 @@ button[disabled]{opacity:.55;cursor:wait}
 <div class="wrap">
 <ol class="dx-prog" aria-label="Progress"><li data-i="0"><span class="n">01</span>Member email</li><li data-i="1"><span class="n">02</span>Your company</li><li data-i="2"><span class="n">03</span>Questionnaire</li><li data-i="3"><span class="n">04</span>Confirm</li></ol>
 <div class="dx">
-<section class="dx-panel" data-p="0" aria-labelledby="h0"><h2 id="h0">Confirm your membership</h2><p class="intro">Enter the email you used for your CGBB membership application. We’ll send a 6-digit code to confirm it’s yours.</p>
+<section class="dx-panel" data-p="0" aria-labelledby="h0"><h2 id="h0">Confirm your membership</h2><p class="intro">Enter the email you used for your CGBB membership application. We’ll send a 8-digit code to confirm it’s yours.</p>
 <div class="q" data-q="em"><label for="em">Member email<span class="req" aria-hidden="true">*</span></label><input type="email" id="em" autocomplete="email" required placeholder="name@company.com"><div class="err">Please enter a valid email address.</div></div>
-<div class="nav" data-step1><span class="sp"></span><button type="button" class="btn btn-red" data-start>Continue</button></div>
+<div class="cf-ts" data-action="diagnosis" data-language="en"></div><div class="nav" data-step1><span class="sp"></span><button type="button" class="btn btn-red" data-start>Continue</button></div>
 <div class="sent" data-sent>
-<div class="q" data-q="code"><label for="code">6-digit code<span class="req" aria-hidden="true">*</span><span class="hint"><span data-codehint></span></span></label><input type="text" id="code" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}"><div class="err">That code isn’t right. Please check the email and try again.</div></div>
-<div class="nav"><button type="button" class="linkbtn" data-resend>Send a new code</button><button type="button" class="linkbtn" data-other>Use a different email</button><span class="sp"></span><button type="button" class="btn btn-red" data-verify>Verify</button></div>
+<div class="q" data-q="code"><label for="code">8-digit code<span class="req" aria-hidden="true">*</span><span class="hint"><span data-codehint></span></span></label><input type="text" id="code" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="8" pattern="[0-9]{6,8}"><div class="err">That code isn’t right. Please check the email and try again.</div></div>
+<p class="nocode">No code? Check your spam folder. If your membership is pending or inactive, or you ran a diagnosis recently, we’ve emailed you the details instead. Not a member yet? <a href="/apply/">Apply for membership</a> (free).</p><div class="nav"><button type="button" class="linkbtn" data-resend>Send a new code</button><button type="button" class="linkbtn" data-other>Use a different email</button><span class="sp"></span><button type="button" class="btn btn-red" data-verify>Verify</button></div>
 </div>
 <div class="block" data-notmember role="alert"><h3>This email isn’t registered as a CGBB member</h3><p>The Trust Diagnosis is available to members only. Please apply for CGBB membership first, then come back to run your diagnosis.</p><p class="free">Membership is free.</p>
 <div class="ctas"><a class="btn btn-red" href="/apply/">Apply for membership</a><button type="button" class="linkbtn" data-other>Use a different email</button></div></div>
@@ -422,79 +428,8 @@ button[disabled]{opacity:.55;cursor:wait}
 <div class="foot-bottom"><span>© 2026 Council for Global Brand Building</span><span style="letter-spacing:.06em">全球化品牌信任促進會</span></div>
 </div>
 </footer>
-<script>
-(function(){
-var API="https://api.cgbb.org", M={"badEmail": "Please enter a valid email address.", "badCode": "That code isn’t right. Please check the email and try again.", "expired": "That code has expired. Please request a new one.", "cooldown": "You ran a diagnosis recently. You can run the next one from {date}. We recommend re-diagnosing every six months.", "inactive": "Your membership isn’t active at the moment, so the Trust Diagnosis is unavailable. Email secretariat@cgbb.org to renew or reactivate it.", "rate": "Too many attempts. Please wait a few minutes and try again.", "session": "Your session expired. Please confirm your email again.", "fail": "Something went wrong. Please try again, or email secretariat@cgbb.org.", "codeHint": "Sent to {email}. The code expires in 15 minutes.", "doneP": "We’re scanning public data about {company} and preparing your report. It will be emailed to {email}, usually within 15 minutes."}, LANG="en";
-var demo=!API||/[?&]demo=1/.test(location.search);
-if(demo){var b=document.querySelector('.demo');if(b)b.hidden=false;}
-var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
-var panels=$$('.dx-panel'), prog=$$('.dx-prog li'), nav=$('[data-mainnav]'), msg=$('[data-msg]'), msg1=$('[data-msg1]');
-var st={email:'',token:'',cur:0};
-function show(i){st.cur=i;panels.forEach(function(p,j){p.classList.toggle('on',j===i)});prog.forEach(function(p,j){p.classList.toggle('on',j===i);p.classList.toggle('done',j<i)});
- nav.hidden=i===0; $('[data-next]').style.display=i<3?'':'none'; $('[data-submit]').style.display=i===3?'':'none';
- if(i===3)review(); msg.classList.remove('on');}
-function say(el,t){el.textContent=t;el.classList.add('on')}
-function call(path,body){
- if(demo)return new Promise(function(res){setTimeout(function(){
-  if(path==='/start')res(/nonmember/i.test(body.email)?{status:'not_member'}:/pending/i.test(body.email)?{status:'pending'}:{status:'code_sent'});
-  else if(path==='/verify')res(body.code==='123456'?{status:'ok',token:'demo'}:{status:'wrong_code'});
-  else res({status:'queued',id:'CGBB-TD-DEMO',email:st.email});},500)});
- return fetch(API+'/api/diagnosis'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json()});}
-function busy(btn,on){btn.disabled=on}
-function bad(q,on){q.classList.toggle('bad',on);return on}
-// step 1
-var em=$('#em'), code=$('#code'), sent=$('[data-sent]'), nm=$('[data-notmember]'), pd=$('[data-pending]'), startB=$('[data-start]');
-function start(){msg1.classList.remove('on');nm.classList.remove('on');pd.classList.remove('on');
- if(bad(em.closest('.q'),!em.value.trim()||!em.checkValidity())){em.focus();return}
- st.email=em.value.trim().toLowerCase(); busy(startB,true);
- call('/start',{email:st.email,lang:LANG}).then(function(j){
-  if(j.status==='not_member'){nm.classList.add('on');sent.classList.remove('on');$('[data-step1]').hidden=true;}
-  else if(j.status==='pending'){pd.classList.add('on');sent.classList.remove('on');$('[data-step1]').hidden=true;}
-  else if(j.status==='code_sent'){sent.classList.add('on');$('[data-step1]').hidden=true;em.readOnly=true;$('[data-codehint]').textContent=M.codeHint.replace('{email}',st.email);code.focus();}
-  else if(j.status==='cooldown')say(msg1,M.cooldown.replace('{date}',j.next));
-  else if(j.status==='inactive')say(msg1,M.inactive);
-  else if(j.status==='rate_limited')say(msg1,M.rate);
-  else if(j.status==='invalid_email')bad(em.closest('.q'),true);
-  else say(msg1,M.fail);
- }).catch(function(){say(msg1,M.fail)}).then(function(){busy(startB,false)});}
-startB.addEventListener('click',start);
-em.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();start()}});
-$('[data-resend]').addEventListener('click',function(){em.readOnly=false;start()});
-$$('[data-other]').forEach(function(b){b.addEventListener('click',function(){em.readOnly=false;em.value='';sent.classList.remove('on');nm.classList.remove('on');pd.classList.remove('on');$('[data-step1]').hidden=false;msg1.classList.remove('on');em.focus()})});
-function verify(){var v=code.value.replace(/\D/g,'');if(bad(code.closest('.q'),v.length!==6))return;var b=$('[data-verify]');busy(b,true);
- call('/verify',{email:st.email,code:v}).then(function(j){
-  if(j.status==='ok'){st.token=j.token;show(1);window.scrollTo({top:$('.dx').offsetTop-100,behavior:'smooth'});}
-  else if(j.status==='expired'){say(msg1,M.expired)}
-  else bad(code.closest('.q'),true);
- }).catch(function(){say(msg1,M.fail)}).then(function(){busy(b,false)});}
-$('[data-verify]').addEventListener('click',verify);
-code.addEventListener('input',function(){code.closest('.q').classList.remove('bad');if(code.value.replace(/\D/g,'').length===6)verify()});
-// validation
-function valid(i){var p=panels[i],first=null;
- $$('.q[data-q]',p).forEach(function(q){var el=$('input,select',q);if(!el||el.type==='checkbox'&&!el.id)return;
-  var b=el.type==='checkbox'?!el.checked:(el.required&&(!el.value.trim()||!el.checkValidity()));if(el.id==='web')b=!/^(https?:\/\/)?[^\s.]+\.[^\s]{2,}/i.test(el.value.trim());
-  if(bad(q,b)&&!first)first=q});
- $$('.lk',p).forEach(function(q){if(bad(q,!$('input:checked',q))&&!first)first=q});
- if(first){first.scrollIntoView({behavior:'smooth',block:'center'});var f=$('input,select',first);if(f)setTimeout(function(){f.focus({preventScroll:true})},300)}
- return !first}
-document.addEventListener('change',function(e){var q=e.target.closest('.q,.lk');if(q)q.classList.remove('bad')});
-document.addEventListener('input',function(e){var q=e.target.closest('.q');if(q&&q.classList.contains('bad'))q.classList.remove('bad')});
-function val(id){return ($('#'+id)||{}).value||''}
-function review(){var d={company:val('co'),website:val('web'),industry:val('ind'),hq:val('hq'),email:st.email};$$('[data-rv]').forEach(function(x){x.textContent=d[x.dataset.rv]||'—'})}
-$('[data-next]').addEventListener('click',function(){if(valid(st.cur)){show(st.cur+1);window.scrollTo({top:$('.dx').offsetTop-100,behavior:'smooth'})}});
-$('[data-back]').addEventListener('click',function(){show(st.cur-1);window.scrollTo({top:$('.dx').offsetTop-100,behavior:'smooth'})});
-$('[data-submit]').addEventListener('click',function(){if(!valid(3))return;var b=this;busy(b,true);msg.classList.remove('on');
- var answers={};$$('.lk').forEach(function(q){answers[q.dataset.lk]=Number($('input:checked',q).value)});
- var body={token:st.token,lang:LANG,company:val('co').trim(),website:val('web').trim(),answers:answers,profile:{industry:val('ind'),hq:val('hq'),size:val('size'),role:val('role'),markets:$$('input[name=markets]:checked').map(function(c){return c.value}).join('; ')}};
- call('/submit',body).then(function(j){
-  if(j.status==='queued'){$('.dx').hidden=true;$('.dx-prog').hidden=true;var d=$('[data-done]');$('[data-donep]').textContent=M.doneP.replace('{company}',body.company).replace('{email}',j.email||st.email);$('[data-doneid]').textContent=j.id;d.classList.add('on');d.focus();window.scrollTo({top:0,behavior:'smooth'});}
-  else if(j.status==='session_expired'){say(msg,M.session);setTimeout(function(){show(0);em.readOnly=false;sent.classList.remove('on');$('[data-step1]').hidden=false},2500)}
-  else say(msg,M.fail);
- }).catch(function(){say(msg,M.fail)}).then(function(){busy(b,false)});});
-show(0);
-})();
-</script>
-<script>(function(){var L=document.querySelectorAll('.lang a');L.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('cgbb-lang',a.getAttribute('data-lang'))}catch(e){}})});})();</script>
-<script>(function(){var nav=document.querySelector("header nav"),hd=document.querySelector("header .head");if(nav&&hd){var zh=document.documentElement.lang.indexOf("zh")===0;var mb=document.createElement("button");mb.type="button";mb.className="mbtn";mb.setAttribute("aria-label",zh?"選單":"Menu");mb.setAttribute("aria-expanded","false");mb.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';nav.appendChild(mb);var p=document.createElement("div");p.className="mpanel wrap";[].forEach.call(nav.querySelectorAll(":scope > .navlink, :scope > .lang"),function(x){p.appendChild(x.cloneNode(true))});hd.parentNode.insertBefore(p,hd.nextSibling);mb.addEventListener("click",function(){var o=p.classList.toggle("on");mb.setAttribute("aria-expanded",o?"true":"false")});p.addEventListener("click",function(e){var l=e.target.closest("a");if(!l)return;p.classList.remove("on");mb.setAttribute("aria-expanded","false");var g=l.getAttribute("data-lang");if(g){try{localStorage.setItem("cgbb-lang",g)}catch(x){}}});}if(!/(?:^|;\s*)cgbb_li=1/.test(document.cookie))return;var a=document.querySelector("[data-acct]");if(!a)return;a.innerHTML="";var b=document.createElement("a");b.className="btn btn-red";b.href=a.getAttribute("data-href");b.textContent=a.getAttribute("data-mine");a.appendChild(b);})();</script>
+<script src="/assets/js/diagnosis.js?v=54e16371"></script>
+<script src="/assets/js/site-lang.js?v=725ed270"></script>
+<script src="/assets/js/site-menu.js?v=14905494"></script>
 </body>
 </html>

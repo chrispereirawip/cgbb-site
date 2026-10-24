@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://api.cgbb.org https://api.web3forms.com https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.cgbb.org">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>全球化品牌信任促進會（品信會） | Council for Global Brand Building</title>
 <meta name="description" content="全球化品牌信任促進會（品信會，CGBB）致力於建立評估與評級企業及商業信任的標準。">
 <link rel="canonical" href="https://cgbb.org/zh/">
@@ -637,43 +639,8 @@ html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
 <div class="ev-sub ev-past"><div class="label">過往活動</div><div class="ev-list">
 <div class="ev" data-end="2026-09-30"><div class="when"><div class="m">9月</div><div class="y">2026</div></div><div class="what"><div class="by">品信會</div><div class="title">品信會於世貿組織公共論壇期間成立</div><div class="where">日內瓦</div><p>全球化品牌信任促進會於世貿組織公共論壇期間在日內瓦正式成立，並啟動首個項目：面向出海品牌的公信力指數。</p><a class="more" href="https://www.yicaiglobal.com/news/council-for-global-brand-building-is-launched-to-address-trust-gap-for-chinese-firms-venturing-abroad" target="_blank" rel="noopener">活動詳情 →</a></div></div>
 </div></div>
-<script>(function(){var d=new Date(),p=function(n){return(n<10?'0':'')+n},td=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());
-var ev=document.getElementById('events');if(!ev)return;var pl=ev.querySelector('.ev-past .ev-list'),moved=[];
-ev.querySelectorAll('.right > .ev-list > .ev, .ev-member .ev').forEach(function(c){var e=c.getAttribute('data-end');if(e&&e<td){c.classList.remove('featured');moved.push(c)}});
-if(!moved.length)return;moved.forEach(function(c){pl.appendChild(c)});
-[].slice.call(pl.children).sort(function(a,b){return(b.getAttribute('data-end')||'').localeCompare(a.getAttribute('data-end')||'')}).forEach(function(c){pl.appendChild(c)});
-pl.parentNode.hidden=false;var m=ev.querySelector('.ev-member');if(m&&!m.querySelector('.ev'))m.hidden=true;
-var main=ev.querySelector('.right > .ev-list'),f=main.querySelector('.ev');if(f)f.classList.add('featured');else main.querySelector('.ev-none').hidden=false})();</script>
-<script>(function(){
-/* Events come live from the admin panel (api /api/events). The list built into the page stays as the fallback. */
-var C={"api": "https://api.cgbb.org", "lang": "zh", "members": "創始機構及合作夥伴活動", "past": "過往活動", "none": "新活動即將公佈。", "more": "活動詳情 →", "tbc": "日期待定"},ev=document.getElementById('events');if(!ev||!window.fetch)return;var R=ev.querySelector('.right');if(!R)return;
-var zh=C.lang==='zh',MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
-function pk(o){o=o||{};return zh?(o.zh||o.en||''):(o.en||o.zh||'')}
-function p2(n){return(n<10?'0':'')+n}
-var d0=new Date(),today=d0.getFullYear()+'-'+p2(d0.getMonth()+1)+'-'+p2(d0.getDate());
-function endOf(e){var d=e.end||e.start||'';return d.length===7?d+'-31':d}
-function when(e){var s=(e.start||'').split('-'),y=s[0],m=+s[1]||1,d=+s[2]||0,en=(e.end||'').split('-'),em=+en[1]||0,ed=+en[2]||0;
- if(pk(e.dateLabel))return [pk(e.dateLabel),y];
- if(!d||e.tbc)return [zh?m+'月':MON[m-1],y];
- var multi=ed&&(ed!==d||em!==m)&&(e.end||'')>(e.start||'');
- if(zh)return [m+'月'+d+'日'+(multi?'–'+(em!==m?em+'月':'')+ed+'日':''),y];
- return [d+(multi?(em!==m?' '+MON[m-1]+' – '+ed+' '+MON[em-1]:'–'+ed+' '+MON[m-1]):' '+MON[m-1]),y]}
-function card(e,feat){var w=when(e),t=pk(e.text);
- var items=(e.items||[]).length?'<ul class="tbc">'+e.items.map(function(x){return '<li><span class="d">'+esc(pk(x.date))+'</span><span>'+esc(pk(x.title))+'</span></li>'}).join('')+'</ul>':'';
- return '<div class="ev'+(feat?' featured':'')+'" data-end="'+esc(endOf(e))+'"><div class="when"><div class="m">'+esc(w[0])+'</div><div class="y">'+esc(w[1])+'</div></div><div class="what">'
-  +(e.image?'<img class="evimg" src="'+esc(e.image)+'" alt="" loading="lazy">':'')
-  +(pk(e.by)?'<div class="by">'+esc(pk(e.by))+'</div>':'')+'<div class="title">'+esc(pk(e.title))+'</div>'+(pk(e.city)?'<div class="where">'+esc(pk(e.city))+'</div>':'')
-  +(t?'<p>'+esc(t).replace(/\n+/g,'<br>')+'</p>':'')+items+(e.tbc?'<div class="note">'+esc(C.tbc)+'</div>':'')
-  +(e.url?'<a class="more" href="'+esc(e.url)+'" target="_blank" rel="noopener">'+esc(pk(e.linkLabel)||C.more)+'</a>':'')+'</div></div>'}
-R.classList.add('ev-wait');var done=false,tm=setTimeout(function(){if(!done)R.classList.remove('ev-wait')},2500);
-fetch(C.api+'/api/events',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){done=true;clearTimeout(tm);R.classList.remove('ev-wait');if(!j||j.status!=='ok'||!j.seeded)return;
- var L=j.events||[],up=function(e){return endOf(e)>=today},by=function(a,b){return String(a.start).localeCompare(String(b.start))};
- var own=L.filter(function(e){return e.kind!=='partner'&&up(e)}).sort(by),par=L.filter(function(e){return e.kind==='partner'&&up(e)}).sort(by),past=L.filter(function(e){return !up(e)}).sort(function(a,b){return endOf(b).localeCompare(endOf(a))});
- var h='<div class="ev-list">'+own.map(function(e,i){return card(e,i===0)}).join('')+(own.length?'':'<div class="ev-none">'+esc(C.none)+'</div>')+'</div>';
- if(par.length)h+='<div class="ev-sub ev-member"><div class="label">'+esc(C.members)+'</div><div class="ev-list">'+par.map(function(e){return card(e)}).join('')+'</div></div>';
- if(past.length)h+='<div class="ev-sub ev-past"><div class="label">'+esc(C.past)+'</div><div class="ev-list">'+past.map(function(e){return card(e)}).join('')+'</div></div>';
- R.innerHTML=h}).catch(function(){done=true;R.classList.remove('ev-wait')})})();</script>
+<script src="/assets/js/home.js?v=2014d41f"></script>
+<script src="/assets/js/zh-home.js?v=ba579e74"></script>
 </div>
 </div>
 </div>
@@ -694,8 +661,8 @@ fetch(C.api+'/api/events',{cache:'no-store'}).then(function(r){return r.json()})
 </div>
 </footer>
 
-<script>(function(){var L=document.querySelectorAll('.lang a');L.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('cgbb-lang',a.getAttribute('data-lang'))}catch(e){}})});})();</script>
-<script>(function(){var h=document.querySelector('header');if(!h)return;function f(){h.classList.toggle('scrolled',scrollY>8)}addEventListener('scroll',f,{passive:true});f()})();</script>
-<script>(function(){var nav=document.querySelector("header nav"),hd=document.querySelector("header .head");if(nav&&hd){var zh=document.documentElement.lang.indexOf("zh")===0;var mb=document.createElement("button");mb.type="button";mb.className="mbtn";mb.setAttribute("aria-label",zh?"選單":"Menu");mb.setAttribute("aria-expanded","false");mb.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';nav.appendChild(mb);var p=document.createElement("div");p.className="mpanel wrap";[].forEach.call(nav.querySelectorAll(":scope > .navlink, :scope > .lang"),function(x){p.appendChild(x.cloneNode(true))});hd.parentNode.insertBefore(p,hd.nextSibling);mb.addEventListener("click",function(){var o=p.classList.toggle("on");mb.setAttribute("aria-expanded",o?"true":"false")});p.addEventListener("click",function(e){var l=e.target.closest("a");if(!l)return;p.classList.remove("on");mb.setAttribute("aria-expanded","false");var g=l.getAttribute("data-lang");if(g){try{localStorage.setItem("cgbb-lang",g)}catch(x){}}});}if(!/(?:^|;\s*)cgbb_li=1/.test(document.cookie))return;var a=document.querySelector("[data-acct]");if(!a)return;a.innerHTML="";var b=document.createElement("a");b.className="btn btn-red";b.href=a.getAttribute("data-href");b.textContent=a.getAttribute("data-mine");a.appendChild(b);})();</script>
+<script src="/assets/js/site-lang.js?v=725ed270"></script>
+<script src="/assets/js/site-header.js?v=cfa6b4e4"></script>
+<script src="/assets/js/site-menu.js?v=14905494"></script>
 </body>
 </html>
