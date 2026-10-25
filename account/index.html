@@ -335,6 +335,12 @@ html[lang="zh-Hant"] .card .lab{letter-spacing:.06em}
 .reps .id{display:block;font-size:12px;color:var(--grey);margin-top:2px}
 .empty{font-size:16px;line-height:1.7;color:var(--grey)}
 .empty a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.upg .upcard{border:1px solid var(--ink);padding:22px 24px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between}
+.upg .upcard p{margin:0;max-width:640px;line-height:1.7}.upg .price{font-size:22px;font-weight:500;margin:10px 0 0}.upg .price small{font-size:14px;color:var(--grey);font-weight:400;margin-left:6px}
+.upg .secure{font-size:13px;color:var(--grey);margin:10px 0 0}.upg .on{border-color:#1d6b3a;background:#f3faf5}.upg .warn{border-color:var(--red);background:#faf3f3}
+.upg .soon{display:inline-block;font-size:14px;color:var(--grey);border:1px dashed #bdbdbd;padding:10px 16px}
+.upbanner{padding:14px 18px;margin:0 0 18px;font-size:15px;line-height:1.6;background:#e9f4ed;color:#1d6b3a}.upbanner.off{background:#f4f4f4;color:var(--ink)}
+.tier{display:inline-block;margin-left:8px;font-size:13px;font-weight:600;padding:3px 9px;background:var(--red);color:#fff;vertical-align:middle}
 .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px}
 .svc > div{background:#fafafa;padding:20px 22px}
 .svc h4{margin:0 0 6px;font-size:17px;font-weight:500}
@@ -472,7 +478,9 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 </dl>
 <div class="pend" data-note hidden><b data-noteb></b><span data-notep></span></div>
 </div>
+<div class="upbanner" data-upmsg hidden role="status"></div>
 <div data-active hidden>
+<div class="sec upg" id="upgrade"><h3>Advanced membership</h3><div data-upbody></div></div>
 <div class="sec"><h3>Your Trust Diagnosis reports</h3><div data-reps></div><p class="hint" style="margin-top:12px">Reports are prepared on request and can take up to 20 seconds to download.</p></div>
 <div class="sec"><h3>Member services</h3><div class="svc"><div class="" data-svc><h4>Trust Diagnosis</h4><p>A free, indicative first read on your brand’s credibility across seven dimensions.</p><a href="/diagnosis/">Start a diagnosis</a></div><div data-upg><h4>Advanced membership</h4><p>A one-year (minimum) membership that includes a comprehensive Trust Review. Brands scoring 80% or higher receive a CGBB-verified trust.json file: machine-readable proof of trust that AI shopping and procurement agents can read on your website.</p><a class="btn btn-red upg" href="/upgrade/">Upgrade membership</a></div><div class="off" ><h4>Event tickets</h4><p>Book places at CGBB events, including the whitepaper release in Hong Kong.</p><span class="soon">Coming soon</span></div></div></div>
 <div class="sec"><h3>Email updates</h3><label class="nlpref"><input type="checkbox" data-nl><span><b>Send me CGBB newsletters and periodicals</b><small>Occasional emails with Council news, publications and events. You can switch this off at any time.</small></span></label><span class="nlmsg" data-nlmsg role="status"></span></div>
@@ -521,7 +529,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <div class="foot-bottom"><span>© 2026 Council for Global Brand Building</span><span style="letter-spacing:.06em">全球化品牌信任促進會</span></div>
 </div>
 </footer>
-<script src="/assets/js/account.js?v=50370204"></script>
+<script src="/assets/js/account.js?v=0b759be2"></script>
 <script src="/assets/js/site-menu.js?v=14905494"></script>
 <script src="/assets/js/site-lang.js?v=725ed270"></script>
 </body>

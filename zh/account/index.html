@@ -335,6 +335,12 @@ html[lang="zh-Hant"] .card .lab{letter-spacing:.06em}
 .reps .id{display:block;font-size:12px;color:var(--grey);margin-top:2px}
 .empty{font-size:16px;line-height:1.7;color:var(--grey)}
 .empty a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.upg .upcard{border:1px solid var(--ink);padding:22px 24px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between}
+.upg .upcard p{margin:0;max-width:640px;line-height:1.7}.upg .price{font-size:22px;font-weight:500;margin:10px 0 0}.upg .price small{font-size:14px;color:var(--grey);font-weight:400;margin-left:6px}
+.upg .secure{font-size:13px;color:var(--grey);margin:10px 0 0}.upg .on{border-color:#1d6b3a;background:#f3faf5}.upg .warn{border-color:var(--red);background:#faf3f3}
+.upg .soon{display:inline-block;font-size:14px;color:var(--grey);border:1px dashed #bdbdbd;padding:10px 16px}
+.upbanner{padding:14px 18px;margin:0 0 18px;font-size:15px;line-height:1.6;background:#e9f4ed;color:#1d6b3a}.upbanner.off{background:#f4f4f4;color:var(--ink)}
+.tier{display:inline-block;margin-left:8px;font-size:13px;font-weight:600;padding:3px 9px;background:var(--red);color:#fff;vertical-align:middle}
 .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px}
 .svc > div{background:#fafafa;padding:20px 22px}
 .svc h4{margin:0 0 6px;font-size:17px;font-weight:500}
@@ -472,7 +478,9 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 </dl>
 <div class="pend" data-note hidden><b data-noteb></b><span data-notep></span></div>
 </div>
+<div class="upbanner" data-upmsg hidden role="status"></div>
 <div data-active hidden>
+<div class="sec upg" id="upgrade"><h3>進階會員</h3><div data-upbody></div></div>
 <div class="sec"><h3>您的信任診斷報告</h3><div data-reps></div><p class="hint" style="margin-top:12px">報告會在您下載時即時生成，可能需時約20秒。</p></div>
 <div class="sec"><h3>會員服務</h3><div class="svc"><div class="" data-svc><h4>信任診斷</h4><p>免費初步評估品牌在七個維度上的公信力。</p><a href="/zh/diagnosis/">開始診斷</a></div><div data-upg><h4>進階會員</h4><p>最少為期一年，包括全面信任評審。評分達80%或以上的品牌將獲發經品信會驗證的trust.json檔案：可供AI購物及採購代理在您網站上讀取的機器可讀信任證明。</p><a class="btn btn-red upg" href="/zh/upgrade/">升級會員</a></div><div class="off" ><h4>活動門票</h4><p>預訂品信會活動席位，包括香港白皮書發佈會。</p><span class="soon">即將推出</span></div></div></div>
 <div class="sec"><h3>電郵通訊</h3><label class="nlpref"><input type="checkbox" data-nl><span><b>接收品信會會員通訊及刊物</b><small>不定期收到品信會新聞、出版物及活動資訊，可隨時關閉。</small></span></label><span class="nlmsg" data-nlmsg role="status"></span></div>
@@ -521,7 +529,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <div class="foot-bottom"><span>© 2026 全球化品牌信任促進會</span><span style="letter-spacing:.06em">Council for Global Brand Building</span></div>
 </div>
 </footer>
-<script src="/assets/js/zh-account.js?v=2e6d1f22"></script>
+<script src="/assets/js/zh-account.js?v=82599fcf"></script>
 <script src="/assets/js/site-menu.js?v=14905494"></script>
 <script src="/assets/js/site-lang.js?v=725ed270"></script>
 </body>
