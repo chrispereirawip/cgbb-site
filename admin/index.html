@@ -284,6 +284,25 @@ dl.kv dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
 .demo{background:#000;color:#fff;font-size:13px;padding:8px 0;text-align:center}
 @media (max-width:860px){.tbl.mem thead{display:none}.tbl.mem,.tbl.mem tbody{display:block}.tbl.mem tr.row{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;padding:14px 0;border-bottom:1px solid var(--hair)}.tbl.mem tr.row td{display:block;border:0;padding:0;white-space:normal}.tbl.mem tr.row td.who{grid-column:1/-1;max-width:none}.tbl.mem tr.row td[data-l]::before{content:attr(data-l);display:block;font-size:11px;color:var(--grey);margin-bottom:2px}.tbl.mem tr.det{display:block}.tbl.mem tr.det td{display:block}.tbl.mem tr.row:hover td{background:none}}
 @media (max-width:760px){.mdet{grid-template-columns:1fr}.rtdim{grid-template-columns:130px 1fr 28px}.stats{grid-template-columns:repeat(2,1fr)}.ad-top h1{font-size:26px}dl.kv{grid-template-columns:1fr}.tools input{min-width:0;width:100%}}
+.wlbar{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;padding:14px 18px;margin:0 0 14px;border:1px solid #dcdcdc;background:#fafafa}
+.wlbar.on{border-color:#1d6b3a;background:#f3faf5}.wlbar.off{border-color:#bdbdbd}
+.wlbar .wls{max-width:760px;font-size:14px;line-height:1.6}.wlbar .wls b{display:block;font-size:15px;font-weight:600}.wlbar.on .wls b{color:#1d6b3a}
+.wlbar .wla{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}.wlauto{font-size:14px;display:flex;gap:6px;align-items:center}.wlauto.dis{color:#9a9a9a}
+.wlinfo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px 28px;margin:0 0 16px;font-size:14px;line-height:1.6}
+.wlinfo .sub{color:var(--grey)}.wlf{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;margin:0 0 6px}.wlf .sub{font-size:12.5px}.wlf .bad,.wlmail .bad{color:var(--red)}
+.wlup{min-height:30px;padding:0 10px;font-size:13px;cursor:pointer}
+.tbl.wl th.srt{cursor:pointer;user-select:none;white-space:nowrap}.tbl.wl th .ar{font-size:10px;color:#9a9a9a;margin-left:5px}.tbl.wl th.on .ar{color:var(--ink)}
+.tbl.wl tr.wlrow{cursor:pointer}.tbl.wl tr.wlrow:hover td{background:#fafafa}.tbl.wl .sub{display:block;font-size:12.5px;color:var(--grey)}.tbl.wl .sub.warn{color:var(--red)}
+.tbl.wl .more{display:block;font-size:12.5px;color:var(--red);margin-top:4px}
+.wst{display:inline-block;font-size:12.5px;font-weight:600;padding:2px 8px}.wst.none{background:#f4f4f4;color:#5F5F5F}.wst.sent{background:#e9f4ed;color:#1d6b3a}.wst.manual{background:#eef0f7;color:#2b3a67}
+.wlp{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:20px 32px}
+.wlcol label{display:block;font-size:13px;color:var(--grey);margin:0 0 8px}.wlcol input[type=text]{display:block;width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:7px 9px;border:1px solid #bdbdbd;margin-top:3px}
+.wlbtns{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 10px}.wlbtns input[type=text]{width:180px;font:inherit;font-size:14px;padding:7px 9px;border:1px solid #bdbdbd}
+.wlbtns .btn{min-height:34px;padding:0 12px;font-size:13.5px}.lnk{background:none;border:0;padding:0;font:inherit;font-size:13px;color:var(--red);text-decoration:underline;cursor:pointer}
+.wlcol .sub{font-size:12.5px;color:var(--grey);line-height:1.6}
+.wlimg{display:block;width:100%;max-width:900px;border:1px solid #dcdcdc;margin:6px 0 12px}
+.wlmail{border:1px solid #dcdcdc;margin:6px 0 12px;max-width:900px}.wlmail>.sub{padding:10px 14px;border-bottom:1px solid #eee;background:#fafafa;font-size:13px;line-height:1.7}.wlbody{padding:6px 10px;max-height:640px;overflow:auto}
+@media (max-width:860px){.wlinfo,.wlp{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -302,13 +321,13 @@ dl.kv dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
 <div class="ad-top"><h1>Secretariat admin<small>秘書處管理後台</small></h1><div class="who" data-me></div></div>
 <div class="ualert" data-ualert role="alert" hidden></div>
 <div class="stats"><div><b data-s="pending">0</b><span>Applications to review · 待審批</span></div><div><b data-s="active">0</b><span>Active members · 有效會員</span></div><div><b data-s="ignored">0</b><span>Ignored · 已忽略</span></div><div><b data-s="msgs">0</b><span>Unread messages · 未讀留言</span></div></div>
-<div class="tabs" role="tablist"><button type="button" data-t="apps">Applications 申請<span class="n" data-n="apps"></span></button><button type="button" data-t="members">Members 會員<span class="n" data-n="members"></span></button><button type="button" data-t="ignored">Ignored 已忽略<span class="n" data-n="ignored"></span></button><button type="button" data-t="msgs">Messages 留言<span class="n" data-n="msgs"></span></button><button type="button" data-t="nl">Newsletter 通訊<span class="n" data-n="nl"></span></button><button type="button" data-t="ev">Events 活動</button><button type="button" data-t="sess" data-sesstab hidden>Sessions 登入會話</button></div>
+<div class="tabs" role="tablist"><button type="button" data-t="apps">Applications 申請<span class="n" data-n="apps"></span></button><button type="button" data-t="members">Members 會員<span class="n" data-n="members"></span></button><button type="button" data-t="ignored">Ignored 已忽略<span class="n" data-n="ignored"></span></button><button type="button" data-t="msgs">Messages 留言<span class="n" data-n="msgs"></span></button><button type="button" data-t="nl">Newsletter 通訊<span class="n" data-n="nl"></span></button><button type="button" data-t="ev">Events 活動</button><button type="button" data-t="cert">Certificates 證書</button><button type="button" data-t="sess" data-sesstab hidden>Sessions 登入會話</button></div>
 <div class="tools"><input type="search" data-q placeholder="Search name, organisation or email · 搜尋"><button type="button" class="btn btn-line" data-export>Export CSV 匯出</button><button type="button" class="btn btn-line" data-ratemissing>Rate unrated members 為未評分會員評分</button></div>
 <div data-pane></div>
 </div>
 </section>
 </main>
 <div class="toast" role="status"></div>
-<script src="/assets/js/admin.js?v=8509bc14"></script>
+<script src="/assets/js/admin.js?v=b03b92e2"></script>
 </body>
 </html>

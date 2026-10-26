@@ -41,7 +41,7 @@ function render(){
  var c=counts();$('[data-s=pending]').textContent=c.apps;$('[data-s=active]').textContent=c.active;$('[data-s=ignored]').textContent=c.ignored;$('[data-s=msgs]').textContent=c.msgs;
  $('[data-n=apps]').textContent=c.apps;$('[data-n=members]').textContent=c.members;$('[data-n=ignored]').textContent=c.ignored;$('[data-n=msgs]').textContent=c.msgs;
  $$('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.t===S.tab)});
- $('.tools').hidden=S.tab==='msgs'||S.tab==='nl'||S.tab==='ev'||S.tab==='sess';$('[data-n=nl]').textContent=(S.nl&&S.nl.issues.filter(function(x){return x.status==='review'}).length)||'';$('[data-export]').hidden=S.tab!=='members';$('[data-ratemissing]').hidden=S.tab!=='members';
+ $('.tools').hidden=S.tab==='msgs'||S.tab==='nl'||S.tab==='ev'||S.tab==='sess';if(S.tab==='cert')$('.tools').hidden=false;$('[data-n=nl]').textContent=(S.nl&&S.nl.issues.filter(function(x){return x.status==='review'}).length)||'';$('[data-export]').hidden=S.tab!=='members';$('[data-ratemissing]').hidden=S.tab!=='members';
  var P=$('[data-pane]'),h='';
  if(S.tab==='apps'||S.tab==='ignored'){var st=S.tab==='apps'?'pending':'declined';var list=S.members.filter(function(m){return !m.staff&&m.status===st&&match(m)});
   h=list.length?list.map(function(m){return card(m,S.tab)}).join(''):'<p class="empty">'+(S.tab==='apps'?M.noApps:M.noIgnored)+'</p>'}
@@ -56,6 +56,7 @@ function render(){
   if(!list.length)h='<p class="empty">'+M.noIgnored+'</p>'}
  else if(S.tab==='nl'){h=S.ed?nlEditor():nlList()}
  else if(S.tab==='ev'){h=S.evEd?evForm():evList()}
+ else if(S.tab==='cert'){h=wlHtml();if(!S.wl&&!S.wlLoading){S.wlLoading=1;loadWl().then(function(){S.wlLoading=0;render()}).catch(function(){S.wlLoading=0;S.wl={cfg:{},files:{},members:[],nextSeq:16};render();toast(M.fail)})}}
  else if(S.tab==='sess'){h=sessHtml();if(!S.sess&&!S.sessLoading){S.sessLoading=1;loadSess().then(function(){S.sessLoading=0;render()}).catch(function(){S.sessLoading=0;S.sess=[];render();toast(M.fail)})}}
  else{var L=S.msgs.slice().sort(function(a,b){var ua=urgent(a)?0:(a.readAt?2:1),ub=urgent(b)?0:(b.readAt?2:1);return ua-ub||String(b.at).localeCompare(String(a.at))}).filter(function(x){return S.mf==='all'||(S.mf==='unread'?!x.readAt:!!x.readAt)});
   h='<div class="mfilter">'+[['unread',M.mUnread+' ('+c.msgs+')'],['read',M.mRead],['all',M.mAll]].map(function(f){return '<button type="button" data-mf="'+f[0]+'" class="'+(S.mf===f[0]?'on':'')+'">'+esc(f[1])+'</button>'}).join('')+'<span class="sp"></span>'+(c.msgs?'<button type="button" data-allread>'+esc(M.markAllRead)+'</button>':'')+'</div>';
@@ -450,6 +451,88 @@ function load(){return call('GET','/api/staff/members').then(function(j){
   if(j._code===401||j.status==='signed_out')return gate('login');if(j._code===403||j.status==='forbidden')return gate('forbidden');if(j.status!=='ok')throw 0;
   S.members=j.members;$('[data-me]').textContent=j.me;$('[data-main]').hidden=false;S.canSess=!!(j.sessionsAdmin||(demo&&j.me));$('[data-sesstab]').hidden=!S.canSess;if(S.tab==='sess'&&!S.canSess)S.tab='apps';
   return Promise.all([call('GET','/api/staff/messages').then(function(x){S.msgs=x.messages||[]}),loadNl(),loadEv(),loadNotes(),loadBill()]).then(function(){render();rtPoll()})}).catch(function(){toast(M.fail)})}
-if(/newsletter/.test(location.hash))S.tab='nl';if(/events/.test(location.hash))S.tab='ev';if(/sessions/.test(location.hash))S.tab='sess';
+/* ---------- certificates: welcome email + Certificate of Membership + handbook ---------- */
+function callBin(path,body){return fetch(API+path,{method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify(body||{})}).then(function(r){if(!r.ok)throw r;return r.blob()})}
+function loadWl(){if(demo){S.wl={status:'ok',cfg:{live:false,auto:false},files:{ind:null,org:null},nextSeq:16,members:[]};return Promise.resolve()}
+ return call('GET','/api/staff/welcome').then(function(j){if(j.status!=='ok')throw j;S.wl=j})}
+S.wlSort={k:'approvedAt',dir:-1};S.wlOpen={};S.wlPrev={};
+function wlStatus(m){var w=m.welcome;if(!w)return {k:'none',t:'Not sent 未發送',s:3};if(w.sentAt)return {k:'sent',t:'Sent 已發送',s:1};if(w.manual)return {k:'manual',t:'Issued by hand 人工發出',s:2};return {k:'none',t:'Not sent 未發送',s:3}}
+function wlRows(){var L=S.wl.members.filter(match),k=S.wlSort.k,dir=S.wlSort.dir;
+ var val=function(m){if(k==='name')return (m.name||m.email).toLowerCase();if(k==='type')return m.type;if(k==='cert')return wlStatus(m).s+' '+(m.welcome&&m.welcome.no||'');if(k==='certname')return (m.nameEn||m.nameCn||'').toLowerCase();return m.approvedAt||''};
+ return L.slice().sort(function(a,b){var x=val(a),y=val(b);return (x<y?-1:x>y?1:0)*dir})}
+function wlTh(k,label){var on=S.wlSort.k===k;return '<th class="srt'+(on?' on':'')+'" data-wlsort="'+k+'" aria-sort="'+(on?(S.wlSort.dir>0?'ascending':'descending'):'none')+'">'+label+'<span class="ar">'+(on?(S.wlSort.dir>0?'▲':'▼'):'↕')+'</span></th>'}
+function wlFile(k,lab){var f=S.wl.files&&S.wl.files[k];return '<div class="wlf"><b>'+lab+'</b> '+(f?'<a href="'+API+'/api/staff/welcome/file?kind='+k+'" target="_blank" rel="noopener">'+esc(f.filename)+'</a><span class="sub">'+Math.round(f.size/1024)+' KB · '+d(f.updatedAt)+'</span>':'<span class="bad">Not uploaded 未上載</span>')
+ +'<label class="btn btn-line wlup">'+(f?'Replace 更換':'Upload 上載')+'<input type="file" accept="application/pdf" data-wlfile="'+k+'" hidden></label></div>'}
+function wlHtml(){var w=S.wl;if(!w)return '<p class="empty">Loading… 載入中…</p>';var cfg=w.cfg||{};
+ var nm=function(t,y){return 'CGBB-'+t+'-'+y+'-'+String(w.nextSeq).padStart(3,'0')};var yr=new Date().getFullYear();
+ var h='<div class="wlbar '+(cfg.live?'on':'off')+'"><div class="wls"><b>'+(cfg.live?'Sending is ON 發送已開啟':'Sending is OFF 發送已關閉')+'</b><span>'+(cfg.live
+   ?'Members can be sent their welcome pack from this page'+(cfg.auto?', and it goes out automatically when an application is approved.':'. Approving an application still sends only the usual approval email.')+' 可在此頁向會員發送歡迎郵件'+(cfg.auto?'，批准申請時亦會自動發送。':'；批准申請時仍只發送一般批准通知。')
+   :'Nothing is emailed to members. You can preview each certificate and email, and send a test copy to yourself. 不會向會員發送任何郵件；可預覽證書及郵件，並向自己發送測試郵件。')+'</span></div>'
+  +'<div class="wla"><button type="button" class="btn '+(cfg.live?'btn-line':'btn-red')+'" data-wllive="'+(cfg.live?'0':'1')+'">'+(cfg.live?'Turn sending off 關閉發送':'Turn sending on 開啟發送')+'</button>'
+  +'<label class="wlauto'+(cfg.live?'':' dis')+'"><input type="checkbox" data-wlauto'+(cfg.auto?' checked':'')+(cfg.live?'':' disabled')+'> Send automatically on approval 批准時自動發送</label></div></div>';
+ h+='<div class="wlinfo"><div>'+wlFile('ind','Individual handbook 個人會員手冊')+wlFile('org','Organizational handbook 機構會員手冊')+'</div>'
+  +'<div class="sub">Next numbers 下一個編號: <b>'+nm('IM',yr)+'</b> / <b>'+nm('OM',yr)+'</b> (one running number for both 兩類共用流水號). Validity follows each member’s membership (one year from approval, plus referral months) 有效期按會籍計算. Certificates issued by hand before this system are recorded as “Issued by hand” and won’t be sent again 人工發出的證書不會重發.</div></div>';
+ var R=wlRows();if(!R.length)return h+'<p class="empty">No approved members. 暫無已批准會員。</p>';
+ var cnt={none:0,sent:0,manual:0};S.wl.members.forEach(function(m){cnt[wlStatus(m).k]++});
+ h+='<p class="sub" style="margin:0 0 10px">'+cnt.none+' not sent 未發送 · '+cnt.sent+' sent 已發送 · '+cnt.manual+' issued by hand 人工發出</p>';
+ h+='<table class="tbl wl"><thead><tr>'+wlTh('name','Member 會員')+wlTh('type','Type 類別')+wlTh('certname','Name on certificate 證書名稱')+wlTh('cert','Certificate 證書')+wlTh('approvedAt','Approved 批准')+'</tr></thead><tbody>';
+ R.forEach(function(m){var st=wlStatus(m),o=S.wlOpen[m.email],miss=!m.nameEn||!m.nameCn,ww=m.welcome||{};
+  h+='<tr class="wlrow" data-wl="'+esc(m.email)+'"><td class="who"><b>'+esc(m.name||m.email)+'</b>'+(m.org?'<span class="sub">'+esc(m.org)+'</span>':'')+'<span class="more">'+(o?'Close 收起 ▴':'Open 展開 ▾')+'</span></td>'
+   +'<td data-l="Type 類別">'+(m.type==='OM'?'Organizational 機構':'Individual 個人')+'</td>'
+   +'<td data-l="Name on certificate 證書名稱">'+esc(m.nameEn||'—')+'<span class="sub">'+esc(m.nameCn||'—')+'</span>'+(miss?'<span class="sub warn">'+(m.nameEn?'No Chinese name 缺中文名':'No English name 缺英文名')+'</span>':'')+'</td>'
+   +'<td data-l="Certificate 證書"><span class="wst '+st.k+'">'+st.t+'</span>'+(ww.no?'<span class="sub">'+esc(ww.no)+(ww.sentAt?' · '+d(ww.sentAt):'')+'</span>':'')+'</td>'
+   +'<td data-l="Approved 批准">'+d(m.approvedAt)+'</td></tr>';
+  h+='<tr class="wldet" data-wld="'+esc(m.email)+'"'+(o?'':' hidden')+'><td colspan="5"><div class="detin">'+wlPanel(m)+'</div></td></tr>'});
+ return h+'</tbody></table>'}
+function wlPanel(m){var ww=m.welcome||{},pv=S.wlPrev[m.email]||{},live=S.wl.cfg&&S.wl.cfg.live,done=ww.sentAt||ww.manual;
+ var h='<div class="wlp"><div class="wlcol"><p class="sec-t">Name on certificate 證書名稱</p>'
+  +'<label>English 英文<input type="text" data-wlen value="'+esc(m.nameEn||'')+'" maxlength="120"></label><label>Chinese 中文<input type="text" data-wlcn value="'+esc(m.nameCn||'')+'" maxlength="60"></label>'
+  +'<div class="wlbtns"><button type="button" class="btn btn-line" data-wlnames>Save names 儲存名稱</button>'+(m.namesFixed?'<button type="button" class="lnk" data-wlnreset>Use application names 改回申請資料</button>':'')+'</div>'
+  +'<p class="sub">Individuals: e.g. “Liu Jihua” / “刘济华”. Organisations: company name in English / Chinese. If one is left empty, the other is printed on both lines. 如只填一項，兩行都會印上該名稱。</p>'
+  +'<p class="sec-t" style="margin-top:18px">Already issued by hand? 已人工發出證書？</p>'
+  +(ww.manual?'<p>'+esc(ww.no)+' <button type="button" class="lnk" data-wlmclear>Remove 移除</button></p>'
+    :(ww.sentAt?'<p class="sub">Sent by this system 由系統發出</p>':'<div class="wlbtns"><input type="text" data-wlmno placeholder="CGBB-IM-2026-004" maxlength="20"><button type="button" class="btn btn-line" data-wlmsave>Record 記錄</button></div>'))
+  +(ww.sentAt?'<p class="sec-t" style="margin-top:18px">Archive 歸檔</p><p class="sub">'+esc(ww.no)+' · '+esc(ww.file||'')+'<br>Sent 發送: '+when(ww.sentAt)+' → '+esc(ww.to||m.email)+'<br>'+esc(ww.subject||'')+(ww.by?'<br>By 經辦: '+esc(ww.by):'')+'</p><button type="button" class="btn btn-line" data-wlsentpdf>Download sent certificate 下載已發證書</button>':'')
+  +'</div><div class="wlcol wide"><p class="sec-t">Preview 預覽'+(done?'':' <span class="sub" style="display:inline">(number shown as ### until sent 編號於發送時分配)</span>')+'</p>'
+  +'<div class="wlbtns"><button type="button" class="btn btn-line" data-wlpv="png">Certificate 證書</button><button type="button" class="btn btn-line" data-wlpv="email">Email 郵件</button><button type="button" class="btn btn-line" data-wlpdf>Download PDF 下載PDF</button><button type="button" class="btn btn-line" data-wltest>Send test to me 測試發給自己</button>'
+  +(live&&!done?'<button type="button" class="btn btn-red" data-wlsend>Send to member 發送給會員</button>':'')+'</div>'
+  +(pv.loading?'<p class="sub">Loading… 載入中…</p>':'')
+  +(pv.png?'<img class="wlimg" src="'+pv.png+'" alt="Certificate preview">':'')
+  +(pv.email?'<div class="wlmail"><div class="sub">Subject 主旨: <b>'+esc(pv.email.subject)+'</b><br>To 收件人: '+esc(m.email)+' · Reply-to: chris.yang@cgbb.org<br>Attachments 附件: '+pv.email.attachments.map(function(a){return a?esc(a):'<span class="bad">handbook missing 未上載手冊</span>'}).join(' · ')+'</div><div class="wlbody">'+pv.email.html+'</div></div>':'')
+  +'</div></div>';return h}
+function wlFind(email){return S.wl.members.filter(function(x){return x.email===email})[0]}
+function wlUpdate(m){var i=S.wl.members.findIndex(function(x){return x.email===m.email});if(i>=0)S.wl.members[i]=m;S.wlPrev[m.email]={};render()}
+document.addEventListener('click',function(e){
+ if(S.tab!=='cert')return;
+ var th=e.target.closest('[data-wlsort]');if(th){var k=th.dataset.wlsort;S.wlSort=S.wlSort.k===k?{k:k,dir:-S.wlSort.dir}:{k:k,dir:k==='approvedAt'?-1:1};render();return}
+ var row=e.target.closest('tr.wlrow');if(row){var em=row.dataset.wl;S.wlOpen[em]=!S.wlOpen[em];render();return}
+ var lv=e.target.closest('[data-wllive]');if(lv){var on=lv.dataset.wllive==='1';
+  if(on&&!lv.dataset.armed){lv.dataset.armed='1';lv.textContent='Click again: members can now be emailed 再按一次確認開啟';setTimeout(function(){if(lv.isConnected){delete lv.dataset.armed;lv.textContent='Turn sending on 開啟發送'}},5000);return}
+  lv.disabled=true;call('POST','/api/staff/welcome/cfg',on?{live:true}:{live:false,auto:false}).then(function(j){if(j.status!=='ok')throw j;S.wl.cfg=j.cfg;render();toast(on?'Sending on 已開啟':'Sending off 已關閉')}).catch(function(){lv.disabled=false;toast(M.fail)});return}
+ var det=e.target.closest('tr.wldet');if(!det)return;var em=det.dataset.wld,m=wlFind(em);if(!m)return;
+ var b=e.target.closest('button');if(!b)return;
+ if(b.hasAttribute('data-wlnames')||b.hasAttribute('data-wlnreset')){var body=b.hasAttribute('data-wlnreset')?{email:em,reset:true}:{email:em,en:$('[data-wlen]',det).value,cn:$('[data-wlcn]',det).value};b.disabled=true;
+  call('POST','/api/staff/welcome/names',body).then(function(j){if(j.status!=='ok')throw j;wlUpdate(j.member);toast(M.savedOK)}).catch(function(){b.disabled=false;toast(M.fail)});return}
+ if(b.hasAttribute('data-wlmsave')||b.hasAttribute('data-wlmclear')){var bd=b.hasAttribute('data-wlmclear')?{email:em,clear:true}:{email:em,no:$('[data-wlmno]',det).value};b.disabled=true;
+  call('POST','/api/staff/welcome/manual',bd).then(function(j){if(j.status==='bad_no'){b.disabled=false;toast('Use the format CGBB-IM-2026-004 格式錯誤');return}if(j.status!=='ok')throw j;wlUpdate(j.member);toast(M.savedOK)}).catch(function(){b.disabled=false;toast(M.fail)});return}
+ if(b.dataset.wlpv){var what=b.dataset.wlpv,pv=S.wlPrev[em]=S.wlPrev[em]||{};
+  if(what==='email'){if(pv.email){delete pv.email;render();return}pv.loading=1;render();call('POST','/api/staff/welcome/preview',{email:em,what:'email'}).then(function(j){pv.loading=0;if(j.status!=='ok')throw j;pv.email=j;render()}).catch(function(){pv.loading=0;render();toast(M.fail)});return}
+  if(pv.png){URL.revokeObjectURL(pv.png);delete pv.png;render();return}pv.loading=1;render();
+  callBin('/api/staff/welcome/preview',{email:em,what:'png'}).then(function(bl){pv.loading=0;pv.png=URL.createObjectURL(bl);render()}).catch(function(){pv.loading=0;render();toast('Preview failed 預覽失敗')});return}
+ if(b.hasAttribute('data-wlpdf')||b.hasAttribute('data-wlsentpdf')){b.disabled=true;var sent=b.hasAttribute('data-wlsentpdf');
+  callBin(sent?'/api/staff/welcome/pdf':'/api/staff/welcome/preview',sent?{email:em}:{email:em,what:'pdf'}).then(function(bl){b.disabled=false;var a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download=(sent&&m.welcome&&m.welcome.file)||('PREVIEW_'+(m.nameEn||m.nameCn||'member').replace(/[^\w㐀-鿿]+/g,'_')+'.pdf');document.body.appendChild(a);a.click();a.remove()}).catch(function(){b.disabled=false;toast(M.fail)});return}
+ if(b.hasAttribute('data-wltest')){b.disabled=true;b.textContent='Sending… 發送中…';
+  call('POST','/api/staff/welcome/test',{email:em}).then(function(j){b.disabled=false;b.textContent='Send test to me 測試發給自己';if(j.status==='handbook_missing'){toast('Upload the handbook first 請先上載手冊');return}if(j.status!=='ok')throw j;toast('Test sent to 測試郵件已發至 '+j.to)}).catch(function(){b.disabled=false;b.textContent='Send test to me 測試發給自己';toast(M.fail)});return}
+ if(b.hasAttribute('data-wlsend')){if(!b.dataset.armed){b.dataset.armed='1';b.textContent='Click again to email '+(m.nameEn||m.nameCn||m.email)+' 再按一次發送';setTimeout(function(){if(b.isConnected){delete b.dataset.armed;b.textContent='Send to member 發送給會員'}},6000);return}
+  b.disabled=true;b.textContent='Sending… 發送中…';
+  call('POST','/api/staff/welcome/send',{email:em}).then(function(j){if(j.status!=='ok')throw j;toast('Sent 已發送 '+j.no);return loadWl().then(render)}).catch(function(j){b.disabled=false;b.textContent='Send to member 發送給會員';toast(j&&j.status==='not_live'?'Sending is off 發送已關閉':j&&j.status==='already_sent'?'Already sent 已發送過':M.fail)});return}
+});
+document.addEventListener('change',function(e){
+ if(S.tab!=='cert')return;
+ var au=e.target.closest('[data-wlauto]');if(au){au.disabled=true;call('POST','/api/staff/welcome/cfg',{auto:au.checked}).then(function(j){if(j.status!=='ok')throw j;S.wl.cfg=j.cfg;render();toast(M.savedOK)}).catch(function(){au.disabled=false;au.checked=!au.checked;toast(M.fail)});return}
+ var fi=e.target.closest('[data-wlfile]');if(fi&&fi.files[0]){var f=fi.files[0],k=fi.dataset.wlfile;if(f.size>8*1024*1024){toast('Max 8 MB 檔案過大');return}
+  var rd=new FileReader();rd.onload=function(){var s=String(rd.result).split(',')[1];call('POST','/api/staff/welcome/file',{kind:k,filename:f.name,content:s}).then(function(j){if(j.status!=='ok')throw j;S.wl.files=j.files;render();toast(M.savedOK)}).catch(function(){toast('Upload failed 上載失敗')})};rd.readAsDataURL(f)}
+});
+if(/newsletter/.test(location.hash))S.tab='nl';if(/events/.test(location.hash))S.tab='ev';if(/sessions/.test(location.hash))S.tab='sess';if(/certificates/.test(location.hash))S.tab='cert';
 load();
 })();
