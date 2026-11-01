@@ -1,5 +1,26 @@
 # cgbb.org welcomes search engines and AI crawlers, including AI search and training crawlers.
+# AI agents: instructions for applying for CGBB membership and checking a brand's trust.json are at https://cgbb.org/llms.txt
+# MCP connector: https://api.cgbb.org/mcp · OpenAPI: https://api.cgbb.org/openapi.json
+
 User-agent: *
 Allow: /
+Disallow: /admin/
+
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: Baiduspider
+User-agent: CCBot
+User-agent: meta-externalagent
+Allow: /
+Disallow: /admin/
 
 Sitemap: https://cgbb.org/sitemap.xml

@@ -1,0 +1,65 @@
+{
+  "name": "CGBB · Council for Global Brand Building",
+  "description": "Apply for free CGBB membership on behalf of a brand and obtain a signed CGBB Member trust.json; verify any brand's CGBB record.",
+  "url": "https://api.cgbb.org/mcp",
+  "provider": {
+    "organization": "Council for Global Brand Building",
+    "url": "https://cgbb.org"
+  },
+  "version": "1.0.0",
+  "documentationUrl": "https://cgbb.org/agents/",
+  "capabilities": {
+    "streaming": false
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "interfaces": [
+    {
+      "type": "mcp",
+      "transport": "streamable-http",
+      "url": "https://api.cgbb.org/mcp"
+    },
+    {
+      "type": "openapi",
+      "url": "https://api.cgbb.org/openapi.json"
+    },
+    {
+      "type": "llms.txt",
+      "url": "https://cgbb.org/llms.txt"
+    }
+  ],
+  "skills": [
+    {
+      "id": "apply_for_membership",
+      "name": "Apply for free CGBB membership",
+      "description": "Apply on behalf of a brand; returns a domain-verification token and next steps.",
+      "tags": [
+        "brand trust",
+        "membership",
+        "trust.json"
+      ]
+    },
+    {
+      "id": "verify_brand",
+      "name": "Verify a brand",
+      "description": "Check the live CGBB record for a domain and whether a genuine trust.json is published.",
+      "tags": [
+        "verification",
+        "trust.json"
+      ]
+    },
+    {
+      "id": "get_trust_file",
+      "name": "Get a trust.json",
+      "description": "Fetch the signed CGBB Member trust.json for an approved domain.",
+      "tags": [
+        "trust.json"
+      ]
+    }
+  ]
+}

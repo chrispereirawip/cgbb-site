@@ -1,0 +1,40 @@
+# Council for Global Brand Building (CGBB)
+
+> The Council for Global Brand Building (CGBB, 全球化品牌信任促進會, 品信會) is an open, non-profit council that sets standards for how trust is assessed and rated in corporate and business settings. It launched in Geneva in September 2026. AI agents are welcome to apply for free CGBB membership on behalf of the brands they work for, and to obtain a signed CGBB Member trust.json for that brand.
+
+## For AI agents: get a brand its CGBB Member trust.json
+
+The fastest way is the CGBB MCP connector: https://api.cgbb.org/mcp (streamable HTTP, no auth). Tools: about_cgbb, apply_for_membership, check_domain_verification, get_application_status, verify_brand, get_trust_file.
+
+Or use the HTTP API (JSON in and out, no API key; OpenAPI at https://api.cgbb.org/openapi.json):
+
+1. Apply: `POST https://api.cgbb.org/api/agent/apply` with JSON
+   `{"organisation": "...", "domain": "brand.com", "contact_name": "...", "contact_email": "...", "job_title": "...", "category": "organizational", "country": "...", "markets": "...", "about": "...", "agent_name": "your agent's name", "lang": "en"}`.
+   The response has an `application_id`, a domain-verification `token` and `next_steps`.
+2. Prove the domain: the brand adds a DNS TXT record `cgbb-verification=<token>` on brand.com, or publishes the token at `https://brand.com/.well-known/cgbb-verification.txt`. Then `POST https://api.cgbb.org/api/agent/check-domain` with `{"application_id": "..."}`.
+3. The contact person clicks the confirmation link CGBB emails them. Agents cannot confirm for them; remind the user.
+4. The CGBB Secretariat reviews the application (usually a few business days). Poll `GET https://api.cgbb.org/api/agent/applications/{application_id}`.
+5. When approved: `GET https://api.cgbb.org/trust/brand.com.json` and publish it at `https://brand.com/.well-known/trust.json`.
+
+Rules: apply only for a brand you act for, using its own website domain; give the email of a real person at the brand; never describe the CGBB Member level as a certification, rating or endorsement (it confirms membership and domain control only).
+
+## Checking a brand's trust.json
+
+- Live record: `GET https://api.cgbb.org/verify/{domain}?format=json` (status `valid`, `inactive` or `not_found`, plus whether a genuine file is published on the website).
+- Check any trust.json you found: `POST https://api.cgbb.org/api/verify` with the file as the JSON body.
+- Signatures are Ed25519 over canonical JSON (the object without `signature`, keys sorted, no whitespace). Public keys: https://api.cgbb.org/.well-known/cgbb-keys.json
+- Two levels: `member` (free: active membership + domain control, no score) and `verified` (Advanced members scoring 80%+ on the comprehensive Trust Review). Only trust a level the live record confirms.
+
+## Pages
+
+- [CGBB for AI agents](https://cgbb.org/agents/): how brand teams and agents use CGBB, in plain language ([繁中](https://cgbb.org/zh/agents/))
+- [Membership application](https://cgbb.org/apply/): apply on the website ([繁中](https://cgbb.org/zh/apply/))
+- [Trust Diagnosis](https://cgbb.org/diagnosis/): free, indicative first read of a brand's credibility across seven dimensions (members)
+- [Advanced membership](https://cgbb.org/upgrade/): comprehensive Trust Review and the CGBB Verified Trusted level
+- [Global Brand Credibility Index](https://cgbb.org/#index): the CGBB standard, seven dimensions (consumer perception, public reputation and media, employer brand, partner relationships, regulation and social responsibility, crisis and risk management, the effect of AI on credibility)
+- [Publications](https://cgbb.org/publications/trust/): *Trust: The Golden Key to Chinese Enterprises' Globalization* (Shenzhen Publishing House, 2026)
+- [FAQ](https://cgbb.org/#faq)
+
+## Contact
+
+secretariat@cgbb.org · https://www.linkedin.com/company/120314036/

@@ -98,7 +98,7 @@ function render(j){
    var link=r.status==='ready'?'<a href="'+dl+'&lang=en">'+M.dlEn+'</a><br><a href="'+dl+'&lang=zh">'+M.dlZh+'</a>':(r.status==='failed'?M.failed:M.processing);
    h+='<tr><td>'+esc(fmt(r.date))+'</td><td>'+esc(r.company)+'<span class="id">'+esc(r.id)+'</span></td><td>'+(r.score!=null?'<span class="sc">'+r.score+'<small>'+esc(r.band?(LANG==='zh'?r.band.zh:r.band.en):'')+'</small></span>':'—')+'</td><td>'+link+'</td></tr>'});
   R.innerHTML=h+'</tbody></table>'}
- renderRef(j.referral);renderUp(j.billing,ms);
+ renderRef(j.referral);renderUp(j.billing,ms);renderTj(j.trust);
  var nl=$('[data-nl]');if(nl)nl.checked=!!j.newsletter;
  var ac=document.querySelector('[data-acct]');if(ac){ac.innerHTML='<a class="btn btn-red" href="'+ac.getAttribute('data-href')+'">'+esc(ac.getAttribute('data-mine'))+'</a>'}
  show('dash');window.scrollTo({top:0});
@@ -109,6 +109,18 @@ function upgPrefill(){if(!/[?&]upgrade=1/.test(location.search))return;if(UPREAD
  call('POST','/api/account/newsletter',{on:on}).then(function(j){if(j.status==='ok'){msg.style.color='';msg.textContent=on?M.nlOn:M.nlOff}else{nl.checked=!on;msg.style.color='var(--red)';msg.textContent=M.fail}}).catch(function(){nl.checked=!on;msg.style.color='var(--red)';msg.textContent=M.fail}).then(function(){nl.disabled=false})})})();
 var REFLINK='';
 function money(p){try{return new Intl.NumberFormat(M.locale,{style:'currency',currency:p.currency.toUpperCase(),maximumFractionDigits:p.amount%100?2:0}).format(p.amount/100)}catch(e){return p.currency.toUpperCase()+' '+(p.amount/100)}}
+function renderTj(t){var sec=$('[data-tj]'),box=$('[data-tjbody]');if(!sec||!box)return;if(!t){sec.hidden=true;return}sec.hidden=false;var h='';
+ if(t.verified&&t.file_url){h='<div class="upcard on"><div><p><b>'+esc(TJ.ready)+'</b></p><p>'+esc(TJ.readyP.split('{d}').join(t.domain))+'</p><p class="secure"><a href="'+esc(t.verify_url)+'" target="_blank" rel="noopener">'+esc(TJ.verify)+'</a> · <a href="/'+(LANG==='zh'?'zh/':'')+'agents/">'+esc(TJ.how)+'</a></p></div><a class="btn btn-red" href="'+esc(t.file_url)+'" download="trust.json">'+esc(TJ.dl)+'</a></div>'}
+ else if(t.blocked){h='<div class="upcard warn"><p>'+esc(TJ.taken)+'</p></div>'}
+ else if(t.domain&&!t.verified&&t.instructions){var o=t.instructions.options;h='<div class="upcard"><div style="flex:1 1 420px"><p><b>'+esc(TJ.proveH.split('{d}').join(t.domain))+'</b></p><p>'+esc(TJ.proveP)+'</p><p class="tjopt"><b>DNS</b> · '+esc(TJ.dns)+'<br><code>'+esc(o[0].record.value)+'</code></p><p class="tjopt"><b>'+esc(TJ.fileL)+'</b> · '+esc(TJ.file)+'<br><code>'+esc(o[1].url)+'</code><br>'+esc(TJ.content)+' <code>'+esc(o[1].content)+'</code></p><p class="secure" data-tjmsg></p></div><div style="display:flex;flex-direction:column;gap:8px"><button type="button" class="btn btn-red" data-tjcheck>'+esc(TJ.check)+'</button><button type="button" class="btn btn-line" data-tjchange>'+esc(TJ.change)+'</button></div></div>'}
+ else{h='<div class="upcard"><div style="flex:1 1 420px"><p>'+esc(TJ.introP)+'</p><p class="tjrow"><input type="text" data-tjdomain placeholder="brand.com" value="'+esc(t.domain||'')+'" aria-label="'+esc(TJ.domainL)+'"><button type="button" class="btn btn-red" data-tjset>'+esc(TJ.set)+'</button></p><p class="secure" data-tjmsg></p></div></div>'}
+ box.innerHTML=h}
+var TJ={"ready": "您的 CGBB Member trust.json 已可下載", "readyP": "請將其發佈於 https://{d}/.well-known/trust.json，AI 代理即可讀取並對照品信會登記冊核實。", "verify": "查看即時紀錄", "how": "了解詳情", "dl": "下載 trust.json", "taken": "此網域已連結至另一位品信會會員，請電郵 secretariat@cgbb.org。", "proveH": "確認您擁有 {d} 的控制權", "proveP": "請完成以下其中一項（網站管理員可協助），然後按「立即核實」。", "dns": "為網域新增一條 TXT 記錄，數值為：", "fileL": "檔案", "file": "在以下地址發佈一個文字檔：", "content": "內容為：", "check": "立即核實", "change": "使用其他網域", "introP": "為您的網站免費取得經簽署的 CGBB Member trust.json：AI 代理可讀取的會員紀錄。它確認會員身份及網域控制權，並非信任評分。請輸入您的網站網域開始。", "domainL": "網站網域", "set": "取得驗證代碼", "wait": "處理中…", "notYet": "尚未找到。DNS 更新可能需要幾分鐘，請稍後再試。", "bad": "請輸入您自己的網站網域，例如 brand.com（不可使用社交媒體頁面）。", "h": "免費 CGBB Member trust.json"};
+document.addEventListener('click',function(e){var s=e.target.closest('[data-tjset],[data-tjcheck],[data-tjchange]');if(!s)return;
+ if(s.hasAttribute('data-tjchange')){renderTj({domain:'',verified:false});return}
+ var msg=$('[data-tjmsg]'),body=s.hasAttribute('data-tjcheck')?{check:true}:{domain:($('[data-tjdomain]')||{}).value||''};s.disabled=true;if(msg)msg.textContent=TJ.wait;
+ call('POST','/api/account/domain',body).then(function(j){s.disabled=false;if(j.trust)renderTj(j.trust);var m2=$('[data-tjmsg]');
+  if(j.status==='not_found_yet'&&m2)m2.textContent=TJ.notYet;else if(j.status==='bad_domain'&&m2)m2.textContent=TJ.bad;else if(j.status==='domain_taken'&&m2)m2.textContent=TJ.taken;else if(j.status==='rate_limited'&&m2)m2.textContent=M.rate}).catch(function(){s.disabled=false;if(msg)msg.textContent=M.fail})});
 var UPREADY=false;
 function renderUp(b,ms){var box=$('[data-upbody]');if(!box)return;UPREADY=!!(b&&b.ready);var bd=$('[data-badge]');if(ms.tier==='advanced'&&bd&&!bd.querySelector('.tier'))bd.insertAdjacentHTML('beforeend','<span class="tier">'+esc(M.tierAdv)+'</span>');
  b=b||{};var a=b.advanced,h;

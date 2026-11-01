@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "CGBB",
+  "name_for_model": "cgbb",
+  "description_for_human": "Free CGBB membership and a signed trust.json for your brand.",
+  "description_for_model": "Apply for free Council for Global Brand Building membership on behalf of a brand, check its domain, get its signed CGBB Member trust.json, and verify any brand's CGBB record. A real person at the brand must confirm by email. Never describe the Member level as a certification or rating.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://api.cgbb.org/openapi.json"
+  },
+  "logo_url": "https://cgbb.org/assets/apple-touch-icon.png",
+  "contact_email": "secretariat@cgbb.org",
+  "legal_info_url": "https://cgbb.org/agents/"
+}
