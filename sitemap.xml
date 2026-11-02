@@ -82,4 +82,16 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/agents/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/agents/"/>
   </url>
+  <url>
+    <loc>https://cgbb.org/privacy/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/privacy/"/>
+  </url>
+  <url>
+    <loc>https://cgbb.org/zh/privacy/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/privacy/"/>
+  </url>
 </urlset>

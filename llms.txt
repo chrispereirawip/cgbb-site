@@ -40,6 +40,7 @@ Rules: apply only for a brand you act for, using its own website domain; give th
 - [Global Brand Credibility Index](https://cgbb.org/#index): the CGBB standard, seven dimensions (consumer perception, public reputation and media, employer brand, partner relationships, regulation and social responsibility, crisis and risk management, the effect of AI on credibility)
 - [Publications](https://cgbb.org/publications/trust/): *Trust: The Golden Key to Chinese Enterprises' Globalization* (Shenzhen Publishing House, 2026)
 - [FAQ](https://cgbb.org/#faq)
+- [Privacy policy](https://cgbb.org/privacy/)
 
 ## Contact
 
