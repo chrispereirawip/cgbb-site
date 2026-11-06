@@ -3,7 +3,7 @@
   "name": "org.cgbb/cgbb",
   "title": "CGBB \u00b7 Council for Global Brand Building",
   "description": "Apply for free CGBB membership for a brand, get its signed CGBB Website Trust Credential (trust.json), and verify any brand's CGBB record.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://cgbb.org/agents/",
   "remotes": [
     {
