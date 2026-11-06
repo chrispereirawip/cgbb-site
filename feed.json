@@ -2,6 +2,38 @@
  "site": "https://cgbb.org/",
  "items": [
   {
+   "id": "p-rebuild-2025",
+   "type": "publication",
+   "en": {
+    "title": "Rebuild: A Practical Handbook for Localising Chinese Companies Overseas",
+    "text": "By Chris Pereira, Founding Chairman of CGBB. How Chinese companies build local teams, partnerships and trust in overseas markets. China Renmin University Press, 2025.",
+    "url": "https://cgbb.org/#publications",
+    "label": "Book · Founding Chairman"
+   },
+   "zh": {
+    "title": "《新出海：中企海外本土化實戰手冊》",
+    "text": "品信會創始主席彭家荣著。中國企業如何在海外市場建立本地團隊、合作關係與信任。中國人民大學出版社，2025。",
+    "url": "https://cgbb.org/zh/#publications",
+    "label": "著作 · 創始主席"
+   }
+  },
+  {
+   "id": "p-xw-jpim-2026",
+   "type": "publication",
+   "en": {
+    "title": "Understanding Digital Technology Adoption in Traditional Manufacturing SMEs: A Dynamic Capability Perspective",
+    "text": "Prof. Xiao Wang with J. Fang, A. Nair and B. Zhao. Journal of Product Innovation Management Research Forum, Atlanta, 2026.",
+    "url": "https://scholar.xjtlu.edu.cn/en/persons/XiaoWang/",
+    "label": "Conference paper · 2026"
+   },
+   "zh": {
+    "title": "Understanding Digital Technology Adoption in Traditional Manufacturing SMEs: A Dynamic Capability Perspective",
+    "text": "汪瀟教授與 J. Fang、A. Nair 及 B. Zhao 合著。Journal of Product Innovation Management 研究論壇（亞特蘭大），2026。",
+    "url": "https://scholar.xjtlu.edu.cn/en/persons/XiaoWang/",
+    "label": "會議論文 · 2026"
+   }
+  },
+  {
    "id": "n-wtc-202611",
    "type": "news",
    "en": {
