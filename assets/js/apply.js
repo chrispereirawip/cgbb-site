@@ -11,7 +11,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   var KEY = 'cgbb-apply-draft';
   var cur = 0;
 
-  function isOrg(){ return /Organizational/.test(cat.value); }
+  function isOrg(){ return /Organizational|Corporate|Institutional/.test(cat.value); }
   function active(){ return steps.filter(function(s){ var k=s.dataset.step; if(k==='individual') return !isOrg(); if(k==='organization') return isOrg(); return true; }); }
   function show(i){
     var list = active(); cur = Math.max(0, Math.min(i, list.length-1));
@@ -99,12 +99,14 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   (function(){
     var sel = form.querySelector('[data-countries]'); if (!sel) return;
     var codes = 'AF AL DZ AD AO AG AR AM AU AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI KH CM CA CV CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HK HU IS IN ID IR IQ IE IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NZ NI NE NG KP MK NO OM PK PW PS PA PG PY PE PH PL PT QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE GB US UY UZ VU VA VE VN YE ZM ZW'.split(' ');
-    var fixed = { CN: ['China','中國'], HK: ['Hong Kong','香港'], MO: ['Macao','澳門'], TW: ['Taiwan','臺灣'] };
-    var en = null, zh = null; try { en = new Intl.DisplayNames(['en'], {type:'region'}); zh = new Intl.DisplayNames(['zh-Hant'], {type:'region'}); } catch(e){}
-    var list = codes.map(function(c){ var n = fixed[c] || [en ? en.of(c) : c, zh ? zh.of(c) : '']; return n[1] && n[1] !== n[0] ? n[0] + ' / ' + n[1] : n[0]; });
+    var hans = /Hans/.test(document.documentElement.lang);
+    var fixed = hans ? { CN: ['China','中国'], HK: ['Hong Kong','香港'], MO: ['Macao','澳门'], TW: ['Taiwan','台湾'] } : { CN: ['China','中國'], HK: ['Hong Kong','香港'], MO: ['Macao','澳門'], TW: ['Taiwan','臺灣'] };
+    var en = null, zh = null; try { en = new Intl.DisplayNames(['en'], {type:'region'}); zh = new Intl.DisplayNames([hans ? 'zh-Hans' : 'zh-Hant'], {type:'region'}); } catch(e){}
+    var pinned = ['CN','HK','MO','TW'];
+    var list = codes.filter(function(c){ return pinned.indexOf(c) < 0; }).map(function(c){ var n = fixed[c] || [en ? en.of(c) : c, zh ? zh.of(c) : '']; return n[1] && n[1] !== n[0] ? n[0] + ' / ' + n[1] : n[0]; });
     list.sort(function(a,b){ return a.localeCompare(b, 'en'); });
-    list.push('Other / 其他');
-    // pin China, Hong Kong, Macao and Taiwan at the top as well as in the A-Z list
+    list.push(hans ? 'Other / 其他' : 'Other / 其他');
+    // China, Hong Kong, Macao and Taiwan are pinned at the top (once only)
     var top = ['CN','HK','MO','TW'].map(function(c){ return fixed[c][0] + ' / ' + fixed[c][1]; });
     var g1 = document.createElement('optgroup'); g1.label = '\u00a0'; top.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = v; g1.appendChild(o); }); sel.appendChild(g1);
     var g2 = document.createElement('optgroup'); g2.label = 'A–Z'; list.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = v; g2.appendChild(o); }); sel.appendChild(g2);

@@ -22,7 +22,7 @@ function card(cls,st){out.textContent='';var c=el('div','vf-card'+(cls?' '+cls:'
 function rows(c,r){var dl=el('dl');r.forEach(function(x){if(!x[1])return;dl.appendChild(el('dt',null,x[0]));dl.appendChild(el('dd',null,x[1]))});c.appendChild(dl)}
 function para(c,x,cls){c.appendChild(el('p',cls||null,x))}
 function foot(c,nodes){var p=el('p','ft');nodes.forEach(function(x,i){if(i)p.appendChild(document.createTextNode(' '));p.appendChild(typeof x==='string'?document.createTextNode(x):x)});c.appendChild(p)}
-function rec(d){return API+'/verify/'+encodeURIComponent(d)+(zh?'?lang=zh':'')}
+function rec(d){return API+'/verify/'+encodeURIComponent(d)+(zh?'?lang=cn':'')}
 function when(t){return t?String(t).slice(0,16).replace('T',' ')+' UTC':''}
 var ref='';try{if(document.referrer)ref=host(new URL(document.referrer).hostname)}catch(e){}
 function fromOther(d){return ref&&ref!=='cgbb.org'&&ref!=='api.cgbb.org'&&ref!==d&&!(ref.slice(-d.length-1)==='.'+d)}
