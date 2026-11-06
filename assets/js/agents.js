@@ -6,3 +6,8 @@ document.addEventListener('click',function(e){
  var b=e.target.closest('[data-copy]');if(b){var p=document.querySelector('[data-prompt]');if(p)copy(p.textContent,b);return}
  var m=e.target.closest('[data-copymcp]');if(m){var c=document.querySelector('[data-mcp]');if(c)copy(c.textContent,m)}});
 })();
+(function(){
+function openDet(id){var d=document.getElementById(id);if(d&&d.tagName==='DETAILS'){d.open=true;setTimeout(function(){d.scrollIntoView({behavior:'smooth',block:'start'})},10)}}
+document.addEventListener('click',function(e){var a=e.target.closest('[data-open]');if(a){e.preventDefault();openDet(a.getAttribute('data-open'))}});
+if(location.hash)openDet(location.hash.slice(1));
+})();
