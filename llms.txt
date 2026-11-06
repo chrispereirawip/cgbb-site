@@ -33,6 +33,7 @@ Or use the HTTP API (JSON in and out, no API key; OpenAPI at https://api.cgbb.or
 
 1. Apply: `POST https://api.cgbb.org/api/agent/apply` with JSON
    `{"organisation": "...", "domain": "brand.com", "contact_name": "...", "contact_email": "...", "job_title": "...", "category": "organizational", "country": "...", "markets": "...", "about": "...", "agent_name": "your agent's name", "lang": "en"}`.
+   If an agency (for example a PR or marketing agency) is applying for its client, add `"applied_by": "Agency name"`; the confirmation email then tells the client that the agency applied on their behalf.
    The response has an `application_id`, a domain-verification `token` and `next_steps`.
 2. Prove the domain: the brand adds a DNS TXT record `cgbb-verification=<token>` on brand.com, or publishes the token at `https://brand.com/.well-known/cgbb-verification.txt`. Then `POST https://api.cgbb.org/api/agent/check-domain` with `{"application_id": "..."}`.
 3. The contact person clicks the confirmation link CGBB emails them. Agents cannot confirm for them; remind the user.
