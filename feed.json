@@ -2,6 +2,38 @@
  "site": "https://cgbb.org/",
  "items": [
   {
+   "id": "n-wtc-202611",
+   "type": "news",
+   "en": {
+    "title": "CGBB launches the Website Trust Credential",
+    "text": "Members can now publish a credential, signed by CGBB, that lets AI agents verify their website belongs to a reviewed organisation.",
+    "url": "https://cgbb.org/ai-trust/",
+    "label": "News · Nov 2026"
+   },
+   "zh": {
+    "title": "品信會推出網站信任憑證",
+    "text": "會員現可在官網發佈由品信會簽署的憑證，讓 AI 代理核實其網站屬於經審核的真實機構。",
+    "url": "https://cgbb.org/zh/ai-trust/",
+    "label": "新聞 · 2026年11月"
+   }
+  },
+  {
+   "id": "n-agents-202611",
+   "type": "news",
+   "en": {
+    "title": "AI assistants can now apply for CGBB membership",
+    "text": "CGBB’s connector is listed in the official MCP Registry, so AI assistants can apply on a brand’s behalf and check any credential directly.",
+    "url": "https://cgbb.org/agents/",
+    "label": "News · Nov 2026"
+   },
+   "zh": {
+    "title": "AI 助理現可代品牌申請品信會會籍",
+    "text": "品信會連接器已收錄於官方 MCP Registry，AI 助理可代品牌申請會籍，並直接核實任何憑證。",
+    "url": "https://cgbb.org/zh/agents/",
+    "label": "新聞 · 2026年11月"
+   }
+  },
+  {
    "id": "n-da3ac40df3",
    "type": "news",
    "en": {
