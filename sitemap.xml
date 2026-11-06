@@ -65,6 +65,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/upgrade/"/>
   </url>
   <url>
+    <loc>https://cgbb.org/ai-trust/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/ai-trust/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/ai-trust/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/ai-trust/"/>
+  </url>
+  <url>
+    <loc>https://cgbb.org/zh/ai-trust/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/ai-trust/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/ai-trust/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/ai-trust/"/>
+  </url>
+  <url>
     <loc>https://cgbb.org/agents/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
