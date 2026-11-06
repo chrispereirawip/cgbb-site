@@ -148,4 +148,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/faq/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/faq/"/>
   </url>
+<url><loc>https://cgbb.org/verify/</loc></url>
+<url><loc>https://cgbb.org/zh/verify/</loc></url>
 </urlset>
