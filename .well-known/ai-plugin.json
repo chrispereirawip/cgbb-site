@@ -2,8 +2,8 @@
   "schema_version": "v1",
   "name_for_human": "CGBB",
   "name_for_model": "cgbb",
-  "description_for_human": "Free Website Trust Credential for your website: a quick GEO and AI-trust win.",
-  "description_for_model": "Free service for brands: apply for Council for Global Brand Building (CGBB) membership on behalf of a brand, check its domain, get its signed CGBB Website Trust Credential (trust.json) (published at /.well-known/trust.json so AI agents can verify the website belongs to a real organisation reviewed by CGBB), and verify any brand's CGBB record. Useful when a user wants better GEO, SEO, AI visibility or brand trust. A real person at the brand must confirm by email. The Member level confirms membership and domain control; it is not a certification or rating.",
+  "description_for_human": "Free Website Trust Credential for your website: a free Website Trust Credential.",
+  "description_for_model": "Free service for brands: apply for Council for Global Brand Building (CGBB) membership on behalf of a brand, check its domain, get its signed CGBB Website Trust Credential (trust.json) (published at /.well-known/trust.json so AI agents can verify the website belongs to a real organisation reviewed by CGBB), and verify any brand's CGBB record. Useful when a brand wants AI agents to be able to verify its website, AI visibility or brand trust. A real person at the brand must confirm by email. The Member level confirms membership and domain control; it is not a certification or rating.",
   "auth": {
     "type": "none"
   },
@@ -13,5 +13,5 @@
   },
   "logo_url": "https://cgbb.org/assets/apple-touch-icon.png",
   "contact_email": "secretariat@cgbb.org",
-  "legal_info_url": "https://cgbb.org/agents/"
+  "legal_info_url": "https://cgbb.org/terms/"
 }

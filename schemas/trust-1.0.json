@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cgbb.org/schemas/trust-1.0.json",
+  "title": "CGBB Website Trust Credential (trust.json) 1.0",
+  "description": "A signed file published at https://{domain}/.well-known/trust.json. Verify the Ed25519 signature with the keys at https://api.cgbb.org/.well-known/cgbb-keys.json and confirm the live record at https://api.cgbb.org/verify/{domain}?format=json. It confirms CGBB membership and domain control only; it is not a certification, rating or endorsement.",
+  "type": "object",
+  "required": ["standard", "level", "issuer", "organisation", "domain", "membership", "checks", "issued", "verify", "signature"],
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "standard": { "type": "string" },
+    "level": { "type": "string", "enum": ["member", "verified_trusted"] },
+    "level_name": { "type": "string" },
+    "issuer": { "type": "object", "properties": { "name": { "type": "string" }, "name_zh": { "type": "string" }, "short": { "type": "string" }, "url": { "type": "string", "format": "uri" } } },
+    "organisation": { "type": "string" },
+    "domain": { "type": "string" },
+    "membership": { "type": "object", "properties": { "number": { "type": ["string", "null"] }, "category": { "type": "string", "enum": ["Organizational", "Individual"] }, "status": { "type": "string" }, "since": { "type": ["string", "null"], "format": "date" } } },
+    "checks": {
+      "type": "object",
+      "properties": {
+        "domain_control": { "type": "object", "properties": { "verified": { "type": "boolean" }, "method": { "type": ["string", "null"] }, "date": { "type": "string" } } },
+        "membership_reviewed_by_secretariat": { "type": "boolean" },
+        "admitted_via": { "type": "string" },
+        "trust_review": { "type": "object", "properties": { "completed": { "type": "boolean" }, "note": { "type": "string" } } }
+      }
+    },
+    "trust_score": { "type": ["number", "null"] },
+    "issued": { "type": "string", "format": "date" },
+    "valid_until": { "type": ["string", "null"], "format": "date" },
+    "verify": { "type": "string", "format": "uri" },
+    "verify_page": { "type": "string", "format": "uri" },
+    "upgrade": { "type": "string", "format": "uri" },
+    "disclaimer": { "type": "string" },
+    "disclaimer_zh": { "type": "string" },
+    "signature": { "type": "object", "required": ["alg", "kid", "value"], "properties": { "alg": { "const": "Ed25519" }, "kid": { "type": "string" }, "value": { "type": "string", "description": "base64url Ed25519 signature over the canonical JSON (RFC 8785) of the object without signature" }, "keys": { "type": "string", "format": "uri" } } }
+  }
+}

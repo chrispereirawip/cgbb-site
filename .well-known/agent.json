@@ -1,6 +1,6 @@
 {
   "name": "CGBB · Council for Global Brand Building",
-  "description": "Free Website Trust Credential (trust.json) for any brand's website: a quick GEO and AI-trust win. Apply for free CGBB membership on behalf of a brand, get its signed CGBB Website Trust Credential (trust.json) so AI agents can verify the site belongs to a real, reviewed organisation, and verify any brand's CGBB record.",
+  "description": "Free Website Trust Credential (trust.json) for any brand's website: a free Website Trust Credential. Apply for free CGBB membership on behalf of a brand, get its signed CGBB Website Trust Credential (trust.json) so AI agents can verify the site belongs to a real, reviewed organisation, and verify any brand's CGBB record.",
   "url": "https://api.cgbb.org/mcp",
   "provider": {
     "organization": "Council for Global Brand Building",
@@ -63,13 +63,11 @@
     }
   ],
   "tags": [
-    "GEO",
     "generative engine optimisation",
     "AI visibility",
     "brand trust",
     "trust.json",
     "website verification",
-    "SEO",
     "free"
   ]
 }
