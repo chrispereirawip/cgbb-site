@@ -136,4 +136,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/terms/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/terms/"/>
   </url>
+  <url>
+    <loc>https://cgbb.org/faq/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/faq/"/>
+  </url>
+  <url>
+    <loc>https://cgbb.org/zh/faq/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/faq/"/>
+  </url>
 </urlset>
