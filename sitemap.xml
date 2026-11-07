@@ -164,4 +164,17 @@
 <url><loc>https://cgbb.org/baseline/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/baseline/"/></url>
 <url><loc>https://cgbb.org/zh/baseline/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/baseline/"/></url>
 <url><loc>https://cgbb.org/cn/baseline/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/baseline/"/></url>
+<url>
+    <loc>https://cgbb.org/badge/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/badge/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/badge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/badge/"/>
+  </url><url>
+    <loc>https://cgbb.org/zh/badge/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/badge/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/badge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/badge/"/>
+  </url><url><loc>https://cgbb.org/cn/badge/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/badge/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/badge/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/badge/"/></url>
 </urlset>
