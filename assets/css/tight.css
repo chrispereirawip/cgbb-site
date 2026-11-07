@@ -82,3 +82,28 @@ footer{padding:28px 0 18px!important}
 .ag-lv .t{font-size:19px!important}.ag-lv .p{font-size:14px!important;margin-bottom:6px!important}
 .ag-lv .cta{margin-top:10px!important;padding-top:9px!important;padding-bottom:9px!important}
 .app .q input:not([type=checkbox]):not([type=radio]),.app .q select{height:40px!important;min-height:0!important;padding-top:0!important;padding-bottom:0!important;font-size:16px!important}
+/* ---- apply form v2 (7 Nov): two-column short fields, chip choices, buttons right under the fields ---- */
+.app{max-width:900px!important}
+.app .step.on{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px}
+.app .q{margin:0 0 12px!important;min-width:0}
+.app .q:has(.opts),.app .q:has(textarea),.app .q:has(.row),.app .q:has(.opts.one){grid-column:1/-1}
+.app .q>label,.app .q>.lab{font-size:14px!important;margin-bottom:4px!important}
+.app .opts{display:flex!important;flex-wrap:wrap;gap:6px!important}
+.app .opts.one{display:grid!important;gap:4px!important}
+.app .opts:not(.one) .opt{display:inline-flex;align-items:center;gap:7px;padding:5px 11px!important;border:1px solid #cfcfcf;font-size:13.5px!important;line-height:1.35!important;background:#fff;transition:border-color .12s,background .12s}
+.app .opts:not(.one) .opt:hover{border-color:var(--red)}
+.app .opts:not(.one) .opt:has(input:checked){border-color:var(--red);background:#fbeeee;color:var(--red)}
+.app .opts:not(.one) .opt input{width:14px!important;height:14px!important;margin:0!important}
+.app .opts.one .opt{padding:4px 0!important;font-size:14px!important;line-height:1.45!important;gap:10px!important}
+.app textarea{min-height:76px!important;font-size:15px!important}
+.app .err{font-size:12.5px!important;margin-top:3px!important}
+.app .nav{justify-content:flex-start!important;gap:10px!important;margin-top:8px!important;padding-top:14px!important}
+.app .nav .sp{display:none!important}
+.app .nav [data-next],.app .nav [data-submit]{padding:11px 34px!important}
+.app .nav [data-back]{padding:11px 22px!important}
+.app .nav .saved{font-size:12.5px;margin-left:6px}
+.step legend{margin-bottom:10px!important}
+@media (max-width:700px){.app .step.on{grid-template-columns:1fr}}
+.app .row{column-gap:18px!important;gap:0 18px!important}
+.app .nav [data-back][style*="hidden"]{display:none!important}
+.app .nav .saved:empty{display:none}

@@ -108,8 +108,8 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
     list.push(hans ? 'Other / 其他' : 'Other / 其他');
     // China, Hong Kong, Macao and Taiwan are pinned at the top (once only)
     var top = ['CN','HK','MO','TW'].map(function(c){ return fixed[c][0] + ' / ' + fixed[c][1]; });
-    var g1 = document.createElement('optgroup'); g1.label = '\u00a0'; top.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = enOnly ? v.split(' / ')[0] : v; g1.appendChild(o); }); sel.appendChild(g1);
-    var g2 = document.createElement('optgroup'); g2.label = 'A–Z'; list.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = enOnly ? v.split(' / ')[0] : v; g2.appendChild(o); }); sel.appendChild(g2);
+    var g1 = document.createElement('optgroup'); g1.label = '\u00a0'; top.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = enOnly ? v.split(' / ')[0] : (v.split(' / ')[1] || v); g1.appendChild(o); }); sel.appendChild(g1);
+    var g2 = document.createElement('optgroup'); g2.label = 'A–Z'; list.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = enOnly ? v.split(' / ')[0] : (v.split(' / ')[1] || v); g2.appendChild(o); }); sel.appendChild(g2);
   })();
   restore();
   syncOther(); show(0);
