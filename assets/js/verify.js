@@ -43,8 +43,8 @@ function run(raw,push){var d=host(raw);if(!d){card('bad',T.bad);return}
    if(fake)para(c,T.warnP);
    rows(c,[[T.site,v.domain],[T.org,v.organisation],[T.lvl,vt?T.vt+(v.trust_score!=null?' · '+v.trust_score+'%':''):T.member],[T.rev,v.reviewed_by==='accredited_partner'?T.revP:T.revS],[T.mem,(T.ms[v.membership_status]||v.membership_status||'')+(v.membership_number?' · '+v.membership_number:'')],[T.until,v.valid_until],[T.pub,p?(p.found?(p.genuine&&p.matches_domain?T.pubY:T.pubM):T.pubN):''],[T.chk,when(v.checked_at)]]);
    if(vt&&v.baseline)baseline(c,v.baseline);
-   para(c,vt?T.noteVT+' '+T.noteNoVT:T.note+' '+T.noteNo,'vf-small');foot(c,[link(rec(d),T.full)])}
-  else if(v.status==='inactive'){c=card('warn',T.inact);if(fromOther(d))para(c,T.ref(ref,d),'vf-ref');rows(c,[[T.site,v.domain],[T.org,v.organisation],[T.mem,T.ms[v.membership_status]||v.membership_status],[T.chk,when(v.checked_at)]]);para(c,T.inactP);foot(c,[link(rec(d),T.full)])}
+   para(c,vt?T.noteVT+' '+T.noteNoVT:T.note+' '+T.noteNo,'vf-small')}
+  else if(v.status==='inactive'){c=card('warn',T.inact);if(fromOther(d))para(c,T.ref(ref,d),'vf-ref');rows(c,[[T.site,v.domain],[T.org,v.organisation],[T.mem,T.ms[v.membership_status]||v.membership_status],[T.chk,when(v.checked_at)]]);para(c,T.inactP)}
   else if(v.status==='invalid_domain'){c=card('bad',T.none);para(c,T.badD)}
   else if(v.status==='not_found'){c=card('bad',T.none);para(c,T.noneP(d));foot(c,[T.mine,link(f.getAttribute('data-apply'),T.apply)])}
   else throw 0;
