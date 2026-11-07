@@ -402,7 +402,9 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <script src="/assets/js/turnstile.js?v=b3e46545"></script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=cgbbTurnstileReady" async defer></script>
 <link rel="stylesheet" href="/assets/css/tight.css?v=2da65983">
-</head>
+<style id="ac2">@media (min-width:901px){.ac-hero{padding:56px 0 64px}.ac-hero>.wrap{display:grid;grid-template-columns:minmax(0,1fr) 480px;column-gap:72px;align-items:start}.ac-hero>.wrap>.rule{grid-column:1/-1}.ac-hero .ac-l{grid-column:1;padding-top:24px}.ac-hero .ac-panel{grid-column:2;grid-row:2;max-width:none;margin-top:24px}.ac-hero h1{font-size:40px}}
+.ac-hero .ac-panel.on{border:1px solid #e6e6e6;border-top:4px solid var(--red);padding:26px 28px 22px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.05)}.ac-hero .ac-panel h2{font-size:26px}.ac-hero .ac-panel .intro{margin-bottom:18px}.ac{padding-bottom:0!important}.ac .dash{padding-bottom:96px}
+@media (max-width:900px){.ac-hero .ac-panel.on{margin-top:18px;padding:22px 18px}.ac-hero{padding-bottom:48px}}</style></head>
 <body>
 <div class="demo" hidden>預覽：示範模式，不會發送任何資料。可使用任何電郵及密碼登入；電郵包含「pending」可查看待審批狀態。驗證碼：12345678。</div>
 <header>
@@ -419,16 +421,13 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 
 <main>
 <section class="ac-hero">
-<div class="wrap">
+<div class="wrap ac">
 <div class="rule"></div>
+<div class="ac-l">
 <div class="label">會員帳戶</div>
 <h1>您的品信會帳戶</h1>
 <p class="sub">登入後可查看會員狀態，並下載您的基線自測報告。</p>
 </div>
-</section>
-
-<section>
-<div class="wrap ac">
 <section class="ac-panel" id="login" data-p="login" aria-labelledby="hl"><h2 id="hl">登入</h2><p class="intro">請使用會員電郵及密碼登入。</p>
 <form data-loginform novalidate>
 <div class="q" data-q="lem"><label for="lem">會員電郵</label><input type="email" id="lem" name="email" autocomplete="username" required><div class="err">請輸入有效的電郵地址。</div></div>
@@ -470,6 +469,12 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <div class="msg" data-m="forgot" role="alert"></div>
 <p class="alt">已設定密碼？<a href="#login">登入</a></p>
 </section>
+</div>
+</section>
+
+<section>
+<div class="wrap ac">
+
 <div class="dash" data-dash>
 <div class="dash-top"><div><h2>歡迎<span data-d="hi"></span></h2><div class="who" data-d="email"></div></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-red" href="/admin/" data-admin hidden style="margin-top:0">管理後台</a><button type="button" class="btn btn-line" data-logout>登出</button></div></div>
 <div class="card"><div class="lab">會員資格</div><div class="badge" data-badge></div>
