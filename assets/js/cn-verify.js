@@ -15,6 +15,12 @@ ref:function(r,d){return 'You came from '+r+', but this record is for '+d+'. If 
 noneP:function(d){return 'CGBB has no record for '+d+'. Any CGBB badge or credential shown on this website should not be relied on.'},inactP:'This website had a CGBB record, but it is not currently valid (the membership expired, was suspended or revoked). Do not rely on a CGBB badge or credential shown on it.',
 badD:'CGBB does not issue records for social media profiles or shared hosting addresses, so a CGBB claim on such a page cannot be genuine.',
 mine:'Is this your organisation?',apply:'Apply for membership →',bad:'Enter a website address, for example brand.com',err:'The CGBB registry could not be reached just now. This does not mean the website has no record.',errL:'Open the record directly →',busy:'Checking the registry…'};
+var BL=zh?{h:'品牌可信度基线评估',st:'整体状态',sc:'基线评分',sp:'证据支持度',cov:'覆盖率',risk:'未解决的重大风险',no:'没有',yes:'有',rv:'评审日期',how:'计分方法 →',href:'/cn/baseline/',S:{mature:'稳定成熟',stable:'较为稳定',basic:'基本建立',initial:'初步建立',lacking:'基础不足'},P:{high:'高',medium:'中',low:'低',insufficient:'不足以判断'},N:{A:'可识别性与信息一致性',B:'外部评价与履约口碑',C:'合规与治理',D:'透明度与响应',E:'责任实践与本地化'}}
+:{h:'Brand Credibility Baseline',st:'Overall status',sc:'Baseline score',sp:'Evidence support',cov:'coverage',risk:'Unresolved major risk',no:'None',yes:'Yes',rv:'Reviewed',how:'How it is scored →',href:'/baseline/',S:{mature:'Stable and mature',stable:'Relatively stable',basic:'Basically established',initial:'Initially established',lacking:'Foundations lacking'},P:{high:'High',medium:'Medium',low:'Low',insufficient:'Not enough to judge'},N:{A:'Identifiability and consistency',B:'Reviews and delivery record',C:'Compliance and governance',D:'Transparency and response',E:'Responsibility and localisation'}};
+function baseline(c,b){var w=el('div','vf-bl');w.appendChild(el('p','vf-blh',BL.h));
+ rows(w,[[BL.st,BL.S[b.status]||b.status],[BL.sc,b.score+' / 100'],[BL.sp,(BL.P[b.evidence_support]||b.evidence_support)+' · '+BL.cov+' '+b.evidence_coverage+'%'],[BL.risk,b.unresolved_major_risk?BL.yes:BL.no],[BL.rv,b.reviewed]]);
+ ['A','B','C','D','E'].forEach(function(k){var v=b.sections&&b.sections[k],r=el('div','vf-bs');r.appendChild(el('span','n',k));r.appendChild(el('span','l',BL.N[k]));var bar=el('span','b'),i=el('i');i.style.width=(typeof v==='number'?Math.max(2,v*20):0)+'%';bar.appendChild(i);r.appendChild(bar);r.appendChild(el('span','v',typeof v==='number'?String(v):'ND'));w.appendChild(r)});
+ var a=link(BL.href,BL.how);var pp=el('p','vf-small');pp.appendChild(a);w.appendChild(pp);c.appendChild(w)}
 function host(v){v=String(v||'').trim();if(!v)return '';if(!/^[a-z][a-z0-9+.-]*:\/\//i.test(v))v='http://'+v;var h='';try{h=new URL(v).hostname}catch(e){return ''}h=h.toLowerCase().replace(/^www\./,'').replace(/\.$/,'');return /^[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(h)?h:''}
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 function link(h,x){var a=el('a',null,x);a.href=h;return a}
@@ -36,6 +42,7 @@ function run(raw,push){var d=host(raw);if(!d){card('bad',T.bad);return}
    if(fromOther(d))para(c,T.ref(ref,d),'vf-ref');
    if(fake)para(c,T.warnP);
    rows(c,[[T.site,v.domain],[T.org,v.organisation],[T.lvl,vt?T.vt+(v.trust_score!=null?' · '+v.trust_score+'%':''):T.member],[T.rev,v.reviewed_by==='accredited_partner'?T.revP:T.revS],[T.mem,(T.ms[v.membership_status]||v.membership_status||'')+(v.membership_number?' · '+v.membership_number:'')],[T.until,v.valid_until],[T.pub,p?(p.found?(p.genuine&&p.matches_domain?T.pubY:T.pubM):T.pubN):''],[T.chk,when(v.checked_at)]]);
+   if(vt&&v.baseline)baseline(c,v.baseline);
    para(c,T.note,'vf-small');foot(c,[link(rec(d),T.full)])}
   else if(v.status==='inactive'){c=card('warn',T.inact);if(fromOther(d))para(c,T.ref(ref,d),'vf-ref');rows(c,[[T.site,v.domain],[T.org,v.organisation],[T.mem,T.ms[v.membership_status]||v.membership_status],[T.chk,when(v.checked_at)]]);para(c,T.inactP);foot(c,[link(rec(d),T.full)])}
   else if(v.status==='invalid_domain'){c=card('bad',T.none);para(c,T.badD)}

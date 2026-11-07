@@ -4,33 +4,277 @@
   "title": "CGBB Website Trust Credential (trust.json) 1.0",
   "description": "A signed file published at https://{domain}/.well-known/trust.json. Verify the Ed25519 signature with the keys at https://api.cgbb.org/.well-known/cgbb-keys.json and confirm the live record at https://api.cgbb.org/verify/{domain}?format=json. It confirms CGBB membership and domain control only; it is not a certification, rating or endorsement.",
   "type": "object",
-  "required": ["standard", "level", "issuer", "organisation", "domain", "membership", "checks", "issued", "verify", "signature"],
+  "required": [
+    "standard",
+    "level",
+    "issuer",
+    "organisation",
+    "domain",
+    "membership",
+    "checks",
+    "issued",
+    "verify",
+    "signature"
+  ],
   "properties": {
-    "$schema": { "type": "string", "format": "uri" },
-    "standard": { "type": "string" },
-    "level": { "type": "string", "enum": ["member", "verified_trusted"] },
-    "level_name": { "type": "string" },
-    "issuer": { "type": "object", "properties": { "name": { "type": "string" }, "name_zh": { "type": "string" }, "short": { "type": "string" }, "url": { "type": "string", "format": "uri" } } },
-    "organisation": { "type": "string" },
-    "domain": { "type": "string" },
-    "membership": { "type": "object", "properties": { "number": { "type": ["string", "null"] }, "category": { "type": "string", "enum": ["Organizational", "Individual"] }, "status": { "type": "string" }, "since": { "type": ["string", "null"], "format": "date" } } },
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "standard": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "member",
+        "verified_trusted"
+      ]
+    },
+    "level_name": {
+      "type": "string"
+    },
+    "issuer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "name_zh": {
+          "type": "string"
+        },
+        "short": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "organisation": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "membership": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "Organizational",
+            "Individual"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "since": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      }
+    },
     "checks": {
       "type": "object",
       "properties": {
-        "domain_control": { "type": "object", "properties": { "verified": { "type": "boolean" }, "method": { "type": ["string", "null"] }, "date": { "type": "string" } } },
-        "membership_reviewed_by_secretariat": { "type": "boolean" },
-        "admitted_via": { "type": "string" },
-        "trust_review": { "type": "object", "properties": { "completed": { "type": "boolean" }, "note": { "type": "string" } } }
+        "domain_control": {
+          "type": "object",
+          "properties": {
+            "verified": {
+              "type": "boolean"
+            },
+            "method": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          }
+        },
+        "membership_reviewed_by_secretariat": {
+          "type": "boolean"
+        },
+        "admitted_via": {
+          "type": "string"
+        },
+        "trust_review": {
+          "type": "object",
+          "properties": {
+            "completed": {
+              "type": "boolean"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        }
       }
     },
-    "trust_score": { "type": ["number", "null"] },
-    "issued": { "type": "string", "format": "date" },
-    "valid_until": { "type": ["string", "null"], "format": "date" },
-    "verify": { "type": "string", "format": "uri" },
-    "verify_page": { "type": "string", "format": "uri" },
-    "upgrade": { "type": "string", "format": "uri" },
-    "disclaimer": { "type": "string" },
-    "disclaimer_zh": { "type": "string" },
-    "signature": { "type": "object", "required": ["alg", "kid", "value"], "properties": { "alg": { "const": "Ed25519" }, "kid": { "type": "string" }, "value": { "type": "string", "description": "base64url Ed25519 signature over the canonical JSON (RFC 8785) of the object without signature" }, "keys": { "type": "string", "format": "uri" } } }
+    "trust_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "issued": {
+      "type": "string",
+      "format": "date"
+    },
+    "valid_until": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "verify": {
+      "type": "string",
+      "format": "uri"
+    },
+    "verify_page": {
+      "type": "string",
+      "format": "uri"
+    },
+    "upgrade": {
+      "type": "string",
+      "format": "uri"
+    },
+    "disclaimer": {
+      "type": "string"
+    },
+    "disclaimer_zh": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "object",
+      "required": [
+        "alg",
+        "kid",
+        "value"
+      ],
+      "properties": {
+        "alg": {
+          "const": "Ed25519"
+        },
+        "kid": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "description": "base64url Ed25519 signature over the canonical JSON (RFC 8785) of the object without signature"
+        },
+        "keys": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "description": "Verified Trusted only: the CGBB Brand Credibility Baseline from the member's Trust Review. See https://cgbb.org/baseline/",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string",
+          "description": "Version of the fixed scoring rules"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "mature",
+            "stable",
+            "basic",
+            "initial",
+            "lacking"
+          ],
+          "description": "Overall status: stable and mature (80-100), relatively stable (60-79), basically established (40-59), initially established (20-39), foundations lacking (0-19)"
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "20 x the mean of the five section scores"
+        },
+        "sections": {
+          "type": "object",
+          "description": "Section scores 0-5 in half points, or \"ND\" (not enough information)",
+          "properties": {
+            "A": {
+              "type": [
+                "number",
+                "string"
+              ]
+            },
+            "B": {
+              "type": [
+                "number",
+                "string"
+              ]
+            },
+            "C": {
+              "type": [
+                "number",
+                "string"
+              ]
+            },
+            "D": {
+              "type": [
+                "number",
+                "string"
+              ]
+            },
+            "E": {
+              "type": [
+                "number",
+                "string"
+              ]
+            }
+          }
+        },
+        "evidence_support": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "insufficient"
+          ]
+        },
+        "evidence_coverage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Share of applicable items that are known (%)"
+        },
+        "unresolved_major_risk": {
+          "type": "boolean"
+        },
+        "reviewed": {
+          "type": "string",
+          "format": "date"
+        },
+        "method": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
   }
 }
