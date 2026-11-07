@@ -51,66 +51,66 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/diagnosis/"/>
   </url>
   <url>
-    <loc>https://cgbb.org/upgrade/</loc>
+    <loc>https://cgbb.org/membership/advanced/</loc>
     <lastmod>2026-11-02</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/upgrade/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/upgrade/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/upgrade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/advanced/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/advanced/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/membership/advanced/"/>
   </url>
   <url>
-    <loc>https://cgbb.org/zh/upgrade/</loc>
+    <loc>https://cgbb.org/zh/membership/advanced/</loc>
     <lastmod>2026-11-02</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/upgrade/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/upgrade/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/upgrade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/advanced/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/advanced/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/membership/advanced/"/>
   </url>
   <url>
-    <loc>https://cgbb.org/ai-trust/</loc>
+    <loc>https://cgbb.org/membership/credential/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/ai-trust/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/ai-trust/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/ai-trust/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/ai-trust/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/credential/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/credential/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/membership/credential/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/membership/credential/"/>
   </url>
   <url>
-    <loc>https://cgbb.org/zh/ai-trust/</loc>
+    <loc>https://cgbb.org/zh/membership/credential/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/ai-trust/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/ai-trust/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/ai-trust/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/ai-trust/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/credential/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/credential/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/membership/credential/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/membership/credential/"/>
   </url>
   <url>
-    <loc>https://cgbb.org/cn/ai-trust/</loc>
+    <loc>https://cgbb.org/cn/membership/credential/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/ai-trust/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/ai-trust/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/ai-trust/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/ai-trust/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/credential/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/credential/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/membership/credential/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/membership/credential/"/>
   </url>
   <url>
-    <loc>https://cgbb.org/agents/</loc>
+    <loc>https://cgbb.org/membership/agents/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/agents/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/agents/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/agents/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/agents/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/agents/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/membership/agents/"/>
   </url>
   <url>
-    <loc>https://cgbb.org/zh/agents/</loc>
+    <loc>https://cgbb.org/zh/membership/agents/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/agents/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/agents/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/agents/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/agents/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/agents/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/membership/agents/"/>
   </url>
   <url>
     <loc>https://cgbb.org/privacy/</loc>
@@ -152,10 +152,10 @@
 <url><loc>https://cgbb.org/zh/verify/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/verify/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/verify/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/verify/"/></url>
 <url><loc>https://cgbb.org/cn/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/"/></url>
 <url><loc>https://cgbb.org/cn/apply/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/apply/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/apply/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/apply/"/></url>
-<url><loc>https://cgbb.org/cn/upgrade/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/upgrade/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/upgrade/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/upgrade/"/></url>
+<url><loc>https://cgbb.org/cn/membership/advanced/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/advanced/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/advanced/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/membership/advanced/"/></url>
 <url><loc>https://cgbb.org/cn/faq/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/faq/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/faq/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/faq/"/></url>
 <url><loc>https://cgbb.org/cn/verify/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/verify/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/verify/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/verify/"/></url>
-<url><loc>https://cgbb.org/cn/agents/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/agents/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/agents/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/agents/"/></url>
+<url><loc>https://cgbb.org/cn/membership/agents/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/agents/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/agents/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/membership/agents/"/></url>
 <url><loc>https://cgbb.org/cn/account/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/account/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/account/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/account/"/></url>
 <url><loc>https://cgbb.org/cn/membership/diagnosis/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/diagnosis/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/diagnosis/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/membership/diagnosis/"/></url>
 <url><loc>https://cgbb.org/cn/privacy/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/privacy/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/privacy/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/privacy/"/></url>
@@ -165,16 +165,16 @@
 <url><loc>https://cgbb.org/zh/publications/baseline/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/publications/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/publications/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/publications/baseline/"/></url>
 <url><loc>https://cgbb.org/cn/publications/baseline/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/publications/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/publications/baseline/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/publications/baseline/"/></url>
 <url>
-    <loc>https://cgbb.org/badge/</loc>
+    <loc>https://cgbb.org/membership/badge/</loc>
     <lastmod>2026-11-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/badge/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/badge/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/badge/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/badge/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/badge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/membership/badge/"/>
   </url><url>
-    <loc>https://cgbb.org/zh/badge/</loc>
+    <loc>https://cgbb.org/zh/membership/badge/</loc>
     <lastmod>2026-11-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/badge/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/badge/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/badge/"/>
-  </url><url><loc>https://cgbb.org/cn/badge/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/badge/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/badge/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/badge/"/></url>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/badge/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/badge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cgbb.org/membership/badge/"/>
+  </url><url><loc>https://cgbb.org/cn/membership/badge/</loc><lastmod>2026-11-07</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://cgbb.org/membership/badge/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/membership/badge/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/membership/badge/"/></url>
 </urlset>
