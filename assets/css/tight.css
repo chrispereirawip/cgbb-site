@@ -31,3 +31,9 @@ footer{padding:40px 0 24px!important}
 .bl-grid .q{min-height:0!important}
 @media (max-width:760px){.section{padding:34px 0!important}.bk-hero h1,.dx-hero h1,.up-hero h1{font-size:28px!important}.bk-hero,.up-hero,.dx-hero{padding:26px 0 16px!important}}
 .dx-prog li{flex:1 1 0!important;min-width:0!important;padding-right:8px!important}@media (max-width:760px){.dx-prog li{flex:1 1 23%!important}}
+/* ---- Editorial layout (7 Nov): section title in a narrow left column, content on the right; hairline rules; smaller type ---- */
+.bk-hero h1,.dx-hero h1,.up-hero h1{font-size:34px!important;letter-spacing:-.01em}
+.bk-hero .lead,.dx-hero .sub,.up-hero .lead{font-size:16px!important;max-width:760px}
+.bk-sec .rule:before,.section .rule:before{width:32px!important;height:2px!important;top:0!important}
+.bk-sec{padding-bottom:26px!important}
+.bk-sec p{font-size:15px}
