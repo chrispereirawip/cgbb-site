@@ -186,7 +186,7 @@
     },
     "baseline": {
       "type": "object",
-      "description": "Verified Trusted only: the CGBB Brand Trust Baseline from the member's Trust Review. See https://cgbb.org/baseline/",
+      "description": "Verified Trusted only: the CGBB Brand Trust Baseline from the member's Trust Review. See https://cgbb.org/publications/baseline/",
       "properties": {
         "name": {
           "type": "string"
