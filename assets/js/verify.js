@@ -3,14 +3,14 @@ var f=document.querySelector('[data-verify]');if(!f)return;var out=document.quer
 var API='https://api.cgbb.org';
 var T=zh?{ok:'✓ 有效的品信會會員紀錄',okVT:'✓ 有效 · CGBB Verified Trusted（信任已核實）',warn:'紀錄有效，但此網站上的檔案並非真實',warnP:'此網站上的 trust.json 曾被修改或複製，請勿依賴；以下登記冊紀錄為準。',inact:'目前無效',none:'沒有品信會紀錄',org:'機構',site:'網站',lvl:'級別',rev:'入會審核',revS:'品信會秘書處',revP:'認可合作夥伴（5R Wire），秘書處可隨時覆核',mem:'會籍',until:'有效期至',pub:'網站上的憑證',pubY:'已發佈（真實）',pubM:'找到檔案，但與紀錄不符',pubN:'尚未發佈',chk:'查詢時間',
 member:'會員（CGBB Member）：已確認會籍、網站網域及聯絡人，不含信任評分',vt:'CGBB Verified Trusted（信任已核實）',full:'查看完整紀錄 →',ms:{active:'有效',inactive:'無效',suspended:'已暫停',expired:'已過期',revoked:'已撤銷'},
-note:'此紀錄並非對其產品、品質、財務狀況、合規或商業行為的認證或保證，請繼續進行一般的供應商盡職審查。',
+note:'品信會確認：此機構是經秘書處審核的品信會會員，控制此網站，並已核實聯絡人。',noteVT:'品信會確認：此機構是經秘書處審核的品信會會員，控制此網站，並已通過品信會全面信任評審，評審結果見上方的品牌可信度基線評估。',noteNo:'這不代表對其產品、品質、財務狀況、合規或商業行為的保證，請繼續進行一般的供應商盡職審查。',
 ref:function(r,d){return '您從 '+r+' 而來，但此紀錄屬於 '+d+'。如果徽章顯示在 '+r+' 上，它對該網站並非真實。'},
 noneP:function(d){return '品信會沒有 '+d+' 的紀錄。此網站上顯示的任何品信會徽章或憑證均不應採信。'},inactP:'此網站曾有品信會紀錄，但目前無效（會籍已過期、暫停或撤銷）。請勿依賴網站上顯示的品信會徽章或憑證。',
 badD:'品信會不會為社交平台頁面或共用網站地址發出紀錄，因此這類頁面上的品信會聲明不可能是真實的。',
 mine:'這是您的機構？',apply:'申請成為會員 →',bad:'請輸入網站地址，例如 brand.com',err:'暫時無法連接品信會登記冊，這並不代表該網站沒有紀錄。',errL:'直接打開紀錄 →',busy:'正在查詢登記冊…'}
 :{ok:'✓ Valid CGBB Member record',okVT:'✓ Valid · CGBB Verified Trusted',warn:'Record active, but the file on this website is not genuine',warnP:'The trust.json on this website was altered or copied. Do not rely on it; the registry record below is authoritative.',inact:'Not currently valid',none:'No CGBB record',org:'Organisation',site:'Website',lvl:'Level',rev:'Admitted by',revS:'CGBB Secretariat',revP:'Accredited partner (5R Wire); the Secretariat may review at any time',mem:'Membership',until:'Valid until',pub:'Credential on the website',pubY:'Published (genuine)',pubM:'A file was found but does not match this record',pubN:'Not yet published',chk:'Checked',
 member:'CGBB Member: membership, website domain and contact confirmed (no trust score)',vt:'CGBB Verified Trusted',full:'See the full record →',ms:{},
-note:'This record is not a certification or guarantee of the company’s products, quality, financial standing, compliance or conduct. Continue your normal supplier due diligence.',
+note:'CGBB confirms that this organisation is a CGBB member reviewed by the Secretariat, that it controls this website, and that its contact has been verified.',noteVT:'CGBB confirms that this organisation is a CGBB member reviewed by the Secretariat, that it controls this website, and that it passed the CGBB Trust Review, with the Brand Credibility Baseline shown above.',noteNo:'It is not a guarantee of the company’s products, quality, financial standing, compliance or conduct. Continue your normal supplier due diligence.',
 ref:function(r,d){return 'You came from '+r+', but this record is for '+d+'. If the badge was on '+r+', it is not genuine for that website.'},
 noneP:function(d){return 'CGBB has no record for '+d+'. Any CGBB badge or credential shown on this website should not be relied on.'},inactP:'This website had a CGBB record, but it is not currently valid (the membership expired, was suspended or revoked). Do not rely on a CGBB badge or credential shown on it.',
 badD:'CGBB does not issue records for social media profiles or shared hosting addresses, so a CGBB claim on such a page cannot be genuine.',
@@ -43,7 +43,7 @@ function run(raw,push){var d=host(raw);if(!d){card('bad',T.bad);return}
    if(fake)para(c,T.warnP);
    rows(c,[[T.site,v.domain],[T.org,v.organisation],[T.lvl,vt?T.vt+(v.trust_score!=null?' · '+v.trust_score+'%':''):T.member],[T.rev,v.reviewed_by==='accredited_partner'?T.revP:T.revS],[T.mem,(T.ms[v.membership_status]||v.membership_status||'')+(v.membership_number?' · '+v.membership_number:'')],[T.until,v.valid_until],[T.pub,p?(p.found?(p.genuine&&p.matches_domain?T.pubY:T.pubM):T.pubN):''],[T.chk,when(v.checked_at)]]);
    if(vt&&v.baseline)baseline(c,v.baseline);
-   para(c,T.note,'vf-small');foot(c,[link(rec(d),T.full)])}
+   para(c,(vt?T.noteVT:T.note)+' '+T.noteNo,'vf-small');foot(c,[link(rec(d),T.full)])}
   else if(v.status==='inactive'){c=card('warn',T.inact);if(fromOther(d))para(c,T.ref(ref,d),'vf-ref');rows(c,[[T.site,v.domain],[T.org,v.organisation],[T.mem,T.ms[v.membership_status]||v.membership_status],[T.chk,when(v.checked_at)]]);para(c,T.inactP);foot(c,[link(rec(d),T.full)])}
   else if(v.status==='invalid_domain'){c=card('bad',T.none);para(c,T.badD)}
   else if(v.status==='not_found'){c=card('bad',T.none);para(c,T.noneP(d));foot(c,[T.mine,link(f.getAttribute('data-apply'),T.apply)])}
