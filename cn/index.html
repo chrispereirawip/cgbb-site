@@ -452,6 +452,25 @@ main .section{padding:40px 0!important}.pil{padding:44px 0 44px}.events{padding-
 @media (prefers-reduced-motion:reduce){}
 
 
+html body .section.news-joined{padding-bottom:12px!important}html body .section.events.joined{padding-top:0!important}.events.joined h2{font-size:22px}.events.joined .split{border-top:1px solid #e4e4e4;padding-top:22px;margin-top:10px}/*vbar2*/.vbar{padding:12px 0!important}
+.vbar .vb-t{flex:1;min-width:240px;display:flex;flex-direction:column;gap:2px}
+.vbar .vb-t span{flex:none;min-width:0}
+.vbar .vb-more{width:100%}
+.vbar .vb-more summary{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:#A40706;list-style:none;padding:2px 0}
+.vbar .vb-more summary::-webkit-details-marker{display:none}
+.vbar .vb-more summary:after{content:"+";display:inline-grid;place-items:center;width:18px;height:18px;border:1px solid #A40706;border-radius:50%;font-size:13px;line-height:1}
+.vbar .vb-more[open] summary:after{content:"–";background:#A40706;color:#fff}
+.vbar .vb-more summary:hover{text-decoration:underline}
+.vb-in{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin:10px 0 4px}
+.vb-in>div{background:#fff;border:1px solid #e4e0dc;border-top-width:3px;padding:14px 16px}
+.vb-in>div.vt{border-top:3px solid #A40706}
+.vb-in h3{margin:0;font-size:16px;font-weight:600;color:#A40706}.vb-in div:not(.vt) h3{color:#111}
+.vb-in em{font-style:normal;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#666;margin-left:8px;font-weight:500}
+.vb-in p{margin:6px 0 0;font-size:14px;line-height:1.55;color:#333}
+.vb-in .l{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;font-size:14px}
+.vb-no{grid-column:1/-1;margin:0;font-size:13.5px;color:#555}
+@media (max-width:760px){.vb-in{grid-template-columns:1fr}.vbar .vb-t span{display:none}}
+/*/vbar2*/
 .ixcard{background:#fff;border:1px solid #e6e6e6;border-top:3px solid var(--red);box-shadow:0 18px 44px rgba(0,0,0,.08);padding:26px 26px 22px}
 .ixcard .k{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
 .ixcard .t{font-size:22px;font-weight:500;line-height:1.25;margin-top:6px}
@@ -484,25 +503,7 @@ main .section{padding:40px 0!important}.pil{padding:44px 0 44px}.events{padding-
 .ixcard .in li span{color:var(--red);font-weight:600;font-size:12px;padding-top:1px}
 .ixcard .acts{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
 .ixcard .acts .btn{margin:0;padding:10px 18px;font-size:14px}.ixcard .acts .more{font-size:14px}
-html body .section.news-joined{padding-bottom:12px!important}html body .section.events.joined{padding-top:0!important}.events.joined h2{font-size:22px}.events.joined .split{border-top:1px solid #e4e4e4;padding-top:22px;margin-top:10px}/*vbar2*/.vbar{padding:12px 0!important}
-.vbar .vb-t{flex:1;min-width:240px;display:flex;flex-direction:column;gap:2px}
-.vbar .vb-t span{flex:none;min-width:0}
-.vbar .vb-more{width:100%}
-.vbar .vb-more summary{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:#A40706;list-style:none;padding:2px 0}
-.vbar .vb-more summary::-webkit-details-marker{display:none}
-.vbar .vb-more summary:after{content:"+";display:inline-grid;place-items:center;width:18px;height:18px;border:1px solid #A40706;border-radius:50%;font-size:13px;line-height:1}
-.vbar .vb-more[open] summary:after{content:"–";background:#A40706;color:#fff}
-.vbar .vb-more summary:hover{text-decoration:underline}
-.vb-in{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin:10px 0 4px}
-.vb-in>div{background:#fff;border:1px solid #e4e0dc;border-top-width:3px;padding:14px 16px}
-.vb-in>div.vt{border-top:3px solid #A40706}
-.vb-in h3{margin:0;font-size:16px;font-weight:600;color:#A40706}.vb-in div:not(.vt) h3{color:#111}
-.vb-in em{font-style:normal;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#666;margin-left:8px;font-weight:500}
-.vb-in p{margin:6px 0 0;font-size:14px;line-height:1.55;color:#333}
-.vb-in .l{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;font-size:14px}
-.vb-no{grid-column:1/-1;margin:0;font-size:13.5px;color:#555}
-@media (max-width:760px){.vb-in{grid-template-columns:1fr}.vbar .vb-t span{display:none}}
-/*/vbar2*/</style>
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://cgbb.org/#organization", "name": "Council for Global Brand Building", "alternateName": ["CGBB", "全球化品牌信任促进会", "品信会"], "url": "https://cgbb.org/", "logo": "https://cgbb.org/assets/logo-horizontal.png", "email": "secretariat@cgbb.org", "nonprofitStatus": "Nonprofit", "foundingDate": "2026-09", "description": "The Council for Global Brand Building sets the standards for how trust is assessed and rated in corporate and business settings.", "sameAs": ["https://www.wikidata.org/wiki/Q141794334", "https://www.linkedin.com/company/120314036/"], "knowsAbout": ["brand trust", "brand credibility", "trust standards", "trust.json", "AI agents and brand trust", "Chinese brands going global"], "areaServed": "Worldwide", "subjectOf": [{"@type": "WebPage", "url": "https://cgbb.org/agents/", "name": "CGBB for AI agents"}, {"@type": "WebPage", "name": "Verify a website", "url": "https://cgbb.org/verify/"}], "potentialAction": {"@type": "JoinAction", "target": "https://cgbb.org/apply/", "name": "Apply for free CGBB membership"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Event", "name": "Global Connect Show @CES 2027 品信会圆桌讨论", "startDate": "2027-01-05", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "zh-Hans", "location": {"@type": "Place", "name": "拉斯维加斯", "address": "拉斯维加斯"}, "organizer": {"@type": "Organization", "name": "品信会 × Global Connect Show"}, "description": "品信会将于2027年1月5日，在拉斯维加斯CES期间举行的Global Connect Show上举办圆桌讨论。", "url": "https://www.globalconnect.show/events"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://cgbb.org/#website", "url": "https://cgbb.org/", "name": "Council for Global Brand Building", "alternateName": ["CGBB", "全球化品牌信任促进会", "品信会"], "inLanguage": ["en", "zh-Hans"], "publisher": {"@id": "https://cgbb.org/#organization"}, "cgbb-ld": "website"}</script><link rel="stylesheet" href="/assets/css/tight.css?v=ad0f742e">
 </head>
 <body>
@@ -568,7 +569,7 @@ html body .section.news-joined{padding-bottom:12px!important}html body .section.
 <div class="ev-sub ev-past"><div class="label">过往活动</div><div class="ev-list">
 <div class="ev" data-end="2026-09-30"><div class="when"><div class="m">9月</div><div class="y">2026</div></div><div class="what"><div class="by">品信会</div><div class="title">品信会于世贸组织公共论坛期间宣布成立</div><div class="where">日内瓦</div><p>全球化品牌信任促进会（于香港成立的非营利协会）于世贸组织公共论坛期间在日内瓦宣布成立，并启动首个项目：面向出海品牌的公信力指数。</p><a class="more" href="https://www.yicaiglobal.com/news/council-for-global-brand-building-is-launched-to-address-trust-gap-for-chinese-firms-venturing-abroad" target="_blank" rel="noopener">活动详情 →</a></div></div>
 </div></div>
-<script src="/assets/js/home.js?v=44564bee"></script>
+<script src="/assets/js/home.js?v=f4d93579"></script>
 <script src="/assets/js/cn-home.js?v=83382338"></script>
 </div>
 </div>

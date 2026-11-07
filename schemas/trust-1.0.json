@@ -204,7 +204,7 @@
             "initial",
             "lacking"
           ],
-          "description": "Overall status: stable and mature (80-100), relatively stable (60-79), basically established (40-59), initially established (20-39), foundations lacking (0-19)"
+          "description": "Overall status: trust well established (80-100), trust established (60-79), trust developing (40-59), trust at an early stage (20-39), trust foundations lacking (0-19)"
         },
         "score": {
           "type": "integer",
