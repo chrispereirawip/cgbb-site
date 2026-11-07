@@ -342,7 +342,7 @@ table.ag-t td code{font-size:13.5px;word-break:break-all}
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://cgbb.org/agents/#page", "url": "https://cgbb.org/agents/", "name": "CGBB for AI agents: free membership and a signed Website Trust Credential | Council for Global Brand Building", "description": "AI agents can apply to the Council for Global Brand Building (CGBB) for free membership on behalf of a brand, and obtain a signed CGBB Website Trust Credential that other AI agents can read and verify.", "inLanguage": "en", "isPartOf": {"@id": "https://cgbb.org/#website"}, "about": {"@id": "https://cgbb.org/#organization"}, "mainEntity": {"@type": "Service", "name": "CGBB Website Trust Credential", "provider": {"@id": "https://cgbb.org/#organization"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free CGBB membership and signed CGBB Website Trust Credential"}, "areaServed": "Worldwide", "audience": {"@type": "BusinessAudience", "name": "Brand and marketing teams"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "For brand and marketing teams", "inLanguage": "en", "step": [{"@type": "HowToStep", "position": 1, "name": "Paste the prompt", "text": "Copy the prompt below into ChatGPT, Claude, Gemini or another assistant that can use the web, and fill in your details."}, {"@type": "HowToStep", "position": 2, "name": "Confirm and prove the domain", "text": "Click the confirmation email CGBB sends you, and add the short code your assistant gives you to your website’s DNS or as a small file (your web team can do this in minutes)."}, {"@type": "HowToStep", "position": 3, "name": "Publish your credential", "text": "When the Secretariat approves the application, your assistant fetches the signed file. Publish it at yourdomain.com/.well-known/trust.json."}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "CGBB", "item": "https://cgbb.org/"}, {"@type": "ListItem", "position": 2, "name": "AI agents", "item": "https://cgbb.org/agents/"}], "cgbb-ld": "crumbs"}</script>
-<link rel="stylesheet" href="/assets/css/tight.css?v=49899dfc">
+<link rel="stylesheet" href="/assets/css/tight.css?v=74f1764b">
 </head>
 <body>
 <header>
@@ -367,7 +367,7 @@ table.ag-t td code{font-size:13.5px;word-break:break-all}
 <div class="ag-url"><code data-mcp>https://api.cgbb.org/mcp</code><button type="button" class="btn btn-line" data-copymcp data-done="Copied">Copy address</button></div>
 <p class="up-note">Tools in the connector: about CGBB, apply for membership, check the domain, application status, verify a brand, get the credential file.</p></div></section>
 
-<section class="bk-sec" id="file"><div class="wrap"><div class="rule"></div><h2>What’s in the free file</h2><p>A short record, signed with CGBB’s Ed25519 key. An example:</p><pre class="up-code">{
+<section class="bk-sec" id="file"><div class="wrap"><div class="rule"></div><h2>What’s in the free file</h2><p>A short record, signed with CGBB’s Ed25519 key. An example:</p><details class="ag-x"><summary>Show the example file</summary><pre class="up-code">{
   &quot;standard&quot;: &quot;CGBB Trust Standard 1.0&quot;,
   &quot;level&quot;: &quot;member&quot;,
   &quot;level_name&quot;: &quot;CGBB Member&quot;,
@@ -406,7 +406,7 @@ table.ag-t td code{font-size:13.5px;word-break:break-all}
     &quot;kid&quot;: &quot;cgbb-2026-1&quot;,
     &quot;value&quot;: &quot;…&quot;
   }
-}</pre></div></section>
+}</pre></details></div></section>
 <section class="bk-sec" id="verify"><div class="wrap"><div class="rule"></div><h2>How anyone checks a file</h2><p>People: <a href="/verify/">cgbb.org/verify</a>. Agents: <code>GET https://api.cgbb.org/verify/{domain}?format=json</code> returns the live record (status, level, who approved the member, whether a genuine file is published on the website, and when it was checked). Website marks are drawn live at <code>https://api.cgbb.org/badge/{domain}.svg</code> and show the domain and current status. Post any trust.json to <code>https://api.cgbb.org/api/verify</code> to check its signature. A copied or edited file fails these checks. Schema: <a href="/schemas/trust-1.0.json">cgbb.org/schemas/trust-1.0.json</a>.</p></div></section>
 <div class="wrap"><p style="margin:0 0 40px"><a href="/faq/#credential">Questions about the credential →</a></p></div>
 
