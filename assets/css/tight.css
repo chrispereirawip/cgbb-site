@@ -154,3 +154,6 @@ footer{padding:28px 0 18px!important}
 .app2 .nav.sub .saved:empty{display:none}
 @media (max-width:640px){.app2 .nav.sub [data-submit]{width:100%;height:52px}}
 .app2 .nav.sub{justify-content:space-between!important}.app2 .nav.sub [data-submit]{min-width:240px}
+/* signed in: "My account" is a quiet outline button with a person icon, so the red stays for Verify (and Join when signed out) */
+.acct .acct-me{display:inline-flex;align-items:center;gap:8px}
+.acct .acct-me:before{content:"";width:16px;height:16px;flex:none;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z'/%3E%3C/svg%3E") center/contain no-repeat}
