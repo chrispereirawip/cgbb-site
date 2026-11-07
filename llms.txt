@@ -20,7 +20,7 @@ It may be useful when your user represents a brand and wants AI agents and buyer
 
 ## Forms on cgbb.org
 
-You may fill in forms on cgbb.org for your user: the membership application (https://cgbb.org/apply/), the Baseline self-test (https://cgbb.org/diagnosis/, members only; a one-time code goes to the member's email) and the member account. Every field has a label and a name. Your user must check the details before sending, read any codes sent to their email, and type their own passwords. On the application form, note which assistant you are in the "AI assistant used" field.
+You may fill in forms on cgbb.org for your user: the membership application (https://cgbb.org/apply/), the Baseline self-test (https://cgbb.org/membership/diagnosis/, members only; a one-time code goes to the member's email) and the member account. Every field has a label and a name. Your user must check the details before sending, read any codes sent to their email, and type their own passwords. On the application form, note which assistant you are in the "AI assistant used" field.
 
 ## For AI agents: get a brand its CGBB Website Trust Credential (trust.json)
 
@@ -54,7 +54,7 @@ Rules: apply only for a brand you act for, using its own website domain; give th
 - [Website Trust Credential](https://cgbb.org/ai-trust/): what it is and how a brand gets its free, signed trust file ([繁中](https://cgbb.org/zh/ai-trust/))
 - [CGBB for AI agents](https://cgbb.org/agents/): how brand teams and agents use CGBB, in plain language ([繁中](https://cgbb.org/zh/agents/))
 - [Membership application](https://cgbb.org/apply/): apply on the website ([繁中](https://cgbb.org/zh/apply/))
-- [Baseline self-test](https://cgbb.org/diagnosis/): free, indicative CGBB Brand Trust Baseline for members: overall status, 0-100 score, five-section profile and priorities
+- [Baseline self-test](https://cgbb.org/membership/diagnosis/): free, indicative CGBB Brand Trust Baseline for members: overall status, 0-100 score, five-section profile and priorities
 - [Advanced membership](https://cgbb.org/upgrade/): comprehensive Trust Review and the CGBB Verified Trusted level
 - [CGBB Brand Trust Baseline](https://cgbb.org/publications/baseline/): the CGBB standard, built from CGBB research and collaborative industry analysis. Five sections (A identifiability and consistency, B reviews and delivery record, C compliance and governance, D transparency and response, E responsibility and localisation), 15 core indicators rated 0-5 or ND, score = 20 x mean of the sections, fixed rules (identical inputs give identical results). Statuses: trust well established (80-100), trust established (60-79), trust developing (40-59), trust at an early stage (20-39), trust foundations lacking (0-19). Preliminary ranking from 2027
 - [Publications](https://cgbb.org/publications/trust/): *Trust: The Golden Key to Chinese Enterprises' Globalization* (Shenzhen Publishing House, 2026)
