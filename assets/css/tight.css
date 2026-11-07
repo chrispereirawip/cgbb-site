@@ -1,0 +1,33 @@
+/* Shared spacing for every page, loaded after each page's own styles: tight, premium, less scrolling. */
+html body main .section,html body .section{padding:36px 0!important}
+.hero.v2{padding:40px 0 4px!important}
+.hero.v2 p.lead2{margin-top:16px!important;line-height:1.6!important}
+.hero.v2 .ctas{margin-top:22px!important}
+.member,.events{padding:52px 0!important}
+.pil{padding:24px 0 8px!important}
+.pil h2{font-size:24px!important;margin:0 0 12px!important}
+.bk-hero,.up-hero,.dx-hero{padding:36px 0 22px!important}
+.bk-hero h1,.dx-hero h1,.up-hero h1{font-size:38px!important;line-height:1.15!important}
+.bk-hero .lead,.dx-hero .sub,.up-hero .lead{margin-top:10px!important;font-size:16.5px!important;line-height:1.6!important}
+.bk-cta{margin-top:18px!important}
+.bk-sec{padding:0 0 30px!important}
+.bk-sec h2,.section h2{margin-bottom:10px!important}
+.bk-sec h2{font-size:22px!important}
+.bk-sec p,.bk-sec li,.bk-sec dd{line-height:1.6!important}
+.rule{margin-bottom:14px!important}
+.label{margin-bottom:10px!important}
+footer{padding:40px 0 24px!important}
+.faq summary{padding:12px 0!important}
+.faq .ans{padding-bottom:14px!important}
+.dx-path,.dx-note{margin-top:16px!important}
+.dx-prog{margin-bottom:22px!important}
+.dx{padding-bottom:48px!important}
+.dx-panel .intro{margin-bottom:18px!important}
+.bl-grid,.bl-flow,.bl-path,.bl-st{margin-top:12px!important}
+.bl-flow>div{padding-top:12px!important}
+.bl-flow p,.bl-two li,.bl-stab li,.bl-sup dd{line-height:1.5!important}
+.bl-two li,.bl-stab li{padding-top:6px!important;padding-bottom:6px!important}
+.bl-st td{padding-top:7px!important;padding-bottom:7px!important}
+.bl-grid .q{min-height:0!important}
+@media (max-width:760px){.section{padding:34px 0!important}.bk-hero h1,.dx-hero h1,.up-hero h1{font-size:28px!important}.bk-hero,.up-hero,.dx-hero{padding:26px 0 16px!important}}
+.dx-prog li{flex:1 1 0!important;min-width:0!important;padding-right:8px!important}@media (max-width:760px){.dx-prog li{flex:1 1 23%!important}}
