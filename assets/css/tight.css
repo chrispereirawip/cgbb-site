@@ -108,7 +108,7 @@ footer{padding:28px 0 18px!important}
 .app .nav [data-back][style*="hidden"]{display:none!important}
 .app .nav .saved:empty{display:none}
 /* ---- apply v2: one page, plan cards ---- */
-.app2{max-width:900px!important;padding-top:6px}
+.app2{max-width:none!important;padding-top:6px}
 .app2 .lab.sec{grid-column:1/-1;font-size:12px!important;letter-spacing:.12em;text-transform:uppercase;color:#555;font-weight:600!important;margin:6px 0 8px!important;padding-top:10px;border-top:1px solid #e6e6e6}
 .app2 .q-plan{grid-column:1/-1;margin-bottom:8px!important}
 .app2 .q-plan .lab.sec{border-top:0;padding-top:0}
