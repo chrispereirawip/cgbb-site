@@ -9,6 +9,13 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   var savedEl = form.querySelector('[data-saved]'), fail = form.querySelector('[data-fail]'), botFail = form.querySelector('[data-botfail]');
   var TS = window.CGBBTS || {token:function(){return ''}, reset:function(){}, scan:function(){}};
   var KEY = 'cgbb-apply-draft';
+  var LANG = document.documentElement.lang, HANS = /Hans/.test(LANG), ZHL = /^zh/.test(LANG);
+  var PAY = LANG === 'en' ? { paid: 'Payment received. Thank you: your CGBB Advanced Membership starts once the Secretariat approves your application, and we will then arrange your Trust Review.', cancel: 'Your application has been sent, but the payment was not completed. The Secretariat will email you a payment link.', later: 'Your application has been sent. The Secretariat will email you a secure payment link for the annual fee.', btn: 'Submit and continue to payment', btn0: null }
+    : HANS ? { paid: '已收到付款，谢谢。秘书处批准您的申请后，品信会进阶会籍即告生效，我们随后会为您安排信任评审。', cancel: '您的申请已送出，但付款尚未完成。秘书处将以电邮向您发送付款链接。', later: '您的申请已送出。秘书处将以电邮向您发送年费的安全付款链接。', btn: '提交并前往付款', btn0: null }
+    : { paid: '已收到付款，謝謝。秘書處批准您的申請後，品信會進階會籍即告生效，我們隨後會為您安排信任評審。', cancel: '您的申請已送出，但付款尚未完成。秘書處將以電郵向您發送付款連結。', later: '您的申請已送出。秘書處將以電郵向您發送年費的安全付款連結。', btn: '提交並前往付款', btn0: null };
+  function done(extra){ form.style.display='none'; var st=document.querySelector('.steps'); if (st) st.style.display='none'; var dn=document.querySelector('[data-done]'); if (extra){ var p=document.createElement('p'); p.className='pay-note'; p.textContent=extra; var h=dn.querySelector('h2'); h.parentNode.insertBefore(p, h.nextSibling); } dn.classList.add('on'); dn.focus(); window.scrollTo({top:0, behavior:'smooth'}); }
+  try { var paid = new URLSearchParams(location.search).get('paid'); if (paid === 'success' || paid === 'cancel') { setTimeout(function(){ done(paid === 'success' ? PAY.paid : PAY.cancel); }, 0); } } catch(e){}
+
   var cur = 0;
 
   function isOrg(){ return !cat || /Organizational|Corporate|Institutional/.test(cat.value); }
@@ -92,7 +99,14 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
         return fetch('https://api.web3forms.com/submit', { method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'}, body: JSON.stringify(payload) });
       })
       .then(function(r){ return r.json(); })
-      .then(function(j){ if (!j.success) throw new Error(j.message||'failed'); try{ localStorage.removeItem(KEY); }catch(e){} form.style.display='none'; document.querySelector('.steps').style.display='none'; var dn=document.querySelector('[data-done]'); dn.classList.add('on'); dn.focus(); window.scrollTo({top:0, behavior:'smooth'}); })
+      .then(function(j){ if (!j.success) throw new Error(j.message||'failed'); try{ localStorage.removeItem(KEY); }catch(e){}
+        // Advanced membership: straight on to the secure payment page (Stripe)
+        if (/^Advanced/.test(d['Membership'] || '')) {
+          return fetch('https://api.cgbb.org/api/account/apply-checkout', {method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: d['Email'], lang: document.documentElement.lang})})
+            .then(function(r){ return r.json(); }).catch(function(){ return {}; })
+            .then(function(c){ if (c && c.url) { location.href = c.url; return; } done(PAY.later); });
+        }
+        done(''); })
       .catch(function(e){ (e && e.bot ? botFail : fail).classList.add('on'); submit.disabled = false; });
   });
 
@@ -116,7 +130,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
     var radios = [].slice.call(form.querySelectorAll('[data-plan]')); if (!radios.length) return;
     var note = form.querySelector('[data-adv-note]');
     try { var q = new URLSearchParams(location.search).get('plan'); if (q) radios.forEach(function(r){ r.checked = r.dataset.plan === q; }); } catch(e){}
-    function sync(){ var c = radios.filter(function(r){ return r.checked; })[0]; radios.forEach(function(r){ r.closest('.pl').classList.toggle('on', r.checked); }); if (note) note.hidden = !(c && c.dataset.plan === 'advanced'); }
+    function sync(){ var c = radios.filter(function(r){ return r.checked; })[0]; if (PAY.btn0 === null) PAY.btn0 = submit.textContent; submit.textContent = c && c.dataset.plan === 'advanced' ? PAY.btn : PAY.btn0; radios.forEach(function(r){ r.closest('.pl').classList.toggle('on', r.checked); }); if (note) note.hidden = !(c && c.dataset.plan === 'advanced'); }
     radios.forEach(function(r){ r.addEventListener('change', sync); }); sync();
   })();
   syncOther(); show(0);
