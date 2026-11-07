@@ -67,7 +67,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
       form.querySelectorAll('input,select,textarea').forEach(function(el){ if (!(el.name in all)) return; var v=all[el.name]; if (el.type==='checkbox'||el.type==='radio') el.checked = v.indexOf(el.value) > -1; else el.value = v; });
     } catch(e){}
   }
-  var SAVED = 'Progress saved on this device / <span lang="zh-Hant">進度已保存在此裝置</span>';
+  var SAVED = (document.documentElement.lang==='en'?'Progress saved on this device':/Hans/.test(document.documentElement.lang)?'进度已保存在此设备':'進度已保存在此裝置');
 
   form.querySelectorAll('textarea[maxlength]').forEach(function(t){ var c=form.querySelector('[data-count-for="'+t.id+'"]'); var u=function(){ c.textContent = t.value.length+' / '+t.maxLength; }; t.addEventListener('input', u); u(); });
   form.addEventListener('change', function(e){ syncOther(); if (e.target===cat) show(cur); var q=e.target.closest('.q'); if (q) q.classList.remove('bad'); save(); });
@@ -99,7 +99,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   (function(){
     var sel = form.querySelector('[data-countries]'); if (!sel) return;
     var codes = 'AF AL DZ AD AO AG AR AM AU AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI KH CM CA CV CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HK HU IS IN ID IR IQ IE IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NZ NI NE NG KP MK NO OM PK PW PS PA PG PY PE PH PL PT QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE GB US UY UZ VU VA VE VN YE ZM ZW'.split(' ');
-    var hans = /Hans/.test(document.documentElement.lang);
+    var hans = /Hans/.test(document.documentElement.lang), enOnly = document.documentElement.lang === 'en';
     var fixed = hans ? { CN: ['China','中国'], HK: ['Hong Kong','香港'], MO: ['Macao','澳门'], TW: ['Taiwan','台湾'] } : { CN: ['China','中國'], HK: ['Hong Kong','香港'], MO: ['Macao','澳門'], TW: ['Taiwan','臺灣'] };
     var en = null, zh = null; try { en = new Intl.DisplayNames(['en'], {type:'region'}); zh = new Intl.DisplayNames([hans ? 'zh-Hans' : 'zh-Hant'], {type:'region'}); } catch(e){}
     var pinned = ['CN','HK','MO','TW'];
@@ -108,8 +108,8 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
     list.push(hans ? 'Other / 其他' : 'Other / 其他');
     // China, Hong Kong, Macao and Taiwan are pinned at the top (once only)
     var top = ['CN','HK','MO','TW'].map(function(c){ return fixed[c][0] + ' / ' + fixed[c][1]; });
-    var g1 = document.createElement('optgroup'); g1.label = '\u00a0'; top.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = v; g1.appendChild(o); }); sel.appendChild(g1);
-    var g2 = document.createElement('optgroup'); g2.label = 'A–Z'; list.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = v; g2.appendChild(o); }); sel.appendChild(g2);
+    var g1 = document.createElement('optgroup'); g1.label = '\u00a0'; top.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = enOnly ? v.split(' / ')[0] : v; g1.appendChild(o); }); sel.appendChild(g1);
+    var g2 = document.createElement('optgroup'); g2.label = 'A–Z'; list.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = enOnly ? v.split(' / ')[0] : v; g2.appendChild(o); }); sel.appendChild(g2);
   })();
   restore();
   syncOther(); show(0);
