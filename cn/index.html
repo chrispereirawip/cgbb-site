@@ -455,14 +455,28 @@ main .section{padding:40px 0!important}.pil{padding:44px 0 44px}.events{padding-
 .ixcard .st{display:grid;grid-template-columns:repeat(3,1fr);margin-top:16px;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6}
 .ixcard .st div{padding:10px 0;text-align:center}.ixcard .st div+div{border-left:1px solid #e6e6e6}
 .ixcard .st b{display:block;font-size:20px;font-weight:500;line-height:1.2}.ixcard .st span{font-size:12px;color:#555}
-.ixcard .ex{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:16px;padding:14px 16px;background:#faf6f6}
 .ixcard .ex-l span{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#555}
 .ixcard .ex-l b{display:block;font-size:30px;font-weight:500;line-height:1.1;color:var(--red)}.ixcard .ex-l small{font-size:13px;color:#555;font-weight:400;margin-left:2px}
 .ixcard .ex-l em{font-style:normal;font-size:13px;color:#111}
-.ixcard .ex-b{display:flex;gap:8px;align-items:flex-end;height:58px}
-.ixcard .ex-b span{position:relative;width:16px;height:44px;background:#eadede;display:block}
-.ixcard .ex-b i{position:absolute;left:0;right:0;bottom:0;background:var(--red)}
-.ixcard .ex-b em{position:absolute;left:0;right:0;bottom:-15px;text-align:center;font-style:normal;font-size:10.5px;font-weight:600;color:#555}
+.ixcard .ex{margin-top:16px;padding:14px 16px 12px;background:#faf6f6}
+.ixcard .ex-top{display:flex;align-items:flex-end;gap:20px}
+.ixcard .ex-s{flex:1;min-width:0;padding-bottom:3px}
+.ixcard .ex-scale{position:relative;display:grid;grid-template-columns:repeat(5,1fr);height:8px}
+.ixcard .ex-scale i+i{border-left:2px solid #faf6f6}
+.ixcard .ex-scale i{background:#eadede}
+.ixcard .ex-scale i.on{background:var(--red)}
+.ixcard .ex-scale b{position:absolute;top:-4px;width:2px;height:16px;margin-left:-1px;background:#111}
+.ixcard .ex-ticks{position:relative;height:12px;margin-top:5px;font-size:10px;line-height:12px;color:#777;font-variant-numeric:tabular-nums}
+.ixcard .ex-ticks span{position:absolute;top:0;transform:translateX(-50%)}
+.ixcard .ex-ticks span:first-child{transform:none}
+.ixcard .ex-ticks span:last-child{transform:translateX(-100%)}
+.ixcard .ex-cap{margin-top:12px;padding-top:10px;border-top:1px solid #eadede;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#555}
+.ixcard .ex-p{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:5px}
+.ixcard .ex-p li{display:grid;grid-template-columns:14px 1fr 26px;align-items:center;gap:8px;font-size:11.5px}
+.ixcard .ex-p em{font-style:normal;font-weight:600;color:#555}
+.ixcard .ex-p span{position:relative;height:6px;background:#eadede}
+.ixcard .ex-p span i{position:absolute;left:0;top:0;bottom:0;background:var(--red)}
+.ixcard .ex-p b{text-align:right;font-weight:600;color:#111;font-variant-numeric:tabular-nums}
 .ixcard .rows{margin-top:14px;border-top:1px solid #e6e6e6}
 .ixcard details{border-bottom:1px solid #eee}
 .ixcard summary{list-style:none;display:flex;align-items:center;gap:12px;padding:10px 8px;margin:0 -8px;cursor:pointer;font-size:14.5px;transition:background .15s,color .15s}
@@ -471,9 +485,10 @@ main .section{padding:40px 0!important}.pil{padding:44px 0 44px}.events{padding-
 .ixcard summary::-webkit-details-marker{display:none}
 .ixcard summary b{flex:none;width:22px;height:22px;display:grid;place-items:center;background:var(--red);color:#fff;font-size:12px;font-weight:600}
 .ixcard summary span{flex:1}
-.ixcard summary:after{content:"+";flex:none;width:22px;height:22px;display:grid;place-items:center;border:1px solid var(--red);border-radius:50%;color:var(--red);font-size:16px;line-height:1;transition:background .15s,color .15s}
-.ixcard summary:hover:after,.ixcard details[open] summary:after{background:var(--red);color:#fff}
-.ixcard details[open] summary:after{content:"–"}
+.ixcard summary:after{content:"";flex:none;box-sizing:border-box;width:22px;height:22px;border:1px solid var(--red);border-radius:50%;
+  background:linear-gradient(var(--red),var(--red)) center/10px 1.5px no-repeat,linear-gradient(var(--red),var(--red)) center/1.5px 10px no-repeat;transition:background-color .15s}
+.ixcard summary:hover:after{background:linear-gradient(#fff,#fff) center/10px 1.5px no-repeat,linear-gradient(#fff,#fff) center/1.5px 10px no-repeat,var(--red)}
+.ixcard details[open] summary:after{background:linear-gradient(#fff,#fff) center/10px 1.5px no-repeat,var(--red)}
 .ixcard .rows .hint{font-size:12px;color:#666;margin:8px 0 2px}
 .ixcard .in{padding:0 0 12px 34px}.ixcard .in p{margin:0 0 6px;font-size:13px;color:#555;line-height:1.5}
 .ixcard .in ul{margin:0;padding:0;list-style:none}.ixcard .in li{display:grid;grid-template-columns:28px 1fr;font-size:13.5px;line-height:1.5;padding:2px 0}
@@ -503,7 +518,7 @@ main .section{padding:40px 0!important}.pil{padding:44px 0 44px}.events{padding-
 
 <main>
 <section class="vbar" id="verify" aria-label="核实网站"><div class="wrap"><b>核实网站</b><span>查看网站是否属于经品信会审核的机构。</span><form action="/zh/verify/" method="get" role="search"><input name="d" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="网站地址，例如 brand.com" placeholder="网站地址，例如 brand.com" required><button class="btn btn-red" type="submit">核实</button></form></div></section>
-<section class="hero v2" id="top"><div class="wrap"><div class="hx"><div><div class="eyebrow">全球化品牌信任促进会</div><h1>让世界看见领先品牌，<span>并真正信任它们。</span></h1><p class="lead2">品信会制定评估与评级商业信任的标准。企业、高校、媒体与独立专家，以严谨的学术基础共同建立这些标准。</p><div class="ctas"><a class="btn btn-red" href="/cn/apply/">成为会员</a><a class="btn btn-line" href="#index">了解基线评估</a></div></div><div class="ixcard"><div class="k">品信会标准</div><div class="t">品牌可信度基线评估</div><p class="p">衡量品牌可被信任程度的统一方法，对每家企业都一样。</p><div class="st"><div><b>5</b><span>大板块</span></div><div><b>15</b><span>项指标</span></div><div><b>0–100</b><span>评分</span></div></div><div class="ex"><div class="ex-l"><span>示例结果</span><b>72<small>/100</small></b><em>较为稳定</em></div><div class="ex-b" aria-hidden="true"><span title="可识别性与信息一致性"><i style="height:90%"></i><em>A</em></span><span title="外部评价与履约口碑"><i style="height:70%"></i><em>B</em></span><span title="合规与治理"><i style="height:80%"></i><em>C</em></span><span title="透明度与响应"><i style="height:60%"></i><em>D</em></span><span title="责任实践与本地化"><i style="height:60%"></i><em>E</em></span></div></div><div class="rows"><p class="hint">点击板块查看检查内容</p><details><summary><b>A</b><span>可识别性与信息一致性</span></summary><div class="in"><p>你是谁，外部能否确认，不同来源能否对得上？</p><ul><li><span>A1</span>主体可核验</li><li><span>A2</span>关键经营与责任信息清晰</li><li><span>A3</span>跨渠道信息一致性与有效性</li></ul></div></details><details><summary><b>B</b><span>外部评价与履约口碑</span></summary><div class="in"><p>真实的客户和伙伴关系留下了什么记录？</p><ul><li><span>B1</span>消费者反馈</li><li><span>B2</span>商业伙伴履约与合作记录</li><li><span>B3</span>其他真实外部体验信号</li></ul></div></details><details><summary><b>C</b><span>合规与治理</span></summary><div class="in"><p>规则要求是否满足，是否存在重大风险？</p><ul><li><span>C1</span>市场准入与必要资质</li><li><span>C2</span>关键合规与治理基础</li><li><span>C3</span>法律、监管与治理记录</li></ul></div></details><details><summary><b>D</b><span>透明度与响应</span></summary><div class="in"><p>需要答案时，企业如何说明和行动？</p><ul><li><span>D1</span>必要信息披露</li><li><span>D2</span>投诉与争议响应</li><li><span>D3</span>整改与后续行动</li></ul></div></details><details><summary><b>E</b><span>责任实践与本地化</span></summary><div class="in"><p>长期经营留下了什么本地记录？</p><ul><li><span>E1</span>可验证责任实践</li><li><span>E2</span>本地雇佣与合作</li><li><span>E3</span>社区与长期本地关系</li></ul></div></details></div><div class="acts"><a class="btn btn-red" href="/cn/diagnosis/">免费自测</a><a class="more" href="/cn/baseline/">计分方法 →</a></div><!--/ixcard--></div></div></div></section>
+<section class="hero v2" id="top"><div class="wrap"><div class="hx"><div><div class="eyebrow">全球化品牌信任促进会</div><h1>让世界看见领先品牌，<span>并真正信任它们。</span></h1><p class="lead2">品信会制定评估与评级商业信任的标准。企业、高校、媒体与独立专家，以严谨的学术基础共同建立这些标准。</p><div class="ctas"><a class="btn btn-red" href="/cn/apply/">成为会员</a><a class="btn btn-line" href="#index">了解基线评估</a></div></div><div class="ixcard"><div class="k">品信会标准</div><div class="t">品牌可信度基线评估</div><p class="p">衡量品牌可被信任程度的统一方法，对每家企业都一样。</p><div class="st"><div><b>5</b><span>大板块</span></div><div><b>15</b><span>项指标</span></div><div><b>0–100</b><span>评分</span></div></div><div class="ex"><div class="ex-top"><div class="ex-l"><span>示例结果</span><b>72<small>/100</small></b><em>较为稳定</em></div><div class="ex-s" aria-hidden="true"><div class="ex-scale"><i></i><i></i><i></i><i class="on"></i><i></i><b style="left:72%"></b></div><div class="ex-ticks"><span style="left:0%">0</span><span style="left:20%">20</span><span style="left:40%">40</span><span style="left:60%">60</span><span style="left:80%">80</span><span style="left:100%">100</span></div></div></div><div class="ex-cap">各部分得分（0–5）</div><ul class="ex-p" aria-hidden="true"><li title="可识别性与信息一致性"><em>A</em><span><i style="width:90%"></i></span><b>4.5</b></li><li title="外部评价与履约口碑"><em>B</em><span><i style="width:70%"></i></span><b>3.5</b></li><li title="合规与治理"><em>C</em><span><i style="width:80%"></i></span><b>4.0</b></li><li title="透明度与响应"><em>D</em><span><i style="width:60%"></i></span><b>3.0</b></li><li title="责任实践与本地化"><em>E</em><span><i style="width:60%"></i></span><b>3.0</b></li></ul></div><div class="rows"><p class="hint">点击板块查看检查内容</p><details name="ixsec"><summary><b>A</b><span>可识别性与信息一致性</span></summary><div class="in"><p>你是谁，外部能否确认，不同来源能否对得上？</p><ul><li><span>A1</span>主体可核验</li><li><span>A2</span>关键经营与责任信息清晰</li><li><span>A3</span>跨渠道信息一致性与有效性</li></ul></div></details><details name="ixsec"><summary><b>B</b><span>外部评价与履约口碑</span></summary><div class="in"><p>真实的客户和伙伴关系留下了什么记录？</p><ul><li><span>B1</span>消费者反馈</li><li><span>B2</span>商业伙伴履约与合作记录</li><li><span>B3</span>其他真实外部体验信号</li></ul></div></details><details name="ixsec"><summary><b>C</b><span>合规与治理</span></summary><div class="in"><p>规则要求是否满足，是否存在重大风险？</p><ul><li><span>C1</span>市场准入与必要资质</li><li><span>C2</span>关键合规与治理基础</li><li><span>C3</span>法律、监管与治理记录</li></ul></div></details><details name="ixsec"><summary><b>D</b><span>透明度与响应</span></summary><div class="in"><p>需要答案时，企业如何说明和行动？</p><ul><li><span>D1</span>必要信息披露</li><li><span>D2</span>投诉与争议响应</li><li><span>D3</span>整改与后续行动</li></ul></div></details><details name="ixsec"><summary><b>E</b><span>责任实践与本地化</span></summary><div class="in"><p>长期经营留下了什么本地记录？</p><ul><li><span>E1</span>可验证责任实践</li><li><span>E2</span>本地雇佣与合作</li><li><span>E3</span>社区与长期本地关系</li></ul></div></details></div><div class="acts"><a class="btn btn-red" href="/cn/diagnosis/">免费自测</a><a class="more" href="/cn/baseline/">计分方法 →</a></div><!--/ixcard--></div></div></div></section>
 
 <section class="pil" id="about"><div class="wrap"><h2>我们的工作</h2><div class="g"><a href="#index"><b>制定标准</b><p>品信会品牌可信度基线评估：以五大板块、15 项核心指标评估品牌可被信任的程度。</p><i>了解基线评估 →</i></a><a href="/cn/ai-trust/"><b>会员与网站信任凭证</b><p>免费会籍，并附 AI 代理可核实的网站信任凭证。</p><i>了解凭证 →</i></a><a href="#publications"><b>研究与出版</b><p>白皮书、著作及创始成员的研究成果。</p><i>查看出版物 →</i></a></div></div></section>
 
@@ -578,7 +593,7 @@ main .section{padding:40px 0!important}.pil{padding:44px 0 44px}.events{padding-
 <div class="ev-sub ev-past"><div class="label">过往活动</div><div class="ev-list">
 <div class="ev" data-end="2026-09-30"><div class="when"><div class="m">9月</div><div class="y">2026</div></div><div class="what"><div class="by">品信会</div><div class="title">品信会于世贸组织公共论坛期间宣布成立</div><div class="where">日内瓦</div><p>全球化品牌信任促进会（于香港成立的非营利协会）于世贸组织公共论坛期间在日内瓦宣布成立，并启动首个项目：面向出海品牌的公信力指数。</p><a class="more" href="https://www.yicaiglobal.com/news/council-for-global-brand-building-is-launched-to-address-trust-gap-for-chinese-firms-venturing-abroad" target="_blank" rel="noopener">活动详情 →</a></div></div>
 </div></div>
-<script src="/assets/js/home.js?v=2014d41f"></script>
+<script src="/assets/js/home.js?v=44564bee"></script>
 <script src="/assets/js/cn-home.js?v=83382338"></script>
 </div>
 </div>

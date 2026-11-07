@@ -5,3 +5,8 @@ if(!moved.length)return;moved.forEach(function(c){pl.appendChild(c)});
 [].slice.call(pl.children).sort(function(a,b){return(b.getAttribute('data-end')||'').localeCompare(a.getAttribute('data-end')||'')}).forEach(function(c){pl.appendChild(c)});
 pl.parentNode.hidden=false;var m=ev.querySelector('.ev-member');if(m&&!m.querySelector('.ev'))m.hidden=true;
 var main=ev.querySelector('.right > .ev-list'),f=main.querySelector('.ev');if(f)f.classList.add('featured');else main.querySelector('.ev-none').hidden=false})();
+
+/* Baseline card: one section open at a time, so the card stays clean (Chris, 7 Nov 2026). <details name> does this in new browsers; this covers the rest. */
+document.querySelectorAll('.ixcard details').forEach(function (d, _, all) {
+  d.addEventListener('toggle', function () { if (d.open) all.forEach(function (o) { if (o !== d) o.open = false; }); });
+});
