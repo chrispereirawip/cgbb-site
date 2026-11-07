@@ -407,7 +407,7 @@ table.ag-t td code{font-size:13.5px;word-break:break-all}
     &quot;value&quot;: &quot;…&quot;
   }
 }</pre></div></section>
-<section class="bk-sec" id="verify"><div class="wrap"><div class="rule"></div><h2>How anyone checks a file</h2><p>People: <a href="/verify/">cgbb.org/verify</a>. Agents: <code>GET https://api.cgbb.org/verify/{domain}?format=json</code> returns the live record (status, level, who approved the member, whether a genuine file is published on the website, and when it was checked). Post any trust.json to <code>https://api.cgbb.org/api/verify</code> to check its signature. A copied or edited file fails these checks. Schema: <a href="/schemas/trust-1.0.json">cgbb.org/schemas/trust-1.0.json</a>.</p></div></section>
+<section class="bk-sec" id="verify"><div class="wrap"><div class="rule"></div><h2>How anyone checks a file</h2><p>People: <a href="/verify/">cgbb.org/verify</a>. Agents: <code>GET https://api.cgbb.org/verify/{domain}?format=json</code> returns the live record (status, level, who approved the member, whether a genuine file is published on the website, and when it was checked). Website marks are drawn live at <code>https://api.cgbb.org/badge/{domain}.svg</code> and show the domain and current status. Post any trust.json to <code>https://api.cgbb.org/api/verify</code> to check its signature. A copied or edited file fails these checks. Schema: <a href="/schemas/trust-1.0.json">cgbb.org/schemas/trust-1.0.json</a>.</p></div></section>
 <div class="wrap"><p style="margin:0 0 40px"><a href="/faq/#credential">Questions about the credential →</a></p></div>
 
 </main>

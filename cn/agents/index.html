@@ -404,7 +404,7 @@ table.ag-t td code{font-size:13.5px;word-break:break-all}
     &quot;value&quot;: &quot;…&quot;
   }
 }</pre></div></section>
-<section class="bk-sec" id="verify"><div class="wrap"><div class="rule"></div><h2>如何核实文件</h2><p>一般人士：<a href="/cn/verify/">cgbb.org/zh/verify</a>。AI 代理：<code>GET https://api.cgbb.org/verify/{domain}?format=json</code> 会传回即时记录（状态、级别、批准入会者、网站上是否发布了真实文件，以及查询时间）。将任何 trust.json 以 POST 传送至 <code>https://api.cgbb.org/api/verify</code> 即可核实签署。复制或修改过的文件均无法通过核实。结构说明：<a href="/schemas/trust-1.0.json">cgbb.org/schemas/trust-1.0.json</a>。</p></div></section>
+<section class="bk-sec" id="verify"><div class="wrap"><div class="rule"></div><h2>如何核实文件</h2><p>一般人士：<a href="/cn/verify/">cgbb.org/zh/verify</a>。AI 代理：<code>GET https://api.cgbb.org/verify/{domain}?format=json</code> 会传回即时记录（状态、级别、批准入会者、网站上是否发布了真实文件，以及查询时间）。网站标志由 <code>https://api.cgbb.org/badge/{domain}.svg</code> 即时生成，显示域名及目前状态。将任何 trust.json 以 POST 传送至 <code>https://api.cgbb.org/api/verify</code> 即可核实签署。复制或修改过的文件均无法通过核实。结构说明：<a href="/schemas/trust-1.0.json">cgbb.org/schemas/trust-1.0.json</a>。</p></div></section>
 <div class="wrap"><p style="margin:0 0 40px"><a href="/cn/faq/#credential">关于凭证的常见问题 →</a></p></div>
 
 </main>

@@ -407,7 +407,7 @@ table.ag-t td code{font-size:13.5px;word-break:break-all}
     &quot;value&quot;: &quot;…&quot;
   }
 }</pre></div></section>
-<section class="bk-sec" id="verify"><div class="wrap"><div class="rule"></div><h2>如何核實檔案</h2><p>一般人士：<a href="/zh/verify/">cgbb.org/zh/verify</a>。AI 代理：<code>GET https://api.cgbb.org/verify/{domain}?format=json</code> 會傳回即時紀錄（狀態、級別、批准入會者、網站上是否發佈了真實檔案，以及查詢時間）。將任何 trust.json 以 POST 傳送至 <code>https://api.cgbb.org/api/verify</code> 即可核實簽署。複製或修改過的檔案均無法通過核實。結構說明：<a href="/schemas/trust-1.0.json">cgbb.org/schemas/trust-1.0.json</a>。</p></div></section>
+<section class="bk-sec" id="verify"><div class="wrap"><div class="rule"></div><h2>如何核實檔案</h2><p>一般人士：<a href="/zh/verify/">cgbb.org/zh/verify</a>。AI 代理：<code>GET https://api.cgbb.org/verify/{domain}?format=json</code> 會傳回即時紀錄（狀態、級別、批准入會者、網站上是否發佈了真實檔案，以及查詢時間）。網站標誌由 <code>https://api.cgbb.org/badge/{domain}.svg</code> 即時生成，顯示網域及目前狀態。將任何 trust.json 以 POST 傳送至 <code>https://api.cgbb.org/api/verify</code> 即可核實簽署。複製或修改過的檔案均無法通過核實。結構說明：<a href="/schemas/trust-1.0.json">cgbb.org/schemas/trust-1.0.json</a>。</p></div></section>
 <div class="wrap"><p style="margin:0 0 40px"><a href="/zh/faq/#credential">關於憑證的常見問題 →</a></p></div>
 
 </main>

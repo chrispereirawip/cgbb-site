@@ -64,3 +64,4 @@ Rules: apply only for a brand you act for, using its own website domain; give th
 ## Contact
 
 secretariat@cgbb.org · https://www.linkedin.com/company/120314036/
+- Website marks: `https://api.cgbb.org/badge/{domain}.svg` is drawn live from the registry and shows the domain and its current status (CGBB Member, CGBB Verified Trusted with its Baseline score, or not active / no record). A genuine mark links to https://cgbb.org/verify/?d={domain}.
