@@ -11,7 +11,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   var KEY = 'cgbb-apply-draft';
   var cur = 0;
 
-  function isOrg(){ return /Organizational|Corporate|Institutional/.test(cat.value); }
+  function isOrg(){ return !cat || /Organizational|Corporate|Institutional/.test(cat.value); }
   function active(){ return steps.filter(function(s){ var k=s.dataset.step; if(k==='individual') return !isOrg(); if(k==='organization') return isOrg(); return true; }); }
   function show(i){
     var list = active(); cur = Math.max(0, Math.min(i, list.length-1));
@@ -80,7 +80,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
     if (form.botcheck.checked) return;
     var d = collect();
     var name = [d['First Name'], d['Last Name']].filter(Boolean).join(' ');
-    var payload = Object.assign({ access_key: ACCESS_KEY, subject: 'New CGBB membership application: ' + name + ' (' + (isOrg() ? 'Organizational' : 'Individual') + ')', from_name: 'cgbb.org membership form', replyto: d['Email'], 'Page language': document.documentElement.lang }, d);
+    var payload = Object.assign({ access_key: ACCESS_KEY, subject: 'New CGBB membership application: ' + name + (d['Organization Name'] ? ', ' + d['Organization Name'] : '') + ' (' + (d['Membership'] || (isOrg() ? 'Organizational' : 'Individual')) + ')', from_name: 'cgbb.org membership form', replyto: d['Email'], 'Page language': document.documentElement.lang }, d);
     if (!ACCESS_KEY) { fail.classList.add('on'); return; }
     submit.disabled = true; botFail.classList.remove('on');
     // 1) register the applicant as a member (Turnstile bot check), 2) send the application email to the Secretariat
@@ -112,5 +112,12 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
     var g2 = document.createElement('optgroup'); g2.label = 'A–Z'; list.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = enOnly ? v.split(' / ')[0] : (v.split(' / ')[1] || v); g2.appendChild(o); }); sel.appendChild(g2);
   })();
   restore();
+  (function(){
+    var radios = [].slice.call(form.querySelectorAll('[data-plan]')); if (!radios.length) return;
+    var note = form.querySelector('[data-adv-note]');
+    try { var q = new URLSearchParams(location.search).get('plan'); if (q) radios.forEach(function(r){ r.checked = r.dataset.plan === q; }); } catch(e){}
+    function sync(){ var c = radios.filter(function(r){ return r.checked; })[0]; radios.forEach(function(r){ r.closest('.pl').classList.toggle('on', r.checked); }); if (note) note.hidden = !(c && c.dataset.plan === 'advanced'); }
+    radios.forEach(function(r){ r.addEventListener('change', sync); }); sync();
+  })();
   syncOther(); show(0);
 })();
