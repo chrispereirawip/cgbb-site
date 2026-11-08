@@ -17,6 +17,8 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   try { var paid = new URLSearchParams(location.search).get('paid'); if (paid === 'success' || paid === 'cancel') { setTimeout(function(){ done(paid === 'success' ? PAY.paid : PAY.cancel); }, 0); } } catch(e){}
 
   var cur = 0;
+  // founding-member price for Advanced until 5 January 2027 (Hong Kong time), then the list price (Chris, 8 Nov 2026)
+  if (Date.now() >= Date.parse('2027-01-05T16:00:00Z')) { [].forEach.call(document.querySelectorAll('[data-founding]'), function(x){ x.hidden = true; }); [].forEach.call(document.querySelectorAll('[data-list]'), function(x){ x.hidden = false; }); }
 
   // a website already registered with CGBB by another member is refused before the application is sent (Chris, 8 Nov 2026)
   var TAKEN = LANG === 'en' ? 'This website is already registered with CGBB. If it belongs to your organisation, please contact secretariat@cgbb.org.'
