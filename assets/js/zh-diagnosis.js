@@ -1,5 +1,5 @@
 (function(){
-var API="https://api.cgbb.org", M={"badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期或輸入錯誤次數過多，請重新獲取。", "cooldown": "您最近已完成自測，可於 {date} 起再次自測。我們建議每六個月重做一次。", "inactive": "您的會員資格目前未生效，因此暫時無法使用基線自測。如需續期或重新啟用，請發送電郵至 secretariat@cgbb.org。", "rate": "嘗試次數過多。為保障帳戶安全，請稍候最多30分鐘再試。", "bot": "請先完成安全驗證，然後再試。", "session": "連線已逾時，請重新確認電郵。", "fail": "系統出現問題，請再試一次，或發送電郵至 secretariat@cgbb.org。", "codeHint": "如 {email} 為有效會員電郵，驗證碼已發送，10分鐘內有效，輸入錯誤3次即失效。", "doneP": "我們正在掃描{company}的官網及公開記錄，以準備您的報告。", "doneM": "通常於 15 分鐘內發送至 {email}。", "step": "第 {i} 步，共 {n} 步 · {t} · {c}", "unanswered": "本頁仍有 {n} 項未回答。"}, LANG="zh";
+var API="https://api.cgbb.org", M={"badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期或輸入錯誤次數過多，請重新獲取。", "cooldown": "您最近已完成自測，可於 {date} 起再次自測。我們建議每六個月重做一次。", "inactive": "您的會員資格目前未生效，因此暫時無法使用基線自測。如需續期或重新啟用，請發送電郵至 secretariat@cgbb.org。", "rate": "嘗試次數過多。為保障帳戶安全，請稍候最多30分鐘再試。", "bot": "請先完成安全驗證，然後再試。", "session": "連線已逾時，請重新確認電郵。", "fail": "系統出現問題，請再試一次，或發送電郵至 secretariat@cgbb.org。", "codeHint": "如 {email} 為有效會員電郵，驗證碼已發送，10分鐘內有效，輸入錯誤3次即失效。", "doneP": "我們正在掃描{company}的官網及公開記錄，以準備您的報告。", "doneM": "通常於 15 分鐘內發送至 {email}。", "locked": "依據您的會員紀錄：自測只適用於貴機構，以及已透過 CGBB 徽章確認的網站。", "step": "第 {i} 步，共 {n} 步 · {t} · {c}", "unanswered": "本頁仍有 {n} 項未回答。"}, LANG="zh";
 var demo=!API||/[?&]demo=1/.test(location.search);
 if(demo){var b=document.querySelector('.demo');if(b)b.hidden=false;}
 var TS=window.CGBBTS||{token:function(){return ''},reset:function(){},scan:function(){}};
@@ -23,7 +23,7 @@ function say(el,t){el.textContent=t;el.classList.add('on')}
 function call(path,body){
  if(demo)return new Promise(function(res){setTimeout(function(){
   if(path==='/start')res({status:'code_sent'});
-  else if(path==='/verify')res(body.code==='12345678'?{status:'ok',token:'demo'}:{status:'wrong_code'});
+  else if(path==='/verify')res(body.code==='12345678'?{status:'ok',token:'demo',company:'Brightleaf Co.',website:'brightleaf.co'}:{status:'wrong_code'});
   else res({status:'queued',id:'CGBB-BL-DEMO',email:st.email});},500)});
  return fetch(API+'/api/diagnosis'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json()});}
 function busy(btn,on){btn.disabled=on}
@@ -50,7 +50,7 @@ $('[data-resend]').addEventListener('click',function(){em.readOnly=false;start()
 $$('[data-other]').forEach(function(b){b.addEventListener('click',function(){em.readOnly=false;em.value='';sent.classList.remove('on');nm.classList.remove('on');pd.classList.remove('on');$('[data-step1]').hidden=false;msg1.classList.remove('on');em.focus()})});
 function verify(){var v=code.value.replace(/\D/g,'');if(bad(code.closest('.q'),v.length<6||v.length>8))return;var b=$('[data-verify]');busy(b,true);
  call('/verify',{email:st.email,code:v}).then(function(j){
-  if(j.status==='ok'){st.token=j.token;show(1);top()}
+  if(j.status==='ok'){st.token=j.token;if(j.website){var co=$('#co'),wb=$('#web');co.value=j.company||co.value;wb.value=j.website;co.readOnly=wb.readOnly=true;co.classList.add('locked');wb.classList.add('locked');var ch=$('.hint',co.closest('.q'));if(ch)ch.style.display='none';var q=wb.closest('.q');if(q&&!$('.lockn',q))q.insertAdjacentHTML('beforeend','<p class="lockn">'+M.locked+'</p>')}show(1);top()}
   else if(j.status==='expired'){say(msg1,M.expired)}
   else if(j.status==='rate_limited'){say(msg1,M.rate)}
   else bad(code.closest('.q'),true);

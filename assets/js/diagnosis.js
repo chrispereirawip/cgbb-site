@@ -1,5 +1,5 @@
 (function(){
-var API="https://api.cgbb.org", M={"badEmail": "Please enter a valid email address.", "badCode": "That code isn’t right. Please check the email and try again.", "expired": "That code has expired or was entered wrongly too many times. Please request a new one.", "cooldown": "You ran the self-test recently. You can run the next one from {date}. We recommend repeating it every six months.", "inactive": "Your membership isn’t active at the moment, so the Baseline self-test is unavailable. Email secretariat@cgbb.org to renew or reactivate it.", "rate": "Too many attempts. For your security, please wait up to 30 minutes and try again.", "bot": "Please complete the security check, then try again.", "session": "Your session expired. Please confirm your email again.", "fail": "Something went wrong. Please try again, or email secretariat@cgbb.org.", "codeHint": "If {email} is an active member’s email, a code is on its way. It expires in 10 minutes and stops working after 3 wrong tries.", "doneP": "We’re scanning {company}’s website and public records to prepare your report.", "doneM": "Usually within 15 minutes, to {email}.", "step": "Step {i} of {n} · {t} · {c}", "unanswered": "{n} questions on this page still need an answer."}, LANG="en";
+var API="https://api.cgbb.org", M={"badEmail": "Please enter a valid email address.", "badCode": "That code isn’t right. Please check the email and try again.", "expired": "That code has expired or was entered wrongly too many times. Please request a new one.", "cooldown": "You ran the self-test recently. You can run the next one from {date}. We recommend repeating it every six months.", "inactive": "Your membership isn’t active at the moment, so the Baseline self-test is unavailable. Email secretariat@cgbb.org to renew or reactivate it.", "rate": "Too many attempts. For your security, please wait up to 30 minutes and try again.", "bot": "Please complete the security check, then try again.", "session": "Your session expired. Please confirm your email again.", "fail": "Something went wrong. Please try again, or email secretariat@cgbb.org.", "codeHint": "If {email} is an active member’s email, a code is on its way. It expires in 10 minutes and stops working after 3 wrong tries.", "doneP": "We’re scanning {company}’s website and public records to prepare your report.", "doneM": "Usually within 15 minutes, to {email}.", "locked": "From your membership: the self-test covers your organisation and the website you confirmed with the CGBB badge.", "step": "Step {i} of {n} · {t} · {c}", "unanswered": "{n} questions on this page still need an answer."}, LANG="en";
 var demo=!API||/[?&]demo=1/.test(location.search);
 if(demo){var b=document.querySelector('.demo');if(b)b.hidden=false;}
 var TS=window.CGBBTS||{token:function(){return ''},reset:function(){},scan:function(){}};
@@ -23,7 +23,7 @@ function say(el,t){el.textContent=t;el.classList.add('on')}
 function call(path,body){
  if(demo)return new Promise(function(res){setTimeout(function(){
   if(path==='/start')res({status:'code_sent'});
-  else if(path==='/verify')res(body.code==='12345678'?{status:'ok',token:'demo'}:{status:'wrong_code'});
+  else if(path==='/verify')res(body.code==='12345678'?{status:'ok',token:'demo',company:'Brightleaf Co.',website:'brightleaf.co'}:{status:'wrong_code'});
   else res({status:'queued',id:'CGBB-BL-DEMO',email:st.email});},500)});
  return fetch(API+'/api/diagnosis'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json()});}
 function busy(btn,on){btn.disabled=on}
@@ -50,7 +50,7 @@ $('[data-resend]').addEventListener('click',function(){em.readOnly=false;start()
 $$('[data-other]').forEach(function(b){b.addEventListener('click',function(){em.readOnly=false;em.value='';sent.classList.remove('on');nm.classList.remove('on');pd.classList.remove('on');$('[data-step1]').hidden=false;msg1.classList.remove('on');em.focus()})});
 function verify(){var v=code.value.replace(/\D/g,'');if(bad(code.closest('.q'),v.length<6||v.length>8))return;var b=$('[data-verify]');busy(b,true);
  call('/verify',{email:st.email,code:v}).then(function(j){
-  if(j.status==='ok'){st.token=j.token;show(1);top()}
+  if(j.status==='ok'){st.token=j.token;if(j.website){var co=$('#co'),wb=$('#web');co.value=j.company||co.value;wb.value=j.website;co.readOnly=wb.readOnly=true;co.classList.add('locked');wb.classList.add('locked');var ch=$('.hint',co.closest('.q'));if(ch)ch.style.display='none';var q=wb.closest('.q');if(q&&!$('.lockn',q))q.insertAdjacentHTML('beforeend','<p class="lockn">'+M.locked+'</p>')}show(1);top()}
   else if(j.status==='expired'){say(msg1,M.expired)}
   else if(j.status==='rate_limited'){say(msg1,M.rate)}
   else bad(code.closest('.q'),true);
