@@ -425,7 +425,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 .advc-l{padding:16px 22px}.advc-r{padding:16px 20px}.advc p{font-size:14.5px;margin:0 0 8px}.advc ul{margin:2px 0 10px}.advc li{padding:2px 0 2px 20px;font-size:14px}.advc h4{font-size:19px;margin:0 0 4px}
 .ac-pair{gap:20px;margin-bottom:26px}.nlpref{padding:12px 16px;max-width:none}.nlpref b{font-size:15px}.nlpref small{font-size:13.5px;margin-top:2px}.ac-pair .rtop p{font-size:14.5px;line-height:1.6;margin:0}.ac-pair .rtop .btn{margin-top:10px}
 .vip{max-width:none;padding:18px 22px 16px;margin-bottom:26px}.vip .vsub{margin:0 0 12px}.vip textarea{min-height:70px}
-@media (max-width:760px){.dash-top h2{font-size:24px}.dash .card{padding:14px 16px}}</style></head>
+@media (max-width:760px){.dash-top h2{font-size:24px}.dash .card{padding:14px 16px}}</style><style id="ac5">.vip{padding:14px 20px 14px!important}.vip .vlab{font-size:11px;display:inline-block;margin-right:10px;vertical-align:baseline}.vip h3{display:inline-block;font-size:17px!important;margin:4px 0 2px!important}.vip .vsub{font-size:13px!important;margin:0 0 10px!important;line-height:1.5}.vip .vgrid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto!important;gap:8px!important;align-items:end}.vip .vgrid .full{grid-column:1/-1}.vip .vgrid label[for=vmsg],.vip .vgrid label[for=vphone]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.vip .vgrid label[for=vtopic]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.vip textarea{min-height:58px!important;padding:8px 11px!important}.vip input,.vip select{min-height:38px!important}.vip .vsend .btn{margin:0;min-height:38px;padding:0 18px;white-space:nowrap}@media (max-width:760px){.vip .vgrid{grid-template-columns:1fr 1fr!important}.vip .vsend{grid-column:1/-1}.vip .vsend .btn{width:100%}.vip h3{display:block}}</style></head>
 <body>
 <div class="demo" hidden>預覽：示範模式，不會發送任何資料。可使用任何電郵及密碼登入；電郵包含「pending」可查看待審批狀態。驗證碼：12345678。</div>
 <header>
@@ -516,7 +516,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <div class="sec upg" id="upgrade"><h3>進階會籍</h3><div data-upbody></div></div>
 <div class="ac-pair"><div class="sec"><h3>電郵通訊</h3><label class="nlpref"><input type="checkbox" data-nl><span><b>接收品信會會員通訊及刊物</b><small>不定期收到品信會新聞、出版物及活動資訊，可隨時關閉。</small></span></label><span class="nlmsg" data-nlmsg role="status"></span></div>
 <div class="sec"><h3>推薦新會員</h3><div class="refer" data-refer>
-<div class="rtop"><p>認識適合加入品信會的品牌？把您的專屬連結發給對方，其申請會註明由您推薦。當您取得 Verified Trusted（80% 或以上）後，您推薦的品牌成為進階會員時，可在信任評審中額外獲得 1 分。</p><button type="button" class="btn btn-line" data-refbtn aria-expanded="false">取得我的連結</button></div>
+<div class="rtop"><p>認識適合加入品信會的品牌？把您的專屬連結發給對方，其申請會註明由您推薦。當您取得 Verified Trusted（80% 或以上）後，您推薦的品牌成為進階會員時，對方及您本身的品牌均可在信任評審中額外獲得 1 分。</p><button type="button" class="btn btn-line" data-refbtn aria-expanded="false">取得我的連結</button></div>
 <div class="rpanel" data-refpanel hidden>
 <label for="reflink">您的專屬推薦連結</label>
 <div class="rlink"><input id="reflink" type="text" readonly data-reflink><button type="button" class="btn btn-line" data-refcopy>複製連結</button></div>
@@ -528,15 +528,15 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <section class="vip" aria-labelledby="vh">
 <div class="vlab">會員專屬 · 優先通道</div>
 <h3 id="vh">直接聯絡秘書處</h3>
-<p class="vsub">品信會會員專屬聯絡通道。您的訊息將直接送達秘書處，並標記為優先處理。</p>
+<p class="vsub">訊息直接送達秘書處，並優先回覆至您的會員電郵。</p>
 <form data-vform novalidate>
 <div class="vgrid">
+<div class="full"><label for="vmsg">您的訊息</label><textarea id="vmsg" rows="2" placeholder="您給秘書處的訊息" maxlength="4000"></textarea></div>
 <div><label for="vtopic">主題</label><select id="vtopic"><option value="services">服務與全面信任評審</option><option value="membership">會員事務</option><option value="events">活動</option><option value="partnership">合作與夥伴關係</option><option value="general">一般查詢</option></select></div>
-<div><label for="vphone">電話或微信（選填）</label><input type="text" id="vphone" maxlength="80" autocomplete="tel"></div>
-<div class="full"><label for="vmsg">您的訊息</label><textarea id="vmsg" maxlength="4000"></textarea></div>
+<div><label for="vphone">電話或微信（選填）</label><input type="text" id="vphone" placeholder="電話或微信（選填）" maxlength="80" autocomplete="tel"></div>
+<div class="vsend"><button type="submit" class="btn btn-red">發送至秘書處</button></div>
 </div>
 <div class="verr" data-verr role="alert"></div>
-<div class="vrow"><button type="submit" class="btn btn-red">發送至秘書處</button><span class="vnote">我們將回覆至您的會員電郵。</span></div>
 </form>
 <div class="vdone" data-vdone role="status" tabindex="-1"><p><b>訊息已送達。</b></p><p>秘書處已收到您的訊息，並將優先回覆至您的會員電郵。確認郵件已發送至您的信箱。</p><p class="ref">參考編號：<span data-vref></span></p><div class="vrow"><button type="button" class="linkbtn" data-vagain style="color:#d9b36a">再發送一則訊息</button></div></div>
 </section>
