@@ -420,7 +420,7 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=cgbbTurnstileReady" async defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://cgbb.org/zh/apply/", "name": "会员申请 | 全球化品牌信任促进会（品信会）", "description": "申请加入全球化品牌信任促进会（品信会，CGBB）：制定品牌信任评估标准的开放的非营利协会。会籍免费，并包含一份经签署、可供 AI 代理读取的网站信任凭证。", "inLanguage": "zh-Hans", "isPartOf": {"@id": "https://cgbb.org/#website"}, "about": {"@id": "https://cgbb.org/#organization"}, "potentialAction": {"@type": "JoinAction", "target": "https://cgbb.org/zh/apply/", "object": {"@id": "https://cgbb.org/#organization"}}, "cgbb-ld": "page"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "品信会", "item": "https://cgbb.org/zh/"}, {"@type": "ListItem", "position": 2, "name": "会员申请", "item": "https://cgbb.org/zh/apply/"}], "cgbb-ld": "crumbs"}</script>
-<link rel="stylesheet" href="/assets/css/tight.css?v=2da65983">
+<link rel="stylesheet" href="/assets/css/tight.css?v=315273ed">
 </head>
 <body>
 
@@ -458,6 +458,15 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 </div>
 </div>
 </section>
+<section class="ap-how" id="how"><div class="wrap"><div class="rule"></div><h2>会籍如何运作</h2><ol class="ap-steps"><li><b>申请</b><span>选择基本或进阶会籍，并以工作邮箱提交本表格。</span></li><li><b>审批</b><span>秘书处会审核每一份申请，一般于 1 至 3 个工作日内完成。</span></li><li><b>开始使用</b><span>在会员账户中确认网站、发布网站信任凭证，并加上 CGBB Member 会员徽章。</span></li><li><b>自测</b><span>进行免费的品牌可信度基线自测，取得参考评分及优先事项。</span></li></ol><div class="ap-more"><details id="advanced"><summary>进阶会籍如何运作</summary><div class="in"><ol class="ap-steps sm"><li><b>加入或升级</b><span>进阶会籍最少为期一年，每年续期。</span></li><li><b>全面信任评审</b><span>品信会核查品牌可信度基线全部 15 项指标背后的证据。</span></li><li><b>评审报告</b><span>您会收到可下载的完整信任评审报告，包括改进重点。</span></li><li><b>信任已核实</b><span>评分达 80% 或以上，即获发 Verified Trusted 凭证及徽章。</span></li></ol><p class="note">取得 Verified Trusted 须持有有效进阶会籍，基线评分最少 80%，证据支持度至少为中，且没有未解决的重大风险。升级本身并不保证获发。</p><img class="vtb" src="/assets/badge/cgbb-verified-trust.svg?v=4" width="277" height="74" alt="品信会信任已核实徽章"></div></details><details id="ai"><summary>让 AI 助手代为申请</summary><div class="in"><p>把以下提示复制到您的 AI 助手。机构联系人仍需以邮件确认，并由秘书处审核申请。</p><pre class="ap-prompt" data-prompt>请为我们的品牌向全球化品牌信任促进会（品信会，CGBB）申请免费基本会籍，并取得网站信任凭证（trust.json）。AI 代理说明：https://cgbb.org/llms.txt（或使用品信会连接器 https://api.cgbb.org/mcp）。
+
+品牌／机构：[名称]
+网站域名：[brand.com]
+联系人、职位及工作邮箱（需本人以邮件确认）：[ ]
+国家／地区及主要市场：[ ]
+品牌简介：[2–3 句]
+
+请告诉我需要加到网站上的域名验证码，并提醒我确认品信会的邮件。</pre><button type="button" class="btn btn-red" data-copy data-done="已复制">复制提示</button><p style="margin-top:18px">支持自订连接器（MCP）的 AI 助手，例如 Claude 和 ChatGPT，亦可通过以下地址直接连接品信会，无需账户或登录。</p><div class="ag-url"><code data-mcp>https://api.cgbb.org/mcp</code><button type="button" class="btn btn-line" data-copymcp data-done="已复制">复制地址</button></div></div></details><details id="geo"><summary>GEO 清单：帮助 AI 理解及信任您品牌的六个步骤</summary><div class="in"><ol class="ap-geo"><li><b>取得品信会网站信任凭证</b>，并放在 /.well-known/trust.json。</li><li>加入 <b>llms.txt</b>，告诉 AI 助手您是谁，以及重要资料在哪里。</li><li>在首页加入 <b>schema.org Organization</b> 结构化资料：正式名称、标志、联系方式及官方账号链接。</li><li>在网站、LinkedIn 及商业名录上保持<b>名称、地址及联系方式</b>一致。</li><li>除非另有原因，在 robots.txt 中允许可信的 <b>AI 爬虫</b>。</li><li>发布清晰、可供 AI 引用的事实内容：<b>您做什么、为谁服务、在哪里</b>，以及相关证据。</li></ol></div></details></div></div></section>
 </main>
 
 <footer>
@@ -476,6 +485,8 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 <script src="/assets/js/apply.js?v=50b3adc5"></script>
 <script src="/assets/js/site-lang.js?v=725ed270"></script>
 <script src="/assets/js/site-menu.js?v=814e5807"></script>
+<script src="/assets/js/agents.js?v=2e17b30d"></script>
+<script src="/assets/js/fold.js?v=a9a154c2"></script>
 <script src="/assets/js/cn-t2s.js?v=88f27fde"></script>
 </body>
 </html>

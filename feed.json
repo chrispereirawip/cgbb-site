@@ -39,13 +39,13 @@
    "en": {
     "title": "CGBB launches the Website Trust Credential",
     "text": "Members can now publish a credential, signed by CGBB, that lets AI agents verify their website belongs to a reviewed organisation.",
-    "url": "https://cgbb.org/membership/credential/",
+    "url": "https://cgbb.org/apply/#how",
     "label": "News · Nov 2026"
    },
    "zh": {
     "title": "品信會推出網站信任憑證",
     "text": "會員現可在官網發佈由品信會簽署的憑證，讓 AI 代理核實其網站屬於經審核的真實機構。",
-    "url": "https://cgbb.org/zh/membership/credential/",
+    "url": "https://cgbb.org/zh/apply/#how",
     "label": "新聞 · 2026年11月"
    }
   },
@@ -119,13 +119,13 @@
    "en": {
     "title": "Trust: The Golden Key to Chinese Enterprises’ Globalization",
     "text": "A practical guide to how Chinese companies earn and keep the trust of governments, partners, customers and staff in overseas markets, drawing on real cases from more than 20 years in China.",
-    "url": "/publications/trust/",
+    "url": "/#trust-book",
     "label": "Book · Founding Chairman"
    },
    "zh": {
     "title": "《信任：中國企業全球化的黃金鑰匙》",
     "text": "一本關於中國企業如何在海外市場贏得並維護政府、合作夥伴、客戶及員工信任的實用指南，書中案例來自作者在中國逾20年的實踐。",
-    "url": "/zh/publications/trust/",
+    "url": "/zh/#trust-book",
     "label": "著作 · 創始主席"
    }
   },

@@ -169,3 +169,18 @@ footer{padding:28px 0 18px!important}
 }
 @media (max-width:900px){.ag-url{flex-wrap:wrap}.ag-url code{word-break:break-all;min-width:0}}
 @media (max-width:900px){main code{word-break:break-all}}
+
+/* apply: how membership works (folded from the old credential and Advanced pages) */
+.ap-how{padding:8px 0 64px}.ap-how h2{font-size:26px;font-weight:500;margin:0 0 16px}
+.ap-steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.ap-steps li{counter-increment:s;border-top:2px solid var(--red);padding-top:10px;font-size:14.5px;line-height:1.55;color:#333}
+.ap-steps b{display:block;font-size:16px;font-weight:500;color:#161616;margin-bottom:4px}.ap-steps b:before{content:counter(s) " · ";color:var(--red)}
+.ap-steps.sm li{font-size:14px}.ap-more{margin-top:26px;border-top:1px solid #e6e6e6}
+.ap-more>details{border-bottom:1px solid #e6e6e6}.ap-more>details>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;font-size:16px;color:var(--red)}
+.ap-more>details>summary::-webkit-details-marker{display:none}.ap-more>details>summary:after{content:"+";flex:none;width:22px;height:22px;display:grid;place-items:center;border:1px solid var(--red);border-radius:50%;font-size:15px;line-height:1}
+.ap-more>details[open]>summary:after{content:"−";background:var(--red);color:#fff}.ap-more .in{padding:2px 0 22px}.ap-more .in p{font-size:15px;line-height:1.7;margin:0 0 12px;max-width:none}
+.ap-more .note{font-size:14px!important;color:#5F5F5F;margin-top:16px!important}.ap-more .vtb{display:block;width:230px;height:auto;margin-top:6px}
+.ap-prompt{white-space:pre-wrap;background:#f6f6f6;border:1px solid #e4e4e4;padding:14px 16px;font:13px/1.6 ui-monospace,Menlo,monospace;margin:0 0 12px}
+.ap-more .ag-url{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch}.ap-more .ag-url code{background:#f6f6f6;border:1px solid #e4e4e4;padding:10px 14px;font-size:14px}
+.ap-geo{margin:0;padding-left:20px}.ap-geo li{font-size:15px;line-height:1.65;margin:0 0 6px}
+@media (max-width:760px){.ap-steps{grid-template-columns:1fr 1fr}}@media (max-width:420px){.ap-steps{grid-template-columns:1fr}}

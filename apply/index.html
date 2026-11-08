@@ -423,7 +423,7 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=cgbbTurnstileReady" async defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://cgbb.org/apply/", "name": "Membership Application | Council for Global Brand Building", "description": "Apply to join the Council for Global Brand Building (CGBB), the open, non-profit council setting standards for brand trust. Membership is free and includes a signed CGBB Website Trust Credential for your website.", "inLanguage": "en", "isPartOf": {"@id": "https://cgbb.org/#website"}, "about": {"@id": "https://cgbb.org/#organization"}, "potentialAction": {"@type": "JoinAction", "target": "https://cgbb.org/apply/", "object": {"@id": "https://cgbb.org/#organization"}}, "cgbb-ld": "page"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "CGBB", "item": "https://cgbb.org/"}, {"@type": "ListItem", "position": 2, "name": "Apply", "item": "https://cgbb.org/apply/"}], "cgbb-ld": "crumbs"}</script>
-<link rel="stylesheet" href="/assets/css/tight.css?v=2da65983">
+<link rel="stylesheet" href="/assets/css/tight.css?v=315273ed">
 </head>
 <body>
 
@@ -461,6 +461,15 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 </div>
 </div>
 </section>
+<section class="ap-how" id="how"><div class="wrap"><div class="rule"></div><h2>How membership works</h2><ol class="ap-steps"><li><b>Apply</b><span>Choose Basic or Advanced and submit this form with your work email.</span></li><li><b>Approval</b><span>The Secretariat reviews every application, usually within 1–3 working days.</span></li><li><b>Get set up</b><span>In your member account: confirm your website, publish your Website Trust Credential and add the CGBB Member badge.</span></li><li><b>Self-test</b><span>Run the free Brand Trust Baseline self-test for an indicative score and priorities.</span></li></ol><div class="ap-more"><details id="advanced"><summary>How Advanced membership works</summary><div class="in"><ol class="ap-steps sm"><li><b>Join or upgrade</b><span>Advanced membership runs for a minimum of one year and renews yearly.</span></li><li><b>Trust Review</b><span>CGBB checks the evidence behind all 15 indicators of the Brand Trust Baseline.</span></li><li><b>Report</b><span>You receive the full, downloadable Trust Review report, including what to improve.</span></li><li><b>Verified Trusted</b><span>At 80% or higher, you receive the Verified Trusted credential and badge.</span></li></ol><p class="note">Verified Trusted requires an active Advanced membership and a Baseline score of at least 80%, with evidence support of at least medium and no unresolved major risk. Upgrading alone does not guarantee it.</p><img class="vtb" src="/assets/badge/cgbb-verified-trust.svg?v=4" width="277" height="74" alt="CGBB Verified Trusted badge"></div></details><details id="ai"><summary>Let your AI assistant apply</summary><div class="in"><p>Copy this prompt into your AI assistant. A person at your organisation still confirms by email, and the Secretariat reviews the application.</p><pre class="ap-prompt" data-prompt>Please apply for free Basic membership of the Council for Global Brand Building (CGBB) for our brand, and get our CGBB Website Trust Credential (trust.json) for our website. Instructions for AI agents: https://cgbb.org/llms.txt (or use the CGBB connector at https://api.cgbb.org/mcp).
+
+Brand / organisation: [name]
+Website domain: [brand.com]
+Contact person, title and work email (they will confirm by email): [ ]
+Country and main markets: [ ]
+Short introduction to the brand: [2–3 sentences]
+
+Tell me the domain-verification code to add to our website, and remind me to confirm the email from CGBB.</pre><button type="button" class="btn btn-red" data-copy data-done="Copied">Copy prompt</button><p style="margin-top:18px">Assistants that support custom connectors (MCP), such as Claude and ChatGPT, can also connect to CGBB directly with this address. No account or sign-in is needed.</p><div class="ag-url"><code data-mcp>https://api.cgbb.org/mcp</code><button type="button" class="btn btn-line" data-copymcp data-done="Copied">Copy address</button></div></div></details><details id="geo"><summary>GEO checklist: six steps to help AI understand and trust your brand</summary><div class="in"><ol class="ap-geo"><li><b>Get your CGBB Website Trust Credential</b> and publish it at /.well-known/trust.json.</li><li>Add an <b>llms.txt</b> file that tells AI assistants who you are and where your key facts are.</li><li>Add <b>schema.org Organization</b> data to your homepage: legal name, logo, contact details and links to your official profiles.</li><li>Keep your <b>name, address and contact details</b> the same on your website, LinkedIn and business directories.</li><li>Allow reputable <b>AI crawlers</b> in your robots.txt, unless you have a reason not to.</li><li>Publish clear, factual pages AI can quote: <b>what you do, for whom, where</b>, and the evidence behind it.</li></ol></div></details></div></div></section>
 </main>
 
 <footer>
@@ -479,5 +488,7 @@ button.btn-line{background:#fff;border:1px solid var(--ink)}
 <script src="/assets/js/apply.js?v=50b3adc5"></script>
 <script src="/assets/js/site-lang.js?v=725ed270"></script>
 <script src="/assets/js/site-menu.js?v=814e5807"></script>
+<script src="/assets/js/agents.js?v=2e17b30d"></script>
+<script src="/assets/js/fold.js?v=a9a154c2"></script>
 </body>
 </html>

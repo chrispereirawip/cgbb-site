@@ -521,7 +521,7 @@ function wlPanel(m){var ww=m.welcome||{},pv=S.wlPrev[m.email]||{},live=S.wl.cfg&
   +(live&&!done?'<button type="button" class="btn btn-red" data-wlsend>Send to member 發送給會員</button>':'')+'</div>'
   +(pv.loading?'<p class="sub">Loading… 載入中…</p>':'')
   +(pv.png?'<img class="wlimg" src="'+pv.png+'" alt="Certificate preview">':'')
-  +(pv.email?'<div class="wlmail"><div class="sub">Subject 主旨: <b>'+esc(pv.email.subject)+'</b><br>To 收件人: '+esc(m.email)+' · Reply-to: chris.yang@cgbb.org<br>Attachments 附件: '+pv.email.attachments.map(function(a){return a?esc(a):'<span class="bad">handbook missing 未上載手冊</span>'}).join(' · ')+'</div><div class="wlbody">'+pv.email.html+'</div></div>':'')
+  +(pv.email?'<div class="wlmail"><div class="sub">Subject 主旨: <b>'+esc(pv.email.subject)+'</b><br>To 收件人: '+esc(m.email)+' · Reply-to: secretariat@cgbb.org<br>Attachments 附件: '+pv.email.attachments.map(function(a){return a?esc(a):'<span class="bad">handbook missing 未上載手冊</span>'}).join(' · ')+'</div><div class="wlbody">'+pv.email.html+'</div></div>':'')
   +'</div></div>';return h}
 function wlFind(email){return S.wl.members.filter(function(x){return x.email===email})[0]}
 function wlUpdate(m){var i=S.wl.members.findIndex(function(x){return x.email===m.email});if(i>=0)S.wl.members[i]=m;S.wlPrev[m.email]={};render()}
