@@ -1,14 +1,24 @@
 (function(){
-var API="https://api.cgbb.org", M={"badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期或輸入錯誤次數過多，請重新獲取。", "cooldown": "您最近已完成自測，可於 {date} 起再次自測。我們建議每六個月重做一次。", "inactive": "您的會員資格目前未生效，因此暫時無法使用基線自測。如需續期或重新啟用，請發送電郵至 secretariat@cgbb.org。", "rate": "嘗試次數過多。為保障帳戶安全，請稍候最多30分鐘再試。", "bot": "請先完成安全驗證，然後再試。", "session": "連線已逾時，請重新確認電郵。", "fail": "系統出現問題，請再試一次，或發送電郵至 secretariat@cgbb.org。", "codeHint": "如 {email} 為有效會員電郵，驗證碼已發送，10分鐘內有效，輸入錯誤3次即失效。", "doneP": "我們正在掃描{company}的官網並準備基線報告，通常會在15分鐘內發送至 {email}。", "unanswered": "本頁仍有 {n} 項未回答。"}, LANG="zh";
+var API="https://api.cgbb.org", M={"badEmail": "請輸入有效的電郵地址。", "badCode": "驗證碼不正確，請核對電郵後再試。", "expired": "驗證碼已過期或輸入錯誤次數過多，請重新獲取。", "cooldown": "您最近已完成自測，可於 {date} 起再次自測。我們建議每六個月重做一次。", "inactive": "您的會員資格目前未生效，因此暫時無法使用基線自測。如需續期或重新啟用，請發送電郵至 secretariat@cgbb.org。", "rate": "嘗試次數過多。為保障帳戶安全，請稍候最多30分鐘再試。", "bot": "請先完成安全驗證，然後再試。", "session": "連線已逾時，請重新確認電郵。", "fail": "系統出現問題，請再試一次，或發送電郵至 secretariat@cgbb.org。", "codeHint": "如 {email} 為有效會員電郵，驗證碼已發送，10分鐘內有效，輸入錯誤3次即失效。", "doneP": "我們正在掃描{company}的官網及公開記錄，以準備您的報告。", "doneM": "通常於 15 分鐘內發送至 {email}。", "step": "第 {i} 步，共 {n} 步 · {t} · {c}", "unanswered": "本頁仍有 {n} 項未回答。"}, LANG="zh";
 var demo=!API||/[?&]demo=1/.test(location.search);
 if(demo){var b=document.querySelector('.demo');if(b)b.hidden=false;}
 var TS=window.CGBBTS||{token:function(){return ''},reset:function(){},scan:function(){}};
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 var panels=$$('.dx-panel'), LAST=panels.length-1, prog=$$('.dx-prog li'), nav=$('[data-mainnav]'), msg=$('[data-msg]'), msg1=$('[data-msg1]');
 var st={email:'',token:'',cur:0};
-function show(i){st.cur=i;panels.forEach(function(p,j){p.classList.toggle('on',j===i)});prog.forEach(function(p,j){p.classList.toggle('on',j===i);p.classList.toggle('done',j<i)});
+function show(i){st.cur=i;panels.forEach(function(p,j){p.classList.toggle('on',j===i)});
  nav.hidden=i===0; $('[data-next]').style.display=i<LAST?'':'none'; $('[data-submit]').style.display=i===LAST?'':'none';
- if(i===LAST)review(); msg.classList.remove('on'); left(panels[i]);}
+ if(i===LAST)review(); msg.classList.remove('on'); left(panels[i]); paint();}
+var pg=$('.dx-prog'),curl=$('[data-cur]');
+function need(q){var el=$('input,select,textarea',q);if(!el||el.type==='checkbox'&&!el.id)return null;if(el.type==='checkbox')return {ok:el.checked};if(!el.required)return null;return {ok:!!el.value.trim()&&el.checkValidity()}}
+function stat(i){if(i===0)return {a:st.token?1:0,n:1};var p=panels[i],a=0,n=0;$$('.q[data-q]',p).forEach(function(q){var r=need(q);if(r){n++;if(r.ok)a++}});open(p).forEach(function(q){n++;if(val(q))a++});return {a:a,n:n}}
+function paint(){var go=!!st.token;pg.classList.toggle('go',go);prog.forEach(function(li,j){var s=stat(j),done=s.n>0&&s.a===s.n&&j<LAST;li.classList.toggle('on',j===st.cur);li.classList.toggle('fin',done&&j!==st.cur);li.classList.toggle('part',!done&&s.a>0&&j!==st.cur);
+ $('.c',li).textContent=j===0||j===LAST||!s.n?'':s.a+'/'+s.n;if(j===st.cur)li.setAttribute('aria-current','step');else li.removeAttribute('aria-current');
+ if(go&&j>0){li.tabIndex=0;li.setAttribute('role','button')}else{li.removeAttribute('tabindex');li.removeAttribute('role')}});
+ var s=stat(st.cur);if(curl)curl.textContent=M.step.replace('{i}',st.cur+1).replace('{n}',prog.length).replace('{t}',$('.t',prog[st.cur]).textContent).replace(' · {c}',st.cur>0&&st.cur<LAST&&s.n?' · '+s.a+'/'+s.n:'')}
+function jump(li){if(!li||!st.token)return;var i=+li.dataset.i;if(i===0||i===st.cur)return;show(i);top()}
+pg.addEventListener('click',function(e){jump(e.target.closest('li'))});
+pg.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var li=e.target.closest('li');if(li){e.preventDefault();jump(li)}}});
 function say(el,t){el.textContent=t;el.classList.add('on')}
 function call(path,body){
  if(demo)return new Promise(function(res){setTimeout(function(){
@@ -65,11 +75,11 @@ function valid(i){var p=panels[i],first=null;
  open(p).forEach(function(q){if(bad(q,!val(q))&&!first)first=q});
  if(first){first.scrollIntoView({behavior:'smooth',block:'center'});var f=$('input,select',first);if(f)setTimeout(function(){f.focus({preventScroll:true})},300)}
  return !first}
-document.addEventListener('change',function(e){var q=e.target.closest('.q,.lk');if(q)q.classList.remove('bad');deps();left(panels[st.cur])});
-document.addEventListener('input',function(e){var q=e.target.closest('.q');if(q&&q.classList.contains('bad'))q.classList.remove('bad')});
+document.addEventListener('change',function(e){var q=e.target.closest('.q,.lk');if(q)q.classList.remove('bad');deps();left(panels[st.cur]);paint()});
+document.addEventListener('input',function(e){var q=e.target.closest('.q');if(q&&q.classList.contains('bad'))q.classList.remove('bad');if(q)paint()});
 function fv(id){return ($('#'+id)||{}).value||''}
 function review(){var d={company:fv('co'),website:fv('web'),industry:fv('ind'),hq:fv('hq'),email:st.email};$$('[data-rv]').forEach(function(x){x.textContent=d[x.dataset.rv]||'—'})}
-function top(){window.scrollTo({top:$('.dx-prog').offsetTop-90,behavior:'smooth'})}
+function top(){var y=panels[st.cur].getBoundingClientRect().top+window.scrollY-pg.offsetHeight-16;if(window.scrollY>y)window.scrollTo({top:y,behavior:'smooth'})}
 function answers(){var a={checks:{},perf:{},sample:{},maturity:{},events:{},record:{},risk:{}};
  $$('.lk').forEach(function(q){var v=q.hidden?null:val(q),k=q.dataset.k,kind=q.dataset.kind;
   if(kind==='check'){a.checks[k]=v||'na'}
@@ -82,10 +92,10 @@ function answers(){var a={checks:{},perf:{},sample:{},maturity:{},events:{},reco
  return a}
 $('[data-next]').addEventListener('click',function(){if(valid(st.cur)){show(st.cur+1);top()}});
 $('[data-back]').addEventListener('click',function(){show(st.cur-1);top()});
-$('[data-submit]').addEventListener('click',function(){if(!valid(LAST))return;var b=this;busy(b,true);msg.classList.remove('on');
+$('[data-submit]').addEventListener('click',function(){for(var k=1;k<LAST;k++){var t=stat(k);if(t.a<t.n){show(k);valid(k);return}}if(!valid(LAST))return;var b=this;busy(b,true);msg.classList.remove('on');
  var body={token:st.token,lang:LANG,company:fv('co').trim(),website:fv('web').trim(),answers:answers(),profile:{industry:fv('ind'),hq:fv('hq'),size:fv('size'),role:fv('role'),markets:$$('input[name=markets]:checked').map(function(c){return c.value}).join('; ')}};
  call('/submit',body).then(function(j){
-  if(j.status==='queued'){$('.dx').hidden=true;$('.dx-prog').hidden=true;var d=$('[data-done]');$('[data-donep]').textContent=M.doneP.replace('{company}',body.company).replace('{email}',j.email||st.email);$('[data-doneid]').textContent=j.id;d.classList.add('on');d.focus();window.scrollTo({top:0,behavior:'smooth'});}
+  if(j.status==='queued'){$('.dx').hidden=true;$('.dx-prog').hidden=true;var d=$('[data-done]');$('[data-donep]').textContent=M.doneP.replace('{company}',body.company).replace('{email}',j.email||st.email);$('[data-doneid]').textContent=j.id;$('[data-donem]').textContent=M.doneM.replace('{email}',j.email||st.email);var ph=$$('.dx-path span');if(ph[0]){ph[0].className='ok';$('b',ph[0]).textContent='✓'}if(ph[1])ph[1].className='on';d.classList.add('on');d.focus({preventScroll:true});window.scrollTo({top:d.getBoundingClientRect().top+window.scrollY-24,behavior:'smooth'});}
   else if(j.status==='session_expired'){say(msg,M.session);setTimeout(function(){show(0);em.readOnly=false;sent.classList.remove('on');$('[data-step1]').hidden=false},2500)}
   else say(msg,M.fail);
  }).catch(function(){say(msg,M.fail)}).then(function(){busy(b,false)});});
