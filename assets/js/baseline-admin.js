@@ -12,7 +12,7 @@ function sel(name,val,opts){return '<select data-bl="'+name+'">'+opts.map(functi
 var YN=[['y','Yes 是'],['n','No 否'],['u','Not sure 不確定'],['na','N/A 不適用']];
 function lvl(arr,un){return arr.map(function(o){return [o.v,o.v+' · '+o.en+' '+o.zh]}).concat([['u',un||'Unknown 未知']])}
 function result(r){if(!r)return '';var secs=r.sections.map(function(s){return '<span style="margin-right:12px"><b>'+s.id+'</b> '+(typeof s.score==='number'?s.score:'ND')+'</span>'}).join('');
- return '<div class="blres"><div class="rtbig"><b>'+(r.score==null?'—':r.score)+'</b><span class="bd">'+esc(D.status[r.status]||r.status)+'</span></div>'
+ return '<div class="blres"><div class="rtbig"><b>'+(r.score==null?'—':r.score)+'</b><span class="bd">'+esc(D.status[r.status]||r.status)+'</span></div>'+(r.bonus?'<p style="font-size:13px;color:#1d6b3a;margin:4px 0 8px">Includes +1 referral point (referred by '+esc(r.bonus.org||r.bonus.from)+', a Verified Trusted member); Baseline score without it: '+esc(r.baseScore)+'. 含推薦加分 +1。</p>':'')
   +'<p>'+secs+'</p><p>Evidence support 證據支持度: <b>'+esc(D.support[r.support]||r.support)+'</b> · coverage 覆蓋率 '+r.coverage.pct+'% · independently verified 獨立核實 '+r.external.pct+'%</p>'
   +'<p><b style="color:'+(r.verifiedTrusted?'#1d6b3a':'#A40706')+'">'+(r.verifiedTrusted?'✓ Meets Verified Trusted 符合 Verified Trusted':'✕ Does not meet Verified Trusted 未符合 Verified Trusted')+'</b> <span style="color:#5F5F5F">(score ≥ 80, support ≥ medium, no unresolved major risk 評分 ≥ 80、支持度 ≥ 中、無未解決重大風險)</span></p>'
   +(r.reasons&&r.reasons.length?'<p style="color:#5F5F5F">'+esc(r.reasons.join(', '))+'</p>':'')+'<p style="color:#5F5F5F;font-size:12px">'+esc(r.model)+' · '+esc(r.fingerprint)+'</p></div>'}
