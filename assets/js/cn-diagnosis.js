@@ -59,10 +59,12 @@ $('[data-verify]').addEventListener('click',verify);
 code.addEventListener('input',function(){code.closest('.q').classList.remove('bad');if(code.value.replace(/\D/g,'').length===8)verify()});
 // questionnaire: conditional items
 function val(q){var c=$('input:checked',q);return c?c.value:null}
+// questions worded so that Yes is always the good answer: flip back to the scoring engine's wording (Yes = problem)
+function eff(q){var v=val(q);if(q&&q.dataset.flip&&(v==='y'||v==='n'))return v==='y'?'n':'y';return v}
 function pick(kind,k){return $('.lk[data-kind="'+kind+'"][data-k="'+k+'"]')}
 function deps(){
  $$('.lk[data-dep="sample"]').forEach(function(q){q.hidden=val(pick('sample',q.dataset.k))!=='y'});
- var r=pick('risk','operating');if(r)r.hidden=val(pick('risk','open'))!=='y';
+ var r=pick('risk','operating');if(r)r.hidden=eff(pick('risk','open'))!=='y';
  var ev=pick('ev','events'),no=ev&&val(ev)==='n';$$('.lk[data-ev]').forEach(function(q){q.hidden=no});
  $$('.lk[hidden]').forEach(function(q){q.classList.remove('bad')});}
 function open(p){return $$('.lk',p).filter(function(q){return !q.hidden})}
@@ -81,7 +83,7 @@ function fv(id){return ($('#'+id)||{}).value||''}
 function review(){var d={company:fv('co'),website:fv('web'),industry:fv('ind'),hq:fv('hq'),email:st.email};$$('[data-rv]').forEach(function(x){x.textContent=d[x.dataset.rv]||'—'})}
 function top(){var y=panels[st.cur].getBoundingClientRect().top+window.scrollY-pg.offsetHeight-16;if(window.scrollY>y)window.scrollTo({top:y,behavior:'smooth'})}
 function answers(){var a={checks:{},perf:{},sample:{},maturity:{},events:{},record:{},risk:{}};
- $$('.lk').forEach(function(q){var v=q.hidden?null:val(q),k=q.dataset.k,kind=q.dataset.kind;
+ $$('.lk').forEach(function(q){var v=q.hidden?null:eff(q),k=q.dataset.k,kind=q.dataset.kind;
   if(kind==='check'){a.checks[k]=v||'na'}
   else if(kind==='sample'){a.sample[k]=v||'u'}
   else if(kind==='perf'){a.perf[k]=v&&v!=='u'?Number(v):'u'}
