@@ -470,10 +470,11 @@ document.addEventListener('click',function(e){
 });
 
 function gate(k){$('[data-main]').hidden=true;$('[data-gate='+k+']').hidden=false}
+function loadStats(){var p=demo?Promise.resolve({status:'ok',assessments:12,baseline:9,badges:{active:7,confirmed:11}}):call('GET','/api/staff/stats');return p.then(function(j){if(j.status!=='ok')return;var a=$('[data-s=assess]'),b=$('[data-s=badges]');if(a)a.textContent=j.assessments;if(b){b.textContent=j.badges.active;var sp=b.nextElementSibling;if(sp&&!sp.querySelector('small'))sp.insertAdjacentHTML('beforeend','<small>'+j.badges.active+' / '+j.badges.confirmed+' confirmed websites · 已確認網站</small>')}}).catch(function(){})}
 function load(){return call('GET','/api/staff/members').then(function(j){
   if(j._code===401||j.status==='signed_out')return gate('login');if(j._code===403||j.status==='forbidden')return gate('forbidden');if(j.status!=='ok')throw 0;
   S.members=j.members;$('[data-me]').textContent=j.me;$('[data-main]').hidden=false;S.canSess=!!(j.sessionsAdmin||(demo&&j.me));$('[data-sesstab]').hidden=!S.canSess;if(S.tab==='sess'&&!S.canSess)S.tab='apps';
-  return Promise.all([call('GET','/api/staff/messages').then(function(x){S.msgs=x.messages||[]}),loadNl(),loadEv(),loadNotes(),loadBill()]).then(function(){render();rtPoll()})}).catch(function(){toast(M.fail)})}
+  return Promise.all([call('GET','/api/staff/messages').then(function(x){S.msgs=x.messages||[]}),loadNl(),loadEv(),loadNotes(),loadBill(),loadStats()]).then(function(){render();rtPoll()})}).catch(function(){toast(M.fail)})}
 /* ---------- certificates: welcome email + Certificate of Membership + handbook ---------- */
 function callBin(path,body){return fetch(API+path,{method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify(body||{})}).then(function(r){if(!r.ok)throw r;return r.blob()})}
 function loadWl(){if(demo){S.wl={status:'ok',cfg:{live:false,auto:false},files:{ind:null,org:null},nextSeq:16,members:[]};return Promise.resolve()}
