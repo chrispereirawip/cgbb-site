@@ -23,7 +23,7 @@ function say(el,t){el.textContent=t;el.classList.add('on')}
 function call(path,body){
  if(demo)return new Promise(function(res){setTimeout(function(){
   if(path==='/start')res({status:'code_sent'});
-  else if(path==='/verify')res(body.code==='12345678'?{status:'ok',token:'demo',company:'Brightleaf Co.',website:'brightleaf.co'}:{status:'wrong_code'});
+  else if(path==='/verify')res(body.code==='12345678'?{status:'ok',token:'demo',company:'Brightleaf Co.',website:'brightleaf.co',brands:[{company:'Brightleaf Co.',website:'brightleaf.co'},{company:'Leafline Tea',website:'leafline.com'}]}:{status:'wrong_code'});
   else res({status:'queued',id:'CGBB-BL-DEMO',email:st.email});},500)});
  return fetch(API+'/api/diagnosis'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json()});}
 function busy(btn,on){btn.disabled=on}
@@ -50,7 +50,7 @@ $('[data-resend]').addEventListener('click',function(){em.readOnly=false;start()
 $$('[data-other]').forEach(function(b){b.addEventListener('click',function(){em.readOnly=false;em.value='';sent.classList.remove('on');nm.classList.remove('on');pd.classList.remove('on');$('[data-step1]').hidden=false;msg1.classList.remove('on');em.focus()})});
 function verify(){var v=code.value.replace(/\D/g,'');if(bad(code.closest('.q'),v.length<6||v.length>8))return;var b=$('[data-verify]');busy(b,true);
  call('/verify',{email:st.email,code:v}).then(function(j){
-  if(j.status==='ok'){st.token=j.token;if(j.website){var co=$('#co'),wb=$('#web');co.value=j.company||co.value;wb.value=j.website;co.readOnly=wb.readOnly=true;co.classList.add('locked');wb.classList.add('locked');var ch=$('.hint',co.closest('.q'));if(ch)ch.style.display='none';var q=wb.closest('.q');if(q&&!$('.lockn',q))q.insertAdjacentHTML('beforeend','<p class="lockn">'+M.locked+'</p>')}show(1);top()}
+  if(j.status==='ok'){st.token=j.token;if(j.brands&&j.brands.length>1&&!$('#brsel')){var esc=function(v){return String(v==null?'':v).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};var q0=$('#co').closest('.q');q0.insertAdjacentHTML('beforebegin','<div class="q brq" style="grid-column:1/-1"><label for="brsel">此自测适用于哪个品牌？</label><select id="brsel">'+j.brands.map(function(x,i){return '<option value="'+i+'">'+esc(x.company)+' · '+esc(x.website)+'</option>'}).join('')+'</select></div>');$('#brsel').addEventListener('change',function(){var x=j.brands[+this.value];$('#co').value=x.company;$('#web').value=x.website});q0.style.display='none';$('#web').closest('.q').style.display='none';$('.brq').insertAdjacentHTML('beforeend','<p class="lockn">'+M.locked+'</p>')}if(j.website){var co=$('#co'),wb=$('#web');co.value=j.company||co.value;wb.value=j.website;co.readOnly=wb.readOnly=true;co.classList.add('locked');wb.classList.add('locked');var ch=$('.hint',co.closest('.q'));if(ch)ch.style.display='none';var q=wb.closest('.q');if(q&&!$('.lockn',q))q.insertAdjacentHTML('beforeend','<p class="lockn">'+M.locked+'</p>')}show(1);top()}
   else if(j.status==='expired'){say(msg1,M.expired)}
   else if(j.status==='rate_limited'){say(msg1,M.rate)}
   else bad(code.closest('.q'),true);
