@@ -16,7 +16,7 @@ function paint(){var go=!!st.token;pg.classList.toggle('go',go);prog.forEach(fun
  $('.c',li).textContent=j===0||j===LAST||!s.n?'':s.a+'/'+s.n;if(j===st.cur)li.setAttribute('aria-current','step');else li.removeAttribute('aria-current');
  if(go&&j>0){li.tabIndex=0;li.setAttribute('role','button')}else{li.removeAttribute('tabindex');li.removeAttribute('role')}});
  var s=stat(st.cur);if(curl)curl.textContent=M.step.replace('{i}',st.cur+1).replace('{n}',prog.length).replace('{t}',$('.t',prog[st.cur]).textContent).replace(' · {c}',st.cur>0&&st.cur<LAST&&s.n?' · '+s.a+'/'+s.n:'')}
-function jump(li){if(!li||!st.token)return;var i=+li.dataset.i;if(i===0||i===st.cur)return;show(i);top()}
+function jump(li){if(!li||!st.token)return;var i=+li.dataset.i;if(i===st.cur)return;show(i);top()}
 pg.addEventListener('click',function(e){jump(e.target.closest('li'))});
 pg.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var li=e.target.closest('li');if(li){e.preventDefault();jump(li)}}});
 function say(el,t){el.textContent=t;el.classList.add('on')}
@@ -101,5 +101,23 @@ $('[data-submit]').addEventListener('click',function(){for(var k=1;k<LAST;k++){v
   else if(j.status==='session_expired'){say(msg,M.session);setTimeout(function(){show(0);em.readOnly=false;sent.classList.remove('on');$('[data-step1]').hidden=false},2500)}
   else say(msg,M.fail);
  }).catch(function(){say(msg,M.fail)}).then(function(){busy(b,false)});});
-deps();show(0);
+
+/* ---------- signed-in members: no email code, choose a brand (8 Nov 2026) ---------- */
+var BX={"pickH": "选择品牌", "pickP": "已登录：{email}。请选择此自测适用的品牌。只列出官网已展示 CGBB 徽章的品牌。", "signinH": "请登录以进行自测", "signinP": "基线自测在会员账户内进行。请先登录，再从账户开始自测。", "signinBtn": "登录我的账户", "noBadgeH": "请先加上 CGBB 徽章", "noBadgeP": "进行自测前，{host} 须展示 CGBB 会员徽章，并链接至其核实页面，以证明您控制该网站。", "noSiteP": "请先在会员账户中确认网站，并在官网加上 CGBB 会员徽章。", "pendH": "会员资格审批中", "pendP": "会员资格获批后即可进行自测。", "inactH": "会员资格未生效", "acct": "前往我的账户", "cont": "继续", "stepLbl": "品牌", "loading": "正在载入您的品牌…"},p0=panels[0];
+(function(){var h=document.createElement('div');h.className='bx';h.setAttribute('data-bx','');h.innerHTML='<p class="bx-load">'+BX.loading+'</p>';p0.insertBefore(h,p0.firstChild);
+ $$('h2,.intro,.q,.cf-ts,[data-step1]',p0).forEach(function(x){if(!x.closest('[data-bx]')){x.setAttribute('data-old','');x.style.display='none'}});
+ var lab=$('.dx-prog li[data-i="0"] .t');if(lab)lab.textContent=BX.stepLbl;})();
+function bxBlock(h,p,btn){$('[data-bx]').innerHTML='<h2>'+h+'</h2><p class="intro">'+p+'</p>'+(btn?'<div class="ctas"><a class="btn btn-red" href="'+btn[1]+'">'+btn[0]+'</a></div>':'')}
+function bxPick(j){var esc=function(v){return String(v==null?'':v).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+ $('[data-bx]').innerHTML='<h2>'+BX.pickH+'</h2><p class="intro">'+esc(BX.pickP.replace('{email}',j.email||''))+'</p><div class="bx-list" role="radiogroup">'+j.brands.map(function(x,i){return '<label class="bx-b"><input type="radio" name="bxb" value="'+i+'"'+(i===0?' checked':'')+'><span><b>'+esc(x.company)+'</b><small>'+esc(x.website)+'</small></span></label>'}).join('')+'</div><div class="nav"><span class="sp"></span><button type="button" class="btn btn-red" data-bxgo>'+BX.cont+'</button></div>';
+ $('[data-bxgo]').addEventListener('click',function(){var x=j.brands[+($('input[name=bxb]:checked')||{value:0}).value],co=$('#co'),wb=$('#web');co.value=x.company;wb.value=x.website;co.readOnly=wb.readOnly=true;co.classList.add('locked');wb.classList.add('locked');var ch=$('.hint',co.closest('.q'));if(ch)ch.style.display='none';var q=wb.closest('.q');if(q&&!$('.lockn',q))q.insertAdjacentHTML('beforeend','<p class="lockn">'+M.locked+'</p>');st.email=j.email||'';show(1);top()})}
+function bxSession(){var p=demo?Promise.resolve({status:'ok',token:'demo',email:'mei@brightleaf.co',brands:[{company:'Brightleaf Co.',website:'brightleaf.co'},{company:'Leafline Tea',website:'leafline.com'}]}):fetch(API+'/api/diagnosis/session',{method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},body:'{}'}).then(function(r){return r.json()});
+ p.then(function(j){if(j.status==='ok'){st.token=j.token;bxPick(j);paint();return}
+  if(j.status==='no_badge')return bxBlock(BX.noBadgeH,BX.noBadgeP.replace('{host}',j.host||''),[BX.acct,'/cn/account/#trust']);
+  if(j.status==='no_site')return bxBlock(BX.noBadgeH,BX.noSiteP,[BX.acct,'/cn/account/#trust']);
+  if(j.status==='pending')return bxBlock(BX.pendH,BX.pendP,[BX.acct,'/cn/account/']);
+  if(j.status==='inactive')return bxBlock(BX.inactH,M.inactive,[BX.acct,'/cn/account/']);
+  if(j.status==='cooldown')return bxBlock(BX.pickH,M.cooldown.replace('{date}',j.next||''),[BX.acct,'/cn/account/']);
+  bxBlock(BX.signinH,BX.signinP,[BX.signinBtn,'/cn/account/#login'])}).catch(function(){bxBlock(BX.signinH,M.fail,[BX.signinBtn,'/cn/account/#login'])})}
+deps();show(0);bxSession();
 })();
