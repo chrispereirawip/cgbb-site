@@ -18,6 +18,18 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
 
   var cur = 0;
 
+  // a website already registered with CGBB by another member is refused before the application is sent (Chris, 8 Nov 2026)
+  var TAKEN = LANG === 'en' ? 'This website is already registered with CGBB. If it belongs to your organisation, please contact secretariat@cgbb.org.'
+    : HANS ? '此网站已在品信会登记。如网站属于贵机构，请联系 secretariat@cgbb.org。' : '此網站已在品信會登記。如網站屬於貴機構，請聯絡 secretariat@cgbb.org。';
+  var site = form.querySelector('input[name="Website"]'), siteErr = site && site.closest('.q').querySelector('.err');
+  var siteErrText = siteErr ? siteErr.textContent : '';
+  function siteTaken(on){ if (!site) return; site.setCustomValidity(on ? TAKEN : ''); if (siteErr) siteErr.textContent = on ? TAKEN : siteErrText; site.closest('.q').classList.toggle('bad', !!on);
+    if (on) { site.closest('.q').scrollIntoView({behavior:'smooth', block:'center'}); } }
+  function checkSite(){ if (!site || !site.value.trim()) return; var em = form.querySelector('input[name="Email"]');
+    fetch('https://api.cgbb.org/api/members/domain-check?d=' + encodeURIComponent(site.value.trim()) + '&email=' + encodeURIComponent(em ? em.value.trim() : ''))
+      .then(function(r){ return r.json(); }).then(function(j){ if (j && j.registered) siteTaken(true); }).catch(function(){}); }
+  if (site) { site.addEventListener('input', function(){ if (site.validationMessage === TAKEN) siteTaken(false); }); site.addEventListener('blur', checkSite); }
+
   function isOrg(){ return !cat || /Organizational|Corporate|Institutional/.test(cat.value); }
   function active(){ return steps.filter(function(s){ var k=s.dataset.step; if(k==='individual') return !isOrg(); if(k==='organization') return isOrg(); return true; }); }
   function show(i){
@@ -96,6 +108,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
       .then(function(rj){
         TS.reset(form);
         if (rj && rj.error === 'bot_check') { var e = new Error('bot'); e.bot = true; throw e; }
+        if (rj && rj.error === 'domain_registered') { siteTaken(true); var t = new Error('taken'); t.taken = true; throw t; }
         return fetch('https://api.web3forms.com/submit', { method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'}, body: JSON.stringify(payload) });
       })
       .then(function(r){ return r.json(); })
@@ -107,7 +120,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
             .then(function(c){ if (c && c.url) { location.href = c.url; return; } done(PAY.later); });
         }
         done(''); })
-      .catch(function(e){ (e && e.bot ? botFail : fail).classList.add('on'); submit.disabled = false; });
+      .catch(function(e){ if (!(e && e.taken)) (e && e.bot ? botFail : fail).classList.add('on'); submit.disabled = false; });
   });
 
   (function(){
