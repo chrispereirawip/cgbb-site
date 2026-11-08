@@ -404,7 +404,18 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <link rel="stylesheet" href="/assets/css/tight.css?v=2da65983">
 <style id="ac2">@media (min-width:901px){.ac-hero{padding:56px 0 64px}.ac-hero>.wrap{display:grid;grid-template-columns:minmax(0,1fr) 480px;column-gap:72px;align-items:start}.ac-hero>.wrap>.rule{grid-column:1/-1}.ac-hero .ac-l{grid-column:1;padding-top:24px}.ac-hero .ac-panel{grid-column:2;grid-row:2;max-width:none;margin-top:24px}.ac-hero h1{font-size:40px}}
 .ac-hero .ac-panel.on{border:1px solid #e6e6e6;border-top:4px solid var(--red);padding:26px 28px 22px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.05)}.ac-hero .ac-panel h2{font-size:26px}.ac-hero .ac-panel .intro{margin-bottom:18px}.ac{padding-bottom:0!important}.ac .dash{padding-bottom:96px}
-@media (max-width:900px){.ac-hero .ac-panel.on{margin-top:18px;padding:22px 18px}.ac-hero{padding-bottom:48px}}</style></head>
+@media (max-width:900px){.ac-hero .ac-panel.on{margin-top:18px;padding:22px 18px}.ac-hero{padding-bottom:48px}}</style><style id="ac3">.dash [data-d="no"]{white-space:nowrap;font-size:.94em}@media (min-width:1000px){.dash .facts{grid-template-columns:repeat(6,minmax(0,1fr))}}.ac-steps{list-style:none;margin:0;padding:0;border:1px solid var(--ink)}
+.ac-steps>li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 14px;padding:20px 22px;border-top:1px solid #e6e6e6}.ac-steps>li:first-child{border-top:0}
+.ac-steps .n{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--red);color:var(--red);display:grid;place-items:center;font-weight:600;font-size:15px}
+.ac-steps li.done .n{background:#1d6b3a;border-color:#1d6b3a;color:#fff}.ac-steps li.lock{opacity:.55}
+.ac-steps h4{margin:4px 0 6px;font-size:17px;font-weight:500}.ac-steps p{margin:0 0 10px;font-size:15px;line-height:1.65}.ac-steps .ok{color:#1d6b3a;font-weight:500}.ac-steps .warn{color:#8a5a00}
+.ac-steps .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.ac-steps .tjrow{display:flex;gap:10px;flex-wrap:wrap;margin:0}.ac-steps .tjrow input{flex:1 1 260px;min-width:0}
+.ac-steps code{font-size:13px;background:#f6f6f6;padding:2px 6px;word-break:break-all}.ac-steps textarea{width:100%;font:12px/1.5 ui-monospace,Menlo,monospace;padding:10px;border:1px solid #ccc;resize:vertical;margin:0 0 8px}
+.ac-steps .bimg{display:block;height:64px;width:auto;margin:4px 0 10px}.ac-steps .muted{color:var(--grey);font-size:14px}
+.st-row{display:flex;justify-content:space-between;align-items:center;gap:14px 28px;flex-wrap:wrap;margin:0 0 14px}.st-row p{margin:0;max-width:720px;line-height:1.7}
+.upg ul.inc{margin:10px 0 0;padding-left:18px}.upg ul.inc li{font-size:14.5px;line-height:1.6;margin:0 0 4px}
+.ac-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px}.ac-pair .sec{margin:0}.ac-pair .refer{border:0;padding:0;margin:0}.ac-pair .rtop{display:block}.ac-pair .rtop .btn{margin-top:12px}
+@media (max-width:760px){.ac-pair{grid-template-columns:1fr}.ac-steps>li{grid-template-columns:34px minmax(0,1fr);padding:16px 14px}}</style></head>
 <body>
 <div class="demo" hidden>Preview: demo mode. No data is sent. Log in with any email and password; include “pending” in the email to see a pending membership. Codes: 12345678.</div>
 <header>
@@ -481,7 +492,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <dl class="facts">
 <div><dt>Name</dt><dd data-d="name"></dd></div>
 <div><dt>Organisation</dt><dd data-d="org"></dd></div>
-<div><dt>Category</dt><dd data-d="category"></dd></div>
+<div><dt>Plan</dt><dd data-d="plan"></dd></div><div data-f="no" hidden><dt>Member no.</dt><dd data-d="no"></dd></div>
 <div data-f="joined"><dt>Applied</dt><dd data-d="joined"></dd></div>
 <div data-f="approved"><dt>Member since</dt><dd data-d="approved"></dd></div>
 <div data-f="valid"><dt>Valid until</dt><dd data-d="valid"></dd></div>
@@ -490,14 +501,12 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 </div>
 <div class="upbanner" data-upmsg hidden role="status"></div>
 <div data-active hidden>
-<div class="sec upg" id="trust" data-tj hidden><h3>Free CGBB Website Trust Credential</h3><div data-tjbody></div></div>
+<div class="sec" id="trust" data-tj hidden><h3>Get set up</h3><p class="hint" style="margin:-4px 0 14px">Three steps to put your membership to work on your website.</p><div data-tjbody></div></div>
+<div class="sec"><h3>Brand Trust Baseline self-test</h3><div class="st-row"><p>A free, indicative Baseline for your brand: overall status, score, five-section profile and priorities. It takes about 20 minutes, and the report arrives by email.</p><a class="btn btn-red" href="/membership/diagnosis/">Start the self-test</a></div><div data-reps></div><p class="hint" style="margin-top:12px">Reports are prepared on request and can take up to 20 seconds to download.</p></div>
 <div class="sec upg" id="upgrade"><h3>Advanced membership</h3><div data-upbody></div></div>
-<div class="sec"><h3>Your Baseline self-test reports</h3><div data-reps></div><p class="hint" style="margin-top:12px">Reports are prepared on request and can take up to 20 seconds to download.</p></div>
-<div class="sec"><h3>Member services</h3><div class="svc"><div class="" data-svc><h4>Baseline self-test</h4><p>A free, indicative Baseline for your brand: overall status, score, five-section profile and priorities.</p><a href="/membership/diagnosis/">Start the self-test</a></div><div data-upg><h4>Advanced membership</h4><p>A one-year (minimum) membership that includes a comprehensive Trust Review. Brands scoring 80% or higher receive the CGBB Verified Trusted level: a signed, machine-readable record of the result that AI agents can check on your website.</p><a class="btn btn-red upg" href="/membership/advanced/">Upgrade membership</a></div><div class="off" ><h4>Event tickets</h4><p>Book places at CGBB events, including the whitepaper release in Hong Kong.</p><span class="soon">Coming soon</span></div></div></div>
-<div class="sec"><h3>Email updates</h3><label class="nlpref"><input type="checkbox" data-nl><span><b>Send me CGBB newsletters and periodicals</b><small>Occasional emails with Council news, publications and events. You can switch this off at any time.</small></span></label><span class="nlmsg" data-nlmsg role="status"></span></div>
-<div class="sec"><h3>Member discounts</h3><div class="disc"><p>Exclusive member pricing on CGBB events, Trust Review and partner services.</p><span class="soon">Coming soon</span></div>
-<div class="refer" data-refer>
-<div class="rtop"><div><h4>Refer a new member</h4><p>Know someone who should be part of CGBB? Send them your personal link, and their application will show that you referred them.</p></div><button type="button" class="btn btn-red" data-refbtn aria-expanded="false">Refer a new member</button></div>
+<div class="ac-pair"><div class="sec"><h3>Email updates</h3><label class="nlpref"><input type="checkbox" data-nl><span><b>Send me CGBB newsletters and periodicals</b><small>Occasional emails with Council news, publications and events. You can switch this off at any time.</small></span></label><span class="nlmsg" data-nlmsg role="status"></span></div>
+<div class="sec"><h3>Refer a new member</h3><div class="refer" data-refer>
+<div class="rtop"><p>Know a brand that should be part of CGBB? Send them your personal link; their application will show that you referred them.</p><button type="button" class="btn btn-line" data-refbtn aria-expanded="false">Get my link</button></div>
 <div class="rpanel" data-refpanel hidden>
 <label for="reflink">Your personal referral link</label>
 <div class="rlink"><input id="reflink" type="text" readonly data-reflink><button type="button" class="btn btn-line" data-refcopy>Copy link</button></div>
@@ -505,7 +514,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <p class="rhow">Send the link by WeChat, email or any app. When your contact applies through it and the Secretariat approves the application, we’ll email you and list them in your account.</p>
 </div>
 <div class="rstat" data-refstat hidden></div>
-</div></div>
+</div></div></div>
 <section class="vip" aria-labelledby="vh">
 <div class="vlab">Members only · Priority line</div>
 <h3 id="vh">Contact the Secretariat directly</h3>
@@ -540,7 +549,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <div class="foot-bottom"><span>© 2026 Council for Global Brand Building</span><span style="letter-spacing:.06em">全球化品牌信任促進會</span></div>
 </div>
 </footer>
-<script src="/assets/js/account.js?v=e4733fe1"></script>
+<script src="/assets/js/account.js?v=a8372c15"></script>
 <script src="/assets/js/site-menu.js?v=814e5807"></script>
 <script src="/assets/js/site-lang.js?v=725ed270"></script>
 </body>

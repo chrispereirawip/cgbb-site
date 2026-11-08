@@ -404,7 +404,18 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <link rel="stylesheet" href="/assets/css/tight.css?v=2da65983">
 <style id="ac2">@media (min-width:901px){.ac-hero{padding:56px 0 64px}.ac-hero>.wrap{display:grid;grid-template-columns:minmax(0,1fr) 480px;column-gap:72px;align-items:start}.ac-hero>.wrap>.rule{grid-column:1/-1}.ac-hero .ac-l{grid-column:1;padding-top:24px}.ac-hero .ac-panel{grid-column:2;grid-row:2;max-width:none;margin-top:24px}.ac-hero h1{font-size:40px}}
 .ac-hero .ac-panel.on{border:1px solid #e6e6e6;border-top:4px solid var(--red);padding:26px 28px 22px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.05)}.ac-hero .ac-panel h2{font-size:26px}.ac-hero .ac-panel .intro{margin-bottom:18px}.ac{padding-bottom:0!important}.ac .dash{padding-bottom:96px}
-@media (max-width:900px){.ac-hero .ac-panel.on{margin-top:18px;padding:22px 18px}.ac-hero{padding-bottom:48px}}</style></head>
+@media (max-width:900px){.ac-hero .ac-panel.on{margin-top:18px;padding:22px 18px}.ac-hero{padding-bottom:48px}}</style><style id="ac3">.dash [data-d="no"]{white-space:nowrap;font-size:.94em}@media (min-width:1000px){.dash .facts{grid-template-columns:repeat(6,minmax(0,1fr))}}.ac-steps{list-style:none;margin:0;padding:0;border:1px solid var(--ink)}
+.ac-steps>li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 14px;padding:20px 22px;border-top:1px solid #e6e6e6}.ac-steps>li:first-child{border-top:0}
+.ac-steps .n{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--red);color:var(--red);display:grid;place-items:center;font-weight:600;font-size:15px}
+.ac-steps li.done .n{background:#1d6b3a;border-color:#1d6b3a;color:#fff}.ac-steps li.lock{opacity:.55}
+.ac-steps h4{margin:4px 0 6px;font-size:17px;font-weight:500}.ac-steps p{margin:0 0 10px;font-size:15px;line-height:1.65}.ac-steps .ok{color:#1d6b3a;font-weight:500}.ac-steps .warn{color:#8a5a00}
+.ac-steps .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.ac-steps .tjrow{display:flex;gap:10px;flex-wrap:wrap;margin:0}.ac-steps .tjrow input{flex:1 1 260px;min-width:0}
+.ac-steps code{font-size:13px;background:#f6f6f6;padding:2px 6px;word-break:break-all}.ac-steps textarea{width:100%;font:12px/1.5 ui-monospace,Menlo,monospace;padding:10px;border:1px solid #ccc;resize:vertical;margin:0 0 8px}
+.ac-steps .bimg{display:block;height:64px;width:auto;margin:4px 0 10px}.ac-steps .muted{color:var(--grey);font-size:14px}
+.st-row{display:flex;justify-content:space-between;align-items:center;gap:14px 28px;flex-wrap:wrap;margin:0 0 14px}.st-row p{margin:0;max-width:720px;line-height:1.7}
+.upg ul.inc{margin:10px 0 0;padding-left:18px}.upg ul.inc li{font-size:14.5px;line-height:1.6;margin:0 0 4px}
+.ac-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px}.ac-pair .sec{margin:0}.ac-pair .refer{border:0;padding:0;margin:0}.ac-pair .rtop{display:block}.ac-pair .rtop .btn{margin-top:12px}
+@media (max-width:760px){.ac-pair{grid-template-columns:1fr}.ac-steps>li{grid-template-columns:34px minmax(0,1fr);padding:16px 14px}}</style></head>
 <body>
 <div class="demo" hidden>預覽：示範模式，不會發送任何資料。可使用任何電郵及密碼登入；電郵包含「pending」可查看待審批狀態。驗證碼：12345678。</div>
 <header>
@@ -481,7 +492,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <dl class="facts">
 <div><dt>姓名</dt><dd data-d="name"></dd></div>
 <div><dt>機構</dt><dd data-d="org"></dd></div>
-<div><dt>類別</dt><dd data-d="category"></dd></div>
+<div><dt>會籍</dt><dd data-d="plan"></dd></div><div data-f="no" hidden><dt>會員編號</dt><dd data-d="no"></dd></div>
 <div data-f="joined"><dt>申請日期</dt><dd data-d="joined"></dd></div>
 <div data-f="approved"><dt>入會日期</dt><dd data-d="approved"></dd></div>
 <div data-f="valid"><dt>有效期至</dt><dd data-d="valid"></dd></div>
@@ -490,14 +501,12 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 </div>
 <div class="upbanner" data-upmsg hidden role="status"></div>
 <div data-active hidden>
-<div class="sec upg" id="trust" data-tj hidden><h3>免費網站信任憑證</h3><div data-tjbody></div></div>
-<div class="sec upg" id="upgrade"><h3>進階會員</h3><div data-upbody></div></div>
-<div class="sec"><h3>您的基線自測報告</h3><div data-reps></div><p class="hint" style="margin-top:12px">報告會在您下載時即時生成，可能需時約20秒。</p></div>
-<div class="sec"><h3>會員服務</h3><div class="svc"><div class="" data-svc><h4>基線自測</h4><p>免費取得品牌的參考基線結果：整體狀態、評分、五大板塊概況及優先事項。</p><a href="/zh/membership/diagnosis/">開始自測</a></div><div data-upg><h4>進階會員</h4><p>最少為期一年，包括全面信任評審。評分達80%或以上的品牌將獲發CGBB Verified Trusted 信任憑證：一份經簽署、可供 AI 代理在您網站上核實的機器可讀評審結果。</p><a class="btn btn-red upg" href="/zh/membership/advanced/">升級會員</a></div><div class="off" ><h4>活動門票</h4><p>預訂品信會活動席位，包括香港白皮書發佈會。</p><span class="soon">即將推出</span></div></div></div>
-<div class="sec"><h3>電郵通訊</h3><label class="nlpref"><input type="checkbox" data-nl><span><b>接收品信會會員通訊及刊物</b><small>不定期收到品信會新聞、出版物及活動資訊，可隨時關閉。</small></span></label><span class="nlmsg" data-nlmsg role="status"></span></div>
-<div class="sec"><h3>會員優惠</h3><div class="disc"><p>品信會活動、全面信任評審及合作夥伴服務的會員專屬價格。</p><span class="soon">即將推出</span></div>
-<div class="refer" data-refer>
-<div class="rtop"><div><h4>推薦新會員</h4><p>認識適合加入品信會的朋友？把您的專屬連結發給他們，他們的申請會註明由您推薦。</p></div><button type="button" class="btn btn-red" data-refbtn aria-expanded="false">推薦新會員</button></div>
+<div class="sec" id="trust" data-tj hidden><h3>開始使用</h3><p class="hint" style="margin:-4px 0 14px">三個步驟，讓您的會籍在官網上發揮作用。</p><div data-tjbody></div></div>
+<div class="sec"><h3>品牌可信度基線自測</h3><div class="st-row"><p>免費取得品牌的參考基線結果：整體狀態、評分、五大板塊概況及優先事項。約需 20 分鐘，報告以電郵發送。</p><a class="btn btn-red" href="/zh/membership/diagnosis/">開始自測</a></div><div data-reps></div><p class="hint" style="margin-top:12px">報告會在您下載時即時生成，可能需時約20秒。</p></div>
+<div class="sec upg" id="upgrade"><h3>進階會籍</h3><div data-upbody></div></div>
+<div class="ac-pair"><div class="sec"><h3>電郵通訊</h3><label class="nlpref"><input type="checkbox" data-nl><span><b>接收品信會會員通訊及刊物</b><small>不定期收到品信會新聞、出版物及活動資訊，可隨時關閉。</small></span></label><span class="nlmsg" data-nlmsg role="status"></span></div>
+<div class="sec"><h3>推薦新會員</h3><div class="refer" data-refer>
+<div class="rtop"><p>認識適合加入品信會的品牌？把您的專屬連結發給對方，其申請會註明由您推薦。</p><button type="button" class="btn btn-line" data-refbtn aria-expanded="false">取得我的連結</button></div>
 <div class="rpanel" data-refpanel hidden>
 <label for="reflink">您的專屬推薦連結</label>
 <div class="rlink"><input id="reflink" type="text" readonly data-reflink><button type="button" class="btn btn-line" data-refcopy>複製連結</button></div>
@@ -505,7 +514,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <p class="rhow">可透過微信、電郵或任何應用程式發送連結。對方經此連結提交申請並獲秘書處批准後，我們會電郵通知您，並在您的帳戶中列出。</p>
 </div>
 <div class="rstat" data-refstat hidden></div>
-</div></div>
+</div></div></div>
 <section class="vip" aria-labelledby="vh">
 <div class="vlab">會員專屬 · 優先通道</div>
 <h3 id="vh">直接聯絡秘書處</h3>
@@ -540,7 +549,7 @@ html[lang="zh-Hant"] .vip .vlab{letter-spacing:.08em}
 <div class="foot-bottom"><span>© 2026 全球化品牌信任促進會</span><span style="letter-spacing:.06em">Council for Global Brand Building</span></div>
 </div>
 </footer>
-<script src="/assets/js/zh-account.js?v=52251ced"></script>
+<script src="/assets/js/zh-account.js?v=21bfe9ca"></script>
 <script src="/assets/js/site-menu.js?v=814e5807"></script>
 <script src="/assets/js/site-lang.js?v=725ed270"></script>
 </body>
