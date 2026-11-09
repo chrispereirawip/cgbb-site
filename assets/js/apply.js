@@ -10,15 +10,13 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   var TS = window.CGBBTS || {token:function(){return ''}, reset:function(){}, scan:function(){}};
   var KEY = 'cgbb-apply-draft';
   var LANG = document.documentElement.lang, HANS = /Hans/.test(LANG), ZHL = /^zh/.test(LANG);
-  var PAY = LANG === 'en' ? { paid: 'Payment received. Thank you: your CGBB Advanced Membership starts once the Secretariat approves your application, and we will then arrange your Trust Review.', cancel: 'Your application has been sent, but the payment was not completed. Once the Secretariat approves your membership (usually within 1–3 working days), you can pay the annual fee from your member account.', later: 'Your application has been sent. Once the Secretariat approves your membership (usually within 1–3 working days), you can pay the annual fee from your member account.', btn: 'Submit and continue to payment', btn0: null }
-    : HANS ? { paid: '已收到付款，谢谢。秘书处批准您的申请后，品信会进阶会籍即告生效，我们随后会为您安排信任评审。', cancel: '您的申请已送出，但付款尚未完成。秘书处批准会籍后（一般于 1 至 3 个工作日内），您可在会员账户中缴付年费。', later: '您的申请已送出。秘书处批准会籍后（一般于 1 至 3 个工作日内），您可在会员账户中缴付年费。', btn: '提交并前往付款', btn0: null }
-    : { paid: '已收到付款，謝謝。秘書處批准您的申請後，品信會進階會籍即告生效，我們隨後會為您安排信任評審。', cancel: '您的申請已送出，但付款尚未完成。秘書處批准會籍後（一般於 1 至 3 個工作日內），您可在會員帳戶中繳付年費。', later: '您的申請已送出。秘書處批准會籍後（一般於 1 至 3 個工作日內），您可在會員帳戶中繳付年費。', btn: '提交並前往付款', btn0: null };
+  var PAY = LANG === 'en' ? { wait: 'Your application has been sent, and you are on the Advanced Membership waiting list. No payment is taken: once the Secretariat approves your application (usually within 1–3 working days) you are a free Basic member, and we will contact you when Advanced Membership opens.', paid: 'Payment received. Thank you: your CGBB Advanced Membership starts once the Secretariat approves your application, and we will then arrange your Trust Review.', cancel: 'Your application has been sent, but the payment was not completed. Once the Secretariat approves your membership (usually within 1–3 working days), you can pay the annual fee from your member account.', later: 'Your application has been sent. Once the Secretariat approves your membership (usually within 1–3 working days), you can pay the annual fee from your member account.', btn: 'Submit and join the waiting list', btn0: null }
+    : HANS ? { wait: '您的申请已送出，并已登记进阶会籍候补名单。现阶段不收取任何费用：秘书处批准申请后（一般于 1 至 3 个工作日内），您即成为免费基本会员；进阶会籍开放时，我们将与您联系。', paid: '已收到付款，谢谢。秘书处批准您的申请后，品信会进阶会籍即告生效，我们随后会为您安排信任评审。', cancel: '您的申请已送出，但付款尚未完成。秘书处批准会籍后（一般于 1 至 3 个工作日内），您可在会员账户中缴付年费。', later: '您的申请已送出。秘书处批准会籍后（一般于 1 至 3 个工作日内），您可在会员账户中缴付年费。', btn: '提交并登记候补名单', btn0: null }
+    : { wait: '您的申請已送出，並已登記進階會籍輪候名單。現階段不收取任何費用：秘書處批准申請後（一般於 1 至 3 個工作日內），您即成為免費基本會員；進階會籍開放時，我們將與您聯絡。', paid: '已收到付款，謝謝。秘書處批准您的申請後，品信會進階會籍即告生效，我們隨後會為您安排信任評審。', cancel: '您的申請已送出，但付款尚未完成。秘書處批准會籍後（一般於 1 至 3 個工作日內），您可在會員帳戶中繳付年費。', later: '您的申請已送出。秘書處批准會籍後（一般於 1 至 3 個工作日內），您可在會員帳戶中繳付年費。', btn: '提交並登記輪候名單', btn0: null };
   function done(extra){ form.style.display='none'; var st=document.querySelector('.steps'); if (st) st.style.display='none'; var dn=document.querySelector('[data-done]'); if (extra){ var p=document.createElement('p'); p.className='pay-note'; p.textContent=extra; var h=dn.querySelector('h2'); h.parentNode.insertBefore(p, h.nextSibling); } dn.classList.add('on'); dn.focus(); window.scrollTo({top:0, behavior:'smooth'}); }
   try { var paid = new URLSearchParams(location.search).get('paid'); if (paid === 'success' || paid === 'cancel') { setTimeout(function(){ done(paid === 'success' ? PAY.paid : PAY.cancel); }, 0); } } catch(e){}
 
   var cur = 0;
-  // founding-member price for Advanced until 5 January 2027 (Hong Kong time), then the list price (Chris, 8 Nov 2026)
-  if (Date.now() >= Date.parse('2027-01-05T16:00:00Z')) { [].forEach.call(document.querySelectorAll('[data-founding]'), function(x){ x.hidden = true; }); [].forEach.call(document.querySelectorAll('[data-list]'), function(x){ x.hidden = false; }); }
 
   // a website already registered with CGBB by another member is refused before the application is sent (Chris, 8 Nov 2026)
   var TAKEN = LANG === 'en' ? 'This website is already registered with CGBB. If it belongs to your organisation, please contact secretariat@cgbb.org.'
@@ -115,12 +113,8 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
       })
       .then(function(r){ return r.json(); })
       .then(function(j){ if (!j.success) throw new Error(j.message||'failed'); try{ localStorage.removeItem(KEY); }catch(e){}
-        // Advanced membership: straight on to the secure payment page (Stripe)
-        if (/^Advanced/.test(d['Membership'] || '')) {
-          return fetch('https://api.cgbb.org/api/account/apply-checkout', {method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: d['Email'], lang: document.documentElement.lang})})
-            .then(function(r){ return r.json(); }).catch(function(){ return {}; })
-            .then(function(c){ if (c && c.url) { location.href = c.url; return; } done(PAY.later); });
-        }
+        // Advanced membership is not open yet: the applicant joins the waiting list, no payment (Chris, 9 Nov 2026)
+        if (/^Advanced/.test(d['Membership'] || '')) { done(PAY.wait); return; }
         done(''); })
       .catch(function(e){ if (!(e && e.taken)) (e && e.bot ? botFail : fail).classList.add('on'); submit.disabled = false; });
   });
