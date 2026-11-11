@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://api.cgbb.org https://api.web3forms.com https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.cgbb.org">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>CGBB Brand Trust Baseline: the standard | Council for Global Brand Building</title>
+<meta name="description" content="The full public text of the CGBB Brand Trust Baseline (beta draft): five sections, 15 indicators, every check, the rating scales and the scoring rules. Open for comment.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://cgbb.org/standard/">
+<link rel="alternate" hreflang="en" href="https://cgbb.org/standard/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/standard/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/standard/">
+<link rel="alternate" hreflang="x-default" href="https://cgbb.org/standard/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#A40706;--red-dark:#7a0504;--grey:#5F5F5F;--ink:#000000;--paper:#ffffff;--hair:#e4e4e4;
+--font-en:'Jost','Avenir Next','Helvetica Neue',sans-serif;--font-zh:'Noto Sans TC','PingFang TC','Microsoft JhengHei','Jost',sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-en);-webkit-font-smoothing:antialiased}
+html[lang="zh-Hant"] body{font-family:var(--font-zh)}
+a{color:var(--red);text-decoration:none}
+a:hover{color:var(--red-dark)}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.label{font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+.rule{position:relative;height:1px;background:var(--ink);margin-bottom:28px}
+.rule::before{content:"";position:absolute;left:0;top:-1px;width:72px;height:3px;background:var(--red)}
+h1,h2{font-weight:500;margin:0}
+h2{font-size:44px;line-height:1.15}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;font-size:15px;font-weight:500;letter-spacing:.04em}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-dark);color:#fff}
+.btn-line{border:1px solid var(--ink);color:var(--ink)}.btn-line:hover{border-color:var(--red);color:var(--red)}
+.btn-white{background:#fff;color:var(--red)}.btn-white:hover{background:#f2f2f2;color:var(--red-dark)}
+
+header{border-bottom:1px solid var(--hair)}
+.head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:18px;padding-bottom:18px}
+.head .logo img{height:58px;width:auto;display:block}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:30px}
+.navlink{color:var(--ink);font-size:15px;font-weight:500;letter-spacing:.02em;padding:12px 0}
+.navlink:hover{color:var(--red)}
+.lang{display:flex;align-items:center;gap:4px;color:var(--grey)}
+.lang a{display:inline-flex;align-items:center;padding:12px 4px;min-height:44px;font-size:14px;color:var(--grey)}
+.lang a:hover{color:var(--ink)}
+.lang a[aria-current="true"]{color:var(--ink);font-weight:600}
+.lang a[lang="zh-Hant"]{font-family:var(--font-zh)}
+
+.hero{padding:120px 0 112px}
+.eyebrow{font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:36px}
+.hero h1{max-width:960px;font-size:64px;line-height:1.12;letter-spacing:-.01em}
+.hero h1 span{color:var(--red)}
+html[lang="zh-Hant"] .hero h1{word-break:keep-all}
+.hero p{margin:40px 0 0;max-width:680px;font-size:19px;line-height:1.7}
+.ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:44px}
+
+.gap{background:#000;color:#fff;padding:96px 0}
+.gap .label{color:#bfbfbf;margin-bottom:48px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px}
+.gap .item{border-top:1px solid var(--grey);padding-top:28px}
+.gap .a,.gap .b{font-size:30px;font-weight:500;line-height:1.3}
+.gap .b{color:#ff5a57}
+.gap p{margin:20px 0 0;font-size:16px;line-height:1.7;color:#d9d9d9}
+
+.section{padding:112px 0}
+.split{display:flex;flex-wrap:wrap;gap:56px}
+.split .left{flex:1 1 340px;min-width:0}
+.split .right{flex:2 1 520px;min-width:0}
+.lead{margin:24px 0 0;font-size:18px;line-height:1.7}
+.roadmap{margin-top:32px;display:flex;flex-direction:column;gap:18px}
+.roadmap div{display:flex;gap:20px;align-items:baseline;border-top:1px solid var(--ink);padding-top:16px}
+.roadmap .yr{flex:none;width:64px;font-size:15px;font-weight:600;color:var(--red)}
+.roadmap .txt{font-size:16px;line-height:1.6}
+.roadmap strong{font-weight:600}
+.dims{list-style:none;margin:0;padding:0}
+.dims li{display:flex;gap:28px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--hair)}
+.dims .n{flex:none;width:36px;font-size:15px;font-weight:600;color:var(--red)}
+.dims .name{font-size:21px;font-weight:500;line-height:1.4}
+
+.ins-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:48px}
+.ins-head .all{font-size:15px;font-weight:500}
+.post{display:block;color:var(--ink);border-top:1px solid var(--ink);padding-top:24px}
+.post:hover{color:var(--ink)}
+.post:hover .title{color:var(--red)}
+.post .meta{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.post .title{margin-top:14px;font-size:23px;line-height:1.35;font-weight:500}
+.post p{margin:14px 0 0;font-size:16px;line-height:1.65;color:var(--grey)}
+
+.member{background:var(--red);color:#fff;padding:104px 0}
+.member .label{color:#ffd9d8}
+.member .split .left{flex:1 1 360px}
+.member .split .right{flex:1 1 420px;display:flex;flex-direction:column}
+.member p{margin:24px 0 0;font-size:18px;line-height:1.7}
+.member p.free{margin-top:16px;font-weight:600}
+.member .btn{margin-top:36px}
+.tier{border-top:1px solid #fff;padding:22px 0 26px}
+.tier .name{font-size:22px;font-weight:500}
+.tier .desc{margin-top:6px;font-size:16px;line-height:1.6;color:#ffe6e5}
+
+.events{padding:96px 0}
+.events .row{display:flex;flex-wrap:wrap;gap:24px 56px;align-items:baseline}
+.events .label{margin:0}
+.events .soon{flex:1 1 420px;font-size:26px;font-weight:500}
+
+footer{background:#000;color:#fff;padding:72px 0 40px}
+footer a{color:#fff}footer a:hover{color:#d9d9d9}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:48px}
+.foot-top img{height:64px;width:auto;display:block}
+.foot-links{display:flex;flex-wrap:wrap;gap:48px 72px;font-size:15px;line-height:2}
+.foot-links div{display:flex;flex-direction:column}
+.foot-links .muted{color:#bfbfbf}
+.foot-bottom{margin-top:64px;padding-top:24px;border-top:1px solid #3a3a3a;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:#bfbfbf}
+
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}
+  .wrap{padding:0 20px}
+  .head .logo img{height:46px}
+  nav{gap:6px 20px}
+  .hero{padding:72px 0 72px}
+  .hero h1{font-size:40px}
+  h2{font-size:32px}
+  .section{padding:72px 0}
+  .gap,.member,.events{padding:72px 0}
+  .gap .a,.gap .b{font-size:26px}
+}
+.acct{display:flex;align-items:center;gap:10px}
+.acct .btn{margin-top:0;padding:0 18px}
+.mbtn,.mpanel{display:none}
+@media (min-width:761px){nav{gap:22px}}
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}
+  .head{flex-wrap:nowrap;gap:12px;padding-top:12px;padding-bottom:12px}
+  .head .logo{flex:none}
+  .head .logo img{height:40px}
+  .head nav{flex-wrap:nowrap;gap:8px;justify-content:flex-end}
+  .head nav > .navlink,.head nav > .lang{display:none}
+  .acct{gap:6px}
+  .acct .btn{min-height:38px;padding:0 11px;font-size:14px;letter-spacing:.02em}
+  .mbtn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin:0;border:0;background:none;color:var(--ink);cursor:pointer;flex:none}
+  .mbtn svg{width:22px;height:22px}
+  .mpanel.on{display:block;border-top:1px solid var(--hair);padding-top:6px;padding-bottom:14px}
+  .mpanel a.navlink{display:block;padding:12px 0;font-size:16px;border-bottom:1px solid var(--hair)}
+  .mpanel .lang{padding-top:6px}
+}
+@media (max-width:360px){.head .logo img{height:34px}.acct .btn{padding:0 9px;font-size:13px}}
+.pubs .book{display:flex;gap:28px;color:var(--ink);border-top:1px solid var(--ink);padding-top:28px}
+.pubs .book img{width:150px;height:auto;flex:none;align-self:flex-start;box-shadow:0 6px 22px rgba(0,0,0,.14);border:1px solid var(--hair)}
+.pubs .book:hover .title{color:var(--red)}
+.pubs .tag{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:600}
+.pubs .title{margin-top:10px;font-size:23px;line-height:1.35;font-weight:500}
+.pubs .orig{margin-top:4px;font-size:15px;color:var(--grey)}
+.pubs .by{margin-top:12px;font-size:15px;font-weight:500}
+.pubs .book p,.pubs .wp p{margin:12px 0 0;font-size:16px;line-height:1.65;color:var(--grey)}
+.pubs .meta{margin-top:12px;font-size:13px;color:var(--grey)}
+.pubs .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500;color:var(--red)}
+.pubs .wp{border-top:1px solid var(--hair);margin-top:36px;padding-top:24px}
+.pubs .mp{border-top:1px solid var(--ink);margin-top:44px;padding-top:24px}
+.pubs .mp-label{font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:22px}
+html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
+.pubs .mp-person{display:flex;gap:24px}
+.pubs .mp-person img{width:96px;height:auto;flex:none;align-self:flex-start;border-radius:50%}
+.pubs .nm{font-size:20px;font-weight:500}
+.pubs .rl{margin-top:4px;font-size:15px;line-height:1.5;color:var(--grey)}
+.pubs .mp ul{list-style:none;margin:16px 0 0;padding:0}
+.pubs .mp li{padding:14px 0;border-top:1px solid var(--hair)}
+.pubs .mp .ti{display:block;margin-top:6px;font-size:17px;line-height:1.45;font-weight:500;color:var(--ink)}
+.pubs .mp .ti:hover{color:var(--red)}
+.pubs .mp li p{margin:6px 0 0;font-size:15px;line-height:1.6;color:var(--grey)}
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}.pubs .book{flex-direction:column;gap:18px}.pubs .book img{width:130px}.pubs .mp-person{flex-direction:column;gap:16px}.pubs .mp-person img{width:80px}}
+
+.bk-hero{padding:72px 0 64px}
+.bk-top{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start}
+.bk-top img{width:100%;height:auto;box-shadow:0 10px 30px rgba(0,0,0,.16);border:1px solid var(--hair)}
+.bk-top h1{font-size:44px;line-height:1.2;font-weight:500;margin:0}
+.bk-top .orig{margin-top:10px;font-size:20px;color:var(--grey)}
+.bk-top .by{margin-top:22px;font-size:17px;line-height:1.6}
+.bk-top .by b{font-weight:600}
+.bk-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 28px;margin:28px 0 0;padding-top:20px;border-top:1px solid var(--hair)}
+.bk-facts dt{font-size:13px;color:var(--grey)}
+.bk-facts dd{margin:2px 0 0;font-size:16px;font-weight:500}
+.bk-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.bk-cta .btn{margin-top:0}
+.bk-sec{padding:0 0 72px}
+.bk-sec h2{font-size:30px;margin:0 0 20px}
+.bk-sec p{font-size:17px;line-height:1.8;margin:0 0 14px;max-width:760px}
+.bk-sec ul{margin:8px 0 0;padding-left:20px;max-width:760px}
+.bk-sec li{font-size:17px;line-height:1.75;margin-bottom:8px}
+.toc{list-style:none;margin:0;padding:0;max-width:760px;border-top:1px solid var(--ink)}
+.toc li{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--hair);margin:0}
+.toc .n{flex:0 0 110px;color:var(--red);font-size:14px;font-weight:600;letter-spacing:.06em;padding-top:3px}
+.toc .t{font-size:17px;line-height:1.55}
+.toc .t small{display:block;font-size:14px;color:var(--grey);margin-top:4px}
+.author{display:grid;grid-template-columns:1fr;max-width:760px;border-left:3px solid var(--red);padding-left:22px}
+.buy{font-size:16px;line-height:1.8;color:var(--grey)}
+@media (max-width:760px){.bk-hero{padding:48px 0 48px}.bk-top{grid-template-columns:1fr;gap:28px}.bk-top img{width:170px}.bk-top h1{font-size:30px}.toc li{flex-direction:column;gap:4px}.toc .n{flex:none}}
+
+.up-steps{list-style:none;margin:0;padding:0;max-width:820px;border-top:1px solid var(--ink)}
+.up-steps li{display:flex;gap:24px;padding:20px 0;border-bottom:1px solid var(--hair);margin:0}
+.up-steps .n{flex:0 0 44px;color:var(--red);font-size:22px;font-weight:600}
+.up-steps .t b{display:block;font-size:19px;font-weight:500;margin-bottom:4px}
+.up-steps .t span{font-size:16px;line-height:1.7;color:var(--grey)}
+.up-req{margin-top:28px;padding:22px 24px;border-left:3px solid var(--red);background:#fafafa;max-width:820px}
+.up-req > b{display:block;font-size:17px;font-weight:600;margin-bottom:6px}
+.up-req p{font-size:16px;line-height:1.7;margin:0}
+.up-code{max-width:820px;background:#111;color:#e8e8e8;padding:20px 22px;font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-x:auto;white-space:pre;margin:18px 0 0}
+.up-price{max-width:820px;border:1px dashed #bdbdbd;padding:22px 24px}
+.up-price p{margin:0 0 16px}
+@media (max-width:760px){.up-steps li{gap:14px}.up-steps .n{flex:0 0 30px}}
+.up-badges{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}.up-badges img{width:100%;max-width:400px;height:auto}.up-note{font-size:14px!important;color:var(--grey)}
+.fq-nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}.fq-nav a{font-size:14px;padding:6px 14px;border:1px solid #dcdcdc;color:#161616;text-decoration:none}.fq-nav a:hover{border-color:#A40706;color:#A40706}main .bk-sec{padding:0 0 36px}main .bk-sec h2{font-size:22px;margin:0 0 10px}main .rule{margin-bottom:16px}.bk-hero{padding:36px 0 24px}.faq details{border-top:1px solid #e4e4e4}.faq details:last-child{border-bottom:1px solid #e4e4e4}.faq summary{padding:12px 0;font-size:15.5px;line-height:1.45}.faq summary::after{font-size:20px}main .faq .ans,main .faq .ans p{font-size:14.5px!important;line-height:1.65!important;color:#444}main .faq .ans{padding:0 0 14px;max-width:760px}@media (min-width:1101px){.head{flex-wrap:nowrap;gap:16px}.head nav{flex-wrap:nowrap;gap:15px}.head .navlink{white-space:nowrap;font-size:14.5px}.head .lang a,.head .acct .btn{white-space:nowrap}.head .lang a{padding:12px 2px}.head .acct .btn{padding:0 14px}}.pil a,.u-ben a,.tc-ben a{display:flex!important;flex-direction:column}.pil a i,.u-ben a i,.tc-ben a i{margin-top:auto;padding-top:4px}@media (max-width:560px){.ctas .btn,.bk-cta .btn{width:100%}}/*navcur*/.navlink[aria-current="page"]{box-shadow:inset 0 -2px 0 currentColor}.navlink[aria-current="page"]:not([style]){color:#161616!important}/*/navcur*/.fq-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px;align-items:start}.fq-grid .wrap{max-width:none!important;padding:0!important;margin:0!important}.fq-sec{margin-bottom:22px}.fq-sec h2{font-size:19px!important;margin:0 0 4px!important}.fq-sec .rule{margin-bottom:10px!important}.faq summary{padding:9px 0!important;font-size:15px!important;gap:14px!important}.faq summary::after{font-size:18px!important}.faq .ans{font-size:14.5px!important;line-height:1.6!important;padding-bottom:12px!important}.faq details{border-top:1px solid #e6e6e6!important}@media (max-width:900px){.fq-grid{grid-template-columns:1fr}}
+</style>
+
+<link rel="stylesheet" href="/assets/css/tight.css?v=19493068">
+<meta property="og:title" content="CGBB Brand Trust Baseline: the standard | Council for Global Brand Building"><meta property="og:description" content="The full public text of the CGBB Brand Trust Baseline (beta draft): five sections, 15 indicators, every check, the rating scales and the scoring rules. Open for comment."><meta property="og:type" content="article"><meta property="og:url" content="https://cgbb.org/standard/"><meta property="og:image" content="https://cgbb.org/assets/logo-horizontal.png"><meta property="og:site_name" content="Council for Global Brand Building"><meta name="twitter:card" content="summary"><link rel="alternate" type="application/json" title="CGBB Brand Trust Baseline (JSON)" href="https://api.cgbb.org/standard/baseline.json"><style id="sd">
+.sd-hero{padding:34px 0 26px}.sd-hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:44px;align-items:start}
+.sd-hero h1{font-size:38px;line-height:1.16;font-weight:500;margin:0 0 14px}.sd-hero .lead{font-size:17px;line-height:1.7;margin:0 0 20px;max-width:640px}
+.sd-ctas{display:flex;flex-wrap:wrap;gap:12px}.sd-ctas .btn{min-height:44px;padding:0 20px;font-size:14.5px}
+.sd-doc{border:1px solid var(--hair);border-top:3px solid var(--red);background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.06);padding:18px 22px}
+.sd-doc h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin:0 0 8px}
+.sd-doc dl{margin:0;display:grid;grid-template-columns:max-content 1fr;font-size:14.5px;line-height:1.55}
+.sd-doc dt{color:var(--grey);padding:7px 18px 7px 0;border-top:1px solid var(--hair)}.sd-doc dd{margin:0;padding:7px 0;border-top:1px solid var(--hair)}
+.sd-doc dt:first-of-type,.sd-doc dd:first-of-type{border-top:0}
+.sd-pill{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;background:#fdf1f1;color:var(--red);margin-left:6px}
+.sd-toc{position:sticky;top:0;z-index:5;background:#fff;border-top:1px solid var(--ink);border-bottom:1px solid var(--hair)}
+.sd-toc .wrap{display:flex;flex-wrap:wrap;gap:4px 22px;padding-top:10px;padding-bottom:10px}.sd-toc a{font-size:14px;font-weight:500;color:var(--ink)}.sd-toc a:hover{color:var(--red)}
+.sd-sec{padding:30px 0 6px;scroll-margin-top:60px}.sd-sec h2{font-size:26px;line-height:1.25;margin:0 0 12px}.sd-sec h2 .n{color:var(--red);margin-right:10px}
+.sd-sec p,.sd-sec li{font-size:16px;line-height:1.7}.sd-sec p{margin:0 0 12px;max-width:820px}.sd-note{font-size:14.5px!important;color:var(--grey)}
+.sd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 28px;margin:6px 0 4px}
+.sd-grid>div{border-top:2px solid var(--red);padding:12px 0 14px}.sd-grid h3{font-size:17px;font-weight:500;margin:0 0 6px}.sd-grid p{font-size:15px;line-height:1.65;margin:0;color:#222}
+.sd-grid.c4{grid-template-columns:repeat(4,minmax(0,1fr))}.sd-grid.c5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.sd-grid a.more{display:inline-block;margin-top:8px;font-size:14.5px;font-weight:500}
+.sd-s{border:1px solid var(--hair);margin:0 0 14px}.sd-sh{display:flex;gap:14px;align-items:baseline;padding:14px 18px;background:#faf9f8;border-bottom:1px solid var(--hair)}
+.sd-sh b{font-size:22px;color:var(--red);font-weight:600;min-width:20px}.sd-sh h3{font-size:18px;font-weight:500;margin:0}.sd-sh span{font-size:14.5px;color:var(--grey);margin-left:auto;text-align:right}
+.sd-s details{border-bottom:1px solid var(--hair);padding:0 18px}.sd-s details:last-child{border-bottom:0}
+.sd-s summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px 1fr auto 22px;gap:10px;align-items:center;padding:12px 0;font-size:16px}
+.sd-s summary::-webkit-details-marker{display:none}.sd-s summary .id{font-weight:600;color:var(--red)}.sd-s summary .ty{font-size:13px;color:var(--grey);white-space:nowrap}
+.sd-s summary::after{content:"+";font-size:20px;color:var(--red);text-align:right}.sd-s details[open] summary::after{content:"–"}
+.sd-s ol{list-style:none;margin:0 0 14px;padding:0 0 0 54px}.sd-s ol li{display:grid;grid-template-columns:52px 1fr;gap:8px;font-size:15px;line-height:1.6;padding:5px 0;border-top:1px dotted #ddd}
+.sd-s ol li span{color:var(--grey);font-variant-numeric:tabular-nums}.sd-s ol li em{font-style:normal;font-size:12px;font-weight:600;color:var(--red);margin-left:8px;white-space:nowrap}
+.sd-s .how{font-size:14.5px;line-height:1.6;color:#333;margin:0 0 8px;padding-left:54px}
+.sd-t{width:100%;border-collapse:collapse;font-size:15px;line-height:1.55;margin:6px 0 14px}.sd-t th{text-align:left;font-weight:600;border-bottom:1px solid var(--ink);padding:8px 14px 8px 0;font-size:14px}
+.sd-t td{border-bottom:1px solid var(--hair);padding:9px 14px 9px 0;vertical-align:top}.sd-t td:first-child{white-space:nowrap;font-weight:500}
+.sd-scale{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin:6px 0 14px}.sd-scale div{padding:10px 12px;background:#f6f4f2;font-size:14px;line-height:1.4}.sd-scale b{display:block;font-size:15px;color:var(--red)}
+.sd-rules{margin:0 0 12px;padding:0;list-style:none;max-width:860px}.sd-rules li{padding:9px 0 9px 18px;border-top:1px solid var(--hair);position:relative}.sd-rules li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:2px;background:var(--red)}
+.sd-cite{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;line-height:1.6;background:#f6f4f2;padding:12px 14px;max-width:860px;word-break:break-word}
+.sd-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0 26px;border-top:1px solid var(--ink);margin-top:18px}
+.sd-facts div{padding:12px 0;border-bottom:1px solid var(--hair)}.sd-facts dt{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-bottom:3px}.sd-facts dd{margin:0;font-size:15.5px;line-height:1.5}
+.sd-commit{counter-reset:c;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 44px;margin:8px 0 0;padding:0;list-style:none}
+.sd-commit li{counter-increment:c;border-top:1px solid var(--hair);padding:14px 0 14px 44px;position:relative}.sd-commit li::before{content:counter(c);position:absolute;left:0;top:14px;width:28px;height:28px;background:var(--red);color:#fff;font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center}
+.sd-commit h3{font-size:17px;font-weight:500;margin:0 0 4px}.sd-commit p{font-size:15px;line-height:1.65;margin:0;color:#222}
+.sd-road{margin:6px 0 0;padding:0;list-style:none;max-width:860px}.sd-road li{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:10px 0;border-top:1px solid var(--hair);font-size:15.5px;line-height:1.6}.sd-road li b{color:var(--red);font-weight:600}.sd-road li i{font-style:normal;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-left:8px}
+.fbk{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;max-width:860px;margin:10px 0 6px}.fbk label{display:block;font-size:14px;font-weight:500;margin-bottom:5px}.fbk .full{grid-column:1/-1}
+.fbk input,.fbk select,.fbk textarea{width:100%;border:1px solid #bdbdbd;padding:11px 12px;font:inherit;font-size:15.5px;background:#fff;border-radius:0}.fbk textarea{min-height:120px;resize:vertical}
+.fbk input:focus,.fbk select:focus,.fbk textarea:focus{outline:2px solid var(--red);outline-offset:-1px}.fbk .hp{position:absolute;left:-9999px}
+.fbk .row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}.fbk button{border:0;cursor:pointer;font:inherit}.fbk .msg{font-size:15px;line-height:1.5}.fbk .msg.ok{color:#1c6b33}.fbk .msg.err{color:var(--red)}
+.fbk .req{color:var(--red)}
+.sd-end{padding:26px 0 44px}
+@media(max-width:1000px){.sd-grid.c4,.sd-grid.c5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:860px){.sd-grid.c4,.sd-grid.c5{grid-template-columns:1fr}.sd-hero .wrap{grid-template-columns:1fr;gap:22px}.sd-hero h1{font-size:30px}.sd-commit{grid-template-columns:1fr}.sd-scale{grid-template-columns:1fr 1fr}.sd-sh{flex-wrap:wrap}.sd-sh span{margin-left:0;text-align:left;width:100%}
+.sd-s summary{grid-template-columns:38px 1fr 22px}.sd-s summary .ty{display:none}.sd-s ol,.sd-s .how{padding-left:0}.fbk{grid-template-columns:1fr}.sd-road li{grid-template-columns:1fr;gap:2px}.sd-toc{position:static}.sd-t{font-size:14px}.sd-t td:first-child{white-space:normal}}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["TechArticle", "DefinedTermSet"], "name": "CGBB Brand Trust Baseline", "headline": "CGBB Brand Trust Baseline: the standard | Council for Global Brand Building", "description": "The full public text of the CGBB Brand Trust Baseline (beta draft): five sections, 15 indicators, every check, the rating scales and the scoring rules. Open for comment.", "version": "baseline-2026.11", "creativeWorkStatus": "Draft", "inLanguage": "en", "url": "https://cgbb.org/standard/", "publisher": {"@id": "https://cgbb.org/#organization"}, "author": {"@id": "https://cgbb.org/#organization"}, "datePublished": "2026-11-11", "isAccessibleForFree": true, "encoding": {"@type": "MediaObject", "encodingFormat": "application/json", "contentUrl": "https://api.cgbb.org/standard/baseline.json"}, "hasDefinedTerm": [{"@type": "DefinedTerm", "termCode": "A1", "name": "Verifiable legal entity", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "A2", "name": "Clear management and responsibility information", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "A3", "name": "Consistent, current information across channels", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "B1", "name": "Customer feedback", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "B2", "name": "Partner delivery and cooperation record", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "B3", "name": "Other real external experience", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "C1", "name": "Market access and required licences", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "C2", "name": "Compliance and governance foundations", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "C3", "name": "Legal, regulatory and governance record", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "D1", "name": "Necessary disclosure", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "D2", "name": "Complaint and dispute response", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "D3", "name": "Remediation and follow-up", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "E1", "name": "Verifiable responsibility practice", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "E2", "name": "Local hiring and partnerships", "inDefinedTermSet": "https://cgbb.org/standard/"}, {"@type": "DefinedTerm", "termCode": "E3", "name": "Community and long-term local relationships", "inDefinedTermSet": "https://cgbb.org/standard/"}]}</script></head>
+<body>
+<header>
+<div class="wrap head">
+<a class="logo" href="/" aria-label="CGBB home"><img src="/assets/logo-horizontal.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會"></a>
+<nav aria-label="Main">
+<a class="navlink" href="/" data-home>Home</a>
+<a class="navlink" href="/standard/" aria-current="page">Standard</a>
+<a class="navlink" href="/#publications">Publications</a><a class="navlink" href="/apply/">Membership</a><a class="navlink" href="/verify/" style="color:#A40706">Verify</a>
+<a class="navlink" href="/about/">About</a>
+<span class="lang"><a href="/faq/" hreflang="en" lang="en" data-lang="en" aria-current="true">EN</a><span aria-hidden="true">|</span><a href="/zh/faq/" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh" aria-current="false">繁中</a><span aria-hidden="true">|</span><a href="/cn/faq/" hreflang="zh-Hans" lang="zh-Hans" data-lang="cn" aria-current="false">简中</a></span>
+<span class="acct" data-acct data-mine="My account" data-href="/account/"><a class="btn btn-line" href="/account/#login">Log in</a><a class="btn btn-red" href="/apply/">Join</a></span>
+</nav>
+</div>
+</header>
+<main>
+<section class="sd-hero"><div class="wrap"><div><div class="rule"></div><div class="label">CGBB standard</div>
+<h1>CGBB Brand Trust Baseline</h1>
+<p class="lead">The CGBB standard for assessing how well a brand’s trust is evidenced: five sections, 15 indicators and fixed scoring rules. This page is the full public text of the current draft.</p>
+<div class="sd-ctas"><a class="btn btn-red" href="#comment">Comment on the draft</a><a class="btn btn-line" href="https://api.cgbb.org/standard/baseline.json">Machine-readable version (JSON)</a></div></div>
+<aside class="sd-doc" aria-label="Document status"><h2>Document status</h2><dl>
+<dt>Document</dt><dd>CGBB Brand Trust Baseline</dd>
+<dt>Version</dt><dd>baseline-2026.11<span class="sd-pill">Beta draft</span></dd>
+<dt>In use for</dt><dd>The members’ self-test (indicative). Not yet used for public ratings.</dd>
+<dt>Next</dt><dd>Version 1, published with the CGBB whitepaper in Hong Kong at the end of November 2026.</dd>
+<dt>Maintained by</dt><dd>CGBB Secretariat</dd>
+<dt>Comments</dt><dd><a href="#comment">Open to everyone</a></dd>
+</dl></aside></div></section>
+<div class="sd-toc" role="navigation" aria-label="On this page"><div class="wrap"><a href="#scope">1. Scope</a><a href="#principles">2. Principles</a><a href="#indicators">3. Indicators</a><a href="#rating">4. Rating</a><a href="#scoring">5. Scoring</a><a href="#results">6. Results</a><a href="#versions">7. Versions</a><a href="#comment">8. Comment</a></div></div>
+<div class="wrap">
+<section class="sd-sec" id="scope"><h2><span class="n">1</span>Scope</h2>
+<p>The Baseline assesses a brand: the organisation behind it and the public record that organisation has built. It applies to companies of any size, industry or market.</p>
+<p>It measures how well trust is evidenced. It does not test products, audit accounts or give legal opinions, and a result is not a certification, audit or guarantee of a company’s products, quality, financial standing, compliance or conduct.</p></section>
+<section class="sd-sec" id="principles"><h2><span class="n">2</span>Principles</h2><div class="sd-grid c5">
+<div><h3>Evidence, not claims</h3><p>Every indicator is rated from concrete checks. “Not sure” counts as no evidence.</p></div>
+<div><h3>Same evidence, same result</h3><p>The rules are fixed and versioned. Nobody adjusts a result by hand.</p></div>
+<div><h3>Risks are not averaged away</h3><p>A major unresolved risk limits the score, however strong the other sections are.</p></div>
+<div><h3>“Not enough information” is a result</h3><p>Where the evidence is too thin to judge, the Baseline says so and gives no score.</p></div>
+<div><h3>Public rules</h3><p>This text, the scoring rules and the change log are public, and anyone can comment.</p></div>
+</div></section>
+<section class="sd-sec" id="indicators"><h2><span class="n">3</span>Five sections, 15 indicators</h2>
+<p>Each section asks one question about the brand. Each indicator is rated from the checks listed under it (73 checks in all). Select an indicator to read its checks.</p>
+<div class="sd-s" id="section-A"><div class="sd-sh"><b>A</b><h3>Identifiability and consistency</h3><span>Who are you, can outsiders confirm it, and do the sources match?</span></div><details id="A1"><summary><span class="id">A1</span><span>Verifiable legal entity</span><span class="ty">Fact checks · 5 checks</span></summary><p class="how">Score = 5 × the share of checks met.</p><ol><li><span>A1.1</span><div>Our website and official channels name the company (legal entity) behind the brand.</div></li><li><span>A1.2</span><div>We state the country or region where that company is registered.</div></li><li><span>A1.3</span><div>Anyone can look the company up in a government company registry or other official record.<em>Key check</em></div></li><li><span>A1.4</span><div>It is clear which company owns or runs the brand.</div></li><li><span>A1.5</span><div>We publish a business address or contact details that match that company.</div></li></ol></details><details id="A2"><summary><span class="id">A2</span><span>Clear management and responsibility information</span><span class="ty">Fact checks · 5 checks</span></summary><p class="how">Score = 5 × the share of checks met.</p><ol><li><span>A2.1</span><div>Our management, founders or key people are named publicly.</div></li><li><span>A2.2</span><div>We have a company profile on LinkedIn or a similar professional platform.</div></li><li><span>A2.3</span><div>Our key managers, including those leading overseas markets, have public profiles that can be checked.</div></li><li><span>A2.4</span><div>We publish working contact channels for customers, business partners and media.</div></li><li><span>A2.5</span><div>In our important overseas markets, people can find who is responsible locally (company, team or contact).</div></li></ol></details><details id="A3"><summary><span class="id">A3</span><span>Consistent, current information across channels</span><span class="ty">Fact checks · 4 checks</span></summary><p class="how">Score = 5 × the share of checks met.</p><ol><li><span>A3.1</span><div>Our name, company, location and main business are the same on our website, the company registry and main platforms.</div></li><li><span>A3.2</span><div>The language versions of our website agree on the core facts.</div></li><li><span>A3.3</span><div>Our LinkedIn and similar profiles match our website and registry details.</div></li><li><span>A3.4</span><div>Our core company information is up to date.</div></li></ol></details></div><div class="sd-s" id="section-B"><div class="sd-sh"><b>B</b><h3>Reviews and delivery record</h3><span>What records have real customers and partners left?</span></div><details id="B1"><summary><span class="id">B1</span><span>Customer feedback</span><span class="ty">External record · 5 checks</span></summary><p class="how">Score = the average of the overall performance of the records (1–5) and 5 × the share of checks met. Needs enough records to judge.</p><ol><li><span>B1.1</span><div>Customer ratings, reviews or complaint records about us can be found and traced.</div></li><li><span>B1.2</span><div>We have a real track record on the main review, marketplace or complaint platforms in our markets.</div></li><li><span>B1.3</span><div>The number, dates and spread of those reviews can be seen.</div></li><li><span>B1.4</span><div>The same complaint or negative experience recurs across records.</div></li><li><span>B1.5</span><div>Complaints and disputes are shown as resolved, closed or being followed up.</div></li></ol></details><details id="B2"><summary><span class="id">B2</span><span>Partner delivery and cooperation record</span><span class="ty">External record · 5 checks</span></summary><p class="how">Score = the average of the overall performance of the records (1–5) and 5 × the share of checks met. Needs enough records to judge.</p><ol><li><span>B2.1</span><div>Our relationships with customers, suppliers or buyers can be confirmed independently.</div></li><li><span>B2.2</span><div>There are records of repeat orders, multi-year cooperation or long-term projects.</div></li><li><span>B2.3</span><div>Major clients, projects or partners we name can be confirmed by them or by other sources.</div></li><li><span>B2.4</span><div>Third-party credit or payment records about us exist.</div></li><li><span>B2.5</span><div>There are confirmed major delivery disputes, long overdue payments, serious breaches or broken partnerships.</div></li></ol></details><details id="B3"><summary><span class="id">B3</span><span>Other real external experience</span><span class="ty">External record · 5 checks</span></summary><p class="how">Score = the average of the overall performance of the records (1–5) and 5 × the share of checks met. Needs enough records to judge.</p><ol><li><span>B3.1</span><div>Employees, professional users or other stakeholders have left feedback about us that can be traced.</div></li><li><span>B3.2</span><div>It is clear who left that feedback, when, and in what context.</div></li><li><span>B3.3</span><div>The platforms where it appears verify purchases or identities.</div></li><li><span>B3.4</span><div>The same experience or problem recurs across several records.</div></li><li><span>B3.5</span><div>Main external sources contradict each other in ways that are not explained.</div></li></ol></details></div><div class="sd-s" id="section-C"><div class="sd-sh"><b>C</b><h3>Compliance and governance</h3><span>Are the rules met, and are there material risks?</span></div><details id="C1"><summary><span class="id">C1</span><span>Market access and required licences</span><span class="ty">Fact checks · 5 checks</span></summary><p class="how">Score = 5 × the share of checks met.</p><ol><li><span>C1.1</span><div>We hold the licences, registrations or certifications needed to operate in our target markets.<em>Key check</em></div></li><li><span>C1.2</span><div>They are valid today.</div></li><li><span>C1.3</span><div>They can be checked in an official database (regulator, issuing body or similar).</div></li><li><span>C1.4</span><div>A key licence has expired, been revoked or materially changed in scope.</div></li><li><span>C1.5</span><div>Expired, revoked or out-of-scope licence information is still being used.</div></li></ol></details><details id="C2"><summary><span class="id">C2</span><span>Compliance and governance foundations</span><span class="ty">Maturity level · 8 checks</span></summary><p class="how">Score = the maturity level (0–5), limited by the share of checks met.</p><ol><li><span>C2.1</span><div>Someone in the company is responsible for compliance, suited to our size and risks.</div></li><li><span>C2.2</span><div>We have rules or channels for business conduct, anti-bribery, anti-fraud or whistle-blowing.</div></li><li><span>C2.3</span><div>We have privacy and data-protection policies, and someone responsible for them.</div></li><li><span>C2.4</span><div>We can show we own, or have the right to use, our main brands, products and technologies.</div></li><li><span>C2.5</span><div>Claims about our products&#x27; performance, health, safety or environmental benefits are backed by evidence.</div></li><li><span>C2.6</span><div>We have policies or systems for labour and supply-chain rules.</div></li><li><span>C2.7</span><div>We screen for sanctions and export controls.</div></li><li><span>C2.8</span><div>We meet any other compliance requirements that apply to us, and can show it.</div></li></ol></details><details id="C3"><summary><span class="id">C3</span><span>Legal, regulatory and governance record</span><span class="ty">Record scale · six-level scale</span></summary><p class="how">Rated on the record scale: the level that matches the organisation’s legal, regulatory and governance record.</p><ol><li><span>5</span><div>No legal or regulatory problems. We have checked court, regulator and company-registry records and found nothing significant.</div></li><li><span>4</span><div>Past problems only, all resolved. Any past cases, fines or findings are closed or fixed, and have not happened again.</div></li><li><span>3</span><div>A routine matter is still open. For example a commercial dispute or a regulator&#x27;s inquiry that we are handling.</div></li><li><span>2</span><div>A confirmed problem we are fixing. For example a fine or a finding against us, with corrective action under way.</div></li><li><span>1</span><div>Confirmed problems that keep recurring or remain unresolved. The same kind of problem has happened more than once, or has not been fixed.</div></li><li><span>0</span><div>Serious violations. For example major penalties, a revoked licence or criminal findings.</div></li></ol></details></div><div class="sd-s" id="section-D"><div class="sd-sh"><b>D</b><h3>Transparency and response</h3><span>When answers are needed, how does the company explain and act?</span></div><details id="D1"><summary><span class="id">D1</span><span>Necessary disclosure</span><span class="ty">Maturity level · 5 checks</span></summary><p class="how">Score = the maturity level (0–5), limited by the share of checks met.</p><ol><li><span>D1.1</span><div>Customers, partners, staff and others can easily find the information they need to judge us.</div></li><li><span>D1.2</span><div>When we make major factual claims, we say where the data comes from or how it was measured.</div></li><li><span>D1.3</span><div>We make clear what is confirmed fact, what is a forecast and what is opinion.</div></li><li><span>D1.4</span><div>We update or correct important public information when it changes.</div></li><li><span>D1.5</span><div>When something major happens, we explain the confirmed facts to the people affected, within legal limits.</div></li></ol></details><details id="D2"><summary><span class="id">D2</span><span>Complaint and dispute response</span><span class="ty">Maturity level · 6 checks</span></summary><p class="how">Score = the maturity level (0–5), limited by the share of checks met. If no complaint, dispute or major issue arose in the period, the score is limited to 3: a prepared process has not yet been tested.</p><ol><li><span>D2.1</span><div>We have a clear channel for complaints, disputes or major issues.</div></li><li><span>D2.2</span><div>Someone in the company owns the response, with a basic process.</div></li><li><span>D2.3</span><div>When cases came up, we responded.</div></li><li><span>D2.4</span><div>It can be shown when and how we responded.</div></li><li><span>D2.5</span><div>Our responses state the facts confirmed so far, with evidence where needed.</div></li><li><span>D2.6</span><div>Our responses set out a fix, remedy or corrective plan, and who is responsible.</div></li></ol></details><details id="D3"><summary><span class="id">D3</span><span>Remediation and follow-up</span><span class="ty">Maturity level · 5 checks</span></summary><p class="how">Score = the maturity level (0–5), limited by the share of checks met. If no complaint, dispute or major issue arose in the period, the score is limited to 3: a prepared process has not yet been tested.</p><ol><li><span>D3.1</span><div>The fixes or measures we announced were actually carried out.</div></li><li><span>D3.2</span><div>They produced results that can be checked (case closed, compensation paid, recall completed, fix released, policy changed).</div></li><li><span>D3.3</span><div>We give follow-up updates on matters still in progress.</div></li><li><span>D3.4</span><div>Sources outside the company confirm those measures or results.</div></li><li><span>D3.5</span><div>The same problem has happened again since.</div></li></ol></details></div><div class="sd-s" id="section-E"><div class="sd-sh"><b>E</b><h3>Responsibility and localisation</h3><span>What local, long-term record has the company built?</span></div><details id="E1"><summary><span class="id">E1</span><span>Verifiable responsibility practice</span><span class="ty">Maturity level · 5 checks</span></summary><p class="how">Score = the maturity level (0–5), limited by the share of checks met.</p><ol><li><span>E1.1</span><div>We have responsibility (ESG/CSR) practices, goals or projects linked to our business and local operations.</div></li><li><span>E1.2</span><div>We have acted on these commitments, not only written policies or publicity.</div></li><li><span>E1.3</span><div>We have kept these actions going over time.</div></li><li><span>E1.4</span><div>They have produced results or progress records that can be checked.</div></li><li><span>E1.5</span><div>Third-party partners, certifications or assurance support them.</div></li></ol></details><details id="E2"><summary><span class="id">E2</span><span>Local hiring and partnerships</span><span class="ty">Maturity level · 5 checks</span></summary><p class="how">Score = the maturity level (0–5), limited by the share of checks met.</p><ol><li><span>E2.1</span><div>We employ people locally in our overseas markets.</div></li><li><span>E2.2</span><div>We invest in training and developing local staff.</div></li><li><span>E2.3</span><div>We work with local business partners or suppliers.</div></li><li><span>E2.4</span><div>This local hiring and cooperation has continued over time.</div></li><li><span>E2.5</span><div>Records outside the company confirm this.</div></li></ol></details><details id="E3"><summary><span class="id">E3</span><span>Community and long-term local relationships</span><span class="ty">Maturity level · 5 checks</span></summary><p class="how">Score = the maturity level (0–5), limited by the share of checks met.</p><ol><li><span>E3.1</span><div>We take part in local community activities, industry bodies or other local events.</div></li><li><span>E3.2</span><div>We have kept taking part over time, not only in one-off events.</div></li><li><span>E3.3</span><div>This has built lasting relationships that outsiders can see.</div></li><li><span>E3.4</span><div>It has produced visible results for our local operations or community relations.</div></li><li><span>E3.5</span><div>Local partners, industry bodies, community groups or other records confirm it.</div></li></ol></details></div>
+<p class="sd-note">Key checks: if a key check is not met, the indicator is limited to 1. Sections A and C each have a key indicator (A1 and C1).</p></section>
+<section class="sd-sec" id="rating"><h2><span class="n">4</span>How an indicator is rated</h2>
+<p>Each check is answered Yes, No, Not sure or Not applicable. Checks that do not apply are left out. Every indicator then gets a rating from 0 to 5, or ND (not enough information).</p>
+<table class="sd-t"><thead><tr><th>Type</th><th>Indicators</th><th>How the 0–5 rating is set</th></tr></thead><tbody>
+<tr><td>Fact checks</td><td>A1, A2, A3, C1</td><td>5 × the share of answered checks that are met, rounded. At least 60% of the checks must be answered, otherwise ND.</td></tr>
+<tr><td>External record</td><td>B1, B2, B3</td><td>The average of two things: the overall performance shown by the records (1–5), and 5 × the share of checks met. ND if there are too few records to judge.</td></tr>
+<tr><td>Maturity level</td><td>C2, D1, D2, D3, E1, E2, E3</td><td>The maturity level (0–5, table below), limited by how much of it the checks support.</td></tr>
+<tr><td>Record scale</td><td>C3</td><td>The matching level on the six-level record scale (0–5).</td></tr>
+</tbody></table>
+<div class="sd-grid" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)"><div style="border-top:0;padding-top:0"><table class="sd-t"><thead><tr><th>Maturity level</th><th>Meaning</th></tr></thead><tbody><tr><td>0 · Not in place</td><td>Confirmed that it does not exist, or practice runs against it.</td></tr><tr><td>1 · Initial</td><td>Scattered actions or commitments, no stable owner or process.</td></tr><tr><td>2 · Basic</td><td>Owner, policy or process set up; running only to a limited extent.</td></tr><tr><td>3 · Running</td><td>Runs regularly in daily operations, with repeated records.</td></tr><tr><td>4 · Improving</td><td>Monitored, reviewed and improved in a closed loop.</td></tr><tr><td>5 · Embedded</td><td>Part of everyday management, with records across several years.</td></tr></tbody></table></div>
+<div style="border-top:0;padding-top:0"><table class="sd-t"><thead><tr><th>Share of checks met</th><th>Highest level allowed</th></tr></thead><tbody><tr><td>at least 80%</td><td>5</td></tr><tr><td>at least 60%</td><td>4</td></tr><tr><td>at least 40%</td><td>3</td></tr><tr><td>at least 20%</td><td>2</td></tr><tr><td>under 20%</td><td>1</td></tr></tbody></table></div></div></section>
+<section class="sd-sec" id="scoring"><h2><span class="n">5</span>Scoring rules</h2>
+<ul class="sd-rules">
+<li><b>Section rating (0–5).</b> The average of its rated indicators, to the nearest half point. A section needs at least 2 rated indicators, and its key indicator must be rated; otherwise it is ND.</li>
+<li><b>Weak points limit a section.</b> If any indicator is rated 0, or the key indicator is rated 0–1, the section is limited to 3.</li>
+<li><b>Score (0–100).</b> 20 × the average of the five section ratings.</li>
+<li><b>Major risks limit the score.</b> An unresolved major risk, or A1 or C1 rated 0–1, limits the score to 59. Section A or C rated 0–1 limits it to 39.</li>
+<li><b>Not enough information.</b> No score is given if section A or C cannot be rated, if fewer than 4 sections are rated, or if under 60% of the items have an answer.</li>
+<li><b>Evidence support.</b> Reported with every result. High: at least 80% of items answered and at least 50% confirmed from an independent source. Medium: at least 60% answered. Low: at least 40%.</li>
+<li><b>Rounding.</b> All rounding is half up, in whole-number arithmetic, so a result never depends on the computer that calculates it.</li>
+</ul>
+<div class="sd-scale"><div><b>0–19</b>Trust foundations lacking</div><div><b>20–39</b>Trust at an early stage</div><div><b>40–59</b>Trust developing</div><div><b>60–79</b>Trust established</div><div><b>80–100</b>Trust well established</div></div></section>
+<section class="sd-sec" id="results"><h2><span class="n">6</span>How results are used</h2>
+<table class="sd-t"><thead><tr><th>Use</th><th>Who provides the evidence</th><th>What is public</th></tr></thead><tbody>
+<tr><td>Self-test <span class="sd-pill">Beta</span></td><td>The member answers the checks for its own, badge-confirmed brand. A scan of the brand’s website can confirm answers left as “Not sure”; it never lowers a score.</td><td>Nothing. The result is indicative and private to the member and the Secretariat.</td></tr>
+<tr><td>Trust Review <span class="sd-pill">Not open yet</span></td><td>CGBB checks the evidence behind each indicator. Opens with Advanced Membership, after version 1 is published and has completed a beta period with independent expert review.</td><td>For brands that meet the published standard: the Verified Trusted level, with the score and section profile, in the registry. None has been issued yet.</td></tr>
+</tbody></table>
+<p class="sd-note">The requirements for the Verified Trusted level are published with version 1. <a href="/verify/">How to read a registry record →</a></p></section>
+<section class="sd-sec" id="versions"><h2><span class="n">7</span>Versions and change log</h2>
+<p>Every result records the version of the rules it was scored under. When the rules change, the version changes, and the change is listed here.</p>
+<table class="sd-t"><thead><tr><th>Version</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+<tr><td>baseline-2026.11</td><td>Beta draft · November 2026</td><td>First public draft: five sections, 15 indicators, 73 checks. In use for the members’ self-test.</td></tr>
+<tr><td>Version 1</td><td>Planned · end of November 2026</td><td>Published with the CGBB whitepaper in Hong Kong, followed by a beta period with independent expert review.</td></tr>
+</tbody></table>
+<p style="margin-bottom:6px"><b>How to cite</b></p>
+<p class="sd-cite">Council for Global Brand Building (2026). <i>CGBB Brand Trust Baseline</i>, beta draft baseline-2026.11. https://cgbb.org/standard/</p></section>
+<section class="sd-sec" id="comment"><h2><span class="n">8</span>Comment on the draft</h2>
+<p>Anyone can comment: companies, researchers, journalists, buyers. Tell us which indicator or rule you mean and what you would change. The Secretariat reads every comment, and comments are considered for version 1 and later versions.</p>
+<form class="fbk" id="fb-standard" data-lang="en" data-m-ok="Thank you. Your message has reached the Secretariat. Reference: {id}. A confirmation is on its way to your email." data-m-email="Please enter a valid email address." data-m-empty="Please write your message (at least a sentence)." data-m-bot="Please complete the security check, then send again." data-m-rate="Too many messages from this address. Please try again later, or email secretariat@cgbb.org." data-m-fail="Sorry, the message could not be sent. Please try again, or email secretariat@cgbb.org." data-m-sending="Sending…" novalidate>
+<input type="hidden" name="kind" value="standard">
+<div><label for="fb-standard-n">Your name</label><input id="fb-standard-n" name="name" autocomplete="name" maxlength="120"></div>
+<div><label for="fb-standard-e">Email <span class="req">*</span></label><input id="fb-standard-e" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="name@company.com"></div>
+<div><label for="fb-standard-o">Organisation (optional)</label><input id="fb-standard-o" name="org" autocomplete="organization" maxlength="160"></div>
+<div><label for="fb-standard-s">Indicator or rule (optional)</label><input id="fb-standard-s" name="subject" maxlength="200" placeholder="e.g. C2, or the major-risk rule"></div>
+<div class="full"><label for="fb-standard-m">Message <span class="req">*</span></label><textarea id="fb-standard-m" name="message" required maxlength="4000"></textarea></div>
+<div class="hp" aria-hidden="true"><label>Leave this field empty<input name="website2" tabindex="-1" autocomplete="off"></label></div>
+<div class="full"><div class="cf-ts" data-action="feedback" data-language="en"></div></div>
+<div class="full row"><button type="submit" class="btn btn-red">Send to the Secretariat</button><span class="msg" role="status" aria-live="polite"></span></div>
+</form>
+</section>
+</div><div class="sd-end"></div>
+</main>
+<footer>
+<div class="wrap">
+<div class="foot-top">
+<img src="/assets/logo-horizontal-white.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促進會">
+<div class="foot-links">
+<div><a href="/">Home</a><a href="/standard/">Standard</a><a href="/#publications">Publications</a></div>
+<div><a href="/apply/">Membership</a><a href="/verify/">Verify</a><a href="/about/">About</a><a href="/faq/">FAQ</a><a href="https://www.linkedin.com/company/120314036/">LinkedIn</a></div>
+<div><span class="muted">Contact</span><a href="mailto:secretariat@cgbb.org">secretariat@cgbb.org</a><a href="/membership/agents/">For AI agents</a><a href="/privacy/">Privacy policy</a><a href="/terms/">Terms of use</a></div>
+</div>
+</div>
+<div class="foot-bottom"><span>© 2026 Council for Global Brand Building</span><span style="letter-spacing:.06em">全球化品牌信任促進會</span></div>
+</div>
+</footer>
+<script src="/assets/js/site-menu.js?v=814e5807"></script>
+<script src="/assets/js/site-lang.js?v=725ed270"></script>
+<script src="/assets/js/turnstile.js?v=b3e46545"></script><script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=cgbbTurnstileReady" async defer></script><script src="/assets/js/feedback.js?v=ac659d23"></script>
+</body>
+</html>

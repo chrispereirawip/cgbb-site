@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://api.cgbb.org https://api.web3forms.com https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.cgbb.org">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>品牌可信度基线评估：标准全文 | 品信会</title>
+<meta name="description" content="品信会品牌可信度基线评估（测试版草案）完整公开文本：五个部分、15 项指标、全部核查项、评级量表及计分规则，公开征求意见。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://cgbb.org/cn/standard/">
+<link rel="alternate" hreflang="en" href="https://cgbb.org/standard/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cgbb.org/zh/standard/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cgbb.org/cn/standard/">
+<link rel="alternate" hreflang="x-default" href="https://cgbb.org/standard/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<style>
+:root{--red:#A40706;--red-dark:#7a0504;--grey:#5F5F5F;--ink:#000000;--paper:#ffffff;--hair:#e4e4e4;
+--font-en:'Jost','Avenir Next','Helvetica Neue',sans-serif;--font-zh:'PingFang SC','Microsoft YaHei','Noto Sans SC','Jost',sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-en);-webkit-font-smoothing:antialiased}
+html[lang="zh-Hant"] body{font-family:var(--font-zh)}
+a{color:var(--red);text-decoration:none}
+a:hover{color:var(--red-dark)}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.label{font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+.rule{position:relative;height:1px;background:var(--ink);margin-bottom:28px}
+.rule::before{content:"";position:absolute;left:0;top:-1px;width:72px;height:3px;background:var(--red)}
+h1,h2{font-weight:500;margin:0}
+h2{font-size:44px;line-height:1.15}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;font-size:15px;font-weight:500;letter-spacing:.04em}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-dark);color:#fff}
+.btn-line{border:1px solid var(--ink);color:var(--ink)}.btn-line:hover{border-color:var(--red);color:var(--red)}
+.btn-white{background:#fff;color:var(--red)}.btn-white:hover{background:#f2f2f2;color:var(--red-dark)}
+
+header{border-bottom:1px solid var(--hair)}
+.head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:18px;padding-bottom:18px}
+.head .logo img{height:58px;width:auto;display:block}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:30px}
+.navlink{color:var(--ink);font-size:15px;font-weight:500;letter-spacing:.02em;padding:12px 0}
+.navlink:hover{color:var(--red)}
+.lang{display:flex;align-items:center;gap:4px;color:var(--grey)}
+.lang a{display:inline-flex;align-items:center;padding:12px 4px;min-height:44px;font-size:14px;color:var(--grey)}
+.lang a:hover{color:var(--ink)}
+.lang a[aria-current="true"]{color:var(--ink);font-weight:600}
+.lang a[lang="zh-Hant"]{font-family:var(--font-zh)}
+
+.hero{padding:120px 0 112px}
+.eyebrow{font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:36px}
+.hero h1{max-width:960px;font-size:64px;line-height:1.12;letter-spacing:-.01em}
+.hero h1 span{color:var(--red)}
+html[lang="zh-Hant"] .hero h1{word-break:keep-all}
+.hero p{margin:40px 0 0;max-width:680px;font-size:19px;line-height:1.7}
+.ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:44px}
+
+.gap{background:#000;color:#fff;padding:96px 0}
+.gap .label{color:#bfbfbf;margin-bottom:48px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px}
+.gap .item{border-top:1px solid var(--grey);padding-top:28px}
+.gap .a,.gap .b{font-size:30px;font-weight:500;line-height:1.3}
+.gap .b{color:#ff5a57}
+.gap p{margin:20px 0 0;font-size:16px;line-height:1.7;color:#d9d9d9}
+
+.section{padding:112px 0}
+.split{display:flex;flex-wrap:wrap;gap:56px}
+.split .left{flex:1 1 340px;min-width:0}
+.split .right{flex:2 1 520px;min-width:0}
+.lead{margin:24px 0 0;font-size:18px;line-height:1.7}
+.roadmap{margin-top:32px;display:flex;flex-direction:column;gap:18px}
+.roadmap div{display:flex;gap:20px;align-items:baseline;border-top:1px solid var(--ink);padding-top:16px}
+.roadmap .yr{flex:none;width:64px;font-size:15px;font-weight:600;color:var(--red)}
+.roadmap .txt{font-size:16px;line-height:1.6}
+.roadmap strong{font-weight:600}
+.dims{list-style:none;margin:0;padding:0}
+.dims li{display:flex;gap:28px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--hair)}
+.dims .n{flex:none;width:36px;font-size:15px;font-weight:600;color:var(--red)}
+.dims .name{font-size:21px;font-weight:500;line-height:1.4}
+
+.ins-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:48px}
+.ins-head .all{font-size:15px;font-weight:500}
+.post{display:block;color:var(--ink);border-top:1px solid var(--ink);padding-top:24px}
+.post:hover{color:var(--ink)}
+.post:hover .title{color:var(--red)}
+.post .meta{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.post .title{margin-top:14px;font-size:23px;line-height:1.35;font-weight:500}
+.post p{margin:14px 0 0;font-size:16px;line-height:1.65;color:var(--grey)}
+
+.member{background:var(--red);color:#fff;padding:104px 0}
+.member .label{color:#ffd9d8}
+.member .split .left{flex:1 1 360px}
+.member .split .right{flex:1 1 420px;display:flex;flex-direction:column}
+.member p{margin:24px 0 0;font-size:18px;line-height:1.7}
+.member p.free{margin-top:16px;font-weight:600}
+.member .btn{margin-top:36px}
+.tier{border-top:1px solid #fff;padding:22px 0 26px}
+.tier .name{font-size:22px;font-weight:500}
+.tier .desc{margin-top:6px;font-size:16px;line-height:1.6;color:#ffe6e5}
+
+.events{padding:96px 0}
+.events .row{display:flex;flex-wrap:wrap;gap:24px 56px;align-items:baseline}
+.events .label{margin:0}
+.events .soon{flex:1 1 420px;font-size:26px;font-weight:500}
+
+footer{background:#000;color:#fff;padding:72px 0 40px}
+footer a{color:#fff}footer a:hover{color:#d9d9d9}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:48px}
+.foot-top img{height:64px;width:auto;display:block}
+.foot-links{display:flex;flex-wrap:wrap;gap:48px 72px;font-size:15px;line-height:2}
+.foot-links div{display:flex;flex-direction:column}
+.foot-links .muted{color:#bfbfbf}
+.foot-bottom{margin-top:64px;padding-top:24px;border-top:1px solid #3a3a3a;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:#bfbfbf}
+
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}
+  .wrap{padding:0 20px}
+  .head .logo img{height:46px}
+  nav{gap:6px 20px}
+  .hero{padding:72px 0 72px}
+  .hero h1{font-size:40px}
+  h2{font-size:32px}
+  .section{padding:72px 0}
+  .gap,.member,.events{padding:72px 0}
+  .gap .a,.gap .b{font-size:26px}
+}
+.acct{display:flex;align-items:center;gap:10px}
+.acct .btn{margin-top:0;padding:0 18px}
+.mbtn,.mpanel{display:none}
+@media (min-width:761px){nav{gap:22px}}
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}
+  .head{flex-wrap:nowrap;gap:12px;padding-top:12px;padding-bottom:12px}
+  .head .logo{flex:none}
+  .head .logo img{height:40px}
+  .head nav{flex-wrap:nowrap;gap:8px;justify-content:flex-end}
+  .head nav > .navlink,.head nav > .lang{display:none}
+  .acct{gap:6px}
+  .acct .btn{min-height:38px;padding:0 11px;font-size:14px;letter-spacing:.02em}
+  .mbtn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin:0;border:0;background:none;color:var(--ink);cursor:pointer;flex:none}
+  .mbtn svg{width:22px;height:22px}
+  .mpanel.on{display:block;border-top:1px solid var(--hair);padding-top:6px;padding-bottom:14px}
+  .mpanel a.navlink{display:block;padding:12px 0;font-size:16px;border-bottom:1px solid var(--hair)}
+  .mpanel .lang{padding-top:6px}
+}
+@media (max-width:360px){.head .logo img{height:34px}.acct .btn{padding:0 9px;font-size:13px}}
+.pubs .book{display:flex;gap:28px;color:var(--ink);border-top:1px solid var(--ink);padding-top:28px}
+.pubs .book img{width:150px;height:auto;flex:none;align-self:flex-start;box-shadow:0 6px 22px rgba(0,0,0,.14);border:1px solid var(--hair)}
+.pubs .book:hover .title{color:var(--red)}
+.pubs .tag{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:600}
+.pubs .title{margin-top:10px;font-size:23px;line-height:1.35;font-weight:500}
+.pubs .orig{margin-top:4px;font-size:15px;color:var(--grey)}
+.pubs .by{margin-top:12px;font-size:15px;font-weight:500}
+.pubs .book p,.pubs .wp p{margin:12px 0 0;font-size:16px;line-height:1.65;color:var(--grey)}
+.pubs .meta{margin-top:12px;font-size:13px;color:var(--grey)}
+.pubs .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500;color:var(--red)}
+.pubs .wp{border-top:1px solid var(--hair);margin-top:36px;padding-top:24px}
+.pubs .mp{border-top:1px solid var(--ink);margin-top:44px;padding-top:24px}
+.pubs .mp-label{font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:22px}
+html[lang="zh-Hant"] .pubs .mp-label{letter-spacing:.08em}
+.pubs .mp-person{display:flex;gap:24px}
+.pubs .mp-person img{width:96px;height:auto;flex:none;align-self:flex-start;border-radius:50%}
+.pubs .nm{font-size:20px;font-weight:500}
+.pubs .rl{margin-top:4px;font-size:15px;line-height:1.5;color:var(--grey)}
+.pubs .mp ul{list-style:none;margin:16px 0 0;padding:0}
+.pubs .mp li{padding:14px 0;border-top:1px solid var(--hair)}
+.pubs .mp .ti{display:block;margin-top:6px;font-size:17px;line-height:1.45;font-weight:500;color:var(--ink)}
+.pubs .mp .ti:hover{color:var(--red)}
+.pubs .mp li p{margin:6px 0 0;font-size:15px;line-height:1.6;color:var(--grey)}
+.ev-list{display:flex;flex-direction:column}
+.ev{display:flex;gap:32px;border-top:1px solid var(--ink);padding:24px 0 28px}
+.ev + .ev{border-top-color:var(--hair)}
+.ev .when{flex:0 0 120px}
+.ev .m{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ev .y{font-size:15px;color:var(--grey);margin-top:4px}
+.ev .what{flex:1;min-width:0}
+.ev .by{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.ev .title{margin-top:8px;font-size:24px;font-weight:500;line-height:1.35}
+.ev.featured .title{font-size:30px}
+.ev .where{margin-top:6px;font-size:15px;color:var(--grey)}
+.ev p{margin:14px 0 0;font-size:16px;line-height:1.7;max-width:640px}
+.ev .more{display:inline-block;margin-top:14px;font-size:15px;font-weight:500}
+.right > .ev-list > .ev:first-child{border-top:0;padding-top:0}
+.ev-sub{margin-top:48px}
+.ev-sub .label{margin-bottom:12px}
+.faq .right{display:flex;flex-direction:column}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;font-size:21px;font-weight:500;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:hover{color:var(--red)}
+.faq .ans{padding:0 0 26px;font-size:17px;line-height:1.75}
+.faq .ans p{margin:0 0 12px}
+.faq dl{margin:4px 0 0}
+.faq dt{font-weight:600;margin-top:14px}
+.faq dd{margin:4px 0 0}
+@media (max-width:760px){
+  html[lang="zh-Hant"] .hero h1{font-size:32px}
+  .ev{flex-direction:column;gap:10px}
+  .ev .when{flex:none;display:flex;gap:10px;align-items:baseline}
+  .ev .y{margin-top:0}
+  .ev.featured .title{font-size:26px}.pubs .book{flex-direction:column;gap:18px}.pubs .book img{width:130px}.pubs .mp-person{flex-direction:column;gap:16px}.pubs .mp-person img{width:80px}}
+
+.bk-hero{padding:72px 0 64px}
+.bk-top{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start}
+.bk-top img{width:100%;height:auto;box-shadow:0 10px 30px rgba(0,0,0,.16);border:1px solid var(--hair)}
+.bk-top h1{font-size:44px;line-height:1.2;font-weight:500;margin:0}
+.bk-top .orig{margin-top:10px;font-size:20px;color:var(--grey)}
+.bk-top .by{margin-top:22px;font-size:17px;line-height:1.6}
+.bk-top .by b{font-weight:600}
+.bk-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 28px;margin:28px 0 0;padding-top:20px;border-top:1px solid var(--hair)}
+.bk-facts dt{font-size:13px;color:var(--grey)}
+.bk-facts dd{margin:2px 0 0;font-size:16px;font-weight:500}
+.bk-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.bk-cta .btn{margin-top:0}
+.bk-sec{padding:0 0 72px}
+.bk-sec h2{font-size:30px;margin:0 0 20px}
+.bk-sec p{font-size:17px;line-height:1.8;margin:0 0 14px;max-width:760px}
+.bk-sec ul{margin:8px 0 0;padding-left:20px;max-width:760px}
+.bk-sec li{font-size:17px;line-height:1.75;margin-bottom:8px}
+.toc{list-style:none;margin:0;padding:0;max-width:760px;border-top:1px solid var(--ink)}
+.toc li{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--hair);margin:0}
+.toc .n{flex:0 0 110px;color:var(--red);font-size:14px;font-weight:600;letter-spacing:.06em;padding-top:3px}
+.toc .t{font-size:17px;line-height:1.55}
+.toc .t small{display:block;font-size:14px;color:var(--grey);margin-top:4px}
+.author{display:grid;grid-template-columns:1fr;max-width:760px;border-left:3px solid var(--red);padding-left:22px}
+.buy{font-size:16px;line-height:1.8;color:var(--grey)}
+@media (max-width:760px){.bk-hero{padding:48px 0 48px}.bk-top{grid-template-columns:1fr;gap:28px}.bk-top img{width:170px}.bk-top h1{font-size:30px}.toc li{flex-direction:column;gap:4px}.toc .n{flex:none}}
+
+.up-steps{list-style:none;margin:0;padding:0;max-width:820px;border-top:1px solid var(--ink)}
+.up-steps li{display:flex;gap:24px;padding:20px 0;border-bottom:1px solid var(--hair);margin:0}
+.up-steps .n{flex:0 0 44px;color:var(--red);font-size:22px;font-weight:600}
+.up-steps .t b{display:block;font-size:19px;font-weight:500;margin-bottom:4px}
+.up-steps .t span{font-size:16px;line-height:1.7;color:var(--grey)}
+.up-req{margin-top:28px;padding:22px 24px;border-left:3px solid var(--red);background:#fafafa;max-width:820px}
+.up-req > b{display:block;font-size:17px;font-weight:600;margin-bottom:6px}
+.up-req p{font-size:16px;line-height:1.7;margin:0}
+.up-code{max-width:820px;background:#111;color:#e8e8e8;padding:20px 22px;font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-x:auto;white-space:pre;margin:18px 0 0}
+.up-price{max-width:820px;border:1px dashed #bdbdbd;padding:22px 24px}
+.up-price p{margin:0 0 16px}
+@media (max-width:760px){.up-steps li{gap:14px}.up-steps .n{flex:0 0 30px}}
+.up-badges{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}.up-badges img{width:100%;max-width:400px;height:auto}.up-note{font-size:14px!important;color:var(--grey)}
+.fq-nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}.fq-nav a{font-size:14px;padding:6px 14px;border:1px solid #dcdcdc;color:#161616;text-decoration:none}.fq-nav a:hover{border-color:#A40706;color:#A40706}main .bk-sec{padding:0 0 36px}main .bk-sec h2{font-size:22px;margin:0 0 10px}main .rule{margin-bottom:16px}.bk-hero{padding:36px 0 24px}.faq details{border-top:1px solid #e4e4e4}.faq details:last-child{border-bottom:1px solid #e4e4e4}.faq summary{padding:12px 0;font-size:15.5px;line-height:1.45}.faq summary::after{font-size:20px}main .faq .ans,main .faq .ans p{font-size:14.5px!important;line-height:1.65!important;color:#444}main .faq .ans{padding:0 0 14px;max-width:760px}@media (min-width:1101px){.head{flex-wrap:nowrap;gap:16px}.head nav{flex-wrap:nowrap;gap:15px}.head .navlink{white-space:nowrap;font-size:14.5px}.head .lang a,.head .acct .btn{white-space:nowrap}.head .lang a{padding:12px 2px}.head .acct .btn{padding:0 14px}}.pil a,.u-ben a,.tc-ben a{display:flex!important;flex-direction:column}.pil a i,.u-ben a i,.tc-ben a i{margin-top:auto;padding-top:4px}@media (max-width:560px){.ctas .btn,.bk-cta .btn{width:100%}}/*navcur*/.navlink[aria-current="page"]{box-shadow:inset 0 -2px 0 currentColor}.navlink[aria-current="page"]:not([style]){color:#161616!important}/*/navcur*/.fq-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px;align-items:start}.fq-grid .wrap{max-width:none!important;padding:0!important;margin:0!important}.fq-sec{margin-bottom:22px}.fq-sec h2{font-size:19px!important;margin:0 0 4px!important}.fq-sec .rule{margin-bottom:10px!important}.faq summary{padding:9px 0!important;font-size:15px!important;gap:14px!important}.faq summary::after{font-size:18px!important}.faq .ans{font-size:14.5px!important;line-height:1.6!important;padding-bottom:12px!important}.faq details{border-top:1px solid #e6e6e6!important}@media (max-width:900px){.fq-grid{grid-template-columns:1fr}}
+</style>
+
+<link rel="stylesheet" href="/assets/css/tight.css?v=19493068">
+<meta property="og:title" content="品牌可信度基线评估：标准全文 | 品信会"><meta property="og:description" content="品信会品牌可信度基线评估（测试版草案）完整公开文本：五个部分、15 项指标、全部核查项、评级量表及计分规则，公开征求意见。"><meta property="og:type" content="article"><meta property="og:url" content="https://cgbb.org/cn/standard/"><meta property="og:image" content="https://cgbb.org/assets/logo-horizontal.png"><meta property="og:site_name" content="Council for Global Brand Building"><meta name="twitter:card" content="summary"><link rel="alternate" type="application/json" title="CGBB Brand Trust Baseline (JSON)" href="https://api.cgbb.org/standard/baseline.json"><style id="sd">
+.sd-hero{padding:34px 0 26px}.sd-hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:44px;align-items:start}
+.sd-hero h1{font-size:38px;line-height:1.16;font-weight:500;margin:0 0 14px}.sd-hero .lead{font-size:17px;line-height:1.7;margin:0 0 20px;max-width:640px}
+.sd-ctas{display:flex;flex-wrap:wrap;gap:12px}.sd-ctas .btn{min-height:44px;padding:0 20px;font-size:14.5px}
+.sd-doc{border:1px solid var(--hair);border-top:3px solid var(--red);background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.06);padding:18px 22px}
+.sd-doc h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin:0 0 8px}
+.sd-doc dl{margin:0;display:grid;grid-template-columns:max-content 1fr;font-size:14.5px;line-height:1.55}
+.sd-doc dt{color:var(--grey);padding:7px 18px 7px 0;border-top:1px solid var(--hair)}.sd-doc dd{margin:0;padding:7px 0;border-top:1px solid var(--hair)}
+.sd-doc dt:first-of-type,.sd-doc dd:first-of-type{border-top:0}
+.sd-pill{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;background:#fdf1f1;color:var(--red);margin-left:6px}
+.sd-toc{position:sticky;top:0;z-index:5;background:#fff;border-top:1px solid var(--ink);border-bottom:1px solid var(--hair)}
+.sd-toc .wrap{display:flex;flex-wrap:wrap;gap:4px 22px;padding-top:10px;padding-bottom:10px}.sd-toc a{font-size:14px;font-weight:500;color:var(--ink)}.sd-toc a:hover{color:var(--red)}
+.sd-sec{padding:30px 0 6px;scroll-margin-top:60px}.sd-sec h2{font-size:26px;line-height:1.25;margin:0 0 12px}.sd-sec h2 .n{color:var(--red);margin-right:10px}
+.sd-sec p,.sd-sec li{font-size:16px;line-height:1.7}.sd-sec p{margin:0 0 12px;max-width:820px}.sd-note{font-size:14.5px!important;color:var(--grey)}
+.sd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 28px;margin:6px 0 4px}
+.sd-grid>div{border-top:2px solid var(--red);padding:12px 0 14px}.sd-grid h3{font-size:17px;font-weight:500;margin:0 0 6px}.sd-grid p{font-size:15px;line-height:1.65;margin:0;color:#222}
+.sd-grid.c4{grid-template-columns:repeat(4,minmax(0,1fr))}.sd-grid.c5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.sd-grid a.more{display:inline-block;margin-top:8px;font-size:14.5px;font-weight:500}
+.sd-s{border:1px solid var(--hair);margin:0 0 14px}.sd-sh{display:flex;gap:14px;align-items:baseline;padding:14px 18px;background:#faf9f8;border-bottom:1px solid var(--hair)}
+.sd-sh b{font-size:22px;color:var(--red);font-weight:600;min-width:20px}.sd-sh h3{font-size:18px;font-weight:500;margin:0}.sd-sh span{font-size:14.5px;color:var(--grey);margin-left:auto;text-align:right}
+.sd-s details{border-bottom:1px solid var(--hair);padding:0 18px}.sd-s details:last-child{border-bottom:0}
+.sd-s summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px 1fr auto 22px;gap:10px;align-items:center;padding:12px 0;font-size:16px}
+.sd-s summary::-webkit-details-marker{display:none}.sd-s summary .id{font-weight:600;color:var(--red)}.sd-s summary .ty{font-size:13px;color:var(--grey);white-space:nowrap}
+.sd-s summary::after{content:"+";font-size:20px;color:var(--red);text-align:right}.sd-s details[open] summary::after{content:"–"}
+.sd-s ol{list-style:none;margin:0 0 14px;padding:0 0 0 54px}.sd-s ol li{display:grid;grid-template-columns:52px 1fr;gap:8px;font-size:15px;line-height:1.6;padding:5px 0;border-top:1px dotted #ddd}
+.sd-s ol li span{color:var(--grey);font-variant-numeric:tabular-nums}.sd-s ol li em{font-style:normal;font-size:12px;font-weight:600;color:var(--red);margin-left:8px;white-space:nowrap}
+.sd-s .how{font-size:14.5px;line-height:1.6;color:#333;margin:0 0 8px;padding-left:54px}
+.sd-t{width:100%;border-collapse:collapse;font-size:15px;line-height:1.55;margin:6px 0 14px}.sd-t th{text-align:left;font-weight:600;border-bottom:1px solid var(--ink);padding:8px 14px 8px 0;font-size:14px}
+.sd-t td{border-bottom:1px solid var(--hair);padding:9px 14px 9px 0;vertical-align:top}.sd-t td:first-child{white-space:nowrap;font-weight:500}
+.sd-scale{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin:6px 0 14px}.sd-scale div{padding:10px 12px;background:#f6f4f2;font-size:14px;line-height:1.4}.sd-scale b{display:block;font-size:15px;color:var(--red)}
+.sd-rules{margin:0 0 12px;padding:0;list-style:none;max-width:860px}.sd-rules li{padding:9px 0 9px 18px;border-top:1px solid var(--hair);position:relative}.sd-rules li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:2px;background:var(--red)}
+.sd-cite{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;line-height:1.6;background:#f6f4f2;padding:12px 14px;max-width:860px;word-break:break-word}
+.sd-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0 26px;border-top:1px solid var(--ink);margin-top:18px}
+.sd-facts div{padding:12px 0;border-bottom:1px solid var(--hair)}.sd-facts dt{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-bottom:3px}.sd-facts dd{margin:0;font-size:15.5px;line-height:1.5}
+.sd-commit{counter-reset:c;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 44px;margin:8px 0 0;padding:0;list-style:none}
+.sd-commit li{counter-increment:c;border-top:1px solid var(--hair);padding:14px 0 14px 44px;position:relative}.sd-commit li::before{content:counter(c);position:absolute;left:0;top:14px;width:28px;height:28px;background:var(--red);color:#fff;font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center}
+.sd-commit h3{font-size:17px;font-weight:500;margin:0 0 4px}.sd-commit p{font-size:15px;line-height:1.65;margin:0;color:#222}
+.sd-road{margin:6px 0 0;padding:0;list-style:none;max-width:860px}.sd-road li{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:10px 0;border-top:1px solid var(--hair);font-size:15.5px;line-height:1.6}.sd-road li b{color:var(--red);font-weight:600}.sd-road li i{font-style:normal;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-left:8px}
+.fbk{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;max-width:860px;margin:10px 0 6px}.fbk label{display:block;font-size:14px;font-weight:500;margin-bottom:5px}.fbk .full{grid-column:1/-1}
+.fbk input,.fbk select,.fbk textarea{width:100%;border:1px solid #bdbdbd;padding:11px 12px;font:inherit;font-size:15.5px;background:#fff;border-radius:0}.fbk textarea{min-height:120px;resize:vertical}
+.fbk input:focus,.fbk select:focus,.fbk textarea:focus{outline:2px solid var(--red);outline-offset:-1px}.fbk .hp{position:absolute;left:-9999px}
+.fbk .row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}.fbk button{border:0;cursor:pointer;font:inherit}.fbk .msg{font-size:15px;line-height:1.5}.fbk .msg.ok{color:#1c6b33}.fbk .msg.err{color:var(--red)}
+.fbk .req{color:var(--red)}
+.sd-end{padding:26px 0 44px}
+@media(max-width:1000px){.sd-grid.c4,.sd-grid.c5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:860px){.sd-grid.c4,.sd-grid.c5{grid-template-columns:1fr}.sd-hero .wrap{grid-template-columns:1fr;gap:22px}.sd-hero h1{font-size:30px}.sd-commit{grid-template-columns:1fr}.sd-scale{grid-template-columns:1fr 1fr}.sd-sh{flex-wrap:wrap}.sd-sh span{margin-left:0;text-align:left;width:100%}
+.sd-s summary{grid-template-columns:38px 1fr 22px}.sd-s summary .ty{display:none}.sd-s ol,.sd-s .how{padding-left:0}.fbk{grid-template-columns:1fr}.sd-road li{grid-template-columns:1fr;gap:2px}.sd-toc{position:static}.sd-t{font-size:14px}.sd-t td:first-child{white-space:normal}}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["TechArticle", "DefinedTermSet"], "name": "CGBB Brand Trust Baseline", "headline": "品牌可信度基线评估：标准全文 | 品信会", "description": "品信会品牌可信度基线评估（测试版草案）完整公开文本：五个部分、15 项指标、全部核查项、评级量表及计分规则，公开征求意见。", "version": "baseline-2026.11", "creativeWorkStatus": "Draft", "inLanguage": "zh-Hans", "url": "https://cgbb.org/cn/standard/", "publisher": {"@id": "https://cgbb.org/#organization"}, "author": {"@id": "https://cgbb.org/#organization"}, "datePublished": "2026-11-11", "isAccessibleForFree": true, "encoding": {"@type": "MediaObject", "encodingFormat": "application/json", "contentUrl": "https://api.cgbb.org/standard/baseline.json"}, "hasDefinedTerm": [{"@type": "DefinedTerm", "termCode": "A1", "name": "Verifiable legal entity", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "A2", "name": "Clear management and responsibility information", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "A3", "name": "Consistent, current information across channels", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "B1", "name": "Customer feedback", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "B2", "name": "Partner delivery and cooperation record", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "B3", "name": "Other real external experience", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "C1", "name": "Market access and required licences", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "C2", "name": "Compliance and governance foundations", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "C3", "name": "Legal, regulatory and governance record", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "D1", "name": "Necessary disclosure", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "D2", "name": "Complaint and dispute response", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "D3", "name": "Remediation and follow-up", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "E1", "name": "Verifiable responsibility practice", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "E2", "name": "Local hiring and partnerships", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}, {"@type": "DefinedTerm", "termCode": "E3", "name": "Community and long-term local relationships", "inDefinedTermSet": "https://cgbb.org/cn/standard/"}]}</script></head>
+<body>
+<header>
+<div class="wrap head">
+<a class="logo" href="/cn/" aria-label="品信会首页"><img src="/assets/logo-horizontal.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促进会"></a>
+<nav aria-label="Main">
+<a class="navlink" href="/cn/" data-home>首页</a>
+<a class="navlink" href="/cn/standard/" aria-current="page">标准</a>
+<a class="navlink" href="/cn/#publications">出版物</a><a class="navlink" href="/cn/apply/">会员</a><a class="navlink" href="/cn/verify/" style="color:#A40706">核实企业</a>
+<a class="navlink" href="/cn/about/">关于</a>
+<span class="lang"><a href="/faq/" hreflang="en" lang="en" data-lang="en" aria-current="false">EN</a><span aria-hidden="true">|</span><a href="/zh/faq/" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh" aria-current="false">繁中</a><span aria-hidden="true">|</span><a href="/cn/faq/" hreflang="zh-Hans" lang="zh-Hans" data-lang="cn" aria-current="true">简中</a></span>
+<span class="acct" data-acct data-mine="我的账户" data-href="/cn/account/"><a class="btn btn-line" href="/cn/account/#login">登录</a><a class="btn btn-red" href="/cn/apply/">申请入会</a></span>
+</nav>
+</div>
+</header>
+<main>
+<section class="sd-hero"><div class="wrap"><div><div class="rule"></div><div class="label">品信会标准</div>
+<h1>品信会品牌可信度基线评估</h1>
+<p class="lead">品信会用以评估品牌信任是否有据可查的标准：五个部分、15 项指标，以及固定的计分规则。本页为现行草案的完整公开文本。</p>
+<div class="sd-ctas"><a class="btn btn-red" href="#comment">对草案提出意见</a><a class="btn btn-line" href="https://api.cgbb.org/standard/baseline.json">机器可读版本（JSON）</a></div></div>
+<aside class="sd-doc" aria-label="文件状态"><h2>文件状态</h2><dl>
+<dt>文件</dt><dd>品信会品牌可信度基线评估</dd>
+<dt>版本</dt><dd>baseline-2026.11<span class="sd-pill">测试版草案</span></dd>
+<dt>现用于</dt><dd>会员自测（结果仅供参考），尚未用于公开评级。</dd>
+<dt>下一版</dt><dd>第 1 版，将于 2026 年 11 月底随品信会白皮书在香港发布。</dd>
+<dt>维护方</dt><dd>品信会秘书处</dd>
+<dt>意见征集</dt><dd><a href="#comment">向所有人开放</a></dd>
+</dl></aside></div></section>
+<div class="sd-toc" role="navigation" aria-label="本页内容"><div class="wrap"><a href="#scope">1. 适用范围</a><a href="#principles">2. 原则</a><a href="#indicators">3. 指标</a><a href="#rating">4. 评级</a><a href="#scoring">5. 计分</a><a href="#results">6. 结果</a><a href="#versions">7. 版本</a><a href="#comment">8. 提出意见</a></div></div>
+<div class="wrap">
+<section class="sd-sec" id="scope"><h2><span class="n">1</span>适用范围</h2>
+<p>本基线评估的对象是品牌，即品牌背后的机构及其留下的公开记录。适用于任何规模、行业和市场的企业。</p>
+<p>它衡量的是信任是否有据可查。它不检测产品、不审计账目，也不提供法律意见；评估结果不构成对企业产品、质量、财务状况、合规或行为的认证、审计或保证。</p></section>
+<section class="sd-sec" id="principles"><h2><span class="n">2</span>原则</h2><div class="sd-grid c5">
+<div><h3>看证据，不看说法</h3><p>每项指标都依据具体的核查项评定。「不确定」视为没有证据。</p></div>
+<div><h3>同样的证据，同样的结果</h3><p>规则固定并按版本管理，任何人都不能人为调整结果。</p></div>
+<div><h3>风险不会被平均掉</h3><p>尚未解决的重大风险会限制总分，无论其他部分表现多好。</p></div>
+<div><h3>「信息不足」也是一种结果</h3><p>证据不足以判断时，基线会如实说明，不给出分数。</p></div>
+<div><h3>规则公开</h3><p>本文本、计分规则及变更记录全部公开，任何人均可提出意见。</p></div>
+</div></section>
+<section class="sd-sec" id="indicators"><h2><span class="n">3</span>五个部分，15 项指标</h2>
+<p>每个部分针对品牌提出一个问题；每项指标依据其下所列核查项评定（共 73 项核查）。点击指标可查看核查项。</p>
+<div class="sd-s" id="section-A"><div class="sd-sh"><b>A</b><h3>可识别性与信息一致性</h3><span>你是谁，外部能否确认，不同来源能否对得上？</span></div><details id="A1"><summary><span class="id">A1</span><span>主体可核验</span><span class="ty">事实核查 · 5 项核查</span></summary><p class="how">得分 = 5 × 达标核查项所占比例。</p><ol><li><span>A1.1</span><div>官网及官方渠道列明品牌背后的公司（法律实体）。</div></li><li><span>A1.2</span><div>我们列明该公司的注册国家或地区。</div></li><li><span>A1.3</span><div>任何人都可以在政府企业登记或其他官方记录中查到该公司。<em>关键项</em></div></li><li><span>A1.4</span><div>外界清楚知道品牌由哪家公司拥有或经营。</div></li><li><span>A1.5</span><div>我们公布与该公司相符的业务地址或联络方式。</div></li></ol></details><details id="A2"><summary><span class="id">A2</span><span>关键经营与责任信息清晰</span><span class="ty">事实核查 · 5 项核查</span></summary><p class="how">得分 = 5 × 达标核查项所占比例。</p><ol><li><span>A2.1</span><div>我们公开列出管理层、创办人或主要负责人。</div></li><li><span>A2.2</span><div>我们在 LinkedIn 或类似专业平台设有公司专页。</div></li><li><span>A2.3</span><div>主要管理人员（包括海外市场负责人）有可供查核的公开职业资料。</div></li><li><span>A2.4</span><div>我们公布有效的客户、业务及媒体联络渠道。</div></li><li><span>A2.5</span><div>在重要海外市场，外界能找到当地负责的公司、团队或联络人。</div></li></ol></details><details id="A3"><summary><span class="id">A3</span><span>跨渠道信息一致性与有效性</span><span class="ty">事实核查 · 4 项核查</span></summary><p class="how">得分 = 5 × 达标核查项所占比例。</p><ol><li><span>A3.1</span><div>我们的名称、公司、所在地及主营业务，在官网、企业登记及主要平台上一致。</div></li><li><span>A3.2</span><div>官网各语言版本在核心事实上一致。</div></li><li><span>A3.3</span><div>我们的 LinkedIn 等专页与官网及登记资料一致。</div></li><li><span>A3.4</span><div>我们的核心公司资料是最新的。</div></li></ol></details></div><div class="sd-s" id="section-B"><div class="sd-sh"><b>B</b><h3>外部评价与履约口碑</h3><span>真实的客户和伙伴关系留下了什么记录？</span></div><details id="B1"><summary><span class="id">B1</span><span>消费者反馈</span><span class="ty">外部记录 · 5 项核查</span></summary><p class="how">得分 = 记录整体表现（1–5）与「5 × 达标核查项比例」的平均值。须有足够记录方可评定。</p><ol><li><span>B1.1</span><div>可以找到并追溯有关我们的客户评分、评价或投诉记录。</div></li><li><span>B1.2</span><div>我们在所属市场的主要评价、电商或投诉平台上有真实记录。</div></li><li><span>B1.3</span><div>可以看到这些评价的数量、日期及分布。</div></li><li><span>B1.4</span><div>同类投诉或负面体验在不同记录中反复出现。</div></li><li><span>B1.5</span><div>投诉及争议显示为已解决、已结案或跟进中。</div></li></ol></details><details id="B2"><summary><span class="id">B2</span><span>商业伙伴履约与合作记录</span><span class="ty">外部记录 · 5 项核查</span></summary><p class="how">得分 = 记录整体表现（1–5）与「5 × 达标核查项比例」的平均值。须有足够记录方可评定。</p><ol><li><span>B2.1</span><div>我们与客户、供应商或买家的业务关系可以独立核实。</div></li><li><span>B2.2</span><div>有重复订单、多年合作或长期项目的记录。</div></li><li><span>B2.3</span><div>我们提及的主要客户、项目或伙伴，可由对方或其他来源确认。</div></li><li><span>B2.4</span><div>有关我们的第三方信用或付款记录存在。</div></li><li><span>B2.5</span><div>存在已确认的重要履约争议、长期拖欠、重大违约或合作中断记录。</div></li></ol></details><details id="B3"><summary><span class="id">B3</span><span>其他真实外部体验信号</span><span class="ty">外部记录 · 5 项核查</span></summary><p class="how">得分 = 记录整体表现（1–5）与「5 × 达标核查项比例」的平均值。须有足够记录方可评定。</p><ol><li><span>B3.1</span><div>员工、专业用户或其他持份者留下了可追溯的反馈。</div></li><li><span>B3.2</span><div>可以确认这些反馈的来源、日期及背景。</div></li><li><span>B3.3</span><div>相关平台会核实交易或身份。</div></li><li><span>B3.4</span><div>相同体验或问题在多个记录中反复出现。</div></li><li><span>B3.5</span><div>不同主要外部来源之间存在明显且未解释的冲突。</div></li></ol></details></div><div class="sd-s" id="section-C"><div class="sd-sh"><b>C</b><h3>合规与治理</h3><span>规则要求是否满足，是否存在重大风险？</span></div><details id="C1"><summary><span class="id">C1</span><span>市场准入与必要资质</span><span class="ty">事实核查 · 5 项核查</span></summary><p class="how">得分 = 5 × 达标核查项所占比例。</p><ol><li><span>C1.1</span><div>我们已取得在目标市场经营所需的牌照、登记或认证。<em>关键项</em></div></li><li><span>C1.2</span><div>这些资质目前有效。</div></li><li><span>C1.3</span><div>可在官方数据库（监管机构、发证机构等）查核。</div></li><li><span>C1.4</span><div>存在已确认的关键资质到期、撤销、失效或适用范围重大变化。</div></li><li><span>C1.5</span><div>仍在使用已失效、被撤销或与适用范围不符的资质信息。</div></li></ol></details><details id="C2"><summary><span class="id">C2</span><span>关键合规与治理基础</span><span class="ty">成熟度等级 · 8 项核查</span></summary><p class="how">得分 = 成熟度等级（0–5），并受达标核查项比例限制。</p><ol><li><span>C2.1</span><div>公司有与规模及风险相称的合规负责人或安排。</div></li><li><span>C2.2</span><div>我们设有商业操守、反贿赂、反欺诈或举报机制。</div></li><li><span>C2.3</span><div>我们设有私隐及数据保护政策，并有专人负责。</div></li><li><span>C2.4</span><div>我们能证明拥有或有权使用主要品牌、产品及技术。</div></li><li><span>C2.5</span><div>有关产品性能、健康、安全或环保的宣称有证据支持。</div></li><li><span>C2.6</span><div>我们就劳工及供应链规定设有政策或管理制度。</div></li><li><span>C2.7</span><div>我们设有制裁及出口管制筛查。</div></li><li><span>C2.8</span><div>我们符合其他适用的合规要求，并能提供证明。</div></li></ol></details><details id="C3"><summary><span class="id">C3</span><span>法律、监管与治理记录</span><span class="ty">记录等级 · 六级量表</span></summary><p class="how">按记录等级评定：选择与该机构法律、监管及治理记录相符的等级。</p><ol><li><span>5</span><div>没有法律或监管问题. 已查阅法院、监管机构及公司登记记录，未发现重要问题。</div></li><li><span>4</span><div>仅有过往问题，均已解决. 过往的案件、罚款或监管结论均已结案或整改，且没有再发生。</div></li><li><span>3</span><div>有一般事项仍在处理. 例如商业纠纷或监管机构的问询，目前正在处理。</div></li><li><span>2</span><div>有已确认的问题，正在整改. 例如被罚款或被认定违规，整改正在进行。</div></li><li><span>1</span><div>已确认的问题反复出现或仍未解决. 同类问题多次发生，或至今仍未整改。</div></li><li><span>0</span><div>有严重违规. 例如重大处罚、牌照被吊销或刑事认定。</div></li></ol></details></div><div class="sd-s" id="section-D"><div class="sd-sh"><b>D</b><h3>透明度与响应</h3><span>需要答案时，企业如何说明和行动？</span></div><details id="D1"><summary><span class="id">D1</span><span>必要信息披露</span><span class="ty">成熟度等级 · 5 项核查</span></summary><p class="how">得分 = 成熟度等级（0–5），并受达标核查项比例限制。</p><ol><li><span>D1.1</span><div>客户、伙伴、员工等可以轻易找到判断我们所需的资料。</div></li><li><span>D1.2</span><div>我们作出重要事实陈述时，会说明数据来源或计算方法。</div></li><li><span>D1.3</span><div>我们清楚区分已确认的事实、预测及观点。</div></li><li><span>D1.4</span><div>重要公开资料有变时，我们会更新或更正。</div></li><li><span>D1.5</span><div>发生重大事项时，我们会在法律许可范围内向相关人士说明已确认的事实。</div></li></ol></details><details id="D2"><summary><span class="id">D2</span><span>投诉与争议响应</span><span class="ty">成熟度等级 · 6 项核查</span></summary><p class="how">得分 = 成熟度等级（0–5），并受达标核查项比例限制。 若评估期内未发生投诉、纠纷或重大事件，得分上限为 3：既有机制尚未经实际检验。</p><ol><li><span>D2.1</span><div>我们设有清晰的投诉、争议或重大事项处理渠道。</div></li><li><span>D2.2</span><div>公司内有专人负责回应，并有基本流程。</div></li><li><span>D2.3</span><div>有个案出现时，我们作出了回应。</div></li><li><span>D2.4</span><div>可以证明我们何时及如何回应。</div></li><li><span>D2.5</span><div>我们的回应说明目前已确认的事实，并在需要时附上证据。</div></li><li><span>D2.6</span><div>我们的回应列出修正、补救或整改方案，以及负责人。</div></li></ol></details><details id="D3"><summary><span class="id">D3</span><span>整改与后续行动</span><span class="ty">成熟度等级 · 5 项核查</span></summary><p class="how">得分 = 成熟度等级（0–5），并受达标核查项比例限制。 若评估期内未发生投诉、纠纷或重大事件，得分上限为 3：既有机制尚未经实际检验。</p><ol><li><span>D3.1</span><div>我们公布的修正或措施已实际执行。</div></li><li><span>D3.2</span><div>这些措施产生了可核实的结果（如结案、赔偿、完成回收、发布修正或修改政策）。</div></li><li><span>D3.3</span><div>对仍在处理的事项，我们会发布跟进更新。</div></li><li><span>D3.4</span><div>公司以外的来源可证实这些措施或结果。</div></li><li><span>D3.5</span><div>后续经营中再次出现同类问题。</div></li></ol></details></div><div class="sd-s" id="section-E"><div class="sd-sh"><b>E</b><h3>责任实践与本地化</h3><span>长期经营留下了什么本地记录？</span></div><details id="E1"><summary><span class="id">E1</span><span>可验证责任实践</span><span class="ty">成熟度等级 · 5 项核查</span></summary><p class="how">得分 = 成熟度等级（0–5），并受达标核查项比例限制。</p><ol><li><span>E1.1</span><div>我们有与业务及当地经营相关的责任实践（ESG/CSR）、目标或项目。</div></li><li><span>E1.2</span><div>我们已把承诺付诸行动，而不只是政策或宣传。</div></li><li><span>E1.3</span><div>这些行动持续进行。</div></li><li><span>E1.4</span><div>这些行动有可核实的成果或进度记录。</div></li><li><span>E1.5</span><div>有第三方伙伴、认证或鉴证支持。</div></li></ol></details><details id="E2"><summary><span class="id">E2</span><span>本地雇佣与合作</span><span class="ty">成熟度等级 · 5 项核查</span></summary><p class="how">得分 = 成熟度等级（0–5），并受达标核查项比例限制。</p><ol><li><span>E2.1</span><div>我们在海外市场聘用当地员工。</div></li><li><span>E2.2</span><div>我们投资培训及发展当地人才。</div></li><li><span>E2.3</span><div>我们与当地业务伙伴或供应商合作。</div></li><li><span>E2.4</span><div>当地招聘及合作持续进行。</div></li><li><span>E2.5</span><div>公司以外的记录可证实以上情况。</div></li></ol></details><details id="E3"><summary><span class="id">E3</span><span>社区与长期本地关系</span><span class="ty">成熟度等级 · 5 项核查</span></summary><p class="how">得分 = 成熟度等级（0–5），并受达标核查项比例限制。</p><ol><li><span>E3.1</span><div>我们参与当地社区、行业组织或其他本地活动。</div></li><li><span>E3.2</span><div>我们持续参与，而不只是一次性活动。</div></li><li><span>E3.3</span><div>这已建立外界可见的长期关系。</div></li><li><span>E3.4</span><div>这对当地经营或社区关系带来可见的成果。</div></li><li><span>E3.5</span><div>当地伙伴、行业组织、社区团体或其他记录可证实。</div></li></ol></details></div>
+<p class="sd-note">关键项：关键核查项未达标时，该指标最高为 1 分。A、C 两部分各有一项关键指标（A1 和 C1）。</p></section>
+<section class="sd-sec" id="rating"><h2><span class="n">4</span>指标如何评定</h2>
+<p>每项核查的回答为「是」「否」「不确定」或「不适用」；不适用的项目不计入。随后每项指标得到 0 至 5 的评级，或 ND（信息不足）。</p>
+<table class="sd-t"><thead><tr><th>类型</th><th>指标</th><th>0–5 评级如何得出</th></tr></thead><tbody>
+<tr><td>事实核查</td><td>A1, A2, A3, C1</td><td>5 × 已回答核查项中达标项的比例，四舍五入。至少须回答 60% 的核查项，否则为 ND。</td></tr>
+<tr><td>外部记录</td><td>B1, B2, B3</td><td>取两者的平均值：记录显示的整体表现（1–5），以及 5 × 达标核查项比例。记录过少、不足以判断时为 ND。</td></tr>
+<tr><td>成熟度等级</td><td>C2, D1, D2, D3, E1, E2, E3</td><td>成熟度等级（0–5，见下表），并受核查项支持程度的限制。</td></tr>
+<tr><td>记录等级</td><td>C3</td><td>在六级记录量表（0–5）中选取相符的等级。</td></tr>
+</tbody></table>
+<div class="sd-grid" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)"><div style="border-top:0;padding-top:0"><table class="sd-t"><thead><tr><th>成熟度等级</th><th>含义</th></tr></thead><tbody><tr><td>0 · 未建立</td><td>确认未建立，或实际做法与要求相反。</td></tr><tr><td>1 · 初始／零散</td><td>已有零散行动或承诺，但未形成稳定责任和机制。</td></tr><tr><td>2 · 基础建立</td><td>已形成责任主体、制度或流程，但实际运行有限。</td></tr><tr><td>3 · 稳定运行</td><td>已规律进入实际经营，并形成持续记录。</td></tr><tr><td>4 · 闭环改进</td><td>已形成监测、反馈、整改和改进的闭环。</td></tr><tr><td>5 · 成熟嵌入</td><td>已成为日常经营的一部分，并有跨期、可核验的记录。</td></tr></tbody></table></div>
+<div style="border-top:0;padding-top:0"><table class="sd-t"><thead><tr><th>达标核查项比例</th><th>可评最高等级</th></tr></thead><tbody><tr><td>不少于 80%</td><td>5</td></tr><tr><td>不少于 60%</td><td>4</td></tr><tr><td>不少于 40%</td><td>3</td></tr><tr><td>不少于 20%</td><td>2</td></tr><tr><td>低于 20%</td><td>1</td></tr></tbody></table></div></div></section>
+<section class="sd-sec" id="scoring"><h2><span class="n">5</span>计分规则</h2>
+<ul class="sd-rules">
+<li><b>部分评级（0–5）。</b> 取该部分已评定指标的平均值，精确到 0.5。每个部分至少须有 2 项已评定指标，且关键指标必须已评定，否则为 ND。</li>
+<li><b>短板会限制部分评级。</b> 任何一项指标为 0，或关键指标为 0–1 时，该部分最高为 3。</li>
+<li><b>总分（0–100）。</b> 20 × 五个部分评级的平均值。</li>
+<li><b>重大风险会限制总分。</b> 存在尚未解决的重大风险，或 A1、C1 评级为 0–1 时，总分上限为 59；A 或 C 部分评级为 0–1 时，上限为 39。</li>
+<li><b>信息不足。</b> A 或 C 部分无法评定、已评定部分少于 4 个，或已回答项目不足 60% 时，不给出总分。</li>
+<li><b>证据支持度。</b> 随每个结果一并报告。高：已回答项目不少于 80%，且不少于 50% 经独立来源核实。中：已回答不少于 60%。低：不少于 40%。</li>
+<li><b>取整。</b> 所有取整均采用整数运算的四舍五入，结果不因计算设备而异。</li>
+</ul>
+<div class="sd-scale"><div><b>0–19</b>基础不足</div><div><b>20–39</b>初步建立</div><div><b>40–59</b>基本建立</div><div><b>60–79</b>较为稳定</div><div><b>80–100</b>稳定成熟</div></div></section>
+<section class="sd-sec" id="results"><h2><span class="n">6</span>结果如何使用</h2>
+<table class="sd-t"><thead><tr><th>用途</th><th>证据由谁提供</th><th>公开内容</th></tr></thead><tbody>
+<tr><td>会员自测 <span class="sd-pill">测试版</span></td><td>会员就其已通过徽章确认的自有品牌回答核查项。官网扫描可为「不确定」的项目补充确认，但绝不会拉低分数。</td><td>不公开。结果仅供参考，仅会员本人及秘书处可见。</td></tr>
+<tr><td>信任评审 <span class="sd-pill">尚未开放</span></td><td>由品信会核查每项指标背后的证据。将随进阶会籍开放，时间在第 1 版发布并完成有独立专家评审的测试期之后。</td><td>达到已公布标准的品牌：在登记册中显示 Verified Trusted 等级、总分及各部分概况。目前尚未签发。</td></tr>
+</tbody></table>
+<p class="sd-note">Verified Trusted 等级的具体要求将随第 1 版公布。 <a href="/cn/verify/">如何查看登记记录 →</a></p></section>
+<section class="sd-sec" id="versions"><h2><span class="n">7</span>版本与变更记录</h2>
+<p>每个结果都会记录其所依据的规则版本。规则变更时版本随之变更，并在此列出。</p>
+<table class="sd-t"><thead><tr><th>版本</th><th>状态</th><th>说明</th></tr></thead><tbody>
+<tr><td>baseline-2026.11</td><td>测试版草案 · 2026 年 11 月</td><td>首个公开草案：五个部分、15 项指标、73 项核查。现用于会员自测。</td></tr>
+<tr><td>第 1 版</td><td>计划中 · 2026 年 11 月底</td><td>随品信会白皮书在香港发布，其后进入有独立专家评审的测试期。</td></tr>
+</tbody></table>
+<p style="margin-bottom:6px"><b>引用方式</b></p>
+<p class="sd-cite">Council for Global Brand Building (2026). <i>CGBB Brand Trust Baseline</i>, beta draft baseline-2026.11. https://cgbb.org/standard/</p></section>
+<section class="sd-sec" id="comment"><h2><span class="n">8</span>对草案提出意见</h2>
+<p>任何人均可提出意见：企业、研究者、记者、买家。请说明所指的指标或规则，以及您建议的修改。秘书处会逐一阅读，并在制定第 1 版及后续版本时予以考虑。</p>
+<form class="fbk" id="fb-standard" data-lang="cn" data-m-ok="谢谢。您的信息已送达秘书处，参考编号：{id}。确认邮件已发送至您的邮箱。" data-m-email="请输入有效的邮箱地址。" data-m-empty="请填写内容（至少一句话）。" data-m-bot="请先完成安全验证，然后再次发送。" data-m-rate="发送过于频繁，请稍后再试，或发邮件至 secretariat@cgbb.org。" data-m-fail="抱歉，信息未能发送。请重试，或发邮件至 secretariat@cgbb.org。" data-m-sending="发送中…" novalidate>
+<input type="hidden" name="kind" value="standard">
+<div><label for="fb-standard-n">姓名</label><input id="fb-standard-n" name="name" autocomplete="name" maxlength="120"></div>
+<div><label for="fb-standard-e">邮箱 <span class="req">*</span></label><input id="fb-standard-e" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="name@company.com"></div>
+<div><label for="fb-standard-o">机构（选填）</label><input id="fb-standard-o" name="org" autocomplete="organization" maxlength="160"></div>
+<div><label for="fb-standard-s">所指指标或规则（选填）</label><input id="fb-standard-s" name="subject" maxlength="200" placeholder="例如 C2，或重大风险规则"></div>
+<div class="full"><label for="fb-standard-m">内容 <span class="req">*</span></label><textarea id="fb-standard-m" name="message" required maxlength="4000"></textarea></div>
+<div class="hp" aria-hidden="true"><label>Leave this field empty<input name="website2" tabindex="-1" autocomplete="off"></label></div>
+<div class="full"><div class="cf-ts" data-action="feedback" data-language="zh-cn"></div></div>
+<div class="full row"><button type="submit" class="btn btn-red">发送给秘书处</button><span class="msg" role="status" aria-live="polite"></span></div>
+</form>
+</section>
+</div><div class="sd-end"></div>
+</main>
+<footer>
+<div class="wrap">
+<div class="foot-top">
+<img src="/assets/logo-horizontal-white.png" width="640" height="198" alt="Council for Global Brand Building 全球化品牌信任促进会">
+<div class="foot-links">
+<div><a href="/cn/">首页</a><a href="/cn/standard/">标准</a><a href="/cn/#publications">出版物</a></div>
+<div><a href="/cn/apply/">会员</a><a href="/cn/verify/">核实企业</a><a href="/cn/about/">关于</a><a href="/cn/faq/">常见问题</a><a href="https://www.linkedin.com/company/120314036/">LinkedIn</a></div>
+<div><span class="muted">联系我们</span><a href="mailto:secretariat@cgbb.org">secretariat@cgbb.org</a><a href="/cn/membership/agents/">AI 代理</a><a href="/cn/privacy/">隐私政策</a><a href="/cn/terms/">使用条款</a></div>
+</div>
+</div>
+<div class="foot-bottom"><span>© 2026 全球化品牌信任促进会</span><span style="letter-spacing:.06em">Council for Global Brand Building</span></div>
+</div>
+</footer>
+<script src="/assets/js/site-menu.js?v=814e5807"></script>
+<script src="/assets/js/site-lang.js?v=725ed270"></script>
+<script src="/assets/js/cn-t2s.js?v=88f27fde"></script>
+<script src="/assets/js/turnstile.js?v=b3e46545"></script><script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=cgbbTurnstileReady" async defer></script><script src="/assets/js/feedback.js?v=ac659d23"></script>
+</body>
+</html>
