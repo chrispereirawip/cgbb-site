@@ -80,7 +80,7 @@ $('[data-loginform]').addEventListener('submit',function(ev){ev.preventDefault()
 // dashboard
 function setD(k,v){var el=$('[data-d="'+k+'"]');if(el)el.textContent=v||'—'}
 function render(j){
- var m=j.member, ms=j.membership; $('[data-admin]').hidden=!j.isAdmin;
+ if(j.staffHome&&!/[?&]member=1/.test(location.search)){location.replace('/admin/');return}var m=j.member, ms=j.membership; $('[data-admin]').hidden=!j.isAdmin;
  $('[data-d="hi"]').textContent=m.name?(LANG==='zh'?'，':', ')+m.name:'';setD('email',m.email);setD('name',m.name);setD('org',m.org);setD('plan',PLN[j.plan||'basic']||'');var nf=$('[data-f="no"]');if(nf){nf.hidden=!j.memberNo;setD('no',j.memberNo)}
  setD('joined',fmt(ms.joined));setD('approved',fmt(ms.approvedAt));setD('valid',fmt(ms.validUntil));
  $('[data-f="approved"]').hidden=!ms.approvedAt;$('[data-f="valid"]').hidden=!ms.validUntil;$('[data-f="joined"]').hidden=!!ms.approvedAt;
