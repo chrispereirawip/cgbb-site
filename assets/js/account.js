@@ -97,7 +97,7 @@ function render(j){
  else{var h='<table class="reps"><thead><tr><th>'+M.thDate+'</th><th>'+M.thCo+'</th><th>'+M.thScore+'</th><th>'+M.thRep+'</th></tr></thead><tbody>';
   j.reports.forEach(function(r){var dl=API+'/api/account/report?id='+encodeURIComponent(r.id);
    var link=r.status==='ready'?'<a href="'+dl+'&lang=en">'+M.dlEn+'</a><br><a href="'+dl+'&lang=zh">'+M.dlZh+'</a>':(r.status==='failed'?M.failed:M.processing);
-   h+='<tr><td>'+esc(fmt(r.date))+'</td><td>'+esc(r.company)+'<span class="id">'+esc(r.id)+'</span></td><td>'+(r.band?'<span class="sc" style="font-size:15px">'+esc(LANG==='zh'?r.band.zh:r.band.en)+'</span>':'—')+'</td><td>'+link+'</td></tr>'});
+   h+='<tr><td>'+esc(fmt(r.date))+'</td><td>'+esc(r.company)+'<span class="id">'+esc(r.id)+'</span></td><td>'+(r.band&&r.status==='ready'?'<span class="sc" style="font-size:15px">'+esc(LANG==='zh'?r.band.zh:r.band.en)+'</span>':'—')+'</td><td>'+link+'</td></tr>'});
   R.innerHTML=h+'</tbody></table>'}
  renderRef(j.referral);renderUp(j.billing,ms);renderTj(j.trust);
  var rs=$('[data-repsec]');if(rs)rs.hidden=!(j.reports&&j.reports.length);
