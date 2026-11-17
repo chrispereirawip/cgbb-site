@@ -141,20 +141,19 @@ def standard_body(lang):
     mat = ''.join(f'<tr><td>{m["v"]} · {e(bl(lang, m))}</td><td>{e(bl(lang, m["d"]))}</td></tr>' for m in B['maturity'])
     capt = ''.join(f'<tr><td>{t("at least", "不少于")} {pct(a)}</td><td>{b}</td></tr>' for a, b in R['maturityCap'] if a > 0) + f'<tr><td>{t("under", "低于")} {pct(R["maturityCap"][-2][0])}</td><td>{R["maturityCap"][-1][1]}</td></tr>'
     st = list(reversed(R['status']))
-    bounds = [(x['min'], (st[k + 1]['min'] - 1 if k + 1 < len(st) else 100)) for k, x in enumerate(st)]
-    scale = ''.join(f'<div><b>{a}–{b}</b>{e(bl(lang, x))}</div>' for x, (a, b) in zip(st, bounds))
+    scale = ''.join(f'<div><b>{k + 1}</b>{e(bl(lang, x))}</div>' for k, x in enumerate(st))
     sup = {x['id']: x for x in R['support']}
     toc = [('scope', t('Scope', '适用范围')), ('principles', t('Principles', '原则')), ('indicators', t('Indicators', '指标')), ('rules', t('Full rules', '完整细则')), ('results', t('Results', '结果')), ('versions', t('Versions', '版本')), ('comment', t('Comment', '提出意见'))]
     return f'''<main>
 <section class="sd-hero"><div class="wrap"><div><div class="rule"></div><div class="label">{t('CGBB standard', '品信会标准')}</div>
 <h1>{e(name) if lang == 'en' else e(name)}</h1>
-<p class="lead">{t(f'The CGBB standard for assessing how well a brand’s trust is evidenced: five sections, {len(B["indicators"])} indicators and fixed scoring rules. This page is the full public text of the current draft.', f'品信会用以评估品牌信任是否有据可查的标准：五个部分、{len(B["indicators"])} 项指标，以及固定的计分规则。本页为现行草案的完整公开文本。')}</p>
-<div class="sd-ctas"><a class="btn btn-red" href="#comment">{t('Comment on the draft', '对草案提出意见')}</a><a class="btn btn-line" href="https://api.cgbb.org/standard/baseline.json">{t('Machine-readable version (JSON)', '机器可读版本（JSON）')}</a></div></div>
+<p class="lead">{t(f'The CGBB standard for assessing how well a brand’s trust is evidenced: five sections, {len(B["indicators"])} core indicators and a descriptive overall status. This page sets out the framework of the first edition; the full text is in the CGBB white paper.', f'品信会用以评估品牌信任是否有据可查的标准：五个板块、{len(B["indicators"])} 项核心指标，以及描述性的总体状态。本页列出第一版的评估框架，完整文本载于品信会白皮书。')}</p>
+<div class="sd-ctas"><a class="btn btn-red" href="#comment">{t('Comment on the standard', '对标准提出意见')}</a><a class="btn btn-line" href="https://api.cgbb.org/standard/baseline.json">{t('Machine-readable version (JSON)', '机器可读版本（JSON）')}</a></div></div>
 <aside class="sd-doc" aria-label="{t('Document status', '文件状态')}"><h2>{t('Document status', '文件状态')}</h2><dl>
 <dt>{t('Document', '文件')}</dt><dd>{e(name)}</dd>
-<dt>{t('Version', '版本')}</dt><dd>{VER}<span class="sd-pill">{t('Beta draft', '测试版草案')}</span></dd>
-<dt>{t('In use for', '现用于')}</dt><dd>{t('The members’ self-test (indicative). Not yet used for public ratings.', '会员自测（结果仅供参考），尚未用于公开评级。')}</dd>
-<dt>{t('Next', '下一版')}</dt><dd>{t('Version 1, published with the CGBB whitepaper in Hong Kong at the end of November 2026.', '第 1 版，将于 2026 年 11 月底随品信会白皮书在香港发布。')}</dd>
+<dt>{t('Version', '版本')}</dt><dd>{t('First edition, November 2026', '第一版，2026 年 11 月')} <span class="sd-pill">{VER}</span></dd>
+<dt>{t('In use for', '现用于')}</dt><dd>{t('The members’ self-test (indicative). Third-party assessment opens with Advanced Membership.', '会员自测（结果仅供参考）。第三方测评将随进阶会籍开放。')}</dd>
+<dt>{t('Source', '依据')}</dt><dd>{t('CGBB white paper, From Credibility to Trust: Brands Going Global (《出海企业品牌可信度白皮书》)', '品信会《出海企业品牌可信度白皮书》（From Credibility to Trust: Brands Going Global）')}</dd>
 <dt>{t('Maintained by', '维护方')}</dt><dd>{t('CGBB Secretariat', '品信会秘书处')}</dd>
 <dt>{t('Comments', '意见征集')}</dt><dd><a href="#comment">{t('Open to everyone', '向所有人开放')}</a></dd>
 </dl></aside></div></section>
@@ -166,8 +165,8 @@ def standard_body(lang):
 <section class="sd-sec" id="principles"><h2><span class="n">2</span>{t('Principles', '原则')}</h2><div class="sd-grid c5">
 <div><h3>{t('Evidence, not claims', '看证据，不看说法')}</h3><p>{t('Every indicator is rated from concrete checks. “Not sure” counts as no evidence.', '每项指标都依据具体的核查项评定。「不确定」视为没有证据。')}</p></div>
 <div><h3>{t('Same evidence, same result', '同样的证据，同样的结果')}</h3><p>{t('The rules are fixed and versioned. Nobody adjusts a result by hand.', '规则固定并按版本管理，任何人都不能人为调整结果。')}</p></div>
-<div><h3>{t('Risks are not averaged away', '风险不会被平均掉')}</h3><p>{t('A major unresolved risk limits the score, however strong the other sections are.', '尚未解决的重大风险会限制总分，无论其他部分表现多好。')}</p></div>
-<div><h3>{t('“Not enough information” is a result', '「信息不足」也是一种结果')}</h3><p>{t('Where the evidence is too thin to judge, the Baseline says so and gives no score.', '证据不足以判断时，基线会如实说明，不给出分数。')}</p></div>
+<div><h3>{t('Risks are not averaged away', '风险不会被平均掉')}</h3><p>{t('A major unresolved risk is shown separately and limits the overall status, however strong the other sections are.', '尚未解决的重大风险独立呈现，并限制总体状态，无论其他板块表现多好。')}</p></div>
+<div><h3>{t('“Not enough information” is a result', '「信息不足」也是一种结果')}</h3><p>{t('Where the evidence is too thin to judge, the Baseline says so and forms no status.', '证据不足以判断时，基线会如实说明，不强行形成状态。')}</p></div>
 <div><h3>{t('Public rules', '规则公开')}</h3><p>{t('The framework and the change log are public, and anyone can comment. The detailed rules are in the full white paper, open to every member.', '评估框架及变更记录公开，任何人均可提出意见；具体细则载于完整版白皮书，向全体会员开放。')}</p></div>
 </div></section>
 <section class="sd-sec" id="indicators"><h2><span class="n">3</span>{t(f'Five sections, {len(B["indicators"])} indicators', f'五个部分，{len(B["indicators"])} 项指标')}</h2>
@@ -175,24 +174,26 @@ def standard_body(lang):
 {''.join(blocks)}
 </section>
 <section class="sd-sec" id="rules"><h2><span class="n">4</span>{t('Full rules', '完整细则')}</h2>
-<p>{t(f'The definition of each indicator, how it is rated and scored, and all {nchecks} checks are set out in the full CGBB white paper, 《出海企业品牌可信度白皮书》 (From Credibility to Trust: Chinese Brands Going Global, November 2026). The full edition is for CGBB members; the preview is open to everyone. Chinese edition only for now.', f'各项指标的具体定义、评分口径及全部 {nchecks} 项核查项，载于品信会《出海企业品牌可信度白皮书》完整版（2026 年 11 月）。完整版仅向品信会会员开放，试读版向所有人开放。')}</p>
+<p>{t(f'The definition of each indicator, how its status is formed, and all {nchecks} checks are set out in the full CGBB white paper, 《出海企业品牌可信度白皮书》 (From Credibility to Trust: Brands Going Global, November 2026). The full edition is for CGBB members; the preview is open to everyone. Chinese edition for now; an English edition will follow.</p><p>The result of an assessment is an overall status (one of five, below) and a five-section profile on a 0–5 scale, shown with any major risk, the evidence coverage and how well the judgment is supported. There is no total score, and no ranking in the first year.', f'各项指标的具体定义、判断规则及全部 {nchecks} 项核查项，载于品信会《出海企业品牌可信度白皮书》完整版（2026 年 11 月）。完整版仅向品信会会员开放，试读版向所有人开放。</p><p>评估结果包括一个总体状态（见下方五种状态）及 0–5 的五维诊断画像，并同时呈现重大风险、证据覆盖率及判断支持程度。不设总分，首年不发布排名。')}</p>
+<div class="sd-scale">{scale}</div>
 <div class="sd-ctas"><a class="btn btn-red" href="{P}/apply/">{t('Become a member and download the full white paper for all the rules', '注册会员，下载完整版白皮书查看全部细则')}</a><a class="btn btn-line" href="{P}/#whitepaper">{t('Download the preview', '下载试读版')}</a></div></section>
 <section class="sd-sec" id="results"><h2><span class="n">5</span>{t('How results are used', '结果如何使用')}</h2>
 <table class="sd-t"><thead><tr><th>{t('Use', '用途')}</th><th>{t('Who provides the evidence', '证据由谁提供')}</th><th>{t('What is public', '公开内容')}</th></tr></thead><tbody>
-<tr><td>{t('Self-test', '会员自测')} <span class="sd-pill">{t('Beta', '测试版')}</span></td><td>{t('The member answers the checks for its own, badge-confirmed brand. A scan of the brand’s website can confirm answers left as “Not sure”; it never lowers a score.', '会员就其已通过徽章确认的自有品牌回答核查项。官网扫描可为「不确定」的项目补充确认，但绝不会拉低分数。')}</td><td>{t('Nothing. The result is indicative and private to the member and the Secretariat.', '不公开。结果仅供参考，仅会员本人及秘书处可见。')}</td></tr>
-<tr><td>{t('Trust Review', '信任评审')} <span class="sd-pill">{t('Not open yet', '尚未开放')}</span></td><td>{t('CGBB checks the evidence behind each indicator. Opens with Advanced Membership, after version 1 is published and has completed a beta period with independent expert review.', '由品信会核查每项指标背后的证据。将随进阶会籍开放，时间在第 1 版发布并完成有独立专家评审的测试期之后。')}</td><td>{t('For brands that meet the published standard: the Verified Trusted level, with the score and section profile, in the registry. None has been issued yet.', '达到已公布标准的品牌：在登记册中显示 Verified Trusted 等级、总分及各部分概况。目前尚未签发。')}</td></tr>
+<tr><td>{t('Self-test', '会员自测')}</td><td>{t('The member answers the checks for its own, badge-confirmed brand. A scan of the brand’s website can confirm answers left as “Not sure”; it never lowers an answer. The scan runs three times and takes the majority, and a re-test starts from the last answers, so the same answers give the same result.', '会员就其已通过徽章确认的自有品牌回答核查项。官网扫描可为「不确定」的项目补充确认，但绝不会降低回答。扫描执行三次并取多数；再次自测会带入上次的回答，相同的回答得到相同的结果。')}</td><td>{t('Nothing. The result is indicative and private to the member and the Secretariat.', '不公开。结果仅供参考，仅会员本人及秘书处可见。')}</td></tr>
+<tr><td>{t('Third-party assessment and diagnosis', '第三方测评与诊断')} <span class="sd-pill">{t('Not open yet', '尚未开放')}</span></td><td>{t('The evidence behind each indicator is checked under the same Baseline. Opens with Advanced Membership, after the first edition has completed a trial period with independent expert review.', '在同一套基线框架下核查每项指标背后的证据。将随进阶会籍开放，时间在第一版完成有独立专家评审的试行期之后。')}</td><td>{t('The member receives a diagnosis report. A result is a description of where a brand stands, not a certification, a rating or an endorsement.', '会员收到诊断报告。结果是对品牌当前状态的描述，不是认证、评级或背书。')}</td></tr>
+<tr><td>Plus <span class="sd-pill">{t('Optional', '按需要')}</span></td><td>{t('A deeper review with more of the brand’s own material and its industry and market context.', '纳入更多企业材料及行业、地区情境的深度诊断。')}</td><td>{t('Nothing by default.', '默认不公开。')}</td></tr>
 </tbody></table>
-<p class="sd-note">{t('The requirements for the Verified Trusted level are published with version 1.', 'Verified Trusted 等级的具体要求将随第 1 版公布。')} <a href="{P}/verify/">{t('How to read a registry record →', '如何查看登记记录 →')}</a></p></section>
+<p class="sd-note"><a href="{P}/verify/">{t('How to read a registry record →', '如何查看登记记录 →')}</a></p></section>
 <section class="sd-sec" id="versions"><h2><span class="n">6</span>{t('Versions and change log', '版本与变更记录')}</h2>
 <p>{t('Every result records the version of the rules it was scored under. When the rules change, the version changes, and the change is listed here.', '每个结果都会记录其所依据的规则版本。规则变更时版本随之变更，并在此列出。')}</p>
 <table class="sd-t"><thead><tr><th>{t('Version', '版本')}</th><th>{t('Status', '状态')}</th><th>{t('Notes', '说明')}</th></tr></thead><tbody>
-<tr><td>{VER}</td><td>{t('Beta draft · November 2026', '测试版草案 · 2026 年 11 月')}</td><td>{t(f'First public draft: five sections, {len(B["indicators"])} indicators, {nchecks} checks. In use for the members’ self-test.', f'首个公开草案：五个部分、{len(B["indicators"])} 项指标、{nchecks} 项核查。现用于会员自测。')}</td></tr>
-<tr><td>{t('Version 1', '第 1 版')}</td><td>{t('Planned · end of November 2026', '计划中 · 2026 年 11 月底')}</td><td>{t('Published with the CGBB whitepaper in Hong Kong, followed by a beta period with independent expert review.', '随品信会白皮书在香港发布，其后进入有独立专家评审的测试期。')}</td></tr>
+<tr><td>{VER}</td><td>{t('First edition · November 2026', '第一版 · 2026 年 11 月')}</td><td>{t(f'Published with the CGBB white paper: five sections, {len(B["indicators"])} core indicators, {nchecks} checks, a descriptive overall status and no total score. In use for the members’ self-test.', f'随品信会白皮书发布：五个板块、{len(B["indicators"])} 项核心指标、{nchecks} 项核查，采用描述性总体状态，不设总分。现用于会员自测。')}</td></tr>
+<tr><td>baseline-2026.11</td><td>{t('Beta draft · replaced', '测试版草案 · 已被取代')}</td><td>{t('Public draft used from 11 to 17 November 2026. It gave a 0–100 score, which the first edition does not.', '2026 年 11 月 11 日至 17 日使用的公开草案。该草案设有 0–100 评分，第一版已取消。')}</td></tr>
 </tbody></table>
 <p style="margin-bottom:6px"><b>{t('How to cite', '引用方式')}</b></p>
-<p class="sd-cite">Council for Global Brand Building (2026). <i>CGBB Brand Trust Baseline</i>, beta draft {VER}. https://cgbb.org/standard/</p></section>
-<section class="sd-sec" id="comment"><h2><span class="n">7</span>{t('Comment on the draft', '对草案提出意见')}</h2>
-<p>{t('Anyone can comment: companies, researchers, journalists, buyers. Tell us which indicator or rule you mean and what you would change. The Secretariat reads every comment, and comments are considered for version 1 and later versions.', '任何人均可提出意见：企业、研究者、记者、买家。请说明所指的指标或规则，以及您建议的修改。秘书处会逐一阅读，并在制定第 1 版及后续版本时予以考虑。')}</p>
+<p class="sd-cite">Council for Global Brand Building (2026). <i>CGBB Brand Trust Baseline</i>, first edition ({VER}). https://cgbb.org/standard/</p></section>
+<section class="sd-sec" id="comment"><h2><span class="n">7</span>{t('Comment on the standard', '对标准提出意见')}</h2>
+<p>{t('Anyone can comment: companies, researchers, journalists, buyers. Tell us which indicator or rule you mean and what you would change. The Secretariat reads every comment, and comments are considered for the next edition.', '任何人均可提出意见：企业、研究者、记者、买家。请说明所指的指标或规则，以及您建议的修改。秘书处会逐一阅读，并在制定下一版时予以考虑。')}</p>
 {form(lang, ['standard'], t('Indicator or rule (optional)', '所指指标或规则（选填）'), t('e.g. C2, or the major-risk rule', '例如 C2，或重大风险规则'), 'fb-standard')}
 </section>
 </div><div class="sd-end"></div>
@@ -206,19 +207,19 @@ def about_body(lang):
         (t('One set of rules for everyone', '规则对所有机构一视同仁'), t('Every organisation, including CGBB’s founding institutions, applies in the same way and waits for Secretariat approval before its Website Trust Credential is issued.', '所有机构，包括品信会的创始机构，都以同样方式申请，并须经秘书处批准后才获发网站信任凭证。')),
         (t('A person reviews every application', '每份申请都由人工审核'), t('No application is approved automatically, whether it comes through the website, a partner or an AI agent.', '无论经官网、合作伙伴还是 AI 代理提交，任何申请都不会自动获批。')),
         (t('Results follow published rules', '结果依据公开规则'), t('Baseline results follow the fixed rules in the public standard. The same evidence always gives the same result.', '基线评估结果依据公开标准中的固定规则得出，同样的证据必然得到同样的结果。')),
-        (t('Fees do not buy results', '付费不能换取结果'), t('Basic Membership is free. Advanced Membership, when it opens, will pay for the work of a Trust Review, not for its outcome. A brand that does not meet the standard is not listed as Verified Trusted.', '基本会籍免费。进阶会籍开放后，所付费用用于信任评审的工作，而不是评审的结果。未达标准的品牌不会被列为 Verified Trusted。')),
+        (t('Fees do not buy results', '付费不能换取结果'), t('Basic Membership is free. Advanced Membership, when it opens, will pay for the work of a third-party assessment, not for its outcome. The result describes where a brand stands, whatever that turns out to be.', '基本会籍免费。进阶会籍开放后，所付费用用于第三方测评的工作，而不是测评的结果。结果如实描述品牌当前的状态。')),
         (t('Membership is not endorsement', '会员资格不等于背书'), t('The Member level confirms who an organisation is and that it controls its website. It is not a certification, rating or endorsement.', 'Member 等级确认的是机构的身份及其对官网的控制权，不构成认证、评级或背书。')),
         (t('Every badge can be checked', '每枚徽章都可核实'), t('A genuine badge links to a live record in the registry. When a membership ends, the record changes at once, and CGBB may act against misuse of its marks.', '真实的徽章会链接到登记册中的实时记录。会籍终止时记录即时变更；对滥用品信会标识的行为，品信会可采取行动。')),
-        (t('The standard is open to comment', '标准公开征求意见'), t('Anyone can comment on the draft standard. Changes are versioned and listed in a public change log.', '任何人均可对标准草案提出意见。规则变更按版本管理，并列入公开的变更记录。')),
+        (t('The standard is open to comment', '标准公开征求意见'), t('Anyone can comment on the standard. Changes are versioned and listed in a public change log.', '任何人均可对标准提出意见。规则变更按版本管理，并列入公开的变更记录。')),
         (t('Private data stays private', '非公开数据不会公开'), t('Self-test answers and reports are seen only by the member and the Secretariat. The public record shows the organisation, its website, its level and its status.', '自测的回答和报告仅会员本人及秘书处可见。公开记录只显示机构名称、官网、等级及状态。')),
     ]
     road = [
         (t('Sep 2026', '2026 年 9 月'), t('CGBB announced in Geneva, during the WTO Public Forum.', '品信会在日内瓦世贸组织公共论坛期间宣布成立。'), 'done'),
         (t('Nov 2026', '2026 年 11 月'), t('Website Trust Credential and member badge launched. The registry opens to AI agents.', '推出网站信任凭证及会员徽章；登记册向 AI 代理开放。'), 'done'),
-        (t('Nov 2026', '2026 年 11 月'), t('Brand Trust Baseline published as a beta draft, open for comment. Members’ self-test in beta.', '品牌可信度基线评估以测试版草案形式公布并公开征求意见；会员自测进入测试阶段。'), 'done'),
-        (t('End Nov 2026', '2026 年 11 月底'), t('First whitepaper and version 1 of the standard, released in Hong Kong.', '首份白皮书及标准第 1 版在香港发布。'), 'next'),
-        (t('After the beta', '测试期之后'), t('Advanced Membership opens: Trust Reviews and the Verified Trusted level, after independent expert review of the standard.', '进阶会籍开放：在标准经独立专家评审之后，开始信任评审并签发 Verified Trusted 等级。'), 'plan'),
-        ('2027', t('Preliminary ranking of reviewed brands; the method refined with first-year results.', '发布经评审品牌的初步排名，并根据首年结果完善方法。'), 'plan'),
+        (t('Nov 2026', '2026 年 11 月'), t('First white paper published (From Credibility to Trust: Brands Going Global), with the first edition of the Brand Trust Baseline. Members’ self-test open.', '首份白皮书《出海企业品牌可信度白皮书》及品牌可信度基线评估第一版发布；会员自测开放。'), 'done'),
+        (t('End Nov 2026', '2026 年 11 月底'), t('White paper release event in Hong Kong. English edition of the white paper to follow.', '白皮书发布会在香港举行；白皮书英文版稍后推出。'), 'next'),
+        (t('After the trial period', '试行期之后'), t('Advanced Membership opens: third-party assessment and diagnosis, then Plus, after independent expert review of the first edition.', '进阶会籍开放：在第一版经独立专家评审之后，开始第三方测评与诊断，其后推出 Plus。'), 'plan'),
+        ('2027', t('Yearly update of the Baseline; results compared across brands once enough assessed data exists.', '基线评估年度更新；待积累足够的测评数据后，再进行跨品牌比较。'), 'plan'),
     ]
     tag = {'done': t('Done', '已完成'), 'next': t('Next', '下一步'), 'plan': t('Planned', '计划中')}
     return f'''<main>
@@ -263,8 +264,8 @@ def about_body(lang):
 PAGES = {
     'standard': dict(
         title=('CGBB Brand Trust Baseline: the standard | Council for Global Brand Building', '品牌可信度基线评估：标准全文 | 品信会'),
-        desc=('The full public text of the CGBB Brand Trust Baseline (beta draft): five sections, 15 indicators, every check, the rating scales and the scoring rules. Open for comment.',
-              '品信会品牌可信度基线评估（测试版草案）完整公开文本：五个部分、15 项指标、全部核查项、评级量表及计分规则，公开征求意见。'),
+        desc=('The CGBB Brand Trust Baseline, first edition (November 2026): five sections, 15 core indicators and a descriptive overall status, from the CGBB white paper. Open for comment.',
+              '品信会品牌可信度基线评估第一版（2026 年 11 月）：五个板块、15 项核心指标及描述性总体状态，依据品信会白皮书，公开征求意见。'),
         body=standard_body),
     'about': dict(
         title=('About CGBB | Council for Global Brand Building', '关于品信会 | 全球化品牌信任促进会'),
@@ -278,7 +279,7 @@ def ld(page, lang, title, desc):
     url = f'https://cgbb.org{LANGS[lang][0]}/{page}/'
     org = {'@id': 'https://cgbb.org/#organization'}
     if page == 'standard':
-        o = {'@context': 'https://schema.org', '@type': ['TechArticle', 'DefinedTermSet'], 'name': 'CGBB Brand Trust Baseline', 'headline': title, 'description': desc, 'version': VER, 'creativeWorkStatus': 'Draft',
+        o = {'@context': 'https://schema.org', '@type': ['TechArticle', 'DefinedTermSet'], 'name': 'CGBB Brand Trust Baseline', 'headline': title, 'description': desc, 'version': VER, 'creativeWorkStatus': 'Published',
              'inLanguage': LANGS[lang][1], 'url': url, 'publisher': org, 'author': org, 'datePublished': '2026-11-11', 'isAccessibleForFree': True,
              'encoding': {'@type': 'MediaObject', 'encodingFormat': 'application/json', 'contentUrl': 'https://api.cgbb.org/standard/baseline.json'},
              'hasDefinedTerm': [{'@type': 'DefinedTerm', 'termCode': i['id'], 'name': i['en'], 'inDefinedTermSet': url} for i in B['indicators']]}

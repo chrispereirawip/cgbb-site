@@ -186,14 +186,14 @@
     },
     "baseline": {
       "type": "object",
-      "description": "Verified Trusted only: the CGBB Brand Trust Baseline from the member's Trust Review. See https://cgbb.org/#baseline",
+      "description": "Reserved; not issued. The first edition of the CGBB Brand Trust Baseline (November 2026) gives a descriptive overall status and no total score. See https://cgbb.org/standard/",
       "properties": {
         "name": {
           "type": "string"
         },
         "model": {
           "type": "string",
-          "description": "Version of the fixed scoring rules"
+          "description": "Version of the Baseline rules"
         },
         "status": {
           "type": "string",
@@ -204,13 +204,16 @@
             "initial",
             "lacking"
           ],
-          "description": "Overall status: trust well established (80-100), trust established (60-79), trust developing (40-59), trust at an early stage (20-39), trust foundations lacking (0-19)"
+          "description": "Overall status: trust well established, trust established, trust developing, trust at an early stage, trust foundations lacking"
         },
         "score": {
-          "type": "integer",
+          "type": [
+            "integer",
+            "null"
+          ],
           "minimum": 0,
           "maximum": 100,
-          "description": "20 x the mean of the five section scores"
+          "description": "Not used in the first edition (null). Earlier drafts: 20 x the mean of the five section scores"
         },
         "sections": {
           "type": "object",
