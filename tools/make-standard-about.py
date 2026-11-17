@@ -46,6 +46,7 @@ CSS = """
 .sd-grid a.more{display:inline-block;margin-top:8px;font-size:14.5px;font-weight:500}
 .sd-s{border:1px solid var(--hair);margin:0 0 14px}.sd-sh{display:flex;gap:14px;align-items:baseline;padding:14px 18px;background:#faf9f8;border-bottom:1px solid var(--hair)}
 .sd-sh b{font-size:22px;color:var(--red);font-weight:600;min-width:20px}.sd-sh h3{font-size:18px;font-weight:500;margin:0}.sd-sh span{font-size:14.5px;color:var(--grey);margin-left:auto;text-align:right}
+.sd-ind{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;padding:12px 18px;border-bottom:1px solid var(--hair);font-size:15px}.sd-ind:last-child{border-bottom:0}.sd-ind .id{color:var(--red);font-weight:600}
 .sd-s details{border-bottom:1px solid var(--hair);padding:0 18px}.sd-s details:last-child{border-bottom:0}
 .sd-s summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px 1fr auto 22px;gap:10px;align-items:center;padding:12px 0;font-size:16px}
 .sd-s summary::-webkit-details-marker{display:none}.sd-s summary .id{font-weight:600;color:var(--red)}.sd-s summary .ty{font-size:13px;color:var(--grey);white-space:nowrap}
@@ -134,7 +135,8 @@ def standard_body(lang):
                     how += ' ' + t(f'If no complaint, dispute or major issue arose in the period, the score is limited to {R["eventCapNoEvent"]}: a prepared process has not yet been tested.', f'若评估期内未发生投诉、纠纷或重大事件，得分上限为 {R["eventCapNoEvent"]}：既有机制尚未经实际检验。')
                 lis = ''.join('<li><span>%s</span><div>%s%s</div></li>' % (c['id'], e(bl(lang, c)), ('<em>%s</em>' % t('Key check', '关键项') if c.get('key') else '')) for c in i['checks'])
                 inner = f'<p class="how">{how}</p><ol>{lis}</ol>'
-            rows.append(f'<details id="{i["id"]}"><summary><span class="id">{i["id"]}</span><span>{e(bl(lang, i))}</span><span class="ty">{ty} · {cnt}</span></summary>{inner}</details>')
+            # public page: indicator names only. Definitions, scoring rules and the checks are in the full white paper (Weijing, 17 Nov 2026)
+            rows.append(f'<div class="sd-ind" id="{i["id"]}"><span class="id">{i["id"]}</span><span>{e(bl(lang, i))}</span></div>')
         blocks.append(f'<div class="sd-s" id="section-{s["id"]}"><div class="sd-sh"><b>{s["id"]}</b><h3>{e(bl(lang, s))}</h3><span>{e(bl(lang, s["q"]))}</span></div>{"".join(rows)}</div>')
     mat = ''.join(f'<tr><td>{m["v"]} · {e(bl(lang, m))}</td><td>{e(bl(lang, m["d"]))}</td></tr>' for m in B['maturity'])
     capt = ''.join(f'<tr><td>{t("at least", "不少于")} {pct(a)}</td><td>{b}</td></tr>' for a, b in R['maturityCap'] if a > 0) + f'<tr><td>{t("under", "低于")} {pct(R["maturityCap"][-2][0])}</td><td>{R["maturityCap"][-1][1]}</td></tr>'
@@ -142,7 +144,7 @@ def standard_body(lang):
     bounds = [(x['min'], (st[k + 1]['min'] - 1 if k + 1 < len(st) else 100)) for k, x in enumerate(st)]
     scale = ''.join(f'<div><b>{a}–{b}</b>{e(bl(lang, x))}</div>' for x, (a, b) in zip(st, bounds))
     sup = {x['id']: x for x in R['support']}
-    toc = [('scope', t('Scope', '适用范围')), ('principles', t('Principles', '原则')), ('indicators', t('Indicators', '指标')), ('rating', t('Rating', '评级')), ('scoring', t('Scoring', '计分')), ('results', t('Results', '结果')), ('versions', t('Versions', '版本')), ('comment', t('Comment', '提出意见'))]
+    toc = [('scope', t('Scope', '适用范围')), ('principles', t('Principles', '原则')), ('indicators', t('Indicators', '指标')), ('rules', t('Full rules', '完整细则')), ('results', t('Results', '结果')), ('versions', t('Versions', '版本')), ('comment', t('Comment', '提出意见'))]
     return f'''<main>
 <section class="sd-hero"><div class="wrap"><div><div class="rule"></div><div class="label">{t('CGBB standard', '品信会标准')}</div>
 <h1>{e(name) if lang == 'en' else e(name)}</h1>
@@ -166,40 +168,22 @@ def standard_body(lang):
 <div><h3>{t('Same evidence, same result', '同样的证据，同样的结果')}</h3><p>{t('The rules are fixed and versioned. Nobody adjusts a result by hand.', '规则固定并按版本管理，任何人都不能人为调整结果。')}</p></div>
 <div><h3>{t('Risks are not averaged away', '风险不会被平均掉')}</h3><p>{t('A major unresolved risk limits the score, however strong the other sections are.', '尚未解决的重大风险会限制总分，无论其他部分表现多好。')}</p></div>
 <div><h3>{t('“Not enough information” is a result', '「信息不足」也是一种结果')}</h3><p>{t('Where the evidence is too thin to judge, the Baseline says so and gives no score.', '证据不足以判断时，基线会如实说明，不给出分数。')}</p></div>
-<div><h3>{t('Public rules', '规则公开')}</h3><p>{t('This text, the scoring rules and the change log are public, and anyone can comment.', '本文本、计分规则及变更记录全部公开，任何人均可提出意见。')}</p></div>
+<div><h3>{t('Public rules', '规则公开')}</h3><p>{t('The framework and the change log are public, and anyone can comment. The detailed rules are in the full white paper, open to every member.', '评估框架及变更记录公开，任何人均可提出意见；具体细则载于完整版白皮书，向全体会员开放。')}</p></div>
 </div></section>
 <section class="sd-sec" id="indicators"><h2><span class="n">3</span>{t(f'Five sections, {len(B["indicators"])} indicators', f'五个部分，{len(B["indicators"])} 项指标')}</h2>
-<p>{t(f'Each section asks one question about the brand. Each indicator is rated from the checks listed under it ({nchecks} checks in all). Select an indicator to read its checks.', f'每个部分针对品牌提出一个问题；每项指标依据其下所列核查项评定（共 {nchecks} 项核查）。点击指标可查看核查项。')}</p>
+<p>{t('Each section asks one question about the brand, and holds three core indicators.', '每个部分针对品牌提出一个问题，各含三项核心指标。')}</p>
 {''.join(blocks)}
-<p class="sd-note">{t('Key checks: if a key check is not met, the indicator is limited to 1. Sections A and C each have a key indicator (A1 and C1).', '关键项：关键核查项未达标时，该指标最高为 1 分。A、C 两部分各有一项关键指标（A1 和 C1）。')}</p></section>
-<section class="sd-sec" id="rating"><h2><span class="n">4</span>{t('How an indicator is rated', '指标如何评定')}</h2>
-<p>{t('Each check is answered Yes, No, Not sure or Not applicable. Checks that do not apply are left out. Every indicator then gets a rating from 0 to 5, or ND (not enough information).', '每项核查的回答为「是」「否」「不确定」或「不适用」；不适用的项目不计入。随后每项指标得到 0 至 5 的评级，或 ND（信息不足）。')}</p>
-<table class="sd-t"><thead><tr><th>{t('Type', '类型')}</th><th>{t('Indicators', '指标')}</th><th>{t('How the 0–5 rating is set', '0–5 评级如何得出')}</th></tr></thead><tbody>
-<tr><td>{t(*TYPE['fact'])}</td><td>{', '.join(i['id'] for i in B['indicators'] if i['type'] == 'fact')}</td><td>{t(f'5 × the share of answered checks that are met, rounded. At least {pct(R["indicatorMinKnown"])} of the checks must be answered, otherwise ND.', f'5 × 已回答核查项中达标项的比例，四舍五入。至少须回答 {pct(R["indicatorMinKnown"])} 的核查项，否则为 ND。')}</td></tr>
-<tr><td>{t(*TYPE['external'])}</td><td>{', '.join(i['id'] for i in B['indicators'] if i['type'] == 'external')}</td><td>{t('The average of two things: the overall performance shown by the records (1–5), and 5 × the share of checks met. ND if there are too few records to judge.', '取两者的平均值：记录显示的整体表现（1–5），以及 5 × 达标核查项比例。记录过少、不足以判断时为 ND。')}</td></tr>
-<tr><td>{t(*TYPE['maturity'])}</td><td>{', '.join(i['id'] for i in B['indicators'] if i['type'] == 'maturity')}</td><td>{t('The maturity level (0–5, table below), limited by how much of it the checks support.', '成熟度等级（0–5，见下表），并受核查项支持程度的限制。')}</td></tr>
-<tr><td>{t(*TYPE['record'])}</td><td>{', '.join(i['id'] for i in B['indicators'] if i['type'] == 'record')}</td><td>{t('The matching level on the six-level record scale (0–5).', '在六级记录量表（0–5）中选取相符的等级。')}</td></tr>
-</tbody></table>
-<div class="sd-grid" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)"><div style="border-top:0;padding-top:0"><table class="sd-t"><thead><tr><th>{t('Maturity level', '成熟度等级')}</th><th>{t('Meaning', '含义')}</th></tr></thead><tbody>{mat}</tbody></table></div>
-<div style="border-top:0;padding-top:0"><table class="sd-t"><thead><tr><th>{t('Share of checks met', '达标核查项比例')}</th><th>{t('Highest level allowed', '可评最高等级')}</th></tr></thead><tbody>{capt}</tbody></table></div></div></section>
-<section class="sd-sec" id="scoring"><h2><span class="n">5</span>{t('Scoring rules', '计分规则')}</h2>
-<ul class="sd-rules">
-<li><b>{t('Section rating (0–5).', '部分评级（0–5）。')}</b> {t(f'The average of its rated indicators, to the nearest half point. A section needs at least {R["sectionMinValid"]} rated indicators, and its key indicator must be rated; otherwise it is ND.', f'取该部分已评定指标的平均值，精确到 0.5。每个部分至少须有 {R["sectionMinValid"]} 项已评定指标，且关键指标必须已评定，否则为 ND。')}</li>
-<li><b>{t('Weak points limit a section.', '短板会限制部分评级。')}</b> {t(f'If any indicator is rated 0, or the key indicator is rated 0–1, the section is limited to {R["sectionWeakCap"]}.', f'任何一项指标为 0，或关键指标为 0–1 时，该部分最高为 {R["sectionWeakCap"]}。')}</li>
-<li><b>{t('Score (0–100).', '总分（0–100）。')}</b> {t('20 × the average of the five section ratings.', '20 × 五个部分评级的平均值。')}</li>
-<li><b>{t('Major risks limit the score.', '重大风险会限制总分。')}</b> {t(f'An unresolved major risk, or A1 or C1 rated 0–1, limits the score to {R["majorRiskCap"]}. Section A or C rated 0–1 limits it to {R["foundationCap"]}.', f'存在尚未解决的重大风险，或 A1、C1 评级为 0–1 时，总分上限为 {R["majorRiskCap"]}；A 或 C 部分评级为 0–1 时，上限为 {R["foundationCap"]}。')}</li>
-<li><b>{t('Not enough information.', '信息不足。')}</b> {t(f'No score is given if section A or C cannot be rated, if fewer than {R["scoreMinSections"]} sections are rated, or if under {pct(R["scoreMinCoverage"])} of the items have an answer.', f'A 或 C 部分无法评定、已评定部分少于 {R["scoreMinSections"]} 个，或已回答项目不足 {pct(R["scoreMinCoverage"])} 时，不给出总分。')}</li>
-<li><b>{t('Evidence support.', '证据支持度。')}</b> {t(f'Reported with every result. High: at least {pct(sup["high"]["coverage"])} of items answered and at least {pct(sup["high"]["external"])} confirmed from an independent source. Medium: at least {pct(sup["medium"]["coverage"])} answered. Low: at least {pct(sup["low"]["coverage"])}.', f'随每个结果一并报告。高：已回答项目不少于 {pct(sup["high"]["coverage"])}，且不少于 {pct(sup["high"]["external"])} 经独立来源核实。中：已回答不少于 {pct(sup["medium"]["coverage"])}。低：不少于 {pct(sup["low"]["coverage"])}。')}</li>
-<li><b>{t('Rounding.', '取整。')}</b> {t('All rounding is half up, in whole-number arithmetic, so a result never depends on the computer that calculates it.', '所有取整均采用整数运算的四舍五入，结果不因计算设备而异。')}</li>
-</ul>
-<div class="sd-scale">{scale}</div></section>
-<section class="sd-sec" id="results"><h2><span class="n">6</span>{t('How results are used', '结果如何使用')}</h2>
+</section>
+<section class="sd-sec" id="rules"><h2><span class="n">4</span>{t('Full rules', '完整细则')}</h2>
+<p>{t(f'The definition of each indicator, how it is rated and scored, and all {nchecks} checks are set out in the full CGBB white paper, 《出海企业品牌可信度白皮书》 (From Credibility to Trust: Chinese Brands Going Global, November 2026). The full edition is for CGBB members; the preview is open to everyone. Chinese edition only for now.', f'各项指标的具体定义、评分口径及全部 {nchecks} 项核查项，载于品信会《出海企业品牌可信度白皮书》完整版（2026 年 11 月）。完整版仅向品信会会员开放，试读版向所有人开放。')}</p>
+<div class="sd-ctas"><a class="btn btn-red" href="{P}/apply/">{t('Become a member and download the full white paper for all the rules', '注册会员，下载完整版白皮书查看全部细则')}</a><a class="btn btn-line" href="{P}/#whitepaper">{t('Download the preview', '下载试读版')}</a></div></section>
+<section class="sd-sec" id="results"><h2><span class="n">5</span>{t('How results are used', '结果如何使用')}</h2>
 <table class="sd-t"><thead><tr><th>{t('Use', '用途')}</th><th>{t('Who provides the evidence', '证据由谁提供')}</th><th>{t('What is public', '公开内容')}</th></tr></thead><tbody>
 <tr><td>{t('Self-test', '会员自测')} <span class="sd-pill">{t('Beta', '测试版')}</span></td><td>{t('The member answers the checks for its own, badge-confirmed brand. A scan of the brand’s website can confirm answers left as “Not sure”; it never lowers a score.', '会员就其已通过徽章确认的自有品牌回答核查项。官网扫描可为「不确定」的项目补充确认，但绝不会拉低分数。')}</td><td>{t('Nothing. The result is indicative and private to the member and the Secretariat.', '不公开。结果仅供参考，仅会员本人及秘书处可见。')}</td></tr>
 <tr><td>{t('Trust Review', '信任评审')} <span class="sd-pill">{t('Not open yet', '尚未开放')}</span></td><td>{t('CGBB checks the evidence behind each indicator. Opens with Advanced Membership, after version 1 is published and has completed a beta period with independent expert review.', '由品信会核查每项指标背后的证据。将随进阶会籍开放，时间在第 1 版发布并完成有独立专家评审的测试期之后。')}</td><td>{t('For brands that meet the published standard: the Verified Trusted level, with the score and section profile, in the registry. None has been issued yet.', '达到已公布标准的品牌：在登记册中显示 Verified Trusted 等级、总分及各部分概况。目前尚未签发。')}</td></tr>
 </tbody></table>
 <p class="sd-note">{t('The requirements for the Verified Trusted level are published with version 1.', 'Verified Trusted 等级的具体要求将随第 1 版公布。')} <a href="{P}/verify/">{t('How to read a registry record →', '如何查看登记记录 →')}</a></p></section>
-<section class="sd-sec" id="versions"><h2><span class="n">7</span>{t('Versions and change log', '版本与变更记录')}</h2>
+<section class="sd-sec" id="versions"><h2><span class="n">6</span>{t('Versions and change log', '版本与变更记录')}</h2>
 <p>{t('Every result records the version of the rules it was scored under. When the rules change, the version changes, and the change is listed here.', '每个结果都会记录其所依据的规则版本。规则变更时版本随之变更，并在此列出。')}</p>
 <table class="sd-t"><thead><tr><th>{t('Version', '版本')}</th><th>{t('Status', '状态')}</th><th>{t('Notes', '说明')}</th></tr></thead><tbody>
 <tr><td>{VER}</td><td>{t('Beta draft · November 2026', '测试版草案 · 2026 年 11 月')}</td><td>{t(f'First public draft: five sections, {len(B["indicators"])} indicators, {nchecks} checks. In use for the members’ self-test.', f'首个公开草案：五个部分、{len(B["indicators"])} 项指标、{nchecks} 项核查。现用于会员自测。')}</td></tr>
@@ -207,7 +191,7 @@ def standard_body(lang):
 </tbody></table>
 <p style="margin-bottom:6px"><b>{t('How to cite', '引用方式')}</b></p>
 <p class="sd-cite">Council for Global Brand Building (2026). <i>CGBB Brand Trust Baseline</i>, beta draft {VER}. https://cgbb.org/standard/</p></section>
-<section class="sd-sec" id="comment"><h2><span class="n">8</span>{t('Comment on the draft', '对草案提出意见')}</h2>
+<section class="sd-sec" id="comment"><h2><span class="n">7</span>{t('Comment on the draft', '对草案提出意见')}</h2>
 <p>{t('Anyone can comment: companies, researchers, journalists, buyers. Tell us which indicator or rule you mean and what you would change. The Secretariat reads every comment, and comments are considered for version 1 and later versions.', '任何人均可提出意见：企业、研究者、记者、买家。请说明所指的指标或规则，以及您建议的修改。秘书处会逐一阅读，并在制定第 1 版及后续版本时予以考虑。')}</p>
 {form(lang, ['standard'], t('Indicator or rule (optional)', '所指指标或规则（选填）'), t('e.g. C2, or the major-risk rule', '例如 C2，或重大风险规则'), 'fb-standard')}
 </section>
