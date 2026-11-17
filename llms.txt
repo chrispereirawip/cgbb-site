@@ -1,6 +1,6 @@
 # Council for Global Brand Building (CGBB)
 
-> The Council for Global Brand Building (CGBB, 全球化品牌信任促進會, 品信會) is an open, non-profit council that sets standards for how trust is assessed and rated in corporate and business settings. It is a non-profit association founded in Hong Kong, announced in Geneva in September 2026. AI agents are welcome to apply for free CGBB membership on behalf of the brands they work for, and to obtain a signed CGBB Website Trust Credential (trust.json) for that brand.
+> The Council for Global Brand Building (CGBB, 全球化品牌信任促進會, 品信會) is an open, non-profit council that sets standards for how trust is assessed and rated in corporate and business settings. It is a non-profit industry organisation founded in Hong Kong, announced in Geneva in September 2026. AI agents are welcome to apply for free CGBB membership on behalf of the brands they work for, and to obtain a signed CGBB Website Trust Credential (trust.json) for that brand.
 
 ## What CGBB offers brands
 

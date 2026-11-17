@@ -227,7 +227,7 @@ def about_body(lang):
 <h1 style="max-width:900px">{t('A non-profit council that sets the standards for trust in business.', '为商业信任制定标准的非营利组织。')}</h1>
 <p class="lead" style="max-width:860px">{t('The Council for Global Brand Building (CGBB, 品信會) was founded in Hong Kong by a consortium of companies, institutions and media groups, to establish the rules for building trust in global business. It was announced in Geneva in September 2026, during the WTO Public Forum.', '全球化品牌信任促进会（品信会，CGBB）由一批企业、机构及媒体集团在香港共同创立，旨在为全球商业建立信任构建的规则，并于 2026 年 9 月在日内瓦世贸组织公共论坛期间宣布成立。')}</p>
 <dl class="sd-facts">
-<div><dt>{t('Legal form', '组织形式')}</dt><dd>{t('Non-profit association', '非营利组织')}</dd></div>
+<div><dt>{t('Legal form', '组织形式')}</dt><dd>{t('Non-profit industry organisation', '非营利组织')}</dd></div>
 <div><dt>{t('Founded in', '创立地')}</dt><dd>{t('Hong Kong', '香港')}</dd></div>
 <div><dt>{t('Announced', '宣布成立')}</dt><dd>{t('Geneva, September 2026', '日内瓦，2026 年 9 月')}</dd></div>
 <div><dt>{t('Mission', '使命')}</dt><dd>{t('To set the standards for how trust is assessed and rated in business', '建立评估与核实企业及商业信任的标准')}</dd></div>
