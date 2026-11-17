@@ -13,15 +13,15 @@
   }
   function draw() {
     var rows = data.downloads.slice().sort(function (a, b) { return String(a[sortK] || '').localeCompare(String(b[sortK] || '')) * sortD; });
-    var th = [['at', 'Time (Beijing) 時間'], ['name', 'Member 會員'], ['org', 'Organisation 機構'], ['email', 'Email 電郵'], ['ip', 'IP'], ['country', 'Country 地區']];
+    var th = [['at', 'Time (Beijing) 時間'], ['edition', 'Edition 版本'], ['name', 'Member 會員'], ['org', 'Organisation 機構'], ['email', 'Email 電郵'], ['ip', 'IP'], ['country', 'Country 地區']];
     box.hidden = false;
     box.innerHTML = '<h2>White paper 白皮書</h2>' +
       '<p class="wpa-n">The full edition is stamped for each member when they download it. Each download is recorded here (member, organisation, time, IP), so a leaked copy can be traced by its watermark. 完整版在會員下載時即時加上個人水印，每次下載均記錄於此，文件外傳時可憑水印追溯。</p>' +
-      fileRow('full', 'Full edition 完整版') + fileRow('preview', 'Preview 試讀版') +
+      fileRow('full', 'Chinese · full edition 中文完整版') + fileRow('preview', 'Chinese · preview 中文試讀版') + fileRow('full_en', 'English · full edition 英文完整版') + fileRow('preview_en', 'English · preview 英文試讀版') +
       '<div class="wpa-k"><div><b>' + data.downloads.length + '</b>Full-edition downloads 完整版下載</div><div><b>' + data.preview.total + '</b>Preview downloads 試讀版下載</div><div><b>' + data.notify.length + '</b>Emails left 留下電郵</div>' +
-      '<a class="wpa-t" href="' + API + '/api/staff/whitepaper/test" title="Downloads a stamped copy marked as a test. Not counted as a member download. 下載一份測試水印版，不計入會員下載記錄。">Download a test copy 下載測試版</a></div>' +
+      '<a class="wpa-t" href="' + API + '/api/staff/whitepaper/test" title="Downloads a stamped copy marked as a test. Not counted as a member download. 下載一份測試水印版，不計入會員下載記錄。">Download a test copy 下載測試版</a><a class="wpa-t" href="' + API + '/api/staff/whitepaper/test?lang=en" title="Downloads a stamped copy of the English edition marked as a test. Not counted as a member download. 下載一份英文版測試水印版，不計入會員下載記錄。">Test copy (English) 英文測試版</a></div>' +
       '<div class="wpa-w"><table><thead><tr>' + th.map(function (h) { return '<th data-k="' + h[0] + '" title="Click to sort 點擊排序">' + h[1] + (sortK === h[0] ? (sortD > 0 ? ' ▲' : ' ▼') : '') + '</th>'; }).join('') + '</tr></thead><tbody>' +
-      (rows.length ? rows.map(function (r) { return '<tr title="' + esc(r.stamp) + '"><td>' + bj(r.at) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.org) + '</td><td>' + esc(r.email) + '</td><td>' + esc(r.ip) + '</td><td>' + esc(r.country) + '</td></tr>'; }).join('') : '<tr><td colspan="6">No full-edition downloads yet. 暫無完整版下載記錄。</td></tr>') + '</tbody></table></div>' +
+      (rows.length ? rows.map(function (r) { return '<tr title="' + esc(r.stamp) + '"><td>' + bj(r.at) + '</td><td>' + esc(r.edition || 'CN') + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.org) + '</td><td>' + esc(r.email) + '</td><td>' + esc(r.ip) + '</td><td>' + esc(r.country) + '</td></tr>'; }).join('') : '<tr><td colspan="7">No full-edition downloads yet. 暫無完整版下載記錄。</td></tr>') + '</tbody></table></div>' +
       (data.preview.days.length ? '<p class="wpa-n"><b>Preview downloads by day 試讀版每日下載：</b> ' + data.preview.days.slice(0, 14).map(function (d) { return d.day + ' · ' + d.count; }).join('　') + '</p>' : '') +
       (data.notify.length ? '<p class="wpa-n"><b>“Notify me” emails 通知電郵：</b> ' + data.notify.map(function (n) { return esc(n.email) + ' (' + bj(n.at).slice(0, 10) + ')'; }).join(', ') + '</p>' : '') + '<p class="wpa-m" role="status"></p>';
   }

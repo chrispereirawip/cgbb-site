@@ -174,7 +174,7 @@ def standard_body(lang):
 {''.join(blocks)}
 </section>
 <section class="sd-sec" id="rules"><h2><span class="n">4</span>{t('Full rules', '完整细则')}</h2>
-<p>{t(f'The definition of each indicator, how its status is formed, and all {nchecks} checks are set out in the full CGBB white paper, 《出海企业品牌可信度白皮书》 (From Credibility to Trust: Brands Going Global, November 2026). The full edition is for CGBB members; the preview is open to everyone. Chinese edition for now; an English edition will follow.</p><p>The result of an assessment is an overall status (one of five, below) and a five-section profile on a 0–5 scale, shown with any major risk, the evidence coverage and how well the judgment is supported. There is no total score, and no ranking in the first year.', f'各项指标的具体定义、判断规则及全部 {nchecks} 项核查项，载于品信会《出海企业品牌可信度白皮书》完整版（2026 年 11 月）。完整版仅向品信会会员开放，试读版向所有人开放。</p><p>评估结果包括一个总体状态（见下方五种状态）及 0–5 的五维诊断画像，并同时呈现重大风险、证据覆盖率及判断支持程度。不设总分，首年不发布排名。')}</p>
+<p>{t(f'The definition of each indicator, how its status is formed, and all {nchecks} checks are set out in the full CGBB white paper, 《出海企业品牌可信度白皮书》 (From Credibility to Trust: Brands Going Global, November 2026). The full edition is for CGBB members; the preview is open to everyone. Available in English and Chinese.</p><p>The result of an assessment is an overall status (one of five, below) and a five-section profile on a 0–5 scale, shown with any major risk, the evidence coverage and how well the judgment is supported. There is no total score, and no ranking in the first year.', f'各项指标的具体定义、判断规则及全部 {nchecks} 项核查项，载于品信会《出海企业品牌可信度白皮书》完整版（2026 年 11 月）。完整版仅向品信会会员开放，试读版向所有人开放。设有中文版和英文版。</p><p>评估结果包括一个总体状态（见下方五种状态）及 0–5 的五维诊断画像，并同时呈现重大风险、证据覆盖率及判断支持程度。不设总分，首年不发布排名。')}</p>
 <div class="sd-scale">{scale}</div>
 <div class="sd-ctas"><a class="btn btn-red" href="{P}/apply/">{t('Become a member and download the full white paper for all the rules', '注册会员，下载完整版白皮书查看全部细则')}</a><a class="btn btn-line" href="{P}/#whitepaper">{t('Download the preview', '下载试读版')}</a></div></section>
 <section class="sd-sec" id="results"><h2><span class="n">5</span>{t('How results are used', '结果如何使用')}</h2>
@@ -217,7 +217,7 @@ def about_body(lang):
         (t('Sep 2026', '2026 年 9 月'), t('CGBB announced in Geneva, during the WTO Public Forum.', '品信会在日内瓦世贸组织公共论坛期间宣布成立。'), 'done'),
         (t('Nov 2026', '2026 年 11 月'), t('Website Trust Credential and member badge launched. The registry opens to AI agents.', '推出网站信任凭证及会员徽章；登记册向 AI 代理开放。'), 'done'),
         (t('Nov 2026', '2026 年 11 月'), t('First white paper published (From Credibility to Trust: Brands Going Global), with the first edition of the Brand Trust Baseline. Members’ self-test open.', '首份白皮书《出海企业品牌可信度白皮书》及品牌可信度基线评估第一版发布；会员自测开放。'), 'done'),
-        (t('End Nov 2026', '2026 年 11 月底'), t('White paper release event in Hong Kong. English edition of the white paper to follow.', '白皮书发布会在香港举行；白皮书英文版稍后推出。'), 'next'),
+        (t('End Nov 2026', '2026 年 11 月底'), t('White paper release event in Hong Kong. English edition of the white paper published.', '白皮书发布会在香港举行；白皮书英文版已发布。'), 'next'),
         (t('After the trial period', '试行期之后'), t('Advanced Membership opens: third-party assessment and diagnosis, then Plus, after independent expert review of the first edition.', '进阶会籍开放：在第一版经独立专家评审之后，开始第三方测评与诊断，其后推出 Plus。'), 'plan'),
         ('2027', t('Yearly update of the Baseline; results compared across brands once enough assessed data exists.', '基线评估年度更新；待积累足够的测评数据后，再进行跨品牌比较。'), 'plan'),
     ]
