@@ -30,7 +30,13 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
       .then(function(r){ return r.json(); }).then(function(j){ if (j && j.registered) siteTaken(true); }).catch(function(){}); }
   if (site) { site.addEventListener('input', function(){ if (site.validationMessage === TAKEN) siteTaken(false); }); site.addEventListener('blur', checkSite); }
 
-  function isOrg(){ return !cat || /Organizational|Corporate|Institutional/.test(cat.value); }
+  // Applying for an organisation or as an individual (Chris, 18 Nov 2026: a member did not want to join in her company's name).
+  // Individuals: company and job title are optional and no website is asked for.
+  function catVal(){ var r = form.querySelector('input[name="Membership Category"]:checked'); return r ? r.value : (cat ? cat.value : ''); }
+  function isOrg(){ var v = catVal(); return !v ? true : /Organizational|Corporate|Institutional/.test(v); }
+  function syncCat(){ var ind = !isOrg();
+    [['Job Title','ind-opt'],['Organization Name','ind-opt'],['Website','ind-hide']].forEach(function(p){ var el = form.querySelector('[name="'+p[0]+'"]'); if (!el) return; var q = el.closest('.q');
+      el.required = !ind; q.classList.toggle(p[1], ind); if (ind) { q.classList.remove('bad'); if (p[1]==='ind-hide') { el.value=''; el.setCustomValidity(''); } } }); }
   function active(){ return steps.filter(function(s){ var k=s.dataset.step; if(k==='individual') return !isOrg(); if(k==='organization') return isOrg(); return true; }); }
   function show(i){
     var list = active(); cur = Math.max(0, Math.min(i, list.length-1));
@@ -89,7 +95,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   var SAVED = (document.documentElement.lang==='en'?'Progress saved on this device':/Hans/.test(document.documentElement.lang)?'进度已保存在此设备':'進度已保存在此裝置');
 
   form.querySelectorAll('textarea[maxlength]').forEach(function(t){ var c=form.querySelector('[data-count-for="'+t.id+'"]'); var u=function(){ c.textContent = t.value.length+' / '+t.maxLength; }; t.addEventListener('input', u); u(); });
-  form.addEventListener('change', function(e){ syncOther(); if (e.target===cat) show(cur); var q=e.target.closest('.q'); if (q) q.classList.remove('bad'); save(); });
+  form.addEventListener('change', function(e){ syncOther(); if (e.target===cat) show(cur); if (e.target.name==='Membership Category') syncCat(); var q=e.target.closest('.q'); if (q) q.classList.remove('bad'); save(); });
   form.addEventListener('input', function(e){ var q=e.target.closest('.q'); if (q && q.classList.contains('bad')) validStep(q.parentNode) ; save(); });
   next.addEventListener('click', function(){ if (validStep(active()[cur])) { show(cur+1); window.scrollTo({top: form.offsetTop - 120, behavior:'smooth'}); } });
   back.addEventListener('click', function(){ show(cur-1); window.scrollTo({top: form.offsetTop - 120, behavior:'smooth'}); });
@@ -142,5 +148,5 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
     function sync(){ var c = radios.filter(function(r){ return r.checked; })[0]; if (PAY.btn0 === null) PAY.btn0 = submit.textContent; submit.textContent = c && c.dataset.plan === 'advanced' ? PAY.btn : PAY.btn0; radios.forEach(function(r){ r.closest('.pl').classList.toggle('on', r.checked); }); if (note) note.hidden = !(c && c.dataset.plan === 'advanced'); }
     radios.forEach(function(r){ r.addEventListener('change', sync); }); sync();
   })();
-  syncOther(); show(0);
+  syncOther(); syncCat(); show(0);
 })();
