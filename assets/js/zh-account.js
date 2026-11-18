@@ -91,7 +91,7 @@ function render(j){
  else if(ms.status==='expired'){nb.textContent=M.st_expired;np.textContent=M.expP}
  else if(ms.status==='declined'){nb.textContent=M.st_declined;np.textContent=M.decP}
  else if(ms.status==='inactive'){nb.textContent=M.st_inactive;np.textContent=M.inP}
- $('[data-active]').hidden=ms.status!=='active';
+ $('[data-active]').hidden=ms.status!=='active';(function(){var A=$('[data-active]'),ic=$('[data-indc]'),ind=!!j.individual;if(A)A.classList.toggle('ind',ind);if(ic)ic.hidden=!ind})();
  var R=$('[data-reps]');
  if(!j.reports||!j.reports.length){R.innerHTML='<p class="empty">'+M.noRep+'</p>'}
  else{var h='<table class="reps"><thead><tr><th>'+M.thDate+'</th><th>'+M.thCo+'</th><th>'+M.thScore+'</th><th>'+M.thRep+'</th></tr></thead><tbody>';

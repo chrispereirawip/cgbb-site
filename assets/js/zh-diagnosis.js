@@ -103,7 +103,7 @@ $('[data-submit]').addEventListener('click',function(){for(var k=1;k<LAST;k++){v
  }).catch(function(){say(msg,M.fail)}).then(function(){busy(b,false)});});
 
 /* ---------- signed-in members: no email code, choose a brand (8 Nov 2026) ---------- */
-var BX={"pickH": "選擇品牌", "pickP": "已登入：{email}。請選擇此自測適用的品牌。只列出官網已展示 CGBB 徽章的品牌。", "signinH": "請登入以進行自測", "signinP": "基線自測在會員帳戶內進行。請先登入，再從帳戶開始自測。", "signinBtn": "登入我的帳戶", "noBadgeH": "請先加上 CGBB 徽章", "noBadgeP": "進行自測前，{host} 須展示 CGBB 會員徽章，並連結至其核實頁面，以證明您控制該網站。", "noSiteP": "請先在會員帳戶中確認網站，並在官網加上 CGBB 會員徽章。", "pendH": "會員資格審批中", "pendP": "會員資格獲批後即可進行自測。", "inactH": "會員資格未生效", "acct": "前往我的帳戶", "cont": "繼續", "stepLbl": "品牌", "loading": "正在載入您的品牌…"},p0=panels[0];
+var BX={"pickH": "選擇品牌", "pickP": "已登入：{email}。請選擇此自測適用的品牌。只列出官網已展示 CGBB 徽章的品牌。", "signinH": "請登入以進行自測", "signinP": "基線自測在會員帳戶內進行。請先登入，再從帳戶開始自測。", "signinBtn": "登入我的帳戶", "noBadgeH": "請先加上 CGBB 徽章", "noBadgeP": "進行自測前，{host} 須展示 CGBB 會員徽章，並連結至其核實頁面，以證明您控制該網站。", "indH": "自測只向機構會員開放", "indP": "您是個人會員。品牌可信度基線自測描述的是機構及其網站，因此只向機構會員開放。您的會籍包括會員通訊、活動邀請及白皮書。", "noSiteP": "請先在會員帳戶中確認網站，並在官網加上 CGBB 會員徽章。", "pendH": "會員資格審批中", "pendP": "會員資格獲批後即可進行自測。", "inactH": "會員資格未生效", "acct": "前往我的帳戶", "cont": "繼續", "stepLbl": "品牌", "loading": "正在載入您的品牌…"},p0=panels[0];
 (function(){var h=document.createElement('div');h.className='bx';h.setAttribute('data-bx','');h.innerHTML='<p class="bx-load">'+BX.loading+'</p>';p0.insertBefore(h,p0.firstChild);
  $$('h2,.intro,.q,.cf-ts,[data-step1]',p0).forEach(function(x){if(!x.closest('[data-bx]')){x.setAttribute('data-old','');x.style.display='none'}});
  var lab=$('.dx-prog li[data-i="0"] .t');if(lab)lab.textContent=BX.stepLbl;})();
@@ -114,6 +114,7 @@ function bxPick(j){var esc=function(v){return String(v==null?'':v).replace(/[&<>
 function bxSession(){var p=demo?Promise.resolve({status:'ok',token:'demo',email:'mei@brightleaf.co',brands:[{company:'Brightleaf Co.',website:'brightleaf.co'},{company:'Leafline Tea',website:'leafline.com'}]}):fetch(API+'/api/diagnosis/session',{method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},body:'{}'}).then(function(r){return r.json()});
  p.then(function(j){if(j.status==='ok'){st.token=j.token;bxPick(j);paint();return}
   if(j.status==='no_badge')return bxBlock(BX.noBadgeH,BX.noBadgeP.replace('{host}',j.host||''),[BX.acct,'/zh/account/#trust']);
+  if(j.status==='individual')return bxBlock(BX.indH,BX.indP,[BX.acct,'/zh/account/']);
   if(j.status==='no_site')return bxBlock(BX.noBadgeH,BX.noSiteP,[BX.acct,'/zh/account/#trust']);
   if(j.status==='pending')return bxBlock(BX.pendH,BX.pendP,[BX.acct,'/zh/account/']);
   if(j.status==='inactive')return bxBlock(BX.inactH,M.inactive,[BX.acct,'/zh/account/']);

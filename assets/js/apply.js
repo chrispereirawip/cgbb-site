@@ -36,7 +36,14 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   function isOrg(){ var v = catVal(); return !v ? true : /Organizational|Corporate|Institutional/.test(v); }
   function syncCat(){ var ind = !isOrg();
     [['Job Title','ind-opt'],['Organization Name','ind-opt'],['Website','ind-hide']].forEach(function(p){ var el = form.querySelector('[name="'+p[0]+'"]'); if (!el) return; var q = el.closest('.q');
-      el.required = !ind; q.classList.toggle(p[1], ind); if (ind) { q.classList.remove('bad'); if (p[1]==='ind-hide') { el.value=''; el.setCustomValidity(''); } } }); }
+      el.required = !ind; q.classList.toggle(p[1], ind); if (ind) { q.classList.remove('bad'); if (p[1]==='ind-hide') { el.value=''; el.setCustomValidity(''); } } });
+    // individuals: free membership only (no Advanced), and the newsletter is part of the membership (ticked, can be unticked)
+    var pl = form.querySelector('.q-plan'), fr = form.querySelector('[data-plan="free"]'), nl = form.querySelector('[name="Email Updates"]'), nn = form.querySelector('[data-nlind]');
+    if (pl) pl.classList.toggle('ind-hide', ind);
+    if (ind && fr && !fr.checked) { fr.checked = true; fr.dispatchEvent(new Event('change', {bubbles:true})); }
+    if (nn) nn.hidden = !ind;
+    if (nl && ind && !nl.dataset.indSet) { nl.checked = true; nl.dataset.indSet = '1'; }
+    if (nl && !ind) delete nl.dataset.indSet; }
   function active(){ return steps.filter(function(s){ var k=s.dataset.step; if(k==='individual') return !isOrg(); if(k==='organization') return isOrg(); return true; }); }
   function show(i){
     var list = active(); cur = Math.max(0, Math.min(i, list.length-1));
