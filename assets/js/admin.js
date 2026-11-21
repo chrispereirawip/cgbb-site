@@ -165,7 +165,7 @@ function brandsBox(m){var L=m.brands||[];if(m.staff||!L.length)return '';return 
 function dxPanel(m){if(m.staff)return '';var x=m.lastDx,dm=m.domain&&m.domain.verified?m.domain.host:'';
  var h='<p class="sec-t">Baseline self-test 基線自測</p><div class="rtbox">';
  if(x)h+='<p style="margin:0 0 6px">'+rtBadge(x)+' <span style="font-size:13px;color:#5F5F5F">'+d(x.at)+' · '+esc(x.id)+'</span></p><p style="margin:0"><a href="'+API+'/api/staff/report?id='+encodeURIComponent(x.id)+'" target="_blank" rel="noopener">View the report 查看報告 →</a></p>';
- else h+='<p style="margin:0 0 4px"><b>No self-test yet 未完成自測</b></p><p style="margin:0;font-size:13px;color:#5F5F5F;white-space:normal">The member runs it from their account, for their own organisation, once the CGBB badge is on their confirmed website'+(dm?' ('+esc(dm)+')':'')+'. 會員在官網展示 CGBB 徽章後，即可在帳戶中為本機構進行自測。</p>';
+ else h+='<p style="margin:0 0 4px"><b>No self-test yet 未完成自測</b></p><p style="margin:0;font-size:13px;color:#5F5F5F;white-space:normal">The member runs it from their account, for their own organisation, once the CGBB badge is on their confirmed website'+(dm?' ('+esc(dm)+')':'')+', or straight away if their member email is at the company’s domain. 會員在官網展示 CGBB 徽章後，或其會員電郵屬於機構網域時，即可在帳戶中為本機構進行自測。</p>';
  return h+'</div>'}
 function rtPanel(m){if(m.staff)return '';var r=m.rating||{},h='<p class="sec-t">'+esc(M.rtTitle)+'</p><div class="rtbox">';
  if(r.score!=null&&(r.status==='done'||rtWait(r)||r.status==='failed'||r.status==='no_website')){h+='<div class="rtbig"><b>'+r.score+'</b><span class="bd">'+esc(BANDS[r.band]||'')+'</span>'+(r.confidence?'<span class="rt-s">'+esc(M.rtConf)+': '+esc(M['conf_'+r.confidence]||r.confidence)+'</span>':'')+'</div>'}
