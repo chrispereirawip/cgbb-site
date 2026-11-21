@@ -35,6 +35,7 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
   function catVal(){ var r = form.querySelector('input[name="Membership Category"]:checked'); return r ? r.value : (cat ? cat.value : ''); }
   function isOrg(){ var v = catVal(); return !v ? true : /Organizational|Corporate|Institutional/.test(v); }
   function syncCat(){ var ind = !isOrg();
+    [].forEach.call(form.querySelectorAll('.q-cat .cat'), function(c){ var r = c.querySelector('input'); c.classList.toggle('on', !!(r && r.checked)); });
     [['Job Title','ind-opt'],['Organization Name','ind-opt'],['Website','ind-hide']].forEach(function(p){ var el = form.querySelector('[name="'+p[0]+'"]'); if (!el) return; var q = el.closest('.q');
       el.required = !ind; q.classList.toggle(p[1], ind); if (ind) { q.classList.remove('bad'); if (p[1]==='ind-hide') { el.value=''; el.setCustomValidity(''); } } });
     // individuals: free membership only (no Advanced), and the newsletter is part of the membership (ticked, can be unticked)
@@ -153,6 +154,8 @@ try{var _r=new URLSearchParams(location.search).get('ref');if(_r)sessionStorage.
     var note = form.querySelector('[data-adv-note]');
     try { var q = new URLSearchParams(location.search).get('plan'); if (q) radios.forEach(function(r){ r.checked = r.dataset.plan === q; }); } catch(e){}
     function sync(){ var c = radios.filter(function(r){ return r.checked; })[0]; if (PAY.btn0 === null) PAY.btn0 = submit.textContent; submit.textContent = c && c.dataset.plan === 'advanced' ? PAY.btn : PAY.btn0; radios.forEach(function(r){ r.closest('.pl').classList.toggle('on', r.checked); }); if (note) note.hidden = !(c && c.dataset.plan === 'advanced'); }
+    // phones: Basic (free) is chosen to start with, so there is one tap fewer; the applicant can still change it
+    try { if (window.matchMedia && matchMedia('(max-width:640px)').matches && !radios.some(function(r){ return r.checked; })) radios.forEach(function(r){ if (r.dataset.plan === 'free') r.checked = true; }); } catch(e){}
     radios.forEach(function(r){ r.addEventListener('change', sync); }); sync();
   })();
   syncOther(); syncCat(); show(0);
